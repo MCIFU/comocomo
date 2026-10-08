@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COMOCOMO · Maqueta con fotografía</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#FBF6EE; --crust:#F1E6D4; --ink:#1F1A17; --muted:#6B5F56; --tomato:#C23A24; --olive:#4F6B3A; --saffron:#8A5A00; --plum:#5B2E4A; --line:#E0D3BE; --cream:#E3C78F; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--paper); color: var(--ink); font: 16px/1.45 "Instrument Sans", system-ui, sans-serif; padding: 40px 16px 80px; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  .kicker { font: 700 12px/1 "Instrument Sans"; letter-spacing: .1em; text-transform: uppercase; color: var(--tomato); }
+  h1, h2, h3 { font-family: Fraunces, serif; font-weight: 600; letter-spacing: -.02em; }
+  h1 { font-size: clamp(34px, 5vw, 56px); line-height: 1.02; margin: 10px 0 8px; }
+  .intro { color: var(--muted); max-width: 640px; margin-bottom: 48px; }
+  .grid { display: grid; grid-template-columns: 380px 1fr; gap: 56px; align-items: start; }
+  @media (max-width: 960px) { .grid { grid-template-columns: 1fr; } }
+
+  /* Tratamiento fotográfico común: unifica fotos de autores distintos */
+  .photo { position: relative; overflow: hidden; background: var(--crust); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9) contrast(1.05) sepia(.07) brightness(1.02); }
+  .photo::after { /* velo cálido + grano sutil */
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(251,246,238,0) 55%, rgba(31,26,23,.18)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  /* Panel lista (formato móvil) */
+  .phone { border: 1px solid var(--line); border-radius: 28px; padding: 20px 16px; background: var(--paper); box-shadow: 0 1px 0 var(--line); }
+  .phone .label { font: 700 12px/1 "Instrument Sans"; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin: 6px 4px 6px; }
+  .row { display: grid; grid-template-columns: 76px 1fr; gap: 14px; padding: 16px 4px; border-top: 1px solid var(--line); }
+  .row .photo { width: 76px; aspect-ratio: 4/5; border-radius: 8px; }
+  .meta { font: 500 12.5px/1.3 "Instrument Sans"; color: var(--muted); }
+  .row h3 { font-size: 21px; line-height: 1.12; margin: 3px 0 4px; }
+  .price { font: 700 15px/1.3 "Instrument Sans"; font-variant-numeric: tabular-nums; }
+  .price span { font-weight: 400; color: var(--muted); font-size: 13px; }
+  .tag { font-weight: 700; } .have { color: var(--olive); } .miss { color: var(--saffron); }
+  .small { font-size: 14px; line-height: 1.4; }
+
+  /* Receta */
+  .hero { border-radius: 14px; aspect-ratio: 16/10; }
+  .stamp { position: absolute; right: 16px; bottom: 16px; z-index: 2; width: 96px; height: 96px; filter: drop-shadow(0 6px 14px rgba(31,26,23,.25)); }
+  .credit { font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .credit a { color: inherit; }
+  .recipe h2 { font-size: clamp(34px, 4vw, 48px); line-height: 1.02; margin: 18px 0 8px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; margin-top: 20px; }
+  .facts b { display: block; font: 700 19px/1.3 "Instrument Sans"; font-variant-numeric: tabular-nums; }
+  .facts small { font: 700 11px/1 "Instrument Sans"; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .note { color: var(--muted); }
+  .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
+  .thumbs .photo { aspect-ratio: 4/5; border-radius: 10px; }
+  .thumbs p { font: 600 15px/1.2 Fraunces, serif; margin-top: 8px; }
+
+  /* — Comparativa de tratamientos — */
+  .compare { margin-top: 72px; border-top: 1px solid var(--line); padding-top: 48px; }
+  .compare h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.05; margin: 10px 0 8px; }
+  .lane { display: grid; grid-template-columns: 200px repeat(4, 1fr); gap: 20px; align-items: center; padding: 22px 0; border-top: 1px solid var(--line); }
+  .lane h4 { font: 600 20px/1.15 Fraunces, serif; }
+  .lane p { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+  .lane .cell { aspect-ratio: 1; overflow: hidden; position: relative; background: var(--crust); }
+  .lane img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .raw .cell { border-radius: 10px; }
+  .soft .cell { border-radius: 10px; }
+  .soft img { filter: saturate(.9) contrast(1.05) sepia(.07) brightness(1.02); }
+  /* Grade de marca: más cálido y homogéneo, sin apagar rojos y verdes */
+  .brand .cell { border-radius: 50%; box-shadow: 0 0 0 10px var(--crust); margin: 10px; }
+  .brand img { filter: saturate(.92) contrast(1.1) sepia(.16) brightness(1.04) hue-rotate(-4deg); transform: scale(var(--z, 1.6)); transform-origin: var(--o, 50% 50%); }
+  .brand .cell::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 50% 45%, rgba(251,246,238,0) 55%, rgba(31,26,23,.28)); mix-blend-mode: multiply; }
+  .brand .cell::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 50%; background: #F3DDB8; mix-blend-mode: soft-light; opacity: .55; }
+  @media (max-width: 800px) { .lane { grid-template-columns: repeat(2, 1fr); } .lane > div:first-child { grid-column: 1 / -1; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Maqueta · no forma parte de la app</p>
+  <h1>Así quedaría con fotografía real.</h1>
+  <p class="intro">Fotos de Wikimedia Commons con licencia libre, cargadas desde su servidor (no se ha descargado nada). Se les aplica un tratamiento común —recorte 4:5 o 16:10, tono cálido, contraste y grano iguales— para que fotos de autores distintos parezcan de la misma serie. El plato de datos pasa a ser un sello sobre la foto.</p>
+
+  <div class="grid">
+    <!-- Lista de resultados en formato móvil -->
+    <div class="phone" aria-label="Lista de resultados en móvil">
+      <p class="label">4 opciones</p>
+      <div class="row">
+        <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tortilla_de_patatas_con_cebolla.jpg/960px-Tortilla_de_patatas_con_cebolla.jpg" alt="Tortilla de patatas con cebolla, cortada"></div>
+        <div>
+          <p class="meta">España · 55 min · Media</p>
+          <h3>Tortilla de patatas</h3>
+          <p class="price">≈ 1–1,5 € <span>por comprar · ≈ 0,5 €/pers.</span></p>
+          <p class="small"><span class="tag have">Tienes</span> Patatas, Huevos</p>
+          <p class="small"><span class="tag miss">Falta</span> Cebolla</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg/960px-Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg" alt="Gambas al ajillo en cazuela de barro"></div>
+        <div>
+          <p class="meta">España · 18 min · Fácil</p>
+          <h3>Gambas al ajillo</h3>
+          <p class="price">≈ 4–7 € <span>por comprar · ≈ 2–4 €/pers.</span></p>
+          <p class="small"><span class="tag miss">Falta</span> Gambas, Dientes de ajo</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Shakshuka_by_Calliopejen1.jpg/960px-Shakshuka_by_Calliopejen1.jpg" alt="Shakshuka en sartén"></div>
+        <div>
+          <p class="meta">Norte de África y Oriente Medio · 40 min · Fácil</p>
+          <h3>Shakshuka</h3>
+          <p class="price">≈ 2–3 € <span>por comprar · ≈ 1 €/pers.</span></p>
+          <p class="small"><span class="tag have">Tienes</span> Huevos</p>
+          <p class="small"><span class="tag miss">Falta</span> Tomate triturado, Pimiento, Cebolla</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fabada_asturiana_del_Valle_02.jpg/960px-Fabada_asturiana_del_Valle_02.jpg" alt="Plato de fabada asturiana"></div>
+        <div>
+          <p class="meta">España (Asturias) · 3 h 5 min · Media</p>
+          <h3>Fabada asturiana</h3>
+          <p class="price">≈ 3–6 € <span>por comprar · ≈ 2–3 €/pers.</span></p>
+          <p class="small"><span class="tag miss">Falta</span> Fabes, Chorizo, Morcilla, Panceta</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cabecera de receta en escritorio -->
+    <div class="recipe">
+      <div class="photo hero">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fabada_asturiana_del_Valle_02.jpg/960px-Fabada_asturiana_del_Valle_02.jpg" alt="Plato de fabada asturiana con su compango">
+        <svg class="stamp" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="49" fill="#F1E6D4"/><circle cx="50" cy="50" r="41" fill="#FBF6EE"/>
+          <circle cx="44" cy="46" r="16" fill="#8A5A00" opacity=".95"/><circle cx="62" cy="58" r="11" fill="#C23A24" opacity=".16"/><circle cx="62" cy="58" r="10" fill="none" stroke="#C23A24" stroke-width="2"/>
+          <circle cx="40" cy="66" r="10" fill="#C23A24" opacity=".16"/><circle cx="40" cy="66" r="9" fill="none" stroke="#C23A24" stroke-width="2"/>
+          <circle cx="63" cy="36" r="9" fill="#C23A24" opacity=".16"/><circle cx="63" cy="36" r="8" fill="none" stroke="#C23A24" stroke-width="2"/>
+        </svg>
+      </div>
+      <p class="credit">Foto: Sahaquiel9102 · <a href="https://commons.wikimedia.org/wiki/File:Fabada_asturiana_del_Valle_02.jpg">Wikimedia Commons</a> · CC BY-SA 4.0 · tratada (recorte y tono)</p>
+      <p class="kicker" style="color:var(--plum);margin-top:22px">España (Asturias) · Adaptación</p>
+      <h2>Fabada asturiana</h2>
+      <p class="note">Versión simplificada: la tradicional incluye lacón y azafrán. Las fabes de la Granja son las de referencia.</p>
+      <div class="facts">
+        <div><small>Tiempo</small><b>3 h 5 min</b></div>
+        <div><small>Dificultad</small><b>Media</b></div>
+        <div><small>Por comprar</small><b>≈ 3–6 €</b></div>
+        <div><small>Por persona</small><b>≈ 2–3 €</b></div>
+      </div>
+
+      <div class="thumbs" aria-label="Las cuatro fotos con el mismo tratamiento">
+        <div><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tortilla_de_patatas_con_cebolla.jpg/960px-Tortilla_de_patatas_con_cebolla.jpg" alt=""></div><p>Tortilla</p></div>
+        <div><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg/960px-Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg" alt=""></div><p>Gambas</p></div>
+        <div><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Shakshuka_by_Calliopejen1.jpg/960px-Shakshuka_by_Calliopejen1.jpg" alt=""></div><p>Shakshuka</p></div>
+        <div><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fabada_asturiana_del_Valle_02.jpg/960px-Fabada_asturiana_del_Valle_02.jpg" alt=""></div><p>Fabada</p></div>
+      </div>
+      <p class="credit" style="margin-top:14px">Fotos: Mentxuwiki (CC BY-SA 4.0) · Juan Emilio Prades Bel (CC BY 4.0) · Calliopejen1 (CC BY-SA 3.0) · Sahaquiel9102 (CC BY-SA 4.0) — Wikimedia Commons.</p>
+    </div>
+  </div>
+
+  <section class="compare">
+    <p class="kicker">Comparativa</p>
+    <h2>Mismo filtro para todas: tres niveles.</h2>
+    <p class="intro" style="margin-bottom:24px">Las mismas cuatro fotos, de cuatro autores distintos.</p>
+    <div class="lane raw"><div><h4>Original</h4><p>Cada foto con su luz, su fondo y su vajilla.</p></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tortilla_de_patatas_con_cebolla.jpg/960px-Tortilla_de_patatas_con_cebolla.jpg" alt="tortilla" style="--z:1.35;--o:50% 52%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg/960px-Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg" alt="gambas" style="--z:1.5;--o:50% 50%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Shakshuka_by_Calliopejen1.jpg/960px-Shakshuka_by_Calliopejen1.jpg" alt="shakshuka" style="--z:1.25;--o:50% 50%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fabada_asturiana_del_Valle_02.jpg/960px-Fabada_asturiana_del_Valle_02.jpg" alt="fabada" style="--z:1.75;--o:52% 52%"></div></div>
+    <div class="lane soft"><div><h4>Filtro común suave</h4><p>Iguala algo el tono; los fondos siguen compitiendo.</p></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tortilla_de_patatas_con_cebolla.jpg/960px-Tortilla_de_patatas_con_cebolla.jpg" alt="tortilla" style="--z:1.35;--o:50% 52%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg/960px-Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg" alt="gambas" style="--z:1.5;--o:50% 50%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Shakshuka_by_Calliopejen1.jpg/960px-Shakshuka_by_Calliopejen1.jpg" alt="shakshuka" style="--z:1.25;--o:50% 50%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fabada_asturiana_del_Valle_02.jpg/960px-Fabada_asturiana_del_Valle_02.jpg" alt="fabada" style="--z:1.75;--o:52% 52%"></div></div>
+    <div class="lane brand"><div><h4>Filtro de marca + recorte circular</h4><p>Mismo grade cálido, viñeta y recorte en «plato»: el fondo desaparece y la serie se lee como una sola.</p></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tortilla_de_patatas_con_cebolla.jpg/960px-Tortilla_de_patatas_con_cebolla.jpg" alt="tortilla" style="--z:1.35;--o:50% 52%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg/960px-Gambas_al_ajillo%2C_tapa_muy_popular_en_los_bares_de_Espa%C3%B1a.jpg" alt="gambas" style="--z:1.5;--o:50% 50%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Shakshuka_by_Calliopejen1.jpg/960px-Shakshuka_by_Calliopejen1.jpg" alt="shakshuka" style="--z:1.25;--o:50% 50%"></div><div class="cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fabada_asturiana_del_Valle_02.jpg/960px-Fabada_asturiana_del_Valle_02.jpg" alt="fabada" style="--z:1.75;--o:52% 52%"></div></div>
+  </section>
+</div>
+</body>
+</html>

@@ -6,7 +6,7 @@ import { rememberPlate } from "./sharedPlate";
 import { shortName } from "./lib/data";
 import { DIFFICULTY } from "./lib/labels";
 import { useEnter } from "./motion";
-import { Plate } from "./Plate";
+import { RecipePhoto } from "./RecipePhoto";
 import { fonts, usePalette } from "./theme";
 import { Display, T } from "./ui";
 
@@ -33,9 +33,7 @@ export function ResultRow({ rec, index, have, onPress }: { rec: Recommendation; 
           pressed && { transform: [{ scale: 0.995 }] },
         ]}
       >
-        <View ref={plateRef} collapsable={false}>
-          <Plate recipe={recipe} have={have} size={compact ? 64 : 88} />
-        </View>
+        <RecipePhoto ref={plateRef} recipe={recipe} have={have} width={compact ? 76 : 104} aspect={4 / 5} stamp={compact ? 30 : 38} />
         <View style={{ flex: 1, gap: 5, minWidth: 0 }}>
           <T tone="muted" style={s.meta} numberOfLines={1}>
             {recipe.origin.replace(/\s*\(adaptado\)/, "")} · {formatMinutes(rec.totalMinutes)} · {DIFFICULTY[recipe.difficulty]}

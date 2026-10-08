@@ -2,10 +2,12 @@ import { formatMinutes, formatMoneyRange, formatQty, fromBase, recipeCost, round
 import type { RecipeIngredient } from "@comocomo/schemas";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
-import { Animated, Pressable, useWindowDimensions, View } from "react-native";
+import { Animated, Image, Pressable, useWindowDimensions, View } from "react-native";
 import { Plate } from "../../src/Plate";
 import { useEnter, usePulse } from "../../src/motion";
 import { useSharedPlate } from "../../src/sharedPlate";
+import { PhotoCredit } from "../../src/RecipePhoto";
+import { PHOTOS } from "../../src/lib/photos";
 import { Screen } from "../../src/Screen";
 import { catalog, prices, recipeById, shortName } from "../../src/lib/data";
 import { DIFFICULTY } from "../../src/lib/labels";
@@ -35,6 +37,8 @@ export default function Receta() {
   const shared = useSharedPlate(String(id));
   // El texto entra justo detrás del plato para que la transición se lea como una sola acción.
   const textIn = useEnter(shared.animating ? 4 : 0, shared.animating);
+  const photoIn = useEnter(0);
+  const photo = PHOTOS[String(id)];
   const inCart = useStore((st) => st.cart.some((x) => x.recipeId === String(id)));
   const cartPulse = usePulse(inCart, 0.04);
 
@@ -74,9 +78,35 @@ export default function Receta() {
       </View>
 
       <View style={{ alignItems: wide ? "flex-start" : "center", gap: 18 }}>
-        <Animated.View ref={shared.ref as never} onLayout={shared.onLayout} collapsable={false} style={shared.style}>
-          <Plate recipe={recipe} have={userHave.length ? have : undefined} size={wide ? 200 : 168} />
-        </Animated.View>
+        {photo ? (
+          <View style={{ alignSelf: "stretch", gap: 8 }}>
+            <View>
+              <Animated.View style={[{ width: "100%", aspectRatio: 16 / 11, borderRadius: 12, overflow: "hidden", backgroundColor: c.crust }, photoIn]}>
+                <Image
+                  source={photo.src}
+                  accessibilityLabel={`Foto de ${recipe.title}`}
+                  resizeMode="cover"
+                  style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, width: "100%", height: "100%" }}
+                />
+              </Animated.View>
+              <Animated.View
+                ref={shared.ref as never}
+                onLayout={shared.onLayout}
+                collapsable={false}
+                style={[{ position: "absolute", right: 14, bottom: -26, borderRadius: 999, borderWidth: 4, borderColor: c.paper, backgroundColor: c.paper }, shared.style]}
+              >
+                <Plate recipe={recipe} have={userHave.length ? have : undefined} size={wide ? 96 : 84} />
+              </Animated.View>
+            </View>
+            <View style={{ paddingRight: wide ? 120 : 108 }}>
+              <PhotoCredit recipeId={recipe.id} />
+            </View>
+          </View>
+        ) : (
+          <Animated.View ref={shared.ref as never} onLayout={shared.onLayout} collapsable={false} style={shared.style}>
+            <Plate recipe={recipe} have={userHave.length ? have : undefined} size={wide ? 200 : 168} />
+          </Animated.View>
+        )}
         <Animated.View style={[{ gap: 8, alignSelf: "stretch" }, textIn]}>
           <Label tone={recipe.authenticity === "traditional" ? "olive" : "plum"}>
             {recipe.origin.replace(/\s*\(adaptado\)/, "")} · {recipe.authenticity === "traditional" ? "Receta tradicional" : "Adaptación"}

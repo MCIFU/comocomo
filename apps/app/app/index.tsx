@@ -155,7 +155,10 @@ function Landing() {
       <View style={{ paddingHorizontal: pad, paddingVertical: 32, alignItems: "center" }}>
         <View style={[inner, { flexDirection: mid ? "row" : "column", justifyContent: "space-between", gap: 12 }]}>
           <T tone="muted" style={{ fontSize: 13 }}>COMOCOMO · Tu cocina, tus ingredientes, tu presupuesto.</T>
-          <T tone="muted" style={{ fontSize: 13 }}>Precios orientativos · © 2026</T>
+          <T tone="muted" style={{ fontSize: 13 }}>
+            Precios orientativos ·{" "}
+            <T tone="muted" accessibilityRole="link" onPress={() => router.push("/creditos")} style={{ fontSize: 13, textDecorationLine: "underline" }}>Créditos de fotografía</T> · © 2026
+          </T>
         </View>
       </View>
     </ScrollView>

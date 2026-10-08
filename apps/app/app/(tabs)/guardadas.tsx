@@ -1,7 +1,8 @@
 import { formatMinutes } from "@comocomo/core";
 import { useRouter } from "expo-router";
 import { Pressable, View } from "react-native";
-import { EmptyPlate, Plate } from "../../src/Plate";
+import { EmptyPlate } from "../../src/Plate";
+import { RecipePhoto } from "../../src/RecipePhoto";
 import { Screen } from "../../src/Screen";
 import { recipeById } from "../../src/lib/data";
 import { DIFFICULTY } from "../../src/lib/labels";
@@ -43,7 +44,7 @@ export default function Guardadas() {
               })}
             >
               <View style={{ flexDirection: "row", gap: 16, alignItems: "center" }}>
-                <Plate recipe={r} size={64} />
+                <RecipePhoto recipe={r} width={64} aspect={1} stamp={26} />
                 <View style={{ flex: 1, gap: 4 }}>
                   <T tone="muted" style={{ fontSize: 13 }}>{r.origin.replace(/s*(adaptado)/, "")} · {formatMinutes(r.prepMin + r.cookMin)} · {DIFFICULTY[r.difficulty]}</T>
                   <Display size={23}>{r.title}</Display>
