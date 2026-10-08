@@ -84,3 +84,14 @@ describe("formato", () => {
     expect(formatMinutes(95)).toBe("1 h 35 min");
   });
 });
+
+describe("reloj", () => {
+  it("formatea mm:ss y h:mm:ss", async () => {
+    const { formatClock } = await import("@comocomo/core");
+    expect(formatClock(725)).toBe("12:05");
+    expect(formatClock(3725)).toBe("1:02:05");
+    expect(formatClock(0)).toBe("00:00");
+    expect(formatClock(-5)).toBe("00:00");
+    expect(formatClock(59.2)).toBe("01:00");
+  });
+});

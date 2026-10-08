@@ -31,3 +31,12 @@ export function formatMinutes(min: number): string {
   const m = min % 60;
   return m ? `${h} h ${m} min` : `${h} h`;
 }
+
+/** Reloj de temporizador: 725 -> "12:05", 3725 -> "1:02:05". */
+export function formatClock(totalSeconds: number): string {
+  const s = Math.max(0, Math.ceil(totalSeconds));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = String(s % 60).padStart(2, "0");
+  return h > 0 ? `${h}:${String(m).padStart(2, "0")}:${sec}` : `${String(m).padStart(2, "0")}:${sec}`;
+}

@@ -1,7 +1,8 @@
 import { formatMoneyRange, parseQuery, recommend } from "@comocomo/core";
 import { useRouter } from "expo-router";
 import { useDeferredValue, useMemo, useState } from "react";
-import { Pressable, TextInput, View } from "react-native";
+import { Pressable, TextInput, useWindowDimensions, View } from "react-native";
+import { Wordmark } from "../../src/Logo";
 import { Screen } from "../../src/Screen";
 import { ResultRow } from "../../src/ResultRow";
 import { catalog, ingredients, prices, recipes, shortName } from "../../src/lib/data";
@@ -74,14 +75,17 @@ export default function Cocinar() {
     actions.setAllergies(a);
   };
 
+  const wide = useWindowDimensions().width >= 1024;
   const activeAllergies = [...new Set([...allergies, ...parsed.allergies])];
   const activeFilters = activeAllergies.length + eff.equipment.length + (eff.maxMinutes !== undefined ? 1 : 0);
   const hasInput = have.length > 0 || text.trim().length > 0;
 
   return (
-    <Screen>
-      <View style={{ gap: 4 }}>
-        <Label tone="tomato">COMOCOMO</Label>
+    <Screen wide={wide}>
+      <View style={wide ? { flexDirection: "row", gap: 56, alignItems: "flex-start" } : { gap: 20 }}>
+      <View style={(wide ? { width: 380, gap: 20, position: "sticky", top: 20 } : { gap: 20 }) as object}>
+      <View style={{ gap: 14 }}>
+        <Wordmark size={wide ? 26 : 22} />
         <Display size={36}>¿Qué cocinamos hoy?</Display>
       </View>
 
@@ -164,8 +168,9 @@ export default function Cocinar() {
         </Row>
         </>}
       </View>
+      </View>
 
-      <View style={{ gap: 4 }}>
+      <View style={{ flex: 1, gap: 4 }}>
         <Label tone="ink">{hasInput ? `${results.length} ${results.length === 1 ? "opción" : "opciones"}` : "Ideas para empezar"}</Label>
         {results.length === 0 ? (
           <Empty
@@ -185,6 +190,7 @@ export default function Cocinar() {
           Los precios son estimaciones orientativas, no precios de tienda. Si tienes alergias, revisa siempre las etiquetas: COMOCOMO no sustituye el consejo médico.
           {eff.budget !== undefined ? ` Presupuesto: ${formatMoneyRange(eff.budget, eff.budget)}.` : ""}
         </T>
+      </View>
       </View>
     </Screen>
   );

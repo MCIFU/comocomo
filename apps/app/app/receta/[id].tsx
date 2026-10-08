@@ -106,7 +106,9 @@ export default function Receta() {
 
       <Rule />
       <View style={{ gap: 10 }}>
+        <Button label="Empezar a cocinar" onPress={() => router.push({ pathname: "/cocinar/[id]", params: { id: base.id, s: String(servings) } })} />
         <Button
+          kind="quiet"
           label={added ? "Añadida · ver lista de la compra" : "Añadir a la lista de la compra"}
           onPress={() => {
             if (added) return router.push("/compra");
