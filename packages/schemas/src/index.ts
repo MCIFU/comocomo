@@ -44,6 +44,9 @@ export const Recipe = z.object({
   title: z.string().min(1),
   cuisine: z.string().min(1),
   authenticity: z.enum(["traditional", "adapted"]),
+  /** Región/país y, si es una adaptación, qué se ha cambiado respecto a la versión tradicional */
+  origin: z.string().min(1),
+  note: z.string().optional(),
   baseServings: z.number().int().positive(),
   prepMin: z.number().int().nonnegative(),
   cookMin: z.number().int().nonnegative(),

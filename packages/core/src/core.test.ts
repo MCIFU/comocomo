@@ -14,7 +14,7 @@ const catalog = new Map<string, Ingredient>([
 ]);
 const step = { text: "Cocina a fuego medio durante unos minutos." };
 const recipe = (id: string, ingredients: Recipe["ingredients"], extra: Partial<Recipe> = {}): Recipe => ({
-  id, title: id, cuisine: "es", authenticity: "adapted", baseServings: 2, prepMin: 10, cookMin: 20,
+  id, title: id, cuisine: "es", authenticity: "adapted", origin: "España", baseServings: 2, prepMin: 10, cookMin: 20,
   difficulty: "easy", equipment: [], ingredients, steps: [step, step], ...extra,
 });
 const pollo = recipe("pollo-arroz", [

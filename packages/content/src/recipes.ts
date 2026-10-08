@@ -1,0 +1,303 @@
+import type { Recipe, UnitId } from "@comocomo/schemas";
+
+// Helpers de escritura para mantener las recetas legibles.
+const I = (ingredientId: string, qty: number, unit: UnitId, optional = false) => ({ ingredientId, qty, unit, optional });
+const S = (text: string, min?: number, tempC?: number) => ({
+  text,
+  ...(min ? { durationSec: min * 60 } : {}),
+  ...(tempC ? { tempC } : {}),
+});
+
+type R = Omit<Recipe, "equipment"> & { equipment?: string[] };
+const r = (x: R): Recipe => ({ equipment: [], ...x });
+
+/**
+ * Corpus semilla (lote 1). Recetas escritas para COMOCOMO, usando como guía de
+ * qué platos incluir los rankings de TasteAtlas (solo nombres/regiones, sin copiar texto).
+ * Cantidades para `baseServings`; los costes se calculan con precios estimados.
+ */
+export const recipes: Recipe[] = [
+  r({
+    id: "tortilla-de-patatas", title: "Tortilla de patatas", cuisine: "espanola", authenticity: "traditional",
+    origin: "España", note: "La versión con cebolla es la más habitual; la polémica 'con o sin' es nacional.",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("patata", 600, "g"), I("huevo", 6, "unit"), I("cebolla", 1, "unit"), I("aceite", 150, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Pela las patatas y córtalas en láminas de unos 3 mm. Corta la cebolla en juliana fina. Mézclalas en un bol con 4 g de sal y déjalas reposar 5 minutos.", 5),
+      S("Pon una sartén de 24 cm con el aceite a fuego medio-bajo. Añade patata y cebolla y cocina 20 minutos removiendo cada 2-3 minutos: deben quedar blandas y casi sin color, no fritas crujientes.", 20),
+      S("Bate los huevos con 2 g de sal. Escurre bien la patata (reserva el aceite) y mézclala con el huevo. Deja reposar 5 minutos para que se integre.", 5),
+      S("Calienta la misma sartén con una cucharada del aceite reservado a fuego medio. Vierte la mezcla y cuaja 4 minutos hasta que los bordes estén firmes y se despeguen.", 4),
+      S("Coloca un plato llano encima, gira la sartén con decisión y desliza la tortilla de vuelta. Cocina 3 minutos más si la quieres jugosa, 5 si la quieres cuajada."),
+    ],
+  }),
+  r({
+    id: "pollo-al-ajillo", title: "Pollo al ajillo", cuisine: "espanola", authenticity: "traditional",
+    origin: "España (Andalucía)", baseServings: 3, prepMin: 10, cookMin: 45, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("pollo", 700, "g"), I("ajo", 8, "unit"), I("aceite", 60, "ml"), I("vino-blanco", 100, "ml"), I("perejil", 10, "g", true), I("sal", 5, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Trocea el pollo en piezas de 4-5 cm y sazónalo con sal y pimienta. Aplasta los ajos con la palma de la mano sin pelarlos."),
+      S("Calienta el aceite en una sartén amplia a fuego medio-alto. Dora el pollo 8-10 minutos, dándole la vuelta hasta que quede dorado por todos los lados.", 10),
+      S("Baja a fuego medio, añade los ajos y cocina 2 minutos, moviendo la sartén para que no se quemen.", 2),
+      S("Vierte el vino y deja que hierva fuerte 3 minutos para que se evapore el alcohol y se reduzca a la mitad.", 3),
+      S("Tapa y cocina a fuego bajo 25 minutos, dando la vuelta al pollo a mitad de tiempo. Está listo cuando al pinchar el muslo el jugo sale transparente.", 25),
+      S("Destapa y cocina 5 minutos más para que la salsa espese. Espolvorea el perejil picado y sirve.", 5),
+    ],
+  }),
+  r({
+    id: "lentejas-con-chorizo", title: "Lentejas con chorizo", cuisine: "espanola", authenticity: "traditional",
+    origin: "España", baseServings: 4, prepMin: 15, cookMin: 50, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("lentejas", 320, "g"), I("chorizo", 150, "g"), I("cebolla", 1, "unit"), I("zanahoria", 150, "g"), I("ajo", 2, "unit"), I("patata", 200, "g"), I("pimenton", 4, "g"), I("aceite", 30, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Pica la cebolla y el ajo, corta la zanahoria en rodajas y la patata en dados de 2 cm. Corta el chorizo en rodajas gruesas. Las lentejas no necesitan remojo."),
+      S("En una olla grande, sofríe cebolla, ajo y zanahoria con el aceite a fuego medio 6 minutos, hasta que la cebolla esté transparente.", 6),
+      S("Añade el chorizo y cocina 2 minutos hasta que suelte su grasa. Retira la olla del fuego, añade el pimentón y remueve 15 segundos (si se quema amarga).", 2),
+      S("Añade las lentejas y cubre con agua fría unos 3 dedos por encima (aprox. 1,2 litros). Lleva a ebullición y retira la espuma."),
+      S("Baja a fuego suave, tapa dejando una rendija y cocina 35 minutos. A los 15 minutos añade la patata. Si se queda sin caldo, agrega agua caliente.", 35),
+      S("Prueba una lenteja: debe estar tierna. Sala al final, deja reposar 10 minutos fuera del fuego y sirve.", 10),
+    ],
+  }),
+  r({
+    id: "garbanzos-con-espinacas", title: "Garbanzos con espinacas", cuisine: "espanola", authenticity: "traditional",
+    origin: "España (Andalucía, Sevilla)", baseServings: 4, prepMin: 25, cookMin: 70, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("garbanzos", 300, "g"), I("espinacas", 400, "g"), I("pan", 40, "g"), I("ajo", 4, "unit"), I("comino", 3, "g"), I("pimenton", 5, "g"), I("vinagre", 20, "ml"), I("aceite", 50, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("La víspera, pon los garbanzos en remojo en abundante agua fría durante 8-12 horas."),
+      S("Escúrrelos y cuécelos en una olla cubiertos de agua fresca, a fuego suave, 50 minutos (25 si usas olla a presión), hasta que estén tiernos. Reserva el caldo.", 50),
+      S("Fríe en una sartén el pan troceado y los ajos laminados con el aceite a fuego medio 3 minutos, hasta que estén dorados.", 3),
+      S("Tritura o machaca el pan y los ajos con el comino, el pimentón y el vinagre hasta obtener una pasta. Añade un cucharón del caldo de los garbanzos."),
+      S("Escalda las espinacas en agua hirviendo 2 minutos, escúrrelas y exprímelas.", 2),
+      S("Une garbanzos, espinacas y la pasta en la olla con un vaso de caldo. Cocina a fuego bajo 10 minutos, rectifica de sal y sirve caliente.", 10),
+    ],
+  }),
+  r({
+    id: "pollo-al-horno-con-arroz", title: "Pollo al horno con arroz", cuisine: "espanola", authenticity: "adapted",
+    origin: "España", note: "Plato de bandeja de cocina casera; no es una receta regional codificada.",
+    baseServings: 3, prepMin: 15, cookMin: 45, difficulty: "easy", equipment: ["horno"],
+    ingredients: [I("pollo", 700, "g"), I("arroz", 250, "g"), I("pimiento", 1, "unit"), I("tomate", 300, "g"), I("ajo", 3, "unit"), I("pimenton", 5, "g"), I("caldo", 600, "ml"), I("aceite", 40, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Precalienta el horno a 200 °C con calor arriba y abajo.", 10, 200),
+      S("Sazona el pollo con sal, el pimentón y los ajos picados. Corta el pimiento en tiras y el tomate en dados."),
+      S("En una bandeja honda, mezcla el arroz crudo con el pimiento, el tomate y el aceite. Reparte bien. Calienta el caldo hasta que hierva y viértelo sobre el arroz."),
+      S("Coloca el pollo encima, con la piel hacia arriba. Tapa con papel de aluminio y hornea 25 minutos.", 25, 200),
+      S("Retira el aluminio y hornea 15-20 minutos más, hasta que el arroz haya absorbido el caldo y la piel esté dorada. No remuevas.", 18, 200),
+      S("Deja reposar 5 minutos fuera del horno antes de servir.", 5),
+    ],
+  }),
+  r({
+    id: "gambas-al-ajillo", title: "Gambas al ajillo", cuisine: "espanola", authenticity: "traditional",
+    origin: "España", baseServings: 2, prepMin: 10, cookMin: 8, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("gambas", 300, "g"), I("ajo", 5, "unit"), I("chile", 1, "unit", true), I("aceite", 80, "ml"), I("perejil", 5, "g", true), I("sal", 3, "g")],
+    steps: [
+      S("Pela las gambas dejando la cola, sécalas con papel de cocina y sálalas. Lamina los ajos y corta el chile en aros."),
+      S("Pon el aceite con el ajo en una cazuela o sartén pequeña a fuego bajo. Cocina 2-3 minutos hasta que el ajo empiece a dorarse ligeramente.", 3),
+      S("Sube a fuego medio-alto, añade el chile y las gambas. Cocina 1 minuto por cada lado: están listas cuando se vuelven rosadas y opacas. Más tiempo las pone gomosas.", 2),
+      S("Espolvorea perejil y sirve inmediatamente, aún chisporroteando, con pan para mojar."),
+    ],
+  }),
+  r({
+    id: "merluza-al-horno-con-patatas", title: "Merluza al horno con patatas", cuisine: "espanola", authenticity: "traditional",
+    origin: "España", baseServings: 2, prepMin: 15, cookMin: 40, difficulty: "easy", equipment: ["horno"],
+    ingredients: [I("merluza", 400, "g"), I("patata", 500, "g"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("limon", 0.5, "unit"), I("aceite", 40, "ml"), I("vino-blanco", 50, "ml"), I("perejil", 5, "g", true), I("sal", 6, "g")],
+    steps: [
+      S("Precalienta el horno a 200 °C. Corta las patatas en rodajas de 4 mm y la cebolla en aros finos. Lamina los ajos.", 10, 200),
+      S("Extiende patatas, cebolla y ajo en una bandeja con la mitad del aceite y 3 g de sal. Hornea 25 minutos, dándoles la vuelta a los 12.", 25, 200),
+      S("Sala los lomos de merluza y colócalos sobre las patatas. Rocía con el vino, el aceite restante y un chorrito de limón."),
+      S("Hornea 10-12 minutos más: la merluza está lista cuando la carne se separa en lascas blancas y opacas.", 11, 200),
+      S("Sirve con perejil picado y el resto del limón."),
+    ],
+  }),
+  r({
+    id: "huevos-rotos", title: "Huevos rotos con patatas", cuisine: "espanola", authenticity: "adapted",
+    origin: "España (Madrid)", note: "Tradicionalmente se sirven con jamón; aquí se usa panceta por accesibilidad.",
+    baseServings: 2, prepMin: 10, cookMin: 25, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("patata", 500, "g"), I("huevo", 4, "unit"), I("panceta", 80, "g"), I("aceite", 200, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Pela las patatas y córtalas en rodajas gruesas de 6 mm. Sécalas con un paño."),
+      S("Calienta el aceite en una sartén honda a fuego medio y fríe las patatas 12 minutos hasta que estén tiernas por dentro.", 12),
+      S("Sube a fuego fuerte 3 minutos para dorarlas. Escúrrelas sobre papel de cocina y sálalas.", 3),
+      S("Fríe la panceta en tiras 4 minutos en otra sartén hasta que esté crujiente. Retírala.", 4),
+      S("Fríe los huevos en aceite bien caliente 2 minutos: claras con bordes crujientes y yema líquida."),
+      S("Monta las patatas, la panceta y los huevos encima. Rompe las yemas con un tenedor en la mesa y mezcla."),
+    ],
+  }),
+  r({
+    id: "sopa-de-ajo", title: "Sopa de ajo castellana", cuisine: "espanola", authenticity: "traditional",
+    origin: "España (Castilla)", baseServings: 2, prepMin: 10, cookMin: 25, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("pan", 120, "g"), I("ajo", 4, "unit"), I("pimenton", 5, "g"), I("aceite", 40, "ml"), I("huevo", 2, "unit"), I("caldo", 700, "ml"), I("sal", 3, "g")],
+    steps: [
+      S("Corta el pan duro en láminas finas. Lamina los ajos."),
+      S("Dora los ajos en el aceite en una cazuela a fuego medio 1 minuto, sin que se oscurezcan.", 1),
+      S("Añade el pan y rehoga 2 minutos hasta que se tueste ligeramente.", 2),
+      S("Aparta del fuego, añade el pimentón y remueve 15 segundos. Vierte enseguida el caldo caliente y sala.", 1),
+      S("Cuece a fuego medio-bajo 15 minutos, hasta que el pan se deshaga y la sopa espese.", 15),
+      S("Rompe los huevos sobre la sopa, tapa y cocina 3 minutos hasta que la clara cuaje.", 3),
+    ],
+  }),
+  r({
+    id: "pisto-con-huevo", title: "Pisto con huevo", cuisine: "espanola", authenticity: "traditional",
+    origin: "España (La Mancha)", baseServings: 3, prepMin: 15, cookMin: 45, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("calabacin", 400, "g"), I("pimiento", 2, "unit"), I("cebolla", 1, "unit"), I("tomate-triturado", 300, "g"), I("huevo", 3, "unit"), I("ajo", 2, "unit"), I("aceite", 50, "ml"), I("azucar", 3, "g", true), I("sal", 5, "g")],
+    steps: [
+      S("Corta cebolla, pimientos y calabacín en dados de 1 cm. Pica el ajo."),
+      S("Pocha cebolla, pimiento y ajo en el aceite a fuego medio 12 minutos, hasta que estén blandos.", 12),
+      S("Añade el calabacín y cocina 8 minutos más removiendo de vez en cuando.", 8),
+      S("Incorpora el tomate y la sal y cocina a fuego bajo 15 minutos hasta que el aceite aflore en los bordes. Si queda ácido, añade el azúcar.", 15),
+      S("Haz tres huecos, casca un huevo en cada uno, tapa y cocina 3-4 minutos hasta que la clara cuaje.", 4),
+    ],
+  }),
+  r({
+    id: "fabada-asturiana", title: "Fabada asturiana", cuisine: "asturiana", authenticity: "adapted",
+    origin: "España (Asturias)", note: "Versión simplificada: la tradicional incluye lacón y azafrán. Las fabes de la Granja son las de referencia.",
+    baseServings: 4, prepMin: 20, cookMin: 165, difficulty: "medium", equipment: ["olla"],
+    ingredients: [I("fabes", 400, "g"), I("chorizo", 200, "g"), I("morcilla", 200, "g"), I("panceta", 150, "g"), I("sal", 8, "g")],
+    steps: [
+      S("La víspera, pon las fabes en remojo en agua fría durante 12 horas. Remoja también la panceta si es salada."),
+      S("Pon las fabes escurridas en una olla alta con la panceta, el chorizo entero y agua fría hasta cubrir dos dedos por encima."),
+      S("Lleva a ebullición suave y retira la espuma. Cuando rompa a hervir, 'asusta' las fabes añadiendo un chorro de agua fría; repite 3 veces. Evita que hiervan con fuerza para que no pierdan la piel.", 15),
+      S("Baja al mínimo, tapa y cocina 1 hora y 30 minutos sin remover, solo moviendo la olla de vez en cuando por las asas.", 90),
+      S("Añade la morcilla pinchada con un palillo y cocina 40 minutos más. Sala ahora y prueba una fabe: debe deshacerse en la boca.", 40),
+      S("Deja reposar 15 minutos con la olla tapada. Sirve las fabes con el compango (chorizo, morcilla y panceta) troceado.", 15),
+    ],
+  }),
+  r({
+    id: "espaguetis-al-pomodoro", title: "Espaguetis al pomodoro", cuisine: "italiana", authenticity: "traditional",
+    origin: "Italia", baseServings: 2, prepMin: 5, cookMin: 20, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("pasta", 200, "g"), I("tomate-triturado", 400, "g"), I("ajo", 2, "unit"), I("aceite", 30, "ml"), I("albahaca", 5, "g", true), I("azucar", 3, "g", true), I("sal", 15, "g")],
+    steps: [
+      S("Pon 2 litros de agua a hervir con 12 g de sal en una olla grande."),
+      S("En una sartén, cocina el ajo laminado en el aceite a fuego bajo 2 minutos, sin que tome color.", 2),
+      S("Añade el tomate triturado y 3 g de sal. Cocina a fuego medio 12 minutos, hasta que la salsa espese. Si está ácida, añade el azúcar.", 12),
+      S("Cuece la pasta según el paquete menos 1 minuto (al dente), unos 9 minutos. Reserva medio vaso del agua de cocción antes de escurrir.", 9),
+      S("Mezcla la pasta con la salsa en la sartén a fuego medio 1 minuto, añadiendo un poco de agua reservada para ligar. Termina con albahaca fresca.", 1),
+    ],
+  }),
+  r({
+    id: "carbonara", title: "Pasta carbonara", cuisine: "italiana", authenticity: "adapted",
+    origin: "Italia (Lazio)", note: "La tradicional usa guanciale y pecorino romano, sin nata. Aquí: panceta y queso curado. Nunca se añade nata.",
+    baseServings: 2, prepMin: 10, cookMin: 20, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("pasta", 200, "g"), I("huevo", 3, "unit"), I("queso", 60, "g"), I("panceta", 100, "g"), I("pimienta", 2, "g"), I("sal", 12, "g")],
+    steps: [
+      S("Hierve 2 litros de agua con 12 g de sal. Ralla el queso y córtalo fino. Corta la panceta en dados de 1 cm."),
+      S("Pon la panceta en una sartén fría y cocina a fuego medio 6-7 minutos hasta que se dore y la grasa quede transparente. Apaga el fuego.", 7),
+      S("Bate en un bol los huevos con el queso y abundante pimienta hasta obtener una crema espesa."),
+      S("Cuece la pasta al dente (9-10 minutos). Reserva un vaso de agua de cocción antes de escurrir.", 10),
+      S("Pasa la pasta a la sartén de la panceta, con el fuego apagado, y mezcla. Si la sartén está demasiado caliente, espera 1 minuto."),
+      S("Añade la crema de huevo y 2-3 cucharadas de agua reservada. Remueve rápido 1 minuto fuera del fuego, hasta tener una salsa cremosa y brillante, sin huevo cuajado.", 1),
+    ],
+  }),
+  r({
+    id: "arroz-frito-con-huevo", title: "Arroz frito con huevo", cuisine: "china", authenticity: "adapted",
+    origin: "China (adaptado)", note: "Versión casera sencilla; el arroz del día anterior da mejor textura.",
+    baseServings: 2, prepMin: 10, cookMin: 30, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("arroz", 200, "g"), I("huevo", 3, "unit"), I("zanahoria", 100, "g"), I("cebolla", 0.5, "unit"), I("ajo", 2, "unit"), I("soja", 30, "ml"), I("aceite", 30, "ml")],
+    steps: [
+      S("Cuece el arroz 15 minutos en agua con sal, escúrrelo y extiéndelo en una bandeja 20 minutos para que se seque y se enfríe (ideal: de la víspera).", 15),
+      S("Pica la cebolla, el ajo y la zanahoria en dados muy pequeños."),
+      S("En una sartén grande a fuego fuerte, haz los huevos revueltos con una cucharada de aceite durante 1 minuto. Retíralos.", 1),
+      S("En la misma sartén, con el aceite restante, saltea zanahoria, cebolla y ajo 3 minutos a fuego fuerte.", 3),
+      S("Añade el arroz y saltea 4 minutos sin parar de mover, hasta que los granos estén sueltos y calientes.", 4),
+      S("Agrega la soja y los huevos, mezcla 1 minuto y sirve de inmediato.", 1),
+    ],
+  }),
+  r({
+    id: "chilaquiles-rojos", title: "Chilaquiles rojos con huevo", cuisine: "mexicana", authenticity: "adapted",
+    origin: "México", note: "Se usa chile fresco picante y queso curado por disponibilidad; tradicionalmente se usa chile serrano y queso fresco o cotija.",
+    baseServings: 2, prepMin: 15, cookMin: 30, difficulty: "medium", equipment: ["sarten", "batidora"],
+    ingredients: [I("tortilla-maiz", 8, "unit"), I("tomate", 400, "g"), I("chile", 2, "unit"), I("ajo", 1, "unit"), I("cebolla", 0.5, "unit"), I("aceite", 100, "ml"), I("huevo", 2, "unit"), I("queso", 60, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Corta las tortillas en triángulos y déjalas secar al aire 30 minutos."),
+      S("Hierve el tomate con el chile, el ajo y la cebolla en agua 10 minutos hasta que el tomate esté blando. Escurre y tritura con 1/2 vaso del agua de cocción y la sal.", 10),
+      S("Calienta el aceite en una sartén a fuego medio-alto y fríe los triángulos en tandas 1-2 minutos, hasta que estén dorados y crujientes. Escúrrelos sobre papel.", 2),
+      S("Cocina la salsa en la sartén (con 1 cucharada del aceite) 5 minutos a fuego medio hasta que cambie a un rojo más oscuro y espese.", 5),
+      S("Fríe los huevos aparte, 2 minutos, con la yema blanda."),
+      S("Mezcla los totopos con la salsa 30 segundos: deben quedar bañados pero aún con algo de crujiente. Sirve con el huevo y el queso rallado por encima.", 1),
+    ],
+  }),
+  r({
+    id: "quesadillas", title: "Quesadillas de queso", cuisine: "mexicana", authenticity: "adapted",
+    origin: "México", note: "Tradicionalmente con queso Oaxaca; aquí, cualquier queso que funda bien.",
+    baseServings: 2, prepMin: 5, cookMin: 10, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("tortilla-maiz", 6, "unit"), I("queso", 150, "g"), I("aceite", 5, "ml", true)],
+    steps: [
+      S("Ralla el queso y calienta una sartén sin aceite a fuego medio 1 minuto.", 1),
+      S("Coloca una tortilla, reparte una cuarta parte del queso en una mitad, dobla por la mitad y presiona suavemente."),
+      S("Cocina 2 minutos por cada lado hasta que la tortilla esté dorada con manchas tostadas y el queso, fundido. Repite con las demás.", 4),
+    ],
+  }),
+  r({
+    id: "guacamole", title: "Guacamole", cuisine: "mexicana", authenticity: "traditional",
+    origin: "México", baseServings: 4, prepMin: 10, cookMin: 0, difficulty: "easy",
+    ingredients: [I("aguacate", 3, "unit"), I("lima", 1, "unit"), I("cebolla", 0.25, "unit"), I("tomate", 100, "g"), I("cilantro", 10, "g"), I("chile", 1, "unit", true), I("sal", 3, "g")],
+    steps: [
+      S("Pica muy fino la cebolla, el chile y el cilantro. Corta el tomate en dados pequeños sin semillas."),
+      S("Abre los aguacates, retira el hueso y machaca la pulpa con un tenedor, dejando algunos trozos."),
+      S("Mezcla todo con el zumo de lima y la sal. Prueba y ajusta de sal y lima."),
+      S("Sirve enseguida: el aguacate se oscurece con el aire. Si debes esperar, cubre con film en contacto con la superficie."),
+    ],
+  }),
+  r({
+    id: "tacos-de-pollo", title: "Tacos de pollo con lima", cuisine: "mexicana", authenticity: "adapted",
+    origin: "México (adaptado)", baseServings: 3, prepMin: 20, cookMin: 10, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("tortilla-maiz", 9, "unit"), I("pollo", 400, "g"), I("lima", 1, "unit"), I("comino", 3, "g"), I("pimenton", 4, "g"), I("aguacate", 1, "unit"), I("cilantro", 5, "g", true), I("aceite", 20, "ml"), I("sal", 4, "g")],
+    steps: [
+      S("Corta el pollo en tiras finas de 1 cm. Mézclalo con el zumo de lima, el comino, el pimentón y la sal. Marina 10 minutos.", 10),
+      S("Calienta el aceite en una sartén a fuego fuerte. Cocina el pollo 6-7 minutos moviendo de vez en cuando, hasta que esté dorado y blanco por dentro.", 7),
+      S("Calienta cada tortilla 30 segundos por lado en una sartén seca.", 3),
+      S("Monta los tacos con el pollo, láminas de aguacate y cilantro picado."),
+    ],
+  }),
+  r({
+    id: "pollo-al-curry", title: "Pollo al curry con arroz", cuisine: "india", authenticity: "adapted",
+    origin: "India (adaptado)", note: "Curry suave estilo casero con ingredientes de supermercado europeo.",
+    baseServings: 3, prepMin: 15, cookMin: 30, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("pollo", 500, "g"), I("arroz", 240, "g"), I("cebolla", 1, "unit"), I("ajo", 3, "unit"), I("jengibre", 10, "g"), I("curry", 10, "g"), I("tomate-triturado", 200, "g"), I("leche-coco", 200, "ml"), I("aceite", 30, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Corta el pollo en dados de 3 cm. Pica la cebolla, y ralla el ajo y el jengibre."),
+      S("Sofríe la cebolla en el aceite a fuego medio 8 minutos hasta que esté dorada.", 8),
+      S("Añade ajo y jengibre y cocina 1 minuto. Agrega el curry y remueve 30 segundos para que libere el aroma.", 2),
+      S("Incorpora el pollo con la sal y dóralo 5 minutos por todos lados.", 5),
+      S("Añade el tomate y la leche de coco. Cocina a fuego medio-bajo 15 minutos, hasta que el pollo esté hecho y la salsa espese.", 15),
+      S("Mientras tanto, cuece el arroz 12 minutos en agua con sal y escúrrelo. Sirve el curry sobre el arroz.", 12),
+    ],
+  }),
+  r({
+    id: "dal-de-lentejas", title: "Dal de lentejas especiado", cuisine: "india", authenticity: "adapted",
+    origin: "India (adaptado)", note: "Con lentejas rojas queda más cremoso y cuece en 20 minutos; las pardinas necesitan 30.",
+    baseServings: 4, prepMin: 10, cookMin: 40, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("lentejas", 250, "g"), I("arroz", 200, "g"), I("cebolla", 1, "unit"), I("ajo", 3, "unit"), I("jengibre", 10, "g"), I("curry", 8, "g"), I("tomate", 200, "g"), I("limon", 1, "unit"), I("aceite", 30, "ml"), I("cilantro", 5, "g", true), I("sal", 6, "g")],
+    steps: [
+      S("Enjuaga las lentejas. Cuécelas en 1 litro de agua a fuego medio, retirando la espuma al principio, durante 25-30 minutos hasta que estén blandas.", 28),
+      S("Pica cebolla, ajo y jengibre. Corta el tomate en dados."),
+      S("En una sartén, sofríe la cebolla en el aceite 7 minutos a fuego medio. Añade ajo y jengibre 1 minuto, el curry 30 segundos, y el tomate 5 minutos.", 13),
+      S("Vierte el sofrito sobre las lentejas, añade la sal y cocina 5 minutos más. Aplasta una parte con un tenedor para dar cremosidad.", 5),
+      S("Cuece el arroz 12 minutos en agua con sal. Sirve el dal con arroz, zumo de limón y cilantro.", 12),
+    ],
+  }),
+  r({
+    id: "karaage", title: "Pollo frito japonés (karaage)", cuisine: "japonesa", authenticity: "adapted",
+    origin: "Japón (adaptado)", note: "Tradicionalmente se reboza con fécula de patata (katakuriko); aquí, harina de trigo. Con air fryer: 200 °C, 12 minutos.",
+    baseServings: 2, prepMin: 25, cookMin: 15, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("pollo", 400, "g"), I("soja", 40, "ml"), I("jengibre", 10, "g"), I("ajo", 2, "unit"), I("harina", 60, "g"), I("aceite", 250, "ml"), I("limon", 0.5, "unit", true)],
+    steps: [
+      S("Corta el pollo (mejor muslo deshuesado) en trozos de 3-4 cm. Mézclalo con la soja y el jengibre y ajo rallados. Marina 15 minutos.", 15),
+      S("Escurre el exceso de marinada y reboza cada trozo en la harina, presionando para que se pegue."),
+      S("Calienta el aceite en una sartén honda a 170 °C (un trocito de pan debe burbujear suavemente). Fríe en tandas 4 minutos. Pasa a una rejilla y reposa 3 minutos.", 4, 170),
+      S("Sube el aceite a 190 °C y fríe cada tanda 1 minuto más para que quede muy crujiente. Escurre sobre papel.", 1, 190),
+      S("Sirve con limón. Si usas air fryer: rocía los trozos con aceite y cocina a 200 °C 12 minutos, dándoles la vuelta a la mitad.", 0),
+    ],
+  }),
+  r({
+    id: "oyakodon", title: "Oyakodon (pollo y huevo sobre arroz)", cuisine: "japonesa", authenticity: "adapted",
+    origin: "Japón (adaptado)", note: "Se sustituyen el dashi y el mirin por caldo de verduras y azúcar.",
+    baseServings: 2, prepMin: 10, cookMin: 25, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("arroz", 200, "g"), I("pollo", 250, "g"), I("huevo", 3, "unit"), I("cebolla", 1, "unit"), I("soja", 40, "ml"), I("azucar", 10, "g"), I("caldo", 150, "ml")],
+    steps: [
+      S("Cuece el arroz 15 minutos en agua y mantenlo tapado. Corta el pollo en trozos de 2 cm y la cebolla en plumas finas.", 15),
+      S("En una sartén, lleva a ebullición el caldo con la soja y el azúcar. Añade la cebolla y cocina 4 minutos.", 4),
+      S("Agrega el pollo y cocina 5 minutos a fuego medio hasta que no quede rosado.", 5),
+      S("Bate los huevos ligeramente (que queden vetas de clara). Vierte la mitad sobre el pollo y cocina 30 segundos."),
+      S("Añade el resto del huevo, tapa y apaga el fuego a los 40 segundos: debe quedar semicuajado y brillante.", 1),
+      S("Sirve el arroz en cuencos y desliza encima la mezcla con su caldo."),
+    ],
+  }),
+];
