@@ -1,9 +1,10 @@
 import type { Recipe } from "@comocomo/schemas";
 import { recipes as espana } from "./recipes";
 import { recipesMundo } from "./recipes-mundo";
+import { recipesMundo2 } from "./recipes-mundo-2";
 
 export { ingredients, prices, EQUIPMENT } from "./ingredients";
-export const recipes: Recipe[] = [...espana, ...recipesMundo];
+export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2];
 export { DISH_KEYWORDS } from "./dishes";
 import { DISH_KEYWORDS } from "./dishes";
 /** Para parseDishIntent: id de receta + nombres con los que se pide. */

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mercado as t } from "./index";
+import { mercado as t, priceScale } from "./index";
 
 function lum(hex: string) {
   const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((v) =>
@@ -27,5 +27,8 @@ describe("contraste AA (Mercado)", () => {
   });
   it("colores de estado legibles como texto", () => {
     for (const k of ["olive", "saffron", "tomato", "plum"] as const) expect(ratio(t[k], t.paper), k).toBeGreaterThanOrEqual(4.5);
+  });
+  it("escala de precio legible en todos sus niveles", () => {
+    priceScale.forEach((bg, i) => expect(ratio(i === 3 ? t.paper : t.ink, bg), bg).toBeGreaterThanOrEqual(4.5));
   });
 });

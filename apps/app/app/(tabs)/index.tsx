@@ -9,6 +9,7 @@ import { catalog, DISH_KEYWORDS, prices, recipes } from "../../src/lib/data";
 import { CUISINE_LABEL, QUICK_FILTERS, REGION_FILTERS } from "../../src/lib/labels";
 import { actions, useStore } from "../../src/lib/store";
 import { Wordmark } from "../../src/Logo";
+import { PriceLegend } from "../../src/PriceLegend";
 import { fonts, radius, stroke, usePalette } from "../../src/theme";
 import { Button, Chip, Display, Empty, Label, Stepper, T } from "../../src/ui";
 
@@ -102,6 +103,7 @@ export default function Recetas() {
             <Stepper label="personas" unit={wide ? (servings === 1 ? "persona" : "personas") : "pers."} value={servings} onChange={actions.setServings} max={20} />
           </View>
         </View>
+        <PriceLegend servings={servings} />
         <ScrollView
           horizontal={!wide}
           showsHorizontalScrollIndicator={false}

@@ -6,15 +6,16 @@ export const CUISINE_LABEL: Record<string, string> = {
   espanola: "España", asturiana: "Asturias", italiana: "Italia", mexicana: "México", china: "China",
   india: "India", japonesa: "Japón", argentina: "Argentina", turca: "Turquía", tailandesa: "Tailandia",
   peruana: "Perú", griega: "Grecia", coreana: "Corea", marroqui: "Marruecos", "oriente-medio": "Oriente Medio",
+  francesa: "Francia", estadounidense: "EE. UU.", brasilena: "Brasil", vietnamita: "Vietnam",
 };
 
 /** Pegatinas de la portada: agrupan cocinas para no tener 15 botones. */
 export const REGION_FILTERS: { key: string; label: string; cuisines: string[] }[] = [
   { key: "espana", label: "España", cuisines: ["espanola", "asturiana"] },
   { key: "italia", label: "Italia", cuisines: ["italiana"] },
-  { key: "mexico", label: "México", cuisines: ["mexicana"] },
-  { key: "asia", label: "Asia", cuisines: ["japonesa", "china", "coreana", "tailandesa", "india"] },
-  { key: "mundo", label: "Más mundo", cuisines: ["argentina", "turca", "peruana", "griega", "marroqui", "oriente-medio"] },
+  { key: "asia", label: "Asia", cuisines: ["japonesa", "china", "coreana", "tailandesa", "india", "vietnamita"] },
+  { key: "america", label: "América", cuisines: ["mexicana", "peruana", "argentina", "brasilena", "estadounidense"] },
+  { key: "mundo", label: "Europa y Mediterráneo", cuisines: ["francesa", "griega", "turca", "marroqui", "oriente-medio"] },
 ];
 
 /** Filtros rápidos: tiempo y restricciones habituales. Las alergias se aplican en código, siempre. */

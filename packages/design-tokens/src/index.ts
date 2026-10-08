@@ -27,6 +27,12 @@ export const mercado = {
   cream: "#E3C78F",
 } as const;
 
+/**
+ * Escala de precio (barato → caro) en tonos de tinta: deliberadamente sin color,
+ * para no confundirse con las pegatinas de país. Texto: tinta en los tres primeros, papel en el último.
+ */
+export const priceScale = ["#FFFDF8", "#E3D9C6", "#A99C88", "#1B1712"] as const;
+
 /** Se mantiene el nombre para el resto del código: la app usa una sola paleta clara. */
 export const light = mercado;
 

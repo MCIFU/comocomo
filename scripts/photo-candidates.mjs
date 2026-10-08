@@ -13,10 +13,22 @@ const Q = {
   "chana-masala": "chana masala", "tajin-pollo-limon": "chicken tagine lemon olives", "risotto-champinones": "mushroom risotto",
   "pasta-aglio-olio": "aglio e olio", "shakshuka": "shakshuka",
 };
+// Uso: node scripts/photo-candidates.mjs [salida.json] — solo busca las recetas sin candidatas previas.
+const NEW = {
+  "paella-valenciana": "paella valenciana", gazpacho: "gazpacho", "patatas-bravas": "patatas bravas", "albondigas-en-salsa": "albóndigas en salsa",
+  cachopo: "cachopo", "arroz-con-leche": "arroz con leche", "flan-de-huevo": "flan de huevo", "espaguetis-bolonesa": "spaghetti bolognese",
+  "pizza-margarita": "pizza margherita", "pasta-al-pesto": "pasta al pesto genovese", "enchiladas-rojas": "enchiladas rojas", "huevos-rancheros": "huevos rancheros",
+  "ramen-shoyu": "shoyu ramen", "pollo-teriyaki": "chicken teriyaki", gyudon: "gyudon", "pollo-kung-pao": "kung pao chicken", "cerdo-agridulce": "sweet and sour pork",
+  "butter-chicken": "butter chicken", "pad-thai": "pad thai", "tom-kha-gai": "tom kha gai", "banh-mi-cerdo": "banh mi", bulgogi: "bulgogi", ceviche: "ceviche peruano",
+  "lomo-saltado": "lomo saltado", "empanadas-carne": "empanadas argentinas", milanesa: "milanesa", moussaka: "moussaka", menemen: "menemen", "kofte-yogur": "köfte",
+  harira: "harira", hummus: "hummus", falafel: "falafel", crepes: "crêpes", ratatouille: "ratatouille", "hamburguesa-casera": "hamburger cheeseburger",
+  "mac-and-cheese": "macaroni and cheese", moqueca: "moqueca",
+};
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 const out = {};
-for (const [id, q] of Object.entries(Q)) {
+const ONLY = process.argv[2] ? NEW : Q;
+for (const [id, q] of Object.entries(ONLY)) {
   const u = new URL("https://commons.wikimedia.org/w/api.php");
   Object.entries({ action: "query", generator: "search", gsrsearch: `filetype:bitmap ${q}`, gsrnamespace: "6", gsrlimit: "10",
     prop: "imageinfo", iiprop: "url|extmetadata|size", iiurlwidth: "960", format: "json" }).forEach(([k, v]) => u.searchParams.set(k, v));

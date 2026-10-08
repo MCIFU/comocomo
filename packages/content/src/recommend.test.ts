@@ -169,3 +169,14 @@ describe("despensa", () => {
     expect(r.findIndex((x) => x.baseId === "fabada-asturiana")).toBeLessThan(3);
   });
 });
+
+describe("nivel de precio", () => {
+  it("clasifica por precio por persona", async () => {
+    const { priceTier } = await import("@comocomo/core");
+    expect(priceTier(0.8)).toBe(0);
+    expect(priceTier(1.5)).toBe(0);
+    expect(priceTier(2.2)).toBe(1);
+    expect(priceTier(4.9)).toBe(2);
+    expect(priceTier(7)).toBe(3);
+  });
+});

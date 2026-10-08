@@ -1,4 +1,5 @@
-import { formatMinutes, formatMoney } from "@comocomo/core";
+import { formatMinutes, formatMoney, priceTier, PRICE_TIERS } from "@comocomo/core";
+import { priceScale } from "@comocomo/design-tokens";
 import type { Recipe } from "@comocomo/schemas";
 import { Animated, Platform, Pressable, View } from "react-native";
 import { CUISINE_LABEL } from "./lib/labels";
@@ -7,7 +8,6 @@ import { RecipePhoto } from "./RecipePhoto";
 import { fonts, radius, stroke, usePalette } from "./theme";
 import { Display, T } from "./ui";
 
-const TAGS = ["mustard", "sky", "pink", "mint"] as const;
 
 /** Tarjeta de receta: foto cuadrada, origen y tiempo, nombre y precio para N personas en una pegatina. */
 export function RecipeCard({ recipe, price, servings, index, width, onPress }: {
@@ -16,7 +16,10 @@ export function RecipeCard({ recipe, price, servings, index, width, onPress }: {
   const c = usePalette();
   const enter = useEnter(index, recipe.id);
   const title = recipe.title.replace(/\s*\(.*\)/, "");
-  const tag = c[TAGS[index % TAGS.length]!];
+  // El color del precio depende solo de lo que cuesta por persona (no del país).
+  const tier = priceTier((price.min + price.max) / 2 / servings);
+  const tag = priceScale[tier];
+  const tagText = tier === 3 ? c.paper : c.ink;
   const inner = width - stroke.width * 2 - 6;
   return (
     <Animated.View style={[{ width }, enter]}>
@@ -46,9 +49,12 @@ export function RecipeCard({ recipe, price, servings, index, width, onPress }: {
                     {CUISINE_LABEL[recipe.cuisine] ?? recipe.origin} · {formatMinutes(recipe.prepMin + recipe.cookMin)}
                   </T>
                   <Display size={width < 200 ? 19 : 22} numberOfLines={2} style={{ minHeight: (width < 200 ? 19 : 22) * 2 }}>{title}</Display>
-                  <View style={{ flexDirection: "row", alignSelf: "flex-start", alignItems: "baseline", gap: 6, marginTop: 4, backgroundColor: tag, borderWidth: 2, borderColor: c.ink, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 2 }}>
-                    <T style={{ fontFamily: fonts.display, fontSize: 18, lineHeight: 24 }}>{formatMoney(price.min, price.max).replace("≈ ", "")}</T>
-                    <T style={{ fontFamily: fonts.mono, fontSize: 12.5, lineHeight: 18 }}>{servings} pers.</T>
+                  <View
+                    accessibilityLabel={`${PRICE_TIERS[tier].name}: ${formatMoney(price.min, price.max)} para ${servings} personas`}
+                    style={{ flexDirection: "row", alignSelf: "flex-start", alignItems: "baseline", gap: 6, marginTop: 4, backgroundColor: tag, borderWidth: 2, borderColor: c.ink, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 2 }}
+                  >
+                    <T style={{ fontFamily: fonts.display, fontSize: 18, lineHeight: 24, color: tagText }}>{formatMoney(price.min, price.max).replace("≈ ", "")}</T>
+                    <T style={{ fontFamily: fonts.monoBold, fontSize: 12.5, lineHeight: 18, color: tagText }}>{PRICE_TIERS[tier].label}</T>
                   </View>
                 </View>
               </View>

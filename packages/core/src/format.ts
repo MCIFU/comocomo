@@ -43,3 +43,19 @@ export function formatClock(totalSeconds: number): string {
   const sec = String(s % 60).padStart(2, "0");
   return h > 0 ? `${h}:${String(m).padStart(2, "0")}:${sec}` : `${String(m).padStart(2, "0")}:${sec}`;
 }
+
+/**
+ * Nivel de precio por persona (0 = barato … 3 = caro). Escala propia, independiente de la cocina,
+ * para comparar platos de un vistazo. Umbrales en € por persona.
+ */
+export const PRICE_TIERS = [
+  { max: 1.5, label: "€", name: "Muy barato" },
+  { max: 3, label: "€€", name: "Barato" },
+  { max: 5, label: "€€€", name: "Medio" },
+  { max: Infinity, label: "€€€€", name: "Caro" },
+] as const;
+
+export function priceTier(perPerson: number): 0 | 1 | 2 | 3 {
+  const i = PRICE_TIERS.findIndex((t) => perPerson <= t.max);
+  return (i < 0 ? 3 : i) as 0 | 1 | 2 | 3;
+}

@@ -70,6 +70,28 @@ const rows: Row[] = [
   ["garbanzos-cocidos", "Garbanzos cocidos (bote)", "pantry", "mass", [], [], ["kg", 1.5, 2.5]],
   ["sesamo", "Semillas de sésamo", "pantry", "mass", ["sesame"], [], ["kg", 8, 14]],
   ["cacahuetes", "Cacahuetes", "pantry", "mass", ["peanut", "nuts"], [], ["kg", 5, 9]],
+  // — lote 3 —
+  ["ternera-picada", "Carne picada de ternera", "butcher", "mass", [], ["meat"], ["kg", 7, 10]],
+  ["ternera", "Ternera en filetes", "butcher", "mass", [], ["meat"], ["kg", 12, 17]],
+  ["cerdo", "Lomo o magro de cerdo", "butcher", "mass", [], ["meat", "pork"], ["kg", 6, 9]],
+  ["jamon", "Jamón serrano en lonchas", "butcher", "mass", [], ["meat", "pork"], ["kg", 18, 30]],
+  ["salmon", "Salmón (lomos)", "fish", "mass", ["fish"], ["fish", "seafood"], ["kg", 14, 20]],
+  ["nata", "Nata para cocinar", "dairy", "volume", MILK, [], ["l", 3, 5]],
+  ["mozzarella", "Mozzarella", "dairy", "mass", MILK, [], ["kg", 7, 11]],
+  ["tofu", "Tofu firme", "dairy", "mass", ["soy"], [], ["kg", 6, 9]],
+  ["fideos-arroz", "Fideos de arroz", "pantry", "mass", [], [], ["kg", 6, 9]],
+  ["fideos-ramen", "Fideos de trigo (ramen)", "pantry", "mass", ["gluten"], [], ["kg", 6, 10]],
+  ["levadura", "Levadura seca de panadería", "pantry", "mass", [], [], ["kg", 25, 45]],
+  ["obleas-empanadilla", "Obleas para empanadillas", "dairy", "count", ["gluten"], [], ["unit", 0.12, 0.2]],
+  ["pan-hamburguesa", "Pan de hamburguesa", "bakery", "count", ["gluten"], [], ["unit", 0.3, 0.5]],
+  ["berenjena", "Berenjena", "produce", "mass", [], [], ["kg", 1.8, 2.8]],
+  ["lechuga", "Lechuga", "produce", "count", [], [], ["unit", 0.6, 1]],
+  ["cebolleta", "Cebolleta", "produce", "count", [], ["allium"], ["unit", 0.3, 0.5]],
+  ["judias-verdes", "Judías verdes", "produce", "mass", [], [], ["kg", 3, 5]],
+  ["frijoles-negros", "Frijoles negros cocidos", "pantry", "mass", [], [], ["kg", 3, 5]],
+  ["tahini", "Tahini (crema de sésamo)", "pantry", "mass", ["sesame"], [], ["kg", 10, 16]],
+  ["canela", "Canela en rama", "pantry", "mass", [], [], ["kg", 40, 70]],
+  ["pinones", "Piñones", "pantry", "mass", ["nuts"], [], ["kg", 50, 80]],
   ["pasta-curry-rojo", "Pasta de curry rojo (suele llevar pasta de gamba)", "pantry", "mass", ["shellfish"], ["seafood"], ["kg", 12, 20]],
 ];
 
@@ -91,6 +113,11 @@ const PACKS: Record<string, Pack> = {
   pan: [250, "g", "barra"], "tortilla-maiz": [10, "unit", "paquete"], feta: [200, "g", "paquete"], aceitunas: [200, "g", "bote"],
   "pan-pita": [6, "unit", "paquete"], cuscus: [500, "g", "paquete"], "garbanzos-cocidos": [400, "g", "bote"], sesamo: [100, "g", "bolsa"],
   cacahuetes: [150, "g", "bolsa"], "pasta-curry-rojo": [110, "g", "tarro"],
+  "ternera-picada": [500, "g", "bandeja"], ternera: [400, "g", "bandeja"], cerdo: [500, "g", "bandeja"], jamon: [100, "g", "paquete"],
+  nata: [200, "ml", "brik"], mozzarella: [125, "g", "bola"], tofu: [400, "g", "bloque"], "fideos-arroz": [250, "g", "paquete"],
+  "fideos-ramen": [250, "g", "paquete"], levadura: [50, "g", "paquete"], "obleas-empanadilla": [16, "unit", "paquete"],
+  "pan-hamburguesa": [4, "unit", "paquete"], cebolleta: [3, "unit", "manojo"], "frijoles-negros": [400, "g", "bote"],
+  tahini: [300, "g", "tarro"], canela: [30, "g", "bote"], pinones: [50, "g", "bolsa"],
 };
 
 const ALIASES: Record<string, string[]> = {
@@ -132,6 +159,19 @@ const ALIASES: Record<string, string[]> = {
   "garbanzos-cocidos": ["garbanzos cocidos", "bote de garbanzos"],
   sesamo: ["ajonjoli"],
   cacahuetes: ["cacahuete", "mani"],
+  "ternera-picada": ["carne picada", "picada", "carne molida"],
+  ternera: ["filete", "filetes", "vaca", "carne de ternera"],
+  cerdo: ["lomo", "magro", "carne de cerdo", "puerco"],
+  jamon: ["jamon serrano"],
+  salmon: ["salmon"],
+  mozzarella: ["mozarela"],
+  "fideos-arroz": ["fideos de arroz", "noodles de arroz"],
+  "fideos-ramen": ["ramen", "noodles", "fideos chinos"],
+  "obleas-empanadilla": ["obleas", "masa de empanadillas"],
+  berenjena: ["berenjenas"],
+  cebolleta: ["cebolletas", "cebolla tierna"],
+  "judias-verdes": ["judias verdes", "vainas"],
+  "frijoles-negros": ["frijoles", "alubias negras"],
 };
 
 export const ingredients: Ingredient[] = rows.map(([id, name, aisle, unitKind, allergens, tags]) => ({

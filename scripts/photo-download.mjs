@@ -1,5 +1,5 @@
 // Descarga la foto elegida de cada receta y genera apps/app/src/lib/photos.ts con créditos.
-import { readFileSync, writeFileSync, mkdirSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, statSync, existsSync } from "node:fs";
 const PICK = {
   "tortilla-de-patatas": 1, "pollo-al-ajillo": 2, "lentejas-con-chorizo": 1, "garbanzos-con-espinacas": 0, "pollo-al-horno-con-arroz": 0,
   "gambas-al-ajillo": 1, "merluza-al-horno-con-patatas": 0, "huevos-rotos": 0, "sopa-de-ajo": 0, "pisto-con-huevo": 1,
@@ -8,13 +8,22 @@ const PICK = {
   "choripan-chimichurri": 3, "calamares-fritos-yogur": 0, "panang-pollo": 2, "tallarines-verdes": 0, "ensalada-griega": 2,
   "souvlaki-pollo-tzatziki": 1, "bibimbap-casero": 3, "chana-masala": 0, "tajin-pollo-limon": 0, "risotto-champinones": 1,
   "pasta-aglio-olio": 1, "shakshuka": 0,
+  // lote 3
+  "paella-valenciana": 0, gazpacho: 0, "patatas-bravas": 2, "albondigas-en-salsa": 0, cachopo: 1, "arroz-con-leche": 3, "flan-de-huevo": 1,
+  "espaguetis-bolonesa": 3, "pizza-margarita": 0, "pasta-al-pesto": 0, "enchiladas-rojas": 1, "huevos-rancheros": 0, "ramen-shoyu": 0,
+  "pollo-teriyaki": 1, gyudon: 0, "pollo-kung-pao": 0, "cerdo-agridulce": 2, "butter-chicken": 0, "pad-thai": 0, "tom-kha-gai": 0,
+  "banh-mi-cerdo": 3, bulgogi: 3, ceviche: 0, "lomo-saltado": 0, "empanadas-carne": 1, milanesa: 0, moussaka: 3, menemen: 1,
+  "kofte-yogur": 1, harira: 0, hummus: 1, falafel: 1, crepes: 0, ratatouille: 1, "hamburguesa-casera": 1, "mac-and-cheese": 2, moqueca: 1,
 };
-const cand = JSON.parse(readFileSync("scripts/photo-candidates.json", "utf8"));
+const cand = { ...JSON.parse(readFileSync("scripts/photo-candidates.json", "utf8")), ...JSON.parse(readFileSync("scripts/photo-candidates-2.json", "utf8")) };
 const dir = "apps/app/assets/photos";
 mkdirSync(dir, { recursive: true });
 const lines = [];
 for (const [id, i] of Object.entries(PICK)) {
   const c = cand[id][i];
+  const file = `${dir}/${id}.jpg`;
+  const line = `  ${JSON.stringify(id)}: { src: require("../../assets/photos/${id}.jpg"), author: ${JSON.stringify(c.author || "Autor desconocido")}, license: ${JSON.stringify(c.license)}, url: ${JSON.stringify(c.page)} },`;
+  if (existsSync(file)) { lines.push(line); continue; } // ya descargada
   const res = await fetch(c.thumb, { headers: { "User-Agent": "COMOCOMO/0.1 (contacto: mcifuentesramos@gmail.com)" } });
   if (!res.ok || !res.headers.get("content-type")?.startsWith("image/jpeg")) { console.log("✗", id, res.status, res.headers.get("content-type")); continue; }
   writeFileSync(`${dir}/${id}.jpg`, Buffer.from(await res.arrayBuffer()));
