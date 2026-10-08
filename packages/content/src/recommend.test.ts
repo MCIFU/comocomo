@@ -75,7 +75,9 @@ describe("formato", () => {
   it("rangos de dinero no fingen precisión", () => {
     expect(formatMoneyRange(3.6, 5.2)).toBe("≈ 4–5 €");
     expect(formatMoneyRange(4.2, 4.4)).toBe("≈ 4 €");
-    expect(formatMoneyRange(0.2, 0.4)).toBe("≈ 0,2 €");
+    expect(formatMoneyRange(0.2, 0.4)).toBe("≈ 0,4 €");
+    expect(formatMoneyRange(0.6, 1.1)).toBe("≈ 0,5–1 €");
+    expect(formatMoneyRange(1.2, 1.9)).toBe("≈ 1–2 €");
   });
   it("cantidades y tiempos", () => {
     expect(formatQty(1.5, "kg")).toBe("1,5 kg");

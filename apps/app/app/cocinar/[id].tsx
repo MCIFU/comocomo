@@ -149,7 +149,7 @@ export default function Cocinando() {
           ) : null}
 
           <View style={{ flexDirection: "row", gap: 10 }}>
-            <Button label="← Anterior" kind="quiet" disabled={i === 0} onPress={() => setI(i - 1)} style={{ flex: 1 }} />
+            <Button label="← Atrás" kind="quiet" disabled={i === 0} onPress={() => setI(i - 1)} style={{ flex: 1 }} />
             <Button label={last ? "Terminar" : "Siguiente →"} onPress={goNext} style={{ flex: 2 }} />
           </View>
           <Button label="Repetir este paso" kind="quiet" onPress={() => reset(i)} style={{ minHeight: 44 }} />

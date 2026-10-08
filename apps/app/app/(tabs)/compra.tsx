@@ -2,6 +2,7 @@ import { buildShoppingList, formatMoneyRange, formatQty, recipeCost, scaleRecipe
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { Pressable, View } from "react-native";
+import { EmptyPlate } from "../../src/Plate";
 import { Screen } from "../../src/Screen";
 import { AISLE_LABEL, AISLE_ORDER, catalog, prices, recipeById } from "../../src/lib/data";
 import { actions, useStore } from "../../src/lib/store";
@@ -44,7 +45,8 @@ export default function Compra() {
       {cart.length === 0 ? (
         <Empty
           title="Todavía no hay nada que comprar"
-          body="Abre una receta y pulsa «Añadir a la lista de la compra». Juntaremos los ingredientes repetidos."
+          art={<EmptyPlate />}
+          body="Añade recetas desde su ficha. Juntamos los ingredientes repetidos y los ordenamos por pasillo."
           action={<Button label="Buscar qué cocinar" onPress={() => router.push("/")} />}
         />
       ) : (

@@ -1,7 +1,7 @@
 import { formatMoneyRange, parseQuery, recommend } from "@comocomo/core";
 import { useRouter } from "expo-router";
-import { useDeferredValue, useMemo, useState } from "react";
-import { Pressable, TextInput, useWindowDimensions, View } from "react-native";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { Pressable, ScrollView, TextInput, useWindowDimensions, View } from "react-native";
 import { Wordmark } from "../../src/Logo";
 import { Screen } from "../../src/Screen";
 import { ResultRow } from "../../src/ResultRow";
@@ -13,6 +13,24 @@ import { Chip, Display, Empty, Label, Stepper, T } from "../../src/ui";
 
 const TIMES = [{ l: "15 min", v: 15 }, { l: "30 min", v: 30 }, { l: "45 min", v: 45 }, { l: "1 h", v: 60 }];
 const BUDGETS = [5, 10, 15, 25];
+// El placeholder rota entre ejemplos reales: enseña qué se puede escribir sin un tutorial.
+const EXAMPLES = [
+  "Tengo pollo, arroz y 8 €. Somos 3, sin cebolla.",
+  "Algo mexicano que no tarde más de media hora.",
+  "Huevos, patatas y queso. Gastar lo mínimo.",
+  "Somos 2, soy celíaco y tengo horno.",
+  "Garbanzos y espinacas, para 4.",
+];
+
+function useRotatingIndex(n: number, active: boolean) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (!active) return;
+    const t = setInterval(() => setI((x) => (x + 1) % n), 3800);
+    return () => clearInterval(t);
+  }, [n, active]);
+  return i;
+}
 
 export default function Cocinar() {
   const c = usePalette();
@@ -28,6 +46,7 @@ export default function Cocinar() {
   const allergies = useStore((s) => s.allergies);
 
   const deferred = useDeferredValue(text);
+  const ex = useRotatingIndex(EXAMPLES.length, text.length === 0);
   const parsed = useMemo(() => parseQuery(deferred, ingredients), [deferred]);
 
   const have = [...new Set([...parsed.have, ...extra])].filter((id) => !removed.includes(id));
@@ -45,6 +64,7 @@ export default function Cocinar() {
     [allergies, parsed],
   );
 
+  const haveSet = useMemo(() => new Set(have), [have.join()]);
   const results = useMemo(
     () =>
       recommend(recipes, catalog, prices, {
@@ -76,6 +96,9 @@ export default function Cocinar() {
   };
 
   const wide = useWindowDimensions().width >= 1024;
+  const quickChips = [...new Set([...have, ...QUICK_INGREDIENTS])].map((id) => (
+    <Chip key={id} label={shortName(id)} selected={have.includes(id)} onPress={() => toggleHave(id)} />
+  ));
   const activeAllergies = [...new Set([...allergies, ...parsed.allergies])];
   const activeFilters = activeAllergies.length + eff.equipment.length + (eff.maxMinutes !== undefined ? 1 : 0);
   const hasInput = have.length > 0 || text.trim().length > 0;
@@ -83,10 +106,12 @@ export default function Cocinar() {
   return (
     <Screen wide={wide}>
       <View style={wide ? { flexDirection: "row", gap: 56, alignItems: "flex-start" } : { gap: 20 }}>
-      <View style={(wide ? { width: 380, gap: 20, position: "sticky", top: 20 } : { gap: 20 }) as object}>
+      <View style={(wide ? { width: 420, gap: 22, position: "sticky", top: 24 } : { gap: 20 }) as object}>
       <View style={{ gap: 14 }}>
-        <Wordmark size={wide ? 26 : 22} />
-        <Display size={36}>¿Qué cocinamos hoy?</Display>
+        {!wide && <Wordmark size={22} />}
+        <Display size={wide ? 52 : 40} style={{ letterSpacing: wide ? -1.4 : -0.8 }}>
+          ¿Qué cocinamos hoy<T style={{ color: c.tomato, fontFamily: fonts.display, fontSize: wide ? 52 : 40, lineHeight: (wide ? 52 : 40) * 1.15 }}>?</T>
+        </Display>
       </View>
 
       <View style={{ gap: 8 }}>
@@ -94,33 +119,39 @@ export default function Cocinar() {
           value={text}
           onChangeText={setText}
           multiline
-          placeholder="Tengo pollo, arroz y 8 €. Somos 3, sin cebolla."
+          placeholder={EXAMPLES[ex]}
           placeholderTextColor={c.inkMuted}
           accessibilityLabel="Cuéntame qué tienes, cuántos sois y cuánto quieres gastar"
           style={{
-            minHeight: 96, color: c.ink, fontFamily: fonts.ui, fontSize: 18, lineHeight: 26, padding: 16,
+            minHeight: wide ? 96 : 84, color: c.ink, fontFamily: fonts.ui, fontSize: 18, lineHeight: 26, padding: 16,
             borderWidth: 1.5, borderColor: c.ink, borderRadius: radius.md, textAlignVertical: "top",
             outlineStyle: "none",
           } as object}
         />
-        <T tone="muted" style={{ fontSize: 14, lineHeight: 20 }}>
-          Escribe como hablas. Los resultados se actualizan solos.
-        </T>
+        {wide && (
+          <T tone="muted" style={{ fontSize: 14, lineHeight: 20 }}>
+            Escribe como hablas. Los resultados se actualizan solos.
+          </T>
+        )}
       </View>
 
       <View style={{ gap: 10 }}>
         <Label>Tengo</Label>
-        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
-          {[...new Set([...have, ...QUICK_INGREDIENTS])].map((id) => (
-            <Chip key={id} label={shortName(id)} selected={have.includes(id)} onPress={() => toggleHave(id)} />
-          ))}
-        </View>
+        {wide ? (
+          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>{quickChips}</View>
+        ) : (
+          // En móvil, una sola fila desplazable: deja ver el primer resultado sin hacer scroll.
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -16 }} contentContainerStyle={{ gap: 8, paddingHorizontal: 16 }}>
+            {quickChips}
+          </ScrollView>
+        )}
       </View>
 
       <View style={{ gap: 14 }}>
-        <Row label="Personas">
+        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+          <Label>Personas</Label>
           <Stepper label="personas" value={eff.servings} onChange={setServings} max={20} />
-        </Row>
+        </View>
         <Row label="Presupuesto">
           <Wrap>
             {BUDGETS.map((b) => <Chip key={b} label={`${b} €`} selected={eff.budget === b} onPress={() => setBudget(eff.budget === b ? "none" : b)} />)}
@@ -171,17 +202,19 @@ export default function Cocinar() {
       </View>
 
       <View style={{ flex: 1, gap: 4 }}>
-        <Label tone="ink">{hasInput ? `${results.length} ${results.length === 1 ? "opción" : "opciones"}` : "Ideas para empezar"}</Label>
+        <Label tone="ink">{hasInput ? `${results.length} ${results.length === 1 ? "opción" : "opciones"}` : "Para empezar: rápido y barato"}</Label>
         {results.length === 0 ? (
           <Empty
             title="Nada encaja todavía"
             body="Prueba a subir el presupuesto, quitar un límite de tiempo o añadir algún ingrediente más."
           />
         ) : (
-          results.slice(0, 12).map((rec) => (
+          results.slice(0, 12).map((rec, idx) => (
             <ResultRow
               key={rec.baseId}
               rec={rec}
+              index={idx}
+              have={have.length ? haveSet : undefined}
               onPress={() => router.push({ pathname: "/receta/[id]", params: { id: rec.baseId, s: String(eff.servings), h: have.join(",") } })}
             />
           ))

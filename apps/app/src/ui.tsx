@@ -111,12 +111,13 @@ export function Rule() {
   return <View style={{ height: StyleSheet.hairlineWidth, backgroundColor: c.line, marginVertical: 4 }} />;
 }
 
-export function Empty({ title, body, action }: { title: string; body: string; action?: ReactNode }) {
+export function Empty({ title, body, action, art }: { title: string; body: string; action?: ReactNode; art?: ReactNode }) {
   return (
-    <View style={{ paddingVertical: 48, gap: 8, alignItems: "flex-start" }}>
-      <Display size={24}>{title}</Display>
+    <View style={{ paddingVertical: 40, gap: 10, alignItems: "flex-start", maxWidth: 480 }}>
+      {art && <View style={{ marginBottom: 12 }}>{art}</View>}
+      <Display size={26}>{title}</Display>
       <T tone="muted">{body}</T>
-      {action}
+      {action && <View style={{ marginTop: 10 }}>{action}</View>}
     </View>
   );
 }

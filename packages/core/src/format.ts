@@ -7,10 +7,13 @@ const UNIT_LABEL: Record<UnitId, string> = {
 /** "≈ 4–5 €" · nunca presenta precisión que no existe. */
 export function formatMoneyRange(min: number, max: number, currency = "EUR"): string {
   const sym = currency === "EUR" ? "€" : currency;
-  const lo = Math.round(min);
-  const hi = Math.round(max);
-  if (hi < 1) return `≈ ${min.toFixed(1).replace(".", ",")} ${sym}`;
-  return lo === hi ? `≈ ${lo} ${sym}` : `≈ ${lo}–${hi} ${sym}`;
+  const fmt = (n: number) => String(n).replace(".", ",");
+  if (max < 0.75) return `≈ ${fmt(Math.round(max * 10) / 10)} ${sym}`;
+  // Por debajo de 2 € los euros enteros esconden demasiado: se usan medios euros.
+  const step = max < 2 ? 0.5 : 1;
+  const lo = Math.max(step, Math.round(min / step) * step);
+  const hi = Math.max(lo, Math.round(max / step) * step);
+  return lo === hi ? `≈ ${fmt(lo)} ${sym}` : `≈ ${fmt(lo)}–${fmt(hi)} ${sym}`;
 }
 
 /** Cantidad legible: "1,5 kg", "2", "½". */

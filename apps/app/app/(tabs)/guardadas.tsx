@@ -1,6 +1,7 @@
 import { formatMinutes } from "@comocomo/core";
 import { useRouter } from "expo-router";
 import { Pressable, View } from "react-native";
+import { EmptyPlate, Plate } from "../../src/Plate";
 import { Screen } from "../../src/Screen";
 import { recipeById } from "../../src/lib/data";
 import { DIFFICULTY } from "../../src/lib/labels";
@@ -25,7 +26,8 @@ export default function Guardadas() {
       {favs.length === 0 ? (
         <Empty
           title="Aún no has guardado ninguna"
-          body="Cuando una receta te guste, pulsa «Guardar receta» y la tendrás aquí."
+          art={<EmptyPlate />}
+          body="Pulsa ♡ Guardar en cualquier receta y la tendrás aquí."
           action={<Button label="Buscar qué cocinar" onPress={() => router.push("/")} />}
         />
       ) : (
@@ -40,8 +42,13 @@ export default function Guardadas() {
                 backgroundColor: hovered ? c.crust : "transparent", opacity: pressed ? 0.7 : 1,
               })}
             >
-              <T tone="muted" style={{ fontSize: 13 }}>{r.origin} · {formatMinutes(r.prepMin + r.cookMin)} · {DIFFICULTY[r.difficulty]}</T>
-              <Display size={24}>{r.title}</Display>
+              <View style={{ flexDirection: "row", gap: 16, alignItems: "center" }}>
+                <Plate recipe={r} size={64} />
+                <View style={{ flex: 1, gap: 4 }}>
+                  <T tone="muted" style={{ fontSize: 13 }}>{r.origin.replace(/s*(adaptado)/, "")} · {formatMinutes(r.prepMin + r.cookMin)} · {DIFFICULTY[r.difficulty]}</T>
+                  <Display size={23}>{r.title}</Display>
+                </View>
+              </View>
             </Pressable>
           ))}
         </View>
