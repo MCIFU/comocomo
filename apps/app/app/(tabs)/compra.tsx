@@ -1,4 +1,4 @@
-import { buildShoppingList, formatMoney, formatQty, scaleRecipe, STAPLES } from "@comocomo/core";
+import { buildShoppingList, formatMoney, formatQty, scaleRecipe } from "@comocomo/core";
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { Pressable, View } from "react-native";
@@ -15,13 +15,15 @@ export default function Compra() {
   const router = useRouter();
   const cart = useStore((s) => s.cart);
   const checked = useStore((s) => s.checked);
+  const pantryIds = useStore((s) => s.pantry);
 
   const { list, total, scaled } = useMemo(() => {
     const scaled = cart.flatMap((e) => {
       const r = recipeById.get(e.recipeId);
       return r ? [scaleRecipe(r, e.servings)] : [];
     });
-    const pantry = new Map([...STAPLES].map((id) => [id, Number.POSITIVE_INFINITY]));
+    // Lo que está en la despensa no se compra.
+    const pantry = new Map(pantryIds.map((id) => [id, Number.POSITIVE_INFINITY]));
     // Los envases se calculan sobre la lista completa: dos recetas con tomate comparten bote.
     const list = buildShoppingList(scaled, catalog, pantry, "metric", prices);
     let min = 0;
@@ -31,7 +33,7 @@ export default function Compra() {
       max += l.cost?.max ?? 0;
     }
     return { list, total: { min, max }, scaled };
-  }, [cart]);
+  }, [cart, pantryIds]);
 
   const lines = AISLE_ORDER.flatMap((a) => (list[a as keyof typeof list] ?? []).map((l) => ({ ...l, aisle: a })));
   const done = lines.filter((l) => checked.includes(l.ingredientId)).length;
@@ -59,6 +61,14 @@ export default function Compra() {
             </View>
             <T tone="muted" style={{ fontSize: 14 }}>{done} de {lines.length} cogidos</T>
           </View>
+
+          {done > 0 && (
+            <Button
+              label={`Guardar ${done === 1 ? "lo cogido" : `los ${done} productos cogidos`} en tu despensa`}
+              kind="quiet"
+              onPress={() => actions.moveCheckedToPantry(lines.filter((l) => checked.includes(l.ingredientId)).map((l) => l.ingredientId))}
+            />
+          )}
 
           {AISLE_ORDER.filter((a) => list[a as keyof typeof list]?.length).map((aisle) => (
             <View key={aisle} style={{ gap: 2 }}>
@@ -97,7 +107,7 @@ export default function Compra() {
             ))}
           </View>
           <T tone="muted" style={{ fontSize: 12, lineHeight: 17 }}>
-            Sin sal, pimienta, aceite, azúcar ni vinagre (los damos por tenidos). El total cuenta envases completos, como en la caja del súper. Precios estimados.
+            No incluye lo que tienes en tu despensa. El total cuenta envases completos, como en la caja del súper. Precios estimados.
           </T>
           {scaled.length > 0 && <Button label="Vaciar lista" kind="quiet" onPress={actions.clearCart} />}
         </>

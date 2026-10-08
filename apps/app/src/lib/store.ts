@@ -10,11 +10,15 @@ export interface State {
   checked: string[];
   dislikes: string[];
   allergies: string[];
+  /** ingredientes que el usuario tiene en casa (ids del catálogo) */
+  pantry: string[];
   hydrated: boolean;
 }
 
 const KEY = "comocomo:v1";
-let state: State = { favorites: [], cart: [], checked: [], dislikes: [], allergies: [], hydrated: false };
+// La despensa arranca con los básicos que casi todo el mundo tiene; se pueden desmarcar.
+export const DEFAULT_PANTRY = ["sal", "aceite", "pimienta", "azucar", "vinagre"];
+let state: State = { favorites: [], cart: [], checked: [], dislikes: [], allergies: [], pantry: DEFAULT_PANTRY, hydrated: false };
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -75,6 +79,20 @@ export const actions = {
   },
   setAllergies(allergies: string[]) {
     set({ allergies });
+  },
+  togglePantry(id: string) {
+    const p = state.pantry;
+    set({ pantry: p.includes(id) ? p.filter((x) => x !== id) : [...p, id] });
+  },
+  addToPantry(ids: string[]) {
+    set({ pantry: [...new Set([...state.pantry, ...ids])] });
+  },
+  /** Tras la compra: lo cogido pasa a la despensa y desaparece de la lista. */
+  moveCheckedToPantry(ids: string[]) {
+    set({ pantry: [...new Set([...state.pantry, ...ids])], checked: state.checked.filter((x) => !ids.includes(x)) });
+  },
+  clearPantry() {
+    set({ pantry: [] });
   },
   clearCart() {
     set({ cart: [], checked: [] });

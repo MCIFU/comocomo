@@ -146,3 +146,26 @@ describe("cocina pedida + ingredientes", () => {
     expect(r[0]!.have).toContain("pollo");
   });
 });
+
+describe("despensa", () => {
+  const base = { have: new Set<string>(), restrictions: [], servings: 2 };
+  it("lo que está en la despensa no se paga", () => {
+    const sin = recommend(recipes, catalog, prices, { ...base, pantry: new Set(["sal", "aceite"]) }).find((x) => x.baseId === "pasta-aglio-olio")!;
+    const con = recommend(recipes, catalog, prices, { ...base, pantry: new Set(["sal", "aceite", "pasta", "ajo"]) }).find((x) => x.baseId === "pasta-aglio-olio")!;
+    expect(con.cost.toBuy.max).toBeLessThan(sin.cost.toBuy.max);
+    expect(con.missing).toEqual([]);
+  });
+  it("con despensa configurada no se asumen básicos que no estén en ella", () => {
+    const r = recommend(recipes, catalog, prices, { ...base, pantry: new Set() }).find((x) => x.baseId === "pasta-aglio-olio")!;
+    expect(r.missing).toContain("aceite");
+  });
+  it("la despensa no obliga a usarla: no filtra resultados", () => {
+    const todas = recommend(recipes, catalog, prices, base).length;
+    const conDespensa = recommend(recipes, catalog, prices, { ...base, pantry: new Set(["fabes"]) }).length;
+    expect(conDespensa).toBe(todas);
+  });
+  it("las recetas que aprovechan la despensa suben", () => {
+    const r = recommend(recipes, catalog, prices, { ...base, pantry: new Set(["fabes", "chorizo", "morcilla", "panceta", "sal"]) });
+    expect(r.findIndex((x) => x.baseId === "fabada-asturiana")).toBeLessThan(3);
+  });
+});

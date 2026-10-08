@@ -10,7 +10,7 @@ import { Wordmark } from "./Logo";
 import { fonts, usePalette } from "./theme";
 import { T } from "./ui";
 
-const LABELS: Record<string, string> = { cocina: "Cocinar", compra: "Compra", guardadas: "Guardadas" };
+const LABELS: Record<string, string> = { cocina: "Cocinar", despensa: "Despensa", compra: "Compra", guardadas: "Guardadas" };
 
 /**
  * Navegación propia: en escritorio, barra superior con la marca y un subrayado en la sección activa;

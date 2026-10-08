@@ -45,6 +45,7 @@ export default function Cocinar() {
   const [equipment, setEquipment] = useState<string[] | null>(null);
   const [open, setOpen] = useState(false);
   const allergies = useStore((s) => s.allergies);
+  const pantry = useStore((s) => s.pantry);
 
   const deferred = useDeferredValue(text);
   const ex = useRotatingIndex(EXAMPLES.length, text.length === 0);
@@ -68,6 +69,7 @@ export default function Cocinar() {
     () =>
       recommend(recipes, catalog, prices, {
         have: new Set(have),
+        pantry: new Set(pantry),
         restrictions: [
           ...activeAllergies.map((value) => ({ kind: "allergy" as const, value })),
           ...dislikes.map((value) => ({ kind: "dislike" as const, value })),
@@ -81,7 +83,7 @@ export default function Cocinar() {
         dishes: askedDishes,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [have.join(), dislikes.join(), activeAllergies.join(), askedDishes.join(), askedCuisines.join(), eff.servings, eff.budget, eff.maxMinutes, eff.equipment.join()],
+    [have.join(), pantry.join(), dislikes.join(), activeAllergies.join(), askedDishes.join(), askedCuisines.join(), eff.servings, eff.budget, eff.maxMinutes, eff.equipment.join()],
   );
 
   // Resumen de lo que se ha entendido del texto: cada cosa se puede quitar si se interpretó mal.
@@ -209,7 +211,7 @@ export default function Cocinar() {
             ))
           )}
           <T tone="muted" style={{ fontSize: 12, lineHeight: 17, marginTop: 8 }}>
-            Precios estimados de supermercado en España, no de una tienda concreta. Damos por hecho que tienes sal, aceite, pimienta, azúcar y vinagre. Si tienes alergias, revisa siempre las etiquetas: COMOCOMO no sustituye el consejo médico.
+            Precios estimados de supermercado en España, no de una tienda concreta. Lo que tienes en tu despensa no se suma a la compra. Si tienes alergias, revisa siempre las etiquetas: COMOCOMO no sustituye el consejo médico.
           </T>
         </View>
       </View>

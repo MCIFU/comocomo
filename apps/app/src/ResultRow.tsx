@@ -1,8 +1,10 @@
 import type { Recommendation } from "@comocomo/core";
-import { formatMinutes, formatMoney, STAPLES } from "@comocomo/core";
+import { formatMinutes, formatMoney } from "@comocomo/core";
 import { Animated, Pressable, StyleSheet, useWindowDimensions, View } from "react-native";
 import { shortName } from "./lib/data";
-import { DIFFICULTY } from "./lib/labels";
+import { DIFFICULTY, PANTRY_SECTIONS } from "./lib/labels";
+
+const BASICS = new Set(PANTRY_SECTIONS.find((s) => s.key === "basicos")!.ids);
 import { useEnter } from "./motion";
 import { RecipePhoto } from "./RecipePhoto";
 import { fonts, usePalette } from "./theme";
@@ -13,8 +15,8 @@ export function ResultRow({ rec, index, onPress }: { rec: Recommendation; index:
   const compact = useWindowDimensions().width < 520;
   const enter = useEnter(index, rec.baseId);
   const { recipe, cost, missing } = rec;
-  // Los básicos (sal, aceite…) se dan por tenidos: listarlos solo añade ruido.
-  const owned = rec.have.filter((id) => !STAPLES.has(id));
+  // Los básicos y especias (sal, aceite, pimentón…) no se listan: solo añaden ruido.
+  const owned = rec.have.filter((id) => !BASICS.has(id));
   const nothingToBuy = missing.length === 0;
   const toBuy = nothingToBuy ? "0 €" : formatMoney(cost.toBuy.min, cost.toBuy.max);
 

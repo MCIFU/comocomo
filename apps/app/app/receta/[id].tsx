@@ -1,4 +1,4 @@
-import { formatMinutes, formatMoney, formatQty, fromBase, recipeCost, roundNice, scaleRecipe, STAPLES, toBase } from "@comocomo/core";
+import { formatMinutes, formatMoney, formatQty, fromBase, recipeCost, roundNice, scaleRecipe, toBase } from "@comocomo/core";
 import type { RecipeIngredient } from "@comocomo/schemas";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
@@ -35,6 +35,7 @@ export default function Receta() {
   // El texto entra justo detrás del plato para que la transición se lea como una sola acción.
   const textIn = useEnter(2);
   const photoIn = useEnter(0);
+  const pantry = useStore((st) => st.pantry);
   const inCart = useStore((st) => st.cart.some((x) => x.recipeId === String(id)));
   const cartPulse = usePulse(inCart, 0.04);
 
@@ -48,7 +49,7 @@ export default function Receta() {
 
   const recipe = scaleRecipe(base, servings);
   const userHave = h ? String(h).split(",").filter(Boolean) : [];
-  const have = new Set([...userHave, ...STAPLES]);
+  const have = new Set([...userHave, ...pantry]);
   const cost = recipeCost(recipe, prices, catalog, have);
   const buyLine = new Map(cost.toBuy.lines.map((l) => [l.ingredientId, l]));
   const missingCount = recipe.ingredients.filter((i) => !i.optional && !have.has(i.ingredientId)).length;
@@ -134,7 +135,7 @@ export default function Receta() {
         })}
       </View>
       <T tone="muted" style={{ fontSize: 12.5, lineHeight: 18 }}>
-        «En el súper» es lo que pagas por lo que te falta, con envases completos. «Por ración» es lo que cuesta lo que te comes. Damos por hecho sal, pimienta, aceite, azúcar y vinagre. Precios estimados.
+        «En el súper» es lo que pagas por lo que te falta, con envases completos. «Por ración» es lo que cuesta lo que te comes. Lo marcado como «Tienes» sale de lo que escribiste y de tu despensa. Precios estimados.
       </T>
       <Animated.View style={cartPulse}>
       <Button

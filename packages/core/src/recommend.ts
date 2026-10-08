@@ -11,7 +11,10 @@ export const EQUIPMENT_LABEL: Record<string, string> = {
 };
 
 export interface RecommendInput {
+  /** lo que el usuario ha escrito que tiene ahora: las recetas deben usar algo de ello */
   have: ReadonlySet<string>;
+  /** lo que tiene guardado en su despensa: cuenta como "ya lo tienes", pero no obliga a usarlo */
+  pantry?: ReadonlySet<string>;
   restrictions: Restriction[];
   servings: number;
   budget?: number;
@@ -45,8 +48,9 @@ export function recommend(
   prices: Price[],
   input: RecommendInput,
 ): Recommendation[] {
-  const haveAll = new Set(input.have);
-  if (input.assumeStaples ?? true) STAPLES.forEach((s) => haveAll.add(s));
+  const haveAll = new Set([...input.have, ...(input.pantry ?? [])]);
+  // Sin despensa configurada se asumen los básicos; con despensa, manda la despensa.
+  if (input.assumeStaples ?? !input.pantry) STAPLES.forEach((s) => haveAll.add(s));
   const userGaveIngredients = [...input.have].some((id) => !STAPLES.has(id));
 
   const matches = matchRecipes(recipes, catalog, {
@@ -74,7 +78,7 @@ export function recommend(
     const mayExceedBudget = input.budget !== undefined && cost.toBuy.max > input.budget;
     const totalMinutes = recipe.prepMin + recipe.cookMin;
 
-    const usedFromUser = m.have.filter((id) => input.have.has(id) && !STAPLES.has(id)).length;
+    const usedFromUser = m.have.filter((id) => (input.have.has(id) || input.pantry?.has(id)) && !STAPLES.has(id)).length;
     const required = recipe.ingredients.filter((i) => !i.optional).length;
     const parts: string[] = [];
     if (isAsked) parts.push("es el plato que buscas");
