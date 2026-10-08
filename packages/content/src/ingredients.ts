@@ -22,7 +22,7 @@ const rows: Row[] = [
   ["yogur", "Yogur natural", "dairy", "count", MILK, [], ["unit", 0.25, 0.5]],
   ["patata", "Patatas", "produce", "mass", [], [], ["kg", 1, 1.8]],
   ["cebolla", "Cebolla", "produce", "count", [], ["allium"], ["unit", 0.2, 0.4]],
-  ["ajo", "Ajo (dientes)", "produce", "count", [], ["allium"], ["unit", 0.05, 0.1]],
+  ["ajo", "Dientes de ajo", "produce", "count", [], ["allium"], ["unit", 0.05, 0.1]],
   ["tomate", "Tomate", "produce", "mass", [], [], ["kg", 2, 3.5]],
   ["pimiento", "Pimiento", "produce", "count", [], [], ["unit", 0.5, 0.9]],
   ["zanahoria", "Zanahoria", "produce", "mass", [], [], ["kg", 1, 1.6]],

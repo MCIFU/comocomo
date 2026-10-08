@@ -34,6 +34,11 @@ describe("parseQuery (español)", () => {
   it("intolerancia a la lactosa", () => {
     expect(p("soy intolerante a la lactosa").allergies).toContain("lactose");
   });
+  it("celiaquía y 'sin gluten' son restricciones duras", () => {
+    expect(p("soy celíaco").allergies).toContain("gluten");
+    expect(p("quiero algo sin gluten").allergies).toContain("gluten");
+    expect(p("sin lactosa por favor").allergies).toContain("lactose");
+  });
   it("lo negado no cuenta como posesión", () => {
     const q = p("tengo pollo, sin cebolla");
     expect(q.have).toEqual(["pollo"]);

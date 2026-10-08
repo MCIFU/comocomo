@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "COMOCOMO",
+    "slug": "comocomo",
+    "scheme": "comocomo",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#FBF6EE",
+    "plugins": ["expo-router", "expo-status-bar", "expo-font", "expo-splash-screen"],
+    "android": { "package": "com.comocomo.app" },
+    "web": { "bundler": "metro", "output": "single", "name": "COMOCOMO", "shortName": "COMOCOMO", "description": "Tu cocina, tus ingredientes, tu presupuesto." }
+  }
+}

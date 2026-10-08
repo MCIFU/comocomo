@@ -73,6 +73,11 @@ export function parseQuery(text: string, catalog: Ingredient[]): ParsedQuery {
     if (terms.some((x) => termRegex(x).test(t))) out.equipment.push(id);
   }
 
+  // Condiciones que implican una restricción dura aunque no digan "alergia".
+  // Ante la duda, restringir: es preferible ocultar una receta que sugerir una insegura.
+  if (/(?<![a-z])(celiac[oa]s?|sin gluten)(?![a-z])/.test(t)) out.allergies.push("gluten");
+  if (/(?<![a-z])(sin lactosa|intolerante a la lactosa)(?![a-z])/.test(t)) out.allergies.push("lactose");
+
   // Segmenta por cláusulas y clasifica cada una: alergia / rechazo / posesión
   const clauses = t.split(/[.;\n]|\bpero\b/);
   const matchers = catalog.map((i) => ({
