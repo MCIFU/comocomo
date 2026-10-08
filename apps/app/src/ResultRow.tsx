@@ -1,8 +1,6 @@
 import type { Recommendation } from "@comocomo/core";
 import { formatMinutes, formatMoneyRange, STAPLES } from "@comocomo/core";
-import { useRef } from "react";
 import { Animated, Pressable, StyleSheet, useWindowDimensions, View } from "react-native";
-import { rememberPlate } from "./sharedPlate";
 import { shortName } from "./lib/data";
 import { DIFFICULTY } from "./lib/labels";
 import { useEnter } from "./motion";
@@ -10,11 +8,10 @@ import { RecipePhoto } from "./RecipePhoto";
 import { fonts, usePalette } from "./theme";
 import { Display, T } from "./ui";
 
-export function ResultRow({ rec, index, have, onPress }: { rec: Recommendation; index: number; have?: ReadonlySet<string>; onPress: () => void }) {
+export function ResultRow({ rec, index, onPress }: { rec: Recommendation; index: number; onPress: () => void }) {
   const c = usePalette();
   const compact = useWindowDimensions().width < 520;
   const enter = useEnter(index, rec.baseId);
-  const plateRef = useRef<View>(null);
   const { recipe, cost, missing } = rec;
   // Los básicos (sal, aceite…) se dan por tenidos: listarlos solo añade ruido.
   const owned = rec.have.filter((id) => !STAPLES.has(id));
@@ -26,14 +23,14 @@ export function ResultRow({ rec, index, have, onPress }: { rec: Recommendation; 
       <Pressable
         accessibilityRole="link"
         accessibilityLabel={`${recipe.title}. ${formatMinutes(rec.totalMinutes)}. ${nothingToBuy ? "No necesitas comprar nada" : `Comprar ${toBuy}`}. ${rec.reason}`}
-        onPress={() => rememberPlate(rec.baseId, plateRef.current, onPress)}
+        onPress={onPress}
         style={({ pressed, hovered, focused }: any) => [
           s.row,
           { borderTopColor: c.line, backgroundColor: hovered || focused ? c.crust : "transparent" },
           pressed && { transform: [{ scale: 0.995 }] },
         ]}
       >
-        <RecipePhoto ref={plateRef} recipe={recipe} have={have} width={compact ? 76 : 104} aspect={4 / 5} stamp={compact ? 30 : 38} />
+        <RecipePhoto recipe={recipe} width={compact ? 76 : 104} aspect={4 / 5} />
         <View style={{ flex: 1, gap: 5, minWidth: 0 }}>
           <T tone="muted" style={s.meta} numberOfLines={1}>
             {recipe.origin.replace(/\s*\(adaptado\)/, "")} · {formatMinutes(rec.totalMinutes)} · {DIFFICULTY[recipe.difficulty]}

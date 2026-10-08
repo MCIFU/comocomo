@@ -64,7 +64,6 @@ export default function Cocinar() {
     [allergies, parsed],
   );
 
-  const haveSet = useMemo(() => new Set(have), [have.join()]);
   const results = useMemo(
     () =>
       recommend(recipes, catalog, prices, {
@@ -214,7 +213,6 @@ export default function Cocinar() {
               key={rec.baseId}
               rec={rec}
               index={idx}
-              have={have.length ? haveSet : undefined}
               onPress={() => router.push({ pathname: "/receta/[id]", params: { id: rec.baseId, s: String(eff.servings), h: have.join(",") } })}
             />
           ))

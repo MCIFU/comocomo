@@ -6,7 +6,7 @@ import { Wordmark } from "../src/Logo";
 import { catalog, ingredients, prices, recipes } from "../src/lib/data";
 import { ALLERGY_OPTIONS } from "../src/lib/labels";
 import { useEnter, useReducedMotion } from "../src/motion";
-import { Plate } from "../src/Plate";
+import { RecipePhoto } from "../src/RecipePhoto";
 import { fonts, usePalette } from "../src/theme";
 import { Button, Display, Label, T } from "../src/ui";
 
@@ -198,7 +198,7 @@ function Demo({ size }: { size: number }) {
   const reduced = useReducedMotion();
   const [d, setD] = useState(0);
   const [typed, setTyped] = useState(reduced ? DEMOS[0]!.length : 0);
-  const [pieces, setPieces] = useState(reduced ? 99 : 0);
+  const [shown, setShown] = useState(reduced);
   const text = DEMOS[d]!;
 
   const top = useMemo(() => {
@@ -208,36 +208,35 @@ function Demo({ size }: { size: number }) {
       restrictions: q.dislikes.map((value) => ({ kind: "dislike" as const, value })),
       servings: q.servings ?? 2, budget: q.budget, maxMinutes: q.maxMinutes,
     });
-    return { rec: res[0], have: new Set(q.have) };
+    return { rec: res[0] };
   }, [text]);
 
   useEffect(() => {
     if (reduced) {
       setTyped(text.length);
-      setPieces(99);
+      setShown(true);
       const t = setTimeout(() => setD((x) => (x + 1) % DEMOS.length), 5000);
       return () => clearTimeout(t);
     }
-    // Tecleo → montaje del plato → pausa → siguiente ejemplo
+    // Tecleo → aparece la receta propuesta → pausa → siguiente ejemplo
     if (typed < text.length) {
       const t = setTimeout(() => setTyped((n) => n + 1), 38);
       return () => clearTimeout(t);
     }
-    const total = top.rec?.recipe.ingredients.length ?? 0;
-    if (pieces < total) {
-      const t = setTimeout(() => setPieces((n) => n + 1), pieces === 0 ? 250 : 140);
+    if (!shown) {
+      const t = setTimeout(() => setShown(true), 350);
       return () => clearTimeout(t);
     }
     const t = setTimeout(() => {
       setD((x) => (x + 1) % DEMOS.length);
       setTyped(0);
-      setPieces(0);
-    }, 3200);
+      setShown(false);
+    }, 3800);
     return () => clearTimeout(t);
-  }, [typed, pieces, text, top, reduced]);
+  }, [typed, shown, text, reduced]);
 
   const rec = top.rec;
-  const done = pieces > 0;
+  const done = shown;
   return (
     <View
       accessible
@@ -250,8 +249,9 @@ function Demo({ size }: { size: number }) {
           <T style={{ color: c.tomato, fontFamily: fonts.uiBold }}>{typed < text.length || !reduced ? "▍" : ""}</T>
         </T>
       </View>
-      {rec && <Plate recipe={rec.recipe} have={top.have} size={size} reveal={pieces} />}
-      <View style={{ alignItems: "center", gap: 4, minHeight: 64, opacity: done ? 1 : 0 }}>
+      <View style={{ alignSelf: "stretch", gap: 16, opacity: done ? 1 : 0, transitionProperty: "opacity", transitionDuration: done ? "450ms" : "150ms" } as object}>
+      {rec && <RecipePhoto recipe={rec.recipe} width={size} aspect={4 / 3} radius={14} style={{ alignSelf: "center" }} />}
+      <View style={{ alignItems: "center", gap: 4, minHeight: 64 }}>
         {rec && (
           <>
             <Display size={28} style={{ textAlign: "center" }}>{rec.recipe.title}</Display>
@@ -260,6 +260,7 @@ function Demo({ size }: { size: number }) {
             </T>
           </>
         )}
+      </View>
       </View>
     </View>
   );

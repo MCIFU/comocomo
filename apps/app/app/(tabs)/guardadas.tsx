@@ -44,7 +44,7 @@ export default function Guardadas() {
               })}
             >
               <View style={{ flexDirection: "row", gap: 16, alignItems: "center" }}>
-                <RecipePhoto recipe={r} width={64} aspect={1} stamp={26} />
+                <RecipePhoto recipe={r} width={64} aspect={1} />
                 <View style={{ flex: 1, gap: 4 }}>
                   <T tone="muted" style={{ fontSize: 13 }}>{r.origin.replace(/s*(adaptado)/, "")} · {formatMinutes(r.prepMin + r.cookMin)} · {DIFFICULTY[r.difficulty]}</T>
                   <Display size={23}>{r.title}</Display>
