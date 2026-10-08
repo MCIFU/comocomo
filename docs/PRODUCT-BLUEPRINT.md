@@ -1,4 +1,4 @@
-# COMOCOMO — Product Blueprint
+﻿# COMOCOMO — Product Blueprint
 
 > **Tu cocina, tus ingredientes, tu presupuesto.**
 
@@ -116,7 +116,7 @@ Principios: resultados antes que preguntas · valores por defecto razonables · 
 | IA | **Claude API** desde Edge Functions | Clave solo en servidor; salidas con esquema validado. |
 | Dominio | Paquete TS puro (`packages/core`) | Escalado, matching, precios y lista: testeable e idéntico en Android/Web/servidor. |
 | Imágenes | Supabase Storage + CDN, `expo-image` | Lazy-load, blurhash. |
-| Monorepo | pnpm workspaces | Sencillo; sin Nx/Turbo hasta que haga falta. |
+| Monorepo | npm workspaces | Sin herramientas extra instaladas; migrable a pnpm/Turbo si hace falta. |
 
 **Trade-off:** Expo-web no es lo mejor para SEO de recetas. Si el SEO público se vuelve estratégico, se añade un sitio de recetas con Next.js reutilizando `core` y `design-tokens`; la app autenticada sigue siendo Expo. No se construye ahora.
 
@@ -271,7 +271,7 @@ Una base de código Expo con divergencias deliberadas:
 
 | Hito | Contenido | Salida verificable |
 |---|---|---|
-| **M0** | Monorepo, CI, tokens, esquemas, proyecto Supabase | `pnpm test` verde |
+| **M0** | Monorepo, CI, tokens, esquemas, proyecto Supabase | `npm test` verde |
 | **M1** | `core` + tests (escalado, unidades, coste, matching, lista) | Dominio cubierto |
 | **M2** | Corpus semilla: ~60 recetas / ~200 ingredientes / precios de referencia | Validación en CI |
 | **M3** | Auth + perfil + onboarding | Login en Android y Web |
@@ -294,3 +294,4 @@ Después, V2 en este orden: modo cocinar/temporizadores → despensa → menú s
 1. **Idioma de lanzamiento:** propuesta ES primero, con i18n desde el día 1.
 2. **Origen del corpus:** curado propio (más lento, sin problemas de licencia) vs. licenciar/importar. Propuesta: curado propio + IA como borrador revisado.
 3. **Monetización:** freemium (límites de IA/menús) vs. afiliación con supermercados cuando haya precios reales. No condiciona V1.
+
