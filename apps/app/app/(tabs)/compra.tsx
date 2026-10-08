@@ -47,7 +47,7 @@ export default function Compra() {
           title="Todavía no hay nada que comprar"
           art={<EmptyPlate />}
           body="Añade recetas desde su ficha. Juntamos los ingredientes repetidos y los ordenamos por pasillo."
-          action={<Button label="Buscar qué cocinar" onPress={() => router.push("/")} />}
+          action={<Button label="Buscar qué cocinar" onPress={() => router.push("/cocina")} />}
         />
       ) : (
         <>

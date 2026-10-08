@@ -2,8 +2,10 @@ import { formatMinutes, formatMoneyRange, formatQty, fromBase, recipeCost, round
 import type { RecipeIngredient } from "@comocomo/schemas";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
-import { Pressable, useWindowDimensions, View } from "react-native";
+import { Animated, Pressable, useWindowDimensions, View } from "react-native";
 import { Plate } from "../../src/Plate";
+import { useEnter, usePulse } from "../../src/motion";
+import { useSharedPlate } from "../../src/sharedPlate";
 import { Screen } from "../../src/Screen";
 import { catalog, prices, recipeById, shortName } from "../../src/lib/data";
 import { DIFFICULTY } from "../../src/lib/labels";
@@ -30,12 +32,16 @@ export default function Receta() {
   const [servings, setServings] = useState(Math.min(20, Math.max(1, Number(s) || base?.baseServings || 2)));
   const [added, setAdded] = useState(false);
   const isFav = useStore((st) => st.favorites.includes(String(id)));
+  const shared = useSharedPlate(String(id));
+  // El texto entra justo detrás del plato para que la transición se lea como una sola acción.
+  const textIn = useEnter(shared.animating ? 4 : 0, shared.animating);
   const inCart = useStore((st) => st.cart.some((x) => x.recipeId === String(id)));
+  const cartPulse = usePulse(inCart, 0.04);
 
   if (!base) {
     return (
       <Screen>
-        <Empty title="No encontramos esta receta" body="Puede que se haya retirado del catálogo." action={<Button label="Volver a cocinar" onPress={() => router.replace("/")} />} />
+        <Empty title="No encontramos esta receta" body="Puede que se haya retirado del catálogo." action={<Button label="Volver a cocinar" onPress={() => router.replace("/cocina")} />} />
       </Screen>
     );
   }
@@ -45,7 +51,7 @@ export default function Receta() {
   const have = new Set([...userHave, ...STAPLES]);
   const cost = recipeCost(recipe, prices, have);
   const missingCount = recipe.ingredients.filter((i) => !i.optional && !have.has(i.ingredientId)).length;
-  const back = () => (router.canGoBack() ? router.back() : router.replace("/"));
+  const back = () => (router.canGoBack() ? router.back() : router.replace("/cocina"));
 
   const header = (
     <View style={{ gap: 18 }}>
@@ -68,14 +74,16 @@ export default function Receta() {
       </View>
 
       <View style={{ alignItems: wide ? "flex-start" : "center", gap: 18 }}>
-        <Plate recipe={recipe} have={userHave.length ? have : undefined} size={wide ? 200 : 168} />
-        <View style={{ gap: 8, alignSelf: "stretch" }}>
+        <Animated.View ref={shared.ref as never} onLayout={shared.onLayout} collapsable={false} style={shared.style}>
+          <Plate recipe={recipe} have={userHave.length ? have : undefined} size={wide ? 200 : 168} />
+        </Animated.View>
+        <Animated.View style={[{ gap: 8, alignSelf: "stretch" }, textIn]}>
           <Label tone={recipe.authenticity === "traditional" ? "olive" : "plum"}>
             {recipe.origin.replace(/\s*\(adaptado\)/, "")} · {recipe.authenticity === "traditional" ? "Receta tradicional" : "Adaptación"}
           </Label>
           <Display size={wide ? 46 : 36} style={{ letterSpacing: -1 }}>{recipe.title}</Display>
           {recipe.note && <T tone="muted" style={{ fontSize: 15, lineHeight: 22 }}>{recipe.note}</T>}
-        </View>
+        </Animated.View>
       </View>
 
       <View style={{ flexDirection: "row", flexWrap: "wrap", rowGap: 14, paddingVertical: 16, borderTopWidth: 1, borderBottomWidth: 1, borderColor: c.line }}>
@@ -118,15 +126,17 @@ export default function Receta() {
       <T tone="muted" style={{ fontSize: 12.5, lineHeight: 18 }}>
         Damos por hecho sal, pimienta, aceite, azúcar y vinagre. Precios estimados, no de tienda.
       </T>
+      <Animated.View style={cartPulse}>
       <Button
-        kind="quiet"
-        label={added || inCart ? "En tu lista · ver compra" : `Añadir ${missingCount ? missingCount + " ingredientes " : ""}a la compra`}
+        kind={added || inCart ? "done" : "quiet"}
+        label={added || inCart ? "✓ En tu compra · ver lista" : `Añadir ${missingCount ? missingCount + " ingredientes " : ""}a la compra`}
         onPress={() => {
           if (added || inCart) return router.push("/compra");
           actions.addToCart(base.id, servings);
           setAdded(true);
         }}
       />
+      </Animated.View>
     </View>
   );
 

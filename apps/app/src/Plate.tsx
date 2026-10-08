@@ -12,7 +12,7 @@ function aisleColor(aisle: string, c: Palette) {
     case "produce": return c.olive;
     case "butcher": return c.tomato;
     case "fish": return c.plum;
-    case "dairy": return c.inkMuted;
+    case "dairy": return c.cream;
     case "bakery": return c.saffron;
     default: return c.saffron;
   }
@@ -23,7 +23,7 @@ function aisleColor(aisle: string, c: Palette) {
  * (color = pasillo, tamaño = peso relativo). Relleno = ya lo tienes; contorno = te falta.
  * Sustituye a la fotografía hasta tener una dirección fotográfica real y comunica información.
  */
-export const Plate = memo(function Plate({ recipe, have, size = 72 }: { recipe: Recipe; have?: ReadonlySet<string>; size?: number }) {
+export const Plate = memo(function Plate({ recipe, have, size = 72, reveal }: { recipe: Recipe; have?: ReadonlySet<string>; size?: number; reveal?: number }) {
   const c = usePalette();
   const pieces = useMemo(() => {
     const items = recipe.ingredients
@@ -52,7 +52,8 @@ export const Plate = memo(function Plate({ recipe, have, size = 72 }: { recipe: 
     <Svg width={size} height={size} viewBox={`0 0 ${S} ${S}`}>
       <Circle cx={50} cy={50} r={49} fill={c.crust} />
       <Circle cx={50} cy={50} r={41} fill={c.paper} />
-      {pieces.map((p) => {
+      {/* `reveal` limita cuántas piezas se pintan: permite "montar" el plato pieza a pieza */}
+      {(reveal === undefined ? pieces : pieces.slice(0, reveal)).map((p) => {
         // Sin información de despensa, todo se pinta lleno (vista neutra de la receta).
         const owned = !have || have.has(p.id);
         const col = aisleColor(p.aisle, c);

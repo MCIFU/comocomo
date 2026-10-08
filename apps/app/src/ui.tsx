@@ -32,9 +32,10 @@ export function Label({ children, tone = "muted" }: { children: ReactNode; tone?
 
 export function Button({
   label, onPress, kind = "primary", disabled, style,
-}: { label: string; onPress: () => void; kind?: "primary" | "quiet"; disabled?: boolean; style?: ViewStyle }) {
+}: { label: string; onPress: () => void; kind?: "primary" | "quiet" | "done"; disabled?: boolean; style?: ViewStyle }) {
   const c = usePalette();
   const primary = kind === "primary";
+  const done = kind === "done";
   return (
     <Pressable
       accessibilityRole="button"
@@ -44,16 +45,16 @@ export function Button({
       style={({ pressed, hovered }: any) => [
         s.btn,
         {
-          backgroundColor: primary ? c.tomato : "transparent",
-          borderColor: primary ? c.tomato : c.line,
+          backgroundColor: primary ? c.tomato : done ? c.olive : "transparent",
+          borderColor: primary ? c.tomato : done ? c.olive : c.line,
           opacity: disabled ? 0.45 : 1,
           transform: [{ scale: pressed ? 0.98 : 1 }],
         },
-        hovered && !disabled && { backgroundColor: primary ? c.tomato : c.crust },
+        hovered && !disabled && !done && { backgroundColor: primary ? c.tomato : c.crust },
         style,
       ]}
     >
-      <T style={{ color: primary ? c.onTomato : c.ink, fontFamily: fonts.uiBold }}>{label}</T>
+      <T style={{ color: primary ? c.onTomato : done ? c.paper : c.ink, fontFamily: fonts.uiBold }}>{label}</T>
     </Pressable>
   );
 }

@@ -10,6 +10,8 @@ export const light = {
   saffron: "#8A5A00",
   plum: "#5B2E4A",
   line: "#E0D3BE",
+  /** solo gráfico (lácteos en el plato), no para texto */
+  cream: "#E3C78F",
 } as const;
 
 export const dark = {
@@ -23,6 +25,7 @@ export const dark = {
   saffron: "#F0BE5A",
   plum: "#D8A6C4",
   line: "#3A312B",
+  cream: "#D8BE8A",
 } as const;
 
 export const space = [0, 4, 8, 12, 16, 24, 32, 48, 64] as const;
@@ -33,3 +36,4 @@ export const font = {
   display: "Fraunces",
   ui: "Instrument Sans",
 } as const;
+export * from "./logo";

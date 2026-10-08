@@ -6,9 +6,18 @@
     "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
+    "icon": "./assets/icon.png",
     "backgroundColor": "#FBF6EE",
-    "plugins": ["expo-router", "expo-status-bar", "expo-font", "expo-splash-screen"],
-    "android": { "package": "com.comocomo.app" },
-    "web": { "bundler": "metro", "output": "single", "name": "COMOCOMO", "shortName": "COMOCOMO", "description": "Tu cocina, tus ingredientes, tu presupuesto." }
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-font",
+      ["expo-splash-screen", { "image": "./assets/splash-icon.png", "imageWidth": 160, "backgroundColor": "#FBF6EE", "dark": { "image": "./assets/splash-icon.png", "backgroundColor": "#171311" } }]
+    ],
+    "android": {
+      "package": "com.comocomo.app",
+      "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#FBF6EE" }
+    },
+    "web": { "bundler": "metro", "output": "single", "favicon": "./assets/favicon.png", "name": "COMOCOMO", "shortName": "COMOCOMO", "description": "Tu cocina, tus ingredientes, tu presupuesto." }
   }
 }

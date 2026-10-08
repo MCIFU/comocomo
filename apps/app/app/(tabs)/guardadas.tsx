@@ -28,7 +28,7 @@ export default function Guardadas() {
           title="Aún no has guardado ninguna"
           art={<EmptyPlate />}
           body="Pulsa ♡ Guardar en cualquier receta y la tendrás aquí."
-          action={<Button label="Buscar qué cocinar" onPress={() => router.push("/")} />}
+          action={<Button label="Buscar qué cocinar" onPress={() => router.push("/cocina")} />}
         />
       ) : (
         <View>

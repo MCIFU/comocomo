@@ -1,6 +1,8 @@
 import type { Recommendation } from "@comocomo/core";
 import { formatMinutes, formatMoneyRange, STAPLES } from "@comocomo/core";
+import { useRef } from "react";
 import { Animated, Pressable, StyleSheet, useWindowDimensions, View } from "react-native";
+import { rememberPlate } from "./sharedPlate";
 import { shortName } from "./lib/data";
 import { DIFFICULTY } from "./lib/labels";
 import { useEnter } from "./motion";
@@ -12,6 +14,7 @@ export function ResultRow({ rec, index, have, onPress }: { rec: Recommendation; 
   const c = usePalette();
   const compact = useWindowDimensions().width < 520;
   const enter = useEnter(index, rec.baseId);
+  const plateRef = useRef<View>(null);
   const { recipe, cost, missing } = rec;
   // Los básicos (sal, aceite…) se dan por tenidos: listarlos solo añade ruido.
   const owned = rec.have.filter((id) => !STAPLES.has(id));
@@ -23,14 +26,16 @@ export function ResultRow({ rec, index, have, onPress }: { rec: Recommendation; 
       <Pressable
         accessibilityRole="link"
         accessibilityLabel={`${recipe.title}. ${formatMinutes(rec.totalMinutes)}. ${nothingToBuy ? "No necesitas comprar nada" : `Comprar ${toBuy}`}. ${rec.reason}`}
-        onPress={onPress}
+        onPress={() => rememberPlate(rec.baseId, plateRef.current, onPress)}
         style={({ pressed, hovered, focused }: any) => [
           s.row,
           { borderTopColor: c.line, backgroundColor: hovered || focused ? c.crust : "transparent" },
           pressed && { transform: [{ scale: 0.995 }] },
         ]}
       >
-        <Plate recipe={recipe} have={have} size={compact ? 64 : 88} />
+        <View ref={plateRef} collapsable={false}>
+          <Plate recipe={recipe} have={have} size={compact ? 64 : 88} />
+        </View>
         <View style={{ flex: 1, gap: 5, minWidth: 0 }}>
           <T tone="muted" style={s.meta} numberOfLines={1}>
             {recipe.origin.replace(/\s*\(adaptado\)/, "")} · {formatMinutes(rec.totalMinutes)} · {DIFFICULTY[recipe.difficulty]}

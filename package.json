@@ -2,13 +2,21 @@
   "name": "comocomo",
   "private": true,
   "type": "module",
-  "workspaces": ["packages/*", "apps/*"],
-  "overrides": { "react-native": "0.86.3", "react": "19.2.3", "react-dom": "19.2.3" },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "overrides": {
+    "react-native": "0.86.3",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc --noEmit && npm run typecheck -w @comocomo/app"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "typescript": "^5.6.0",
     "vitest": "^2.1.0"
   }

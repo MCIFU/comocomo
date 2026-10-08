@@ -35,3 +35,23 @@ export function useEnter(index = 0, key?: unknown) {
 }
 
 export const DURATION = motion;
+
+/** Pulso breve (rebote) cada vez que cambia `trigger`. Para confirmar acciones sin bloquear. */
+export function usePulse(trigger: unknown, amount = 0.08) {
+  const reduced = useReducedMotion();
+  const v = useRef(new Animated.Value(0)).current;
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    if (reduced) return;
+    v.setValue(0);
+    Animated.sequence([
+      Animated.timing(v, { toValue: 1, duration: 120, easing: EASE, useNativeDriver: true }),
+      Animated.spring(v, { toValue: 0, friction: 4, tension: 160, useNativeDriver: true }),
+    ]).start();
+  }, [trigger, reduced, v]);
+  return { transform: [{ scale: v.interpolate({ inputRange: [0, 1], outputRange: [1, 1 + amount] }) }] };
+}

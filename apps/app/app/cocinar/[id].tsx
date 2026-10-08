@@ -1,8 +1,9 @@
 import { formatClock, formatMinutes, scaleRecipe } from "@comocomo/core";
 import { useKeepAwake } from "expo-keep-awake";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useEffect, useMemo, useState } from "react";
-import { Platform, Pressable, ScrollView, Vibration, View } from "react-native";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Animated, Platform, Pressable, ScrollView, Vibration, View, type ViewStyle } from "react-native";
+import { EASE, useReducedMotion } from "../../src/motion";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { recipeById, shortName } from "../../src/lib/data";
 import { actions } from "../../src/lib/store";
@@ -75,7 +76,7 @@ export default function Cocinando() {
           <Display size={40}>¡Buen provecho!</Display>
           <T tone="muted">{recipe.title} · {recipe.baseServings} raciones</T>
           <Button label="Volver a la receta" kind="quiet" onPress={() => router.back()} />
-          <Button label="Buscar otra cosa para cocinar" onPress={() => router.replace("/")} />
+          <Button label="Buscar otra cosa para cocinar" onPress={() => router.replace("/cocina")} />
           <Button label="Guardar receta" kind="quiet" onPress={() => { actions.toggleFavorite(recipe.id); router.replace("/guardadas"); }} />
         </View>
       </SafeAreaView>
@@ -116,12 +117,12 @@ export default function Cocinando() {
             <Label tone="tomato">Paso {i + 1} de {recipe.steps.length}</Label>
             <View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: recipe.steps.length, now: i + 1 }} style={{ flexDirection: "row", gap: 4 }}>
               {recipe.steps.map((_, k) => (
-                <View key={k} style={{ flex: 1, height: 4, borderRadius: 2, backgroundColor: k < i || doneSteps.includes(k) ? c.olive : k === i ? c.ink : c.line }} />
+                <Segment key={k} done={k < i || doneSteps.includes(k)} current={k === i} />
               ))}
             </View>
           </View>
 
-          <View style={{ flex: 1, justifyContent: "center", gap: 18, minHeight: 200 }} accessibilityLiveRegion="polite">
+          <StepBody key={i} style={{ flex: 1, justifyContent: "center", gap: 18, minHeight: 200 }}>
             <Display size={32} style={{ fontFamily: fonts.ui, letterSpacing: 0, lineHeight: 42 }}>{step.text}</Display>
             {(step.tempC || step.durationSec) && (
               <T tone="muted" style={{ fontFamily: fonts.uiBold, fontSize: 20 }}>
@@ -129,7 +130,7 @@ export default function Cocinando() {
                 {step.durationSec ? formatMinutes(Math.round(step.durationSec / 60)) : ""}
               </T>
             )}
-          </View>
+          </StepBody>
 
           {step.durationSec ? (
             <View style={{ gap: 10 }}>
@@ -156,5 +157,39 @@ export default function Cocinando() {
         </View>
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+/** Segmento de progreso: al completarse, se llena de verde de izquierda a derecha. */
+function Segment({ done, current }: { done: boolean; current: boolean }) {
+  const c = usePalette();
+  const reduced = useReducedMotion();
+  const fill = useRef(new Animated.Value(done ? 1 : 0)).current;
+  useEffect(() => {
+    if (reduced) return fill.setValue(done ? 1 : 0);
+    Animated.timing(fill, { toValue: done ? 1 : 0, duration: 420, easing: EASE, useNativeDriver: true }).start();
+  }, [done, reduced, fill]);
+  return (
+    <View style={{ flex: 1, height: 5, borderRadius: 3, overflow: "hidden", backgroundColor: current ? c.ink : c.line }}>
+      <Animated.View style={{ position: "absolute", top: 0, bottom: 0, left: 0, right: 0, backgroundColor: c.olive, transformOrigin: "left", transform: [{ scaleX: fill }] }} />
+    </View>
+  );
+}
+
+/** El paso nuevo entra deslizándose desde la derecha; el anterior ya se ha ido. */
+function StepBody({ children, style }: { children: React.ReactNode; style: ViewStyle }) {
+  const reduced = useReducedMotion();
+  const v = useRef(new Animated.Value(reduced ? 1 : 0)).current;
+  useEffect(() => {
+    if (reduced) return;
+    Animated.timing(v, { toValue: 1, duration: 360, easing: EASE, useNativeDriver: true }).start();
+  }, [reduced, v]);
+  return (
+    <Animated.View
+      accessibilityLiveRegion="polite"
+      style={[style, { opacity: v, transform: [{ translateX: v.interpolate({ inputRange: [0, 1], outputRange: [24, 0] }) }] }]}
+    >
+      {children}
+    </Animated.View>
   );
 }
