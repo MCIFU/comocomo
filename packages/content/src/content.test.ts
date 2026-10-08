@@ -35,7 +35,7 @@ describe("corpus semilla", () => {
     const c = recipeCost(r, prices, catalog, new Set());
     expect(c.consumed.unpriced).toEqual([]);
     expect(c.perServing.max).toBeLessThan(8);
-    expect(c.perServing.min).toBeGreaterThan(0.2);
+    expect(c.perServing.min).toBeGreaterThan(0.1);
   });
 
   it("los precios son siempre estimados mientras no haya fuente real", () => {

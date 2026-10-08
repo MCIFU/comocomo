@@ -1,0 +1,55 @@
+// Busca candidatas libres para las recetas sin foto y preselecciona la que mejor coincide con el nombre del plato.
+// Uso: npx vite-node scripts/photo-auto.mjs  → scripts/photo-candidates-3.json
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { recipes } from "../packages/content/src/index.ts";
+
+const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
+const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+// Términos de búsqueda más eficaces que el título en algunos casos
+const QUERY = {
+  "cocido-madrileno": "cocido madrileño", "croquetas-jamon": "croquetas de jamón", "bacalao-pil-pil": "bacalao al pil pil",
+  "merluza-salsa-verde": "merluza en salsa verde", "arroz-al-horno": "arròs al forn", "migas": "migas extremeñas", "pan-con-tomate": "pa amb tomàquet",
+  "potaje-de-vigilia": "potaje de vigilia", "berenjenas-con-miel": "berenjenas con miel", "leche-frita": "leche frita", "frixuelos": "frixuelos",
+  "merluza-a-la-sidra": "merluza a la sidra", "carne-gobernada": "carne gobernada", "chorizo-a-la-sidra": "chorizo a la sidra", "casadielles": "casadielles",
+  "bacalhau-a-bras": "bacalhau à brás", "frango-piri-piri": "frango piri piri", "pasteis-de-nata": "pastel de nata", "lasana-bolonesa": "lasagne bolognese",
+  "espaguetis-vongole": "spaghetti alle vongole", "pollo-cacciatore": "pollo alla cacciatora", "gnocchi-mantequilla": "gnocchi burro", "quiche-lorraine": "quiche lorraine",
+  "sopa-de-cebolla": "soupe à l'oignon", "boeuf-bourguignon": "boeuf bourguignon", "tarta-tatin": "tarte tatin", "mousse-chocolate": "mousse au chocolat",
+  schnitzel: "schnitzel", kartoffelsalat: "kartoffelsalat", apfelstrudel: "apfelstrudel", "cottage-pie": "cottage pie", "desayuno-ingles": "full english breakfast",
+  "crumble-manzana": "apple crumble", gemista: "gemista", fasolada: "fasolada", "mercimek-corbasi": "mercimek çorbası", "imam-bayildi": "imam bayıldı",
+  "tikka-masala": "chicken tikka masala", "korma-pollo": "chicken korma", "biryani-pollo": "chicken biryani", "lassi-mango": "mango lassi",
+  "curry-verde-pollo": "green curry chicken", "tom-yum-gambas": "tom yum goong", "arroz-mango-coco": "mango sticky rice", "pho-bo": "phở bò",
+  "rollitos-vietnamitas": "gỏi cuốn", "chow-mein": "chow mein", "tomate-con-huevo": "tomato egg stir fry", "pollo-almendras": "almond chicken",
+  "katsu-curry": "katsu curry", "kimchi-bokkeumbap": "kimchi fried rice", "satay-pollo": "chicken satay", "adobo-pollo": "chicken adobo",
+  "pozole-rojo": "pozole rojo", "sopa-de-tortilla": "sopa de tortilla", "burritos-ternera": "burrito", "fajitas-pollo": "chicken fajitas",
+  "arroz-mexicano": "arroz rojo mexicano", "tortitas-americanas": "pancakes", "chili-con-carne": "chili con carne", "costillas-bbq": "barbecue ribs",
+  "ensalada-cesar": "caesar salad", "sopa-pollo-fideos": "chicken noodle soup", "picadillo-cubano": "picadillo cubano", "pabellon-criollo": "pabellón criollo",
+  "aji-de-gallina": "ají de gallina", "papa-huancaina": "papa a la huancaína", "pastel-de-choclo": "pastel de choclo", "bobo-gambas": "bobó de camarão",
+  "jollof-rice": "jollof rice", "misir-wot": "misir wot", "pollo-yassa": "chicken yassa", "shawarma-pollo": "chicken shawarma", "cuscus-verduras": "couscous légumes",
+  "tarta-de-queso-vasca": "basque cheesecake", migas: "migas pan", ajoblanco: "ajoblanco", "merluza-a-la-sidra": "merluza sidra Asturias",
+  "carne-gobernada": "carne guisada ternera", focaccia: "focaccia bread", yakisoba: "yakisoba noodles", gyoza: "gyoza dumplings",
+  "arroz-mexicano": "mexican rice", brownies: "chocolate brownie", cheesecake: "new york cheesecake", fattoush: "fattoush salad", "arroz-a-la-cubana": "arroz a la cubana", "crema-de-calabaza": "crema de calabaza",
+};
+const done = new Set(Object.keys(JSON.parse(readFileSync("scripts/photo-candidates.json", "utf8"))).concat(Object.keys(JSON.parse(readFileSync("scripts/photo-candidates-2.json", "utf8")))));
+const out = existsSync("scripts/photo-candidates-3.json") ? JSON.parse(readFileSync("scripts/photo-candidates-3.json", "utf8")) : {};
+for (const r of recipes) {
+  if (done.has(r.id) || out[r.id]) continue;
+  const q = QUERY[r.id] ?? r.title.replace(/\s*\(.*\)/, "");
+  const u = new URL("https://commons.wikimedia.org/w/api.php");
+  Object.entries({ action: "query", generator: "search", gsrsearch: `filetype:bitmap ${q}`, gsrnamespace: "6", gsrlimit: "12", prop: "imageinfo", iiprop: "url|extmetadata|size", iiurlwidth: "960", format: "json" }).forEach(([k, v]) => u.searchParams.set(k, v));
+  const j = await (await fetch(u, { headers: { "User-Agent": "COMOCOMO/0.1 (contacto: mcifuentesramos@gmail.com)" } })).json();
+  const cands = Object.values(j.query?.pages ?? {}).sort((a, b) => a.index - b.index).map((p) => {
+    const i = p.imageinfo[0], m = i.extmetadata ?? {};
+    return { title: p.title, page: i.descriptionurl, thumb: i.thumburl.split("?")[0], w: i.width, h: i.height, license: strip(m.LicenseShortName?.value), author: strip(m.Artist?.value).slice(0, 80) };
+  }).filter((c) => FREE.test(c.license) && c.w >= 700 && c.h >= 500 && /\.jpe?g$/i.test(c.thumb));
+  // Preselección: la primera cuyo nombre de archivo contiene la palabra principal del plato
+  const key = norm(q).split(/\s+/).filter((w) => w.length > 3)[0] ?? norm(q);
+  const best = cands.findIndex((c) => norm(c.title).includes(key));
+  // La preseleccionada va primero para que nunca quede fuera del recorte.
+  const ordered = best > 0 ? [cands[best], ...cands.filter((_, i) => i !== best)] : cands;
+  out[r.id] = { q, pick: 0, cands: ordered.slice(0, 6) };
+  await new Promise((res) => setTimeout(res, 600));
+}
+writeFileSync("scripts/photo-candidates-3.json", JSON.stringify(out, null, 1));
+const none = Object.entries(out).filter(([, v]) => !v.cands.length).map(([k]) => k);
+console.log(Object.keys(out).length, "recetas con búsqueda;", "sin candidatas:", none.join(", ") || "ninguna");

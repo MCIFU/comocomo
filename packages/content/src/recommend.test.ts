@@ -99,7 +99,8 @@ describe("reloj", () => {
 
 describe("compra realista (envases completos)", () => {
   it("lo que pagas en el súper nunca es menor que lo que consumes", () => {
-    for (const x of run("")) expect(x.cost.toBuy.min).toBeGreaterThanOrEqual(x.cost.consumed.min - 1e-9 - 0); // sin despensa: compras todo
+    // Sin básicos asumidos se compra todo: lo que pagas nunca es menor que lo que consumes.
+    for (const x of run("", { assumeStaples: false })) expect(x.cost.toBuy.min).toBeGreaterThanOrEqual(x.cost.consumed.min - 1e-9);
   });
   it("una receta con tomate triturado compra el bote entero", () => {
     const pisto = run("").find((x) => x.baseId === "pisto-con-huevo")!;

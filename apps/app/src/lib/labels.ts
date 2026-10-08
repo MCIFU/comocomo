@@ -7,15 +7,19 @@ export const CUISINE_LABEL: Record<string, string> = {
   india: "India", japonesa: "Japón", argentina: "Argentina", turca: "Turquía", tailandesa: "Tailandia",
   peruana: "Perú", griega: "Grecia", coreana: "Corea", marroqui: "Marruecos", "oriente-medio": "Oriente Medio",
   francesa: "Francia", estadounidense: "EE. UU.", brasilena: "Brasil", vietnamita: "Vietnam",
+  alemana: "Alemania", britanica: "Reino Unido", portuguesa: "Portugal", indonesia: "Indonesia", filipina: "Filipinas",
+  cubana: "Cuba", colombiana: "Colombia", venezolana: "Venezuela", chilena: "Chile",
+  nigeriana: "Nigeria", etiope: "Etiopía", senegalesa: "Senegal", sudafricana: "Sudáfrica",
 };
 
 /** Pegatinas de la portada: agrupan cocinas para no tener 15 botones. */
 export const REGION_FILTERS: { key: string; label: string; cuisines: string[] }[] = [
   { key: "espana", label: "España", cuisines: ["espanola", "asturiana"] },
   { key: "italia", label: "Italia", cuisines: ["italiana"] },
-  { key: "asia", label: "Asia", cuisines: ["japonesa", "china", "coreana", "tailandesa", "india", "vietnamita"] },
-  { key: "america", label: "América", cuisines: ["mexicana", "peruana", "argentina", "brasilena", "estadounidense"] },
-  { key: "mundo", label: "Europa y Mediterráneo", cuisines: ["francesa", "griega", "turca", "marroqui", "oriente-medio"] },
+  { key: "europa", label: "Europa", cuisines: ["francesa", "alemana", "britanica", "portuguesa", "griega", "turca"] },
+  { key: "asia", label: "Asia", cuisines: ["japonesa", "china", "coreana", "tailandesa", "india", "vietnamita", "indonesia", "filipina"] },
+  { key: "america", label: "América", cuisines: ["mexicana", "estadounidense", "cubana", "colombiana", "venezolana", "peruana", "argentina", "chilena", "brasilena"] },
+  { key: "africa", label: "África y Oriente Medio", cuisines: ["marroqui", "oriente-medio", "nigeriana", "etiope", "senegalesa", "sudafricana"] },
 ];
 
 /** Filtros rápidos: tiempo y restricciones habituales. Las alergias se aplican en código, siempre. */
