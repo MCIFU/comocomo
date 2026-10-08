@@ -1,4 +1,4 @@
-export const DIFFICULTY: Record<string, string> = { easy: "Fácil", medium: "Media", hard: "Difícil" };
+﻿export const DIFFICULTY: Record<string, string> = { easy: "Fácil", medium: "Media", hard: "Difícil" };
 
 /** Alergias/intolerancias que se pueden fijar desde la app. value = alérgeno del catálogo. */
 export const ALLERGY_OPTIONS = [
@@ -9,6 +9,10 @@ export const ALLERGY_OPTIONS = [
   { value: "fish", label: "Pescado" },
   { value: "nuts", label: "Frutos secos" },
   { value: "soy", label: "Soja" },
+  { value: "peanut", label: "Cacahuete" },
+  { value: "sesame", label: "Sésamo" },
+  { value: "mollusc", label: "Moluscos" },
+  { value: "sulfites", label: "Sulfitos" },
 ] as const;
 
 export const EQUIPMENT_OPTIONS = [
@@ -19,3 +23,4 @@ export const EQUIPMENT_OPTIONS = [
 ] as const;
 
 export const QUICK_INGREDIENTS = ["pollo", "arroz", "huevo", "patata", "pasta", "tomate", "queso", "lentejas"];
+

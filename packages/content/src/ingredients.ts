@@ -58,6 +58,19 @@ const rows: Row[] = [
   ["pimienta", "Pimienta negra", "pantry", "mass", [], [], ["kg", 15, 30]],
   ["pan", "Pan (del día anterior)", "bakery", "mass", ["gluten"], [], ["kg", 2.5, 4]],
   ["tortilla-maiz", "Tortillas de maíz", "bakery", "count", [], [], ["unit", 0.08, 0.15]],
+  // — lote 2 —
+  ["oregano", "Orégano seco", "pantry", "mass", [], [], ["kg", 15, 30]],
+  ["calamares", "Calamares", "fish", "mass", ["mollusc"], ["seafood"], ["kg", 8, 14]],
+  ["champinones", "Champiñones", "produce", "mass", [], [], ["kg", 4, 7]],
+  ["pepino", "Pepino", "produce", "mass", [], [], ["kg", 1.5, 2.5]],
+  ["feta", "Queso feta", "dairy", "mass", MILK, [], ["kg", 8, 14]],
+  ["aceitunas", "Aceitunas", "pantry", "mass", [], [], ["kg", 4, 8]],
+  ["pan-pita", "Pan de pita", "bakery", "count", ["gluten"], [], ["unit", 0.3, 0.6]],
+  ["cuscus", "Cuscús", "pantry", "mass", ["gluten"], [], ["kg", 2, 3.5]],
+  ["garbanzos-cocidos", "Garbanzos cocidos (bote)", "pantry", "mass", [], [], ["kg", 1.5, 2.5]],
+  ["sesamo", "Semillas de sésamo", "pantry", "mass", ["sesame"], [], ["kg", 8, 14]],
+  ["cacahuetes", "Cacahuetes", "pantry", "mass", ["peanut", "nuts"], [], ["kg", 5, 9]],
+  ["pasta-curry-rojo", "Pasta de curry rojo (suele llevar pasta de gamba)", "pantry", "mass", ["shellfish"], [], ["kg", 12, 20]],
 ];
 
 const ALIASES: Record<string, string[]> = {
@@ -88,6 +101,17 @@ const ALIASES: Record<string, string[]> = {
   panceta: ["bacon", "beicon", "tocino"],
   calabacin: ["calabacines"],
   espinacas: ["espinaca"],
+  oregano: ["oregano"],
+  calamares: ["calamar", "chipirones", "chipiron"],
+  champinones: ["champinon", "setas"],
+  pepino: ["pepinos"],
+  feta: ["queso feta"],
+  aceitunas: ["aceituna", "olivas"],
+  "pan-pita": ["pita", "pan arabe"],
+  cuscus: ["couscous", "cous cous"],
+  "garbanzos-cocidos": ["garbanzos cocidos", "bote de garbanzos"],
+  sesamo: ["ajonjoli"],
+  cacahuetes: ["cacahuete", "mani"],
 };
 
 export const ingredients: Ingredient[] = rows.map(([id, name, aisle, unitKind, allergens, tags]) => ({

@@ -1,15 +1,5 @@
-import type { Recipe, UnitId } from "@comocomo/schemas";
-
-// Helpers de escritura para mantener las recetas legibles.
-const I = (ingredientId: string, qty: number, unit: UnitId, optional = false) => ({ ingredientId, qty, unit, optional });
-const S = (text: string, min?: number, tempC?: number) => ({
-  text,
-  ...(min ? { durationSec: min * 60 } : {}),
-  ...(tempC ? { tempC } : {}),
-});
-
-type R = Omit<Recipe, "equipment"> & { equipment?: string[] };
-const r = (x: R): Recipe => ({ equipment: [], ...x });
+import type { Recipe } from "@comocomo/schemas";
+import { I, r, S } from "./helpers";
 
 /**
  * Corpus semilla (lote 1). Recetas escritas para COMOCOMO, usando como guía de

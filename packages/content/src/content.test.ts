@@ -50,3 +50,22 @@ describe("corpus semilla", () => {
     expect(catalog.get("leche")!.allergens).toContain("lactose");
   });
 });
+
+describe("seguridad: alérgenos en todo el corpus", () => {
+  const allergens = [...new Set(ingredients.flatMap((i) => i.allergens))];
+  it.each(allergens)("con alergia a %s nunca se recomienda una receta que lo contenga", async (a) => {
+    const { recommend } = await import("@comocomo/core");
+    const res = recommend(recipes, catalog, prices, {
+      have: new Set(), restrictions: [{ kind: "allergy", value: a }], servings: 2,
+    });
+    for (const x of res) {
+      for (const ri of x.recipe.ingredients) expect(catalog.get(ri.ingredientId)!.allergens, `${x.baseId}/${ri.ingredientId}`).not.toContain(a);
+    }
+  });
+  it("cada alérgeno del catálogo se puede declarar desde la app o el texto libre", async () => {
+    const { parseQuery } = await import("@comocomo/core");
+    for (const [text, expected] of [["alergico al sesamo", "sesame"], ["alergia a los cacahuetes", "peanut"], ["alergico a los moluscos", "mollusc"]] as const) {
+      expect(parseQuery(text, ingredients).allergies).toContain(expected);
+    }
+  });
+});

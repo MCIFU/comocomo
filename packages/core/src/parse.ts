@@ -34,6 +34,9 @@ const ALLERGEN_TERMS: Record<string, string[]> = {
   fish: ["pescado", "pescados"],
   nuts: ["frutos secos", "cacahuetes"],
   soy: ["soja"],
+  sesame: ["sesamo", "ajonjoli"],
+  mollusc: ["molusco", "moluscos", "calamar", "calamares", "pulpo", "mejillones"],
+  peanut: ["cacahuete", "cacahuetes", "mani"],
 };
 
 const NEG = /\b(no me gusta(?:n)?|no quiero|no como|sin|odio|no soporto|evitar)\b/;
