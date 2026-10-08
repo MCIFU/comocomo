@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { dark, light } from "./index";
+import { mercado as t } from "./index";
 
 function lum(hex: string) {
   const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((v) =>
@@ -12,21 +12,20 @@ const ratio = (a: string, b: string) => {
   return (hi! + 0.05) / (lo! + 0.05);
 };
 
-describe.each([
-  ["light", light],
-  ["dark", dark],
-])("contraste AA (%s)", (_n, t) => {
-  it("texto sobre fondo y superficie", () => {
-    expect(ratio(t.ink, t.paper)).toBeGreaterThanOrEqual(4.5);
-    expect(ratio(t.ink, t.crust)).toBeGreaterThanOrEqual(4.5);
-    expect(ratio(t.inkMuted, t.paper)).toBeGreaterThanOrEqual(4.5);
+describe("contraste AA (Mercado)", () => {
+  it("texto sobre fondo, superficie y tarjeta", () => {
+    for (const bg of [t.paper, t.crust, t.card]) {
+      expect(ratio(t.ink, bg)).toBeGreaterThanOrEqual(4.5);
+      expect(ratio(t.inkMuted, bg)).toBeGreaterThanOrEqual(4.5);
+    }
   });
-  it("botón primario", () => {
+  it("texto claro sobre el bloque rojo", () => {
     expect(ratio(t.onTomato, t.tomato)).toBeGreaterThanOrEqual(4.5);
   });
-  it("colores semánticos legibles sobre fondo", () => {
-    for (const k of ["olive", "saffron", "tomato"] as const) {
-      expect(ratio(t[k], t.paper), k).toBeGreaterThanOrEqual(4.5);
-    }
+  it("tinta sobre las pegatinas de color", () => {
+    for (const k of ["mustard", "sky", "pink", "mint", "cream"] as const) expect(ratio(t.ink, t[k]), k).toBeGreaterThanOrEqual(4.5);
+  });
+  it("colores de estado legibles como texto", () => {
+    for (const k of ["olive", "saffron", "tomato", "plum"] as const) expect(ratio(t[k], t.paper), k).toBeGreaterThanOrEqual(4.5);
   });
 });

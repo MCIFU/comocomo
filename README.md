@@ -6,9 +6,10 @@ Asistente de cocina para Android y Web: dime cuántos sois, cuánto quieres gast
 
 ## Estado
 
-M0 y M1 completados: monorepo, CI, tokens de diseño (con test de contraste AA), esquemas y lógica de dominio (unidades, escalado, coste, lista de la compra, matching con restricciones de seguridad). App Expo (web + Android) con búsqueda en lenguaje natural, recetas, modo cocinar con temporizadores y lista de la compra. Datos locales; falta cuenta y sincronización (Supabase).
+App Expo (web + Android) con diseño «Mercado»: buscas un plato y ves la receta paso a paso, los ingredientes para las personas que elijas y un ticket con lo que cuesta comprarlo (envases completos). Lista de la compra, guardadas y modo cocinar con temporizadores. Datos locales; falta cuenta y sincronización (Supabase).
 
 - [Product Blueprint](docs/PRODUCT-BLUEPRINT.md)
+- Maquetas de las tres direcciones de diseño: `docs/mockups/disenos/`
 
 ## Stack propuesto
 

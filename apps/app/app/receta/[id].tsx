@@ -1,16 +1,17 @@
-import { formatMinutes, formatMoney, formatQty, fromBase, recipeCost, roundNice, scaleRecipe, toBase } from "@comocomo/core";
+import { formatMinutes, formatMoney, formatQty, fromBase, roundNice, scaleRecipe, shoppingPrice, toBase, BASICS } from "@comocomo/core";
 import type { RecipeIngredient } from "@comocomo/schemas";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import { Animated, Pressable, useWindowDimensions, View } from "react-native";
-import { useEnter, usePulse } from "../../src/motion";
 import { PhotoCredit, RecipePhoto } from "../../src/RecipePhoto";
 import { Screen } from "../../src/Screen";
+import { Ticket, TicketCenter, TicketLine, TicketRule } from "../../src/Ticket";
 import { catalog, prices, recipeById, shortName } from "../../src/lib/data";
-import { DIFFICULTY, pluralPack } from "../../src/lib/labels";
+import { CUISINE_LABEL, DIFFICULTY, pluralPack } from "../../src/lib/labels";
 import { actions, useStore } from "../../src/lib/store";
-import { fonts, usePalette } from "../../src/theme";
-import { Button, Display, Empty, Label, Rule, Stepper, T } from "../../src/ui";
+import { useEnter, usePulse } from "../../src/motion";
+import { fonts, radius, stroke, usePalette } from "../../src/theme";
+import { Button, Display, Empty, Label, Pop, Stepper, T } from "../../src/ui";
 
 /** Cantidad en una unidad cómoda (kg/l a partir de 1000). */
 function displayQty(ri: RecipeIngredient) {
@@ -27,176 +28,147 @@ export default function Receta() {
   const router = useRouter();
   const { width } = useWindowDimensions();
   const wide = width >= 1024;
-  const { id, s, h } = useLocalSearchParams<{ id: string; s?: string; h?: string }>();
+  const { id } = useLocalSearchParams<{ id: string }>();
   const base = recipeById.get(String(id));
-  const [servings, setServings] = useState(Math.min(20, Math.max(1, Number(s) || base?.baseServings || 2)));
+  const servings = useStore((s) => s.servings);
+  const isFav = useStore((s) => s.favorites.includes(String(id)));
+  const inCart = useStore((s) => s.cart.some((x) => x.recipeId === String(id)));
   const [added, setAdded] = useState(false);
-  const isFav = useStore((st) => st.favorites.includes(String(id)));
-  // El texto entra justo detrás del plato para que la transición se lea como una sola acción.
-  const textIn = useEnter(2);
-  const photoIn = useEnter(0);
-  const pantry = useStore((st) => st.pantry);
-  const inCart = useStore((st) => st.cart.some((x) => x.recipeId === String(id)));
   const cartPulse = usePulse(inCart, 0.04);
+  const enter = useEnter(0);
+  const ticketIn = useEnter(2);
 
   if (!base) {
     return (
       <Screen>
-        <Empty title="No encontramos esta receta" body="Puede que se haya retirado del catálogo." action={<Button label="Volver a cocinar" onPress={() => router.replace("/cocina")} />} />
+        <Empty title="No encontramos esta receta" body="Puede que se haya retirado del catálogo." action={<Button label="Ver recetas" onPress={() => router.replace("/")} />} />
       </Screen>
     );
   }
 
   const recipe = scaleRecipe(base, servings);
-  const userHave = h ? String(h).split(",").filter(Boolean) : [];
-  const have = new Set([...userHave, ...pantry]);
-  const cost = recipeCost(recipe, prices, catalog, have);
-  const buyLine = new Map(cost.toBuy.lines.map((l) => [l.ingredientId, l]));
-  const missingCount = recipe.ingredients.filter((i) => !i.optional && !have.has(i.ingredientId)).length;
-  const back = () => (router.canGoBack() ? router.back() : router.replace("/cocina"));
+  const price = shoppingPrice(base, servings, prices, catalog);
+  const lines = new Map(price.lines.map((l) => [l.ingredientId, l]));
+  const title = recipe.title.replace(/\s*\(.*\)/, "");
+  const back = () => (router.canGoBack() ? router.back() : router.replace("/"));
+  const start = () => router.push({ pathname: "/cocinar/[id]", params: { id: base.id, s: String(servings) } });
+  const mainW = wide ? Math.min(width - 64, 1240) * 0.6 - 40 : width - 32 - 8 - 6;
 
-  const header = (
-    <View style={{ gap: 18 }}>
-      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-        <Pressable accessibilityRole="link" onPress={back} style={({ pressed }) => ({ minHeight: 44, justifyContent: "center", opacity: pressed ? 0.6 : 1 })}>
-          <T style={{ fontFamily: fonts.uiBold }}>← Volver</T>
-        </Pressable>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: isFav }}
-          accessibilityLabel={isFav ? "Quitar de guardadas" : "Guardar receta"}
-          onPress={() => actions.toggleFavorite(base.id)}
-          style={({ pressed, hovered }: any) => ({
-            minHeight: 44, paddingHorizontal: 14, borderRadius: 999, borderWidth: 1, justifyContent: "center",
-            borderColor: isFav ? c.tomato : c.line, backgroundColor: isFav ? c.tomato : hovered ? c.crust : "transparent", opacity: pressed ? 0.7 : 1,
-          })}
-        >
-          <T style={{ fontFamily: fonts.uiBold, fontSize: 14, color: isFav ? c.onTomato : c.ink }}>{isFav ? "♥ Guardada" : "♡ Guardar"}</T>
-        </Pressable>
-      </View>
-
-      <View style={{ alignItems: wide ? "flex-start" : "center", gap: 18 }}>
-        <Animated.View style={[{ alignSelf: "stretch", gap: 8 }, photoIn]}>
-          <RecipePhoto recipe={recipe} width={wide ? 420 : Math.min(width - 32, 720)} aspect={16 / 11} radius={12} />
-          <PhotoCredit recipeId={recipe.id} />
-        </Animated.View>
-        <Animated.View style={[{ gap: 8, alignSelf: "stretch" }, textIn]}>
-          <Label tone={recipe.authenticity === "traditional" ? "olive" : "plum"}>
-            {recipe.origin.replace(/\s*\(adaptado\)/, "")} · {recipe.authenticity === "traditional" ? "Receta tradicional" : "Adaptación"}
-          </Label>
-          <Display size={wide ? 46 : 36} style={{ letterSpacing: -1 }}>{recipe.title}</Display>
-          {recipe.note && <T tone="muted" style={{ fontSize: 15, lineHeight: 22 }}>{recipe.note}</T>}
-        </Animated.View>
-      </View>
-
-      <View style={{ flexDirection: "row", flexWrap: "wrap", rowGap: 14, paddingVertical: 16, borderTopWidth: 1, borderBottomWidth: 1, borderColor: c.line }}>
-        <Fact k="Tiempo" v={formatMinutes(recipe.prepMin + recipe.cookMin)} />
-        <Fact k="Dificultad" v={DIFFICULTY[recipe.difficulty]!} />
-        <Fact k="En el súper" v={missingCount === 0 ? "Nada" : formatMoney(cost.toBuy.min, cost.toBuy.max)} accent={missingCount === 0 ? c.olive : undefined} />
-        <Fact k="Por ración" v={formatMoney(cost.perServing.min, cost.perServing.max)} />
-      </View>
+  const topBar = (
+    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+      <Pressable accessibilityRole="link" onPress={back} style={({ pressed }) => ({ minHeight: 44, justifyContent: "center", opacity: pressed ? 0.6 : 1 })}>
+        <T style={{ fontFamily: fonts.uiBold }}>← Recetas</T>
+      </Pressable>
+      <Button kind={isFav ? "primary" : "quiet"} label={isFav ? "♥ Guardada" : "♡ Guardar"} onPress={() => actions.toggleFavorite(base.id)} accessibilityLabel={isFav ? "Quitar de guardadas" : "Guardar receta"} />
     </View>
   );
 
-  const ingredients = (
-    <View style={{ gap: 12 }}>
-      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-        <View style={{ gap: 2 }}>
-          <Label>Ingredientes</Label>
-          <T tone="muted" style={{ fontSize: 13 }}>{missingCount === 0 ? "Tienes todo" : `Te faltan ${missingCount}`}</T>
+  const main = (
+    <Animated.View style={enter}>
+      <Pop r={radius.xl} offset={8} inner={{ backgroundColor: c.card }}>
+        <View style={{ borderBottomWidth: stroke.width, borderColor: c.ink }}>
+          <RecipePhoto recipe={recipe} width={mainW} aspect={16 / 10} radius={0} />
         </View>
-        <View style={{ alignItems: "flex-end", gap: 4 }}>
-          <Stepper label="raciones" value={servings} onChange={setServings} max={20} />
-          <T tone="muted" style={{ fontSize: 12 }}>{servings} {servings === 1 ? "ración" : "raciones"}</T>
-        </View>
-      </View>
-      <View accessibilityRole="list">
-        {recipe.ingredients.map((ri) => {
-          const got = have.has(ri.ingredientId);
-          const buy = buyLine.get(ri.ingredientId);
-          return (
-            <View key={ri.ingredientId} accessibilityRole="text" style={{ flexDirection: "row", gap: 12, paddingVertical: 10, alignItems: "center", borderTopWidth: 1, borderTopColor: c.line }}>
-              <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: got ? c.olive : "transparent", borderWidth: 2, borderColor: got ? c.olive : c.saffron }} />
-              <View style={{ flex: 1 }}>
-                <T>
-                  {shortName(ri.ingredientId)}
-                  {ri.optional ? <T tone="muted"> · opcional</T> : null}
-                </T>
-                {buy?.packs && (
-                  <T tone="muted" style={{ fontSize: 12.5, lineHeight: 17 }}>
-                    {buy.packs} {pluralPack(buy.packLabel!, buy.packs)} · {formatMoney(buy.cost.min, buy.cost.max)}
-                  </T>
-                )}
+        <View style={{ padding: wide ? 32 : 20, gap: 14 }}>
+          <Label>{CUISINE_LABEL[recipe.cuisine] ?? recipe.origin} · {recipe.authenticity === "traditional" ? "Receta tradicional" : "Adaptación"}</Label>
+          <Display size={wide ? 64 : 40}>{title}</Display>
+          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
+            {[`⏱ ${formatMinutes(recipe.prepMin + recipe.cookMin)}`, DIFFICULTY[recipe.difficulty]!, `${recipe.steps.length} pasos`].map((m) => (
+              <View key={m} style={{ borderWidth: 2, borderColor: c.ink, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 3 }}>
+                <T style={{ fontFamily: fonts.uiBold, fontSize: 15 }}>{m}</T>
               </View>
-              <T style={{ fontVariant: ["tabular-nums"], fontFamily: fonts.uiMedium }}>{displayQty(ri)}</T>
-              <T tone={got ? "olive" : "saffron"} style={{ width: 66, fontSize: 12.5, textAlign: "right", fontFamily: fonts.uiBold }}>{got ? "Tienes" : "Comprar"}</T>
-            </View>
-          );
-        })}
-      </View>
-      <T tone="muted" style={{ fontSize: 12.5, lineHeight: 18 }}>
-        «En el súper» es lo que pagas por lo que te falta, con envases completos. «Por ración» es lo que cuesta lo que te comes. Lo marcado como «Tienes» sale de lo que escribiste y de tu despensa. Precios estimados.
-      </T>
-      <Animated.View style={cartPulse}>
-      <Button
-        kind={added || inCart ? "done" : "quiet"}
-        label={added || inCart ? "✓ En tu compra · ver lista" : `Añadir ${missingCount ? missingCount + " ingredientes " : ""}a la compra`}
-        onPress={() => {
-          if (added || inCart) return router.push("/compra");
-          actions.addToCart(base.id, servings);
-          setAdded(true);
-        }}
-      />
-      </Animated.View>
-    </View>
+            ))}
+          </View>
+          {recipe.note && <T tone="muted" style={{ fontSize: 16, lineHeight: 24 }}>{recipe.note}</T>}
+          <PhotoCredit recipeId={recipe.id} />
+        </View>
+      </Pop>
+    </Animated.View>
   );
-
-  const startButton = <Button label="Empezar a cocinar  →" onPress={() => router.push({ pathname: "/cocinar/[id]", params: { id: base.id, s: String(servings) } })} />;
 
   const steps = (
-    <View style={{ gap: 20 }}>
-      <View style={{ flexDirection: "row", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
-        <View style={{ gap: 2 }}>
-          <Label>Preparación</Label>
-          <T tone="muted" style={{ fontSize: 13 }}>{recipe.steps.length} pasos · {formatMinutes(recipe.prepMin + recipe.cookMin)}</T>
-        </View>
+    <View style={{ gap: 6 }}>
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 8 }}>
+        <Display size={wide ? 36 : 30}>Cómo se hace</Display>
+        {wide && <Button label="Empezar a cocinar →" onPress={start} />}
       </View>
-      {wide && startButton}
-      <View>
-        {recipe.steps.map((st, i) => (
-          <View key={i} style={{ flexDirection: "row", gap: 18, paddingVertical: 18, borderTopWidth: 1, borderTopColor: c.line }}>
-            <T numberOfLines={1} style={{ width: 46, color: c.tomato, fontFamily: fonts.displayBold, fontSize: 28, lineHeight: 30, fontVariant: ["tabular-nums"] }}>{String(i + 1).padStart(2, "0")}</T>
-            <View style={{ flex: 1, gap: 8 }}>
-              <T style={{ fontSize: 17, lineHeight: 26 }}>{st.text}</T>
-              {(st.durationSec || st.tempC) && (
-                <View style={{ flexDirection: "row", gap: 8 }}>
-                  {st.tempC ? <Pill text={`${st.tempC} °C`} /> : null}
-                  {st.durationSec ? <Pill text={formatMinutes(Math.round(st.durationSec / 60))} /> : null}
-                </View>
-              )}
-            </View>
+      {recipe.steps.map((st, i) => (
+        <View key={i} style={{ flexDirection: "row", gap: 14, paddingVertical: 16, borderTopWidth: 2, borderStyle: "dashed", borderColor: c.line }}>
+          <View style={{ width: 42, height: 42, borderRadius: 21, backgroundColor: c.tomato, borderWidth: 2.5, borderColor: c.ink, alignItems: "center", justifyContent: "center" }}>
+            <T style={{ color: c.onTomato, fontFamily: fonts.display, fontSize: 18, lineHeight: 22 }}>{i + 1}</T>
           </View>
-        ))}
-      </View>
+          <View style={{ flex: 1, gap: 8 }}>
+            <T style={{ fontSize: 18, lineHeight: 27 }}>{st.text}</T>
+            {(st.durationSec || st.tempC) && (
+              <View style={{ flexDirection: "row", gap: 8 }}>
+                {st.tempC ? <Pill text={`${st.tempC} °C`} bg={c.pink} /> : null}
+                {st.durationSec ? <Pill text={`⏱ ${formatMinutes(Math.round(st.durationSec / 60))}`} bg={c.mustard} /> : null}
+              </View>
+            )}
+          </View>
+        </View>
+      ))}
     </View>
+  );
+
+  const ticket = (
+    <Animated.View style={[{ gap: 18 }, ticketIn]}>
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+        <Label>Para</Label>
+        <Stepper label="personas" unit={servings === 1 ? "persona" : "personas"} value={servings} onChange={actions.setServings} max={20} />
+      </View>
+      <Ticket label={`Lista de la compra de ${title} para ${servings} personas`}>
+        <TicketCenter>COMOCOMO</TicketCenter>
+        <TicketCenter muted>{title.toUpperCase()}{"\n"}{servings} {servings === 1 ? "PERSONA" : "PERSONAS"}</TicketCenter>
+        <TicketRule />
+        {recipe.ingredients.map((ri) => {
+          const l = lines.get(ri.ingredientId);
+          const basic = BASICS.has(ri.ingredientId);
+          return (
+            <TicketLine
+              key={ri.ingredientId}
+              left={`${shortName(ri.ingredientId)}${ri.optional ? " (opc.)" : ""}`}
+              right={displayQty(ri)}
+              sub={basic ? "básico de casa" : l?.packs ? `${l.packs} ${pluralPack(l.packLabel!, l.packs)} · ${formatMoney(l.cost.min, l.cost.max)}` : l ? `a granel · ${formatMoney(l.cost.min, l.cost.max)}` : undefined}
+            />
+          );
+        })}
+        <TicketRule />
+        <TicketLine left="TOTAL" right={formatMoney(price.min, price.max)} strong />
+        <TicketLine left="Por persona" right={formatMoney(price.min / servings, price.max / servings)} />
+        <View style={{ height: 10 }} />
+        <TicketCenter muted>Aprox. · envases completos{"\n"}sin sal, aceite ni especias básicas</TicketCenter>
+      </Ticket>
+      <Animated.View style={cartPulse}>
+        <Button
+          kind={added || inCart ? "done" : "mustard"}
+          label={added || inCart ? "✓ En tu lista · ver lista" : "Añadir a mi lista de la compra"}
+          onPress={() => {
+            if (added || inCart) return router.push("/compra");
+            actions.addToCart(base.id, servings);
+            setAdded(true);
+          }}
+        />
+      </Animated.View>
+    </Animated.View>
   );
 
   return (
-    <Screen wide={wide} edges={["top", "bottom"]} footer={wide ? undefined : startButton}>
-      <Stack.Screen options={{ title: `${recipe.title} · COMOCOMO` }} />
+    <Screen wide={wide} edges={["top", "bottom"]} footer={wide ? undefined : <Button label="Empezar a cocinar →" onPress={start} />}>
+      <Stack.Screen options={{ title: `${title} · COMOCOMO` }} />
+      {topBar}
       {wide ? (
-        <View style={{ flexDirection: "row", gap: 64, alignItems: "flex-start" }}>
-          <View style={{ width: 420, gap: 28, position: "sticky", top: 24 } as object}>
-            {header}
-            {ingredients}
+        <View style={{ flexDirection: "row", gap: 40, alignItems: "flex-start" }}>
+          <View style={{ flex: 1.5, gap: 40 }}>
+            {main}
+            {steps}
           </View>
-          <View style={{ flex: 1, paddingTop: 60 }}>{steps}</View>
+          <View style={{ flex: 1, position: "sticky", top: 24 } as object}>{ticket}</View>
         </View>
       ) : (
         <>
-          {header}
-          {ingredients}
-          <Rule />
+          {main}
+          {ticket}
           {steps}
         </>
       )}
@@ -204,20 +176,11 @@ export default function Receta() {
   );
 }
 
-function Fact({ k, v, accent }: { k: string; v: string; accent?: string }) {
-  return (
-    <View style={{ gap: 2, width: "50%" }}>
-      <Label>{k}</Label>
-      <T style={{ fontFamily: fonts.uiBold, fontSize: 19, lineHeight: 25, fontVariant: ["tabular-nums"], color: accent }}>{v}</T>
-    </View>
-  );
-}
-
-function Pill({ text }: { text: string }) {
+function Pill({ text, bg }: { text: string; bg: string }) {
   const c = usePalette();
   return (
-    <View style={{ paddingHorizontal: 10, paddingVertical: 3, borderRadius: 999, backgroundColor: c.crust }}>
-      <T style={{ fontSize: 13, lineHeight: 18, fontFamily: fonts.uiBold, fontVariant: ["tabular-nums"] }}>{text}</T>
+    <View style={{ paddingHorizontal: 10, paddingVertical: 2, borderRadius: 999, backgroundColor: bg, borderWidth: 2, borderColor: c.ink }}>
+      <T style={{ fontSize: 14, lineHeight: 20, fontFamily: fonts.uiBold, fontVariant: ["tabular-nums"] }}>{text}</T>
     </View>
   );
 }

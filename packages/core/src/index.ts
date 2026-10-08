@@ -6,3 +6,4 @@ export * from "./match";
 export * from "./parse";
 export * from "./recommend";
 export * from "./format";
+export * from "./search";

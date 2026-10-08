@@ -3,7 +3,7 @@ import { ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MAX_WIDTH, usePalette } from "./theme";
 
-const WIDE_MAX = 1120;
+const WIDE_MAX = 1240;
 
 /** Contenedor de pantalla: scroll, gutter de 16 px y ancho máximo (columna de lectura o dos paneles). */
 export function Screen({ children, wide = false, edges = ["top"], footer }: { children: ReactNode; wide?: boolean; edges?: ("top" | "bottom")[]; footer?: ReactNode }) {

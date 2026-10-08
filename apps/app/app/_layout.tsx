@@ -1,9 +1,9 @@
-import { Fraunces_600SemiBold, Fraunces_700Bold } from "@expo-google-fonts/fraunces";
-import { InstrumentSans_400Regular, InstrumentSans_500Medium, InstrumentSans_700Bold } from "@expo-google-fonts/instrument-sans";
+import { BricolageGrotesque_400Regular, BricolageGrotesque_600SemiBold, BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold } from "@expo-google-fonts/bricolage-grotesque";
+import { JetBrainsMono_400Regular, JetBrainsMono_600SemiBold } from "@expo-google-fonts/jetbrains-mono";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 import Head from "expo-router/head";
+import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { Platform, View } from "react-native";
 import { Isotype } from "../src/Logo";
@@ -21,7 +21,7 @@ function useWebGlobals(focus: string, paper: string) {
       document.head.appendChild(el);
     }
     el.textContent = `
-      :focus-visible { outline: 2.5px solid ${focus} !important; outline-offset: 2px; border-radius: 6px; }
+      :focus-visible { outline: 3px solid ${focus} !important; outline-offset: 3px; border-radius: 10px; }
       ::selection { background: ${focus}; color: ${paper}; }
       body { background: ${paper}; }
       @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
@@ -34,10 +34,10 @@ export default function Root() {
   const c = usePalette();
   useWebGlobals(c.tomato, c.paper);
   const [loaded, error] = useFonts({
-    Fraunces_600SemiBold, Fraunces_700Bold, InstrumentSans_400Regular, InstrumentSans_500Medium, InstrumentSans_700Bold,
+    BricolageGrotesque_400Regular, BricolageGrotesque_600SemiBold, BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold,
+    JetBrainsMono_400Regular, JetBrainsMono_600SemiBold,
   });
   // Mientras cargan las fuentes, el isotipo en el centro (nunca una pantalla en blanco).
-  // Si fallan, se usa la fuente del sistema.
   if (!loaded && !error) {
     return (
       <View style={{ flex: 1, backgroundColor: c.paper, alignItems: "center", justifyContent: "center" }}>
@@ -48,10 +48,10 @@ export default function Root() {
   return (
     <>
       <Head>
-        <title>COMOCOMO · Tu cocina, tus ingredientes, tu presupuesto</title>
-        <meta name="description" content="Dime qué tienes, cuántos sois y cuánto quieres gastar. COMOCOMO te dice qué cocinar." />
+        <title>COMOCOMO · Recetas, ingredientes y lo que cuestan</title>
+        <meta name="description" content="Busca un plato y te damos la receta, la lista de la compra y lo que te va a costar." />
       </Head>
-      <StatusBar style={c.paper === "#171311" ? "light" : "dark"} />
+      <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: c.paper } }} />
     </>
   );

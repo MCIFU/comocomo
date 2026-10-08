@@ -1,57 +1,52 @@
-import { formatMinutes } from "@comocomo/core";
+import { shoppingPrice } from "@comocomo/core";
 import { useRouter } from "expo-router";
-import { Pressable, View } from "react-native";
-import { EmptyPlate } from "../../src/Plate";
-import { RecipePhoto } from "../../src/RecipePhoto";
+import { useState } from "react";
+import { useWindowDimensions, View } from "react-native";
+import { RecipeCard } from "../../src/RecipeCard";
 import { Screen } from "../../src/Screen";
-import { recipeById } from "../../src/lib/data";
-import { DIFFICULTY } from "../../src/lib/labels";
+import { catalog, prices, recipeById } from "../../src/lib/data";
 import { useStore } from "../../src/lib/store";
-import { usePalette } from "../../src/theme";
-import { Button, Display, Empty, Label, T } from "../../src/ui";
+import { Button, Display, Empty, Label } from "../../src/ui";
 
 export default function Guardadas() {
-  const c = usePalette();
   const router = useRouter();
+  const wide = useWindowDimensions().width >= 1024;
+  const servings = useStore((s) => s.servings);
+  const [gridW, setGridW] = useState(0);
   const favs = useStore((s) => s.favorites).flatMap((id) => {
     const r = recipeById.get(id);
     return r ? [r] : [];
   });
+  const cols = gridW >= 1000 ? 4 : gridW >= 700 ? 3 : 2;
+  const gap = wide ? 22 : 12;
+  const cardW = gridW ? Math.floor((gridW - gap * (cols - 1)) / cols) : 0;
 
   return (
-    <Screen>
-      <View style={{ gap: 4 }}>
+    <Screen wide={wide}>
+      <View style={{ gap: 6 }}>
         <Label tone="tomato">Guardadas</Label>
-        <Display size={36}>Tus recetas</Display>
+        <Display size={wide ? 64 : 42}>Tus recetas</Display>
       </View>
       {favs.length === 0 ? (
         <Empty
-          title="Aún no has guardado ninguna"
-          art={<EmptyPlate />}
-          body="Pulsa ♡ Guardar en cualquier receta y la tendrás aquí."
-          action={<Button label="Buscar qué cocinar" onPress={() => router.push("/cocina")} />}
+          title="Aún no has guardado ninguna."
+          body="Pulsa «♡ Guardar» en cualquier receta y la tendrás aquí, a mano."
+          action={<Button label="Buscar recetas" onPress={() => router.push("/")} />}
         />
       ) : (
-        <View>
-          {favs.map((r) => (
-            <Pressable
-              key={r.id}
-              accessibilityRole="link"
-              onPress={() => router.push({ pathname: "/receta/[id]", params: { id: r.id } })}
-              style={({ pressed, hovered }: any) => ({
-                gap: 4, paddingVertical: 18, paddingHorizontal: 4, borderTopWidth: 1, borderTopColor: c.line,
-                backgroundColor: hovered ? c.crust : "transparent", opacity: pressed ? 0.7 : 1,
-              })}
-            >
-              <View style={{ flexDirection: "row", gap: 16, alignItems: "center" }}>
-                <RecipePhoto recipe={r} width={64} aspect={1} />
-                <View style={{ flex: 1, gap: 4 }}>
-                  <T tone="muted" style={{ fontSize: 13 }}>{r.origin.replace(/s*(adaptado)/, "")} · {formatMinutes(r.prepMin + r.cookMin)} · {DIFFICULTY[r.difficulty]}</T>
-                  <Display size={23}>{r.title}</Display>
-                </View>
-              </View>
-            </Pressable>
-          ))}
+        <View onLayout={(e) => setGridW(e.nativeEvent.layout.width)} style={{ flexDirection: "row", flexWrap: "wrap", gap, rowGap: gap + 6 }}>
+          {cardW > 0 &&
+            favs.map((r, i) => (
+              <RecipeCard
+                key={r.id}
+                recipe={r}
+                price={shoppingPrice(r, servings, prices, catalog)}
+                servings={servings}
+                index={i}
+                width={cardW}
+                onPress={() => router.push({ pathname: "/receta/[id]", params: { id: r.id } })}
+              />
+            ))}
         </View>
       )}
     </Screen>

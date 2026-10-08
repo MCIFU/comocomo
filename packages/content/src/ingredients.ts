@@ -70,7 +70,7 @@ const rows: Row[] = [
   ["garbanzos-cocidos", "Garbanzos cocidos (bote)", "pantry", "mass", [], [], ["kg", 1.5, 2.5]],
   ["sesamo", "Semillas de sésamo", "pantry", "mass", ["sesame"], [], ["kg", 8, 14]],
   ["cacahuetes", "Cacahuetes", "pantry", "mass", ["peanut", "nuts"], [], ["kg", 5, 9]],
-  ["pasta-curry-rojo", "Pasta de curry rojo (suele llevar pasta de gamba)", "pantry", "mass", ["shellfish"], [], ["kg", 12, 20]],
+  ["pasta-curry-rojo", "Pasta de curry rojo (suele llevar pasta de gamba)", "pantry", "mass", ["shellfish"], ["seafood"], ["kg", 12, 20]],
 ];
 
 type Pack = [qty: number, unit: UnitId, label: string];

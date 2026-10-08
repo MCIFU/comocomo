@@ -1,8 +1,8 @@
-import { dishes, ingredients, prices, recipes } from "@comocomo/content";
+import { DISH_KEYWORDS, dishes, ingredients, prices, recipes } from "@comocomo/content";
 
 export const catalog = new Map(ingredients.map((i) => [i.id, i]));
 export const recipeById = new Map(recipes.map((r) => [r.id, r]));
-export { dishes, ingredients, prices, recipes };
+export { DISH_KEYWORDS, dishes, ingredients, prices, recipes };
 
 export const ingredientName = (id: string) => catalog.get(id)?.name ?? id;
 /** Nombre corto para chips y listas ("Pollo (muslos o pechuga)" -> "Pollo") */

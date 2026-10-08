@@ -16,9 +16,8 @@ export default function TabsLayout() {
         sceneStyle: { backgroundColor: c.paper },
       }}
     >
-      <Tabs.Screen name="cocina" options={{ title: "Cocinar" }} />
-      <Tabs.Screen name="despensa" options={{ title: "Despensa" }} />
-      <Tabs.Screen name="compra" options={{ title: "Compra" }} />
+      <Tabs.Screen name="index" options={{ title: "Recetas" }} />
+      <Tabs.Screen name="compra" options={{ title: "Lista" }} />
       <Tabs.Screen name="guardadas" options={{ title: "Guardadas" }} />
     </Tabs>
   );

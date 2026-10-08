@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A · Revista — COMOCOMO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#fff; --ink:#111; --muted:#6b6b6b; --line:#e8e8e8; --accent:#c8321e; }
+  * { box-sizing:border-box; margin:0 }
+  body { background:var(--bg); color:var(--ink); font:16px/1.55 Inter, system-ui, sans-serif; }
+  a { color:inherit }
+  .wrap { max-width:1240px; margin:0 auto; padding:0 24px }
+  header { border-bottom:1px solid var(--ink) }
+  header .wrap { display:flex; justify-content:space-between; align-items:center; height:64px }
+  .logo { font:600 22px/1 Newsreader, serif; letter-spacing:-.02em }
+  .logo i { color:var(--accent); font-style:normal }
+  nav { display:flex; gap:28px; font-size:14px; color:var(--muted) }
+  .hero { padding:72px 0 40px; display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:end }
+  .hero h1 { font:500 clamp(48px,7vw,104px)/.95 Newsreader, serif; letter-spacing:-.035em }
+  .hero h1 em { color:var(--accent) }
+  .hero p { color:var(--muted); font-size:18px; max-width:420px; margin-bottom:22px }
+  .search { display:flex; border-bottom:2px solid var(--ink); }
+  .search input { flex:1; border:0; font:400 26px/1.2 Newsreader, serif; padding:12px 0; outline:none; background:transparent }
+  .search span { font-size:13px; color:var(--muted); align-self:center }
+  .tags { display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:16px; font-size:14px }
+  .tags button { border:0; background:none; font:inherit; color:var(--muted); cursor:pointer; padding:4px 0; border-bottom:1px solid transparent }
+  .tags button:hover { color:var(--ink); border-color:var(--ink) }
+  .bar { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--ink); border-bottom:1px solid var(--line); padding:14px 0; margin-top:40px; font-size:14px }
+  .persons { display:flex; align-items:center; gap:12px }
+  .persons button { width:34px; height:34px; border:1px solid var(--ink); background:#fff; border-radius:50%; font-size:16px; cursor:pointer }
+  .persons b { font:600 18px Inter; min-width:18px; text-align:center }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:40px 24px; padding:36px 0 80px }
+  .card { cursor:pointer }
+  .card img { width:100%; aspect-ratio:4/5; object-fit:cover; display:block; transition:opacity .2s }
+  .card:hover img { opacity:.88 }
+  .card:nth-child(4n+1) img { aspect-ratio:3/4 }
+  .card small { display:block; margin-top:12px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted) }
+  .card h3 { font:500 24px/1.12 Newsreader, serif; margin:4px 0 6px; letter-spacing:-.01em }
+  .card p { font-size:14px; color:var(--muted) }
+  .card p b { color:var(--ink); font-weight:600 }
+  .detail { border-top:1px solid var(--ink); padding:56px 0 96px }
+  .d-head { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end }
+  .d-head img { width:100%; aspect-ratio:4/3; object-fit:cover }
+  .d-head small { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent) }
+  .d-head h2 { font:500 clamp(40px,5.5vw,76px)/.98 Newsreader, serif; letter-spacing:-.03em; margin:10px 0 18px }
+  .d-head .note { color:var(--muted); font-size:17px; font-family:Newsreader, serif; font-style:italic; max-width:480px }
+  .facts { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-top:28px }
+  .facts div { padding:14px 0 }
+  .facts small { display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted) }
+  .facts b { font:500 26px/1.2 Newsreader, serif }
+  .d-body { display:grid; grid-template-columns:340px 1fr; gap:72px; margin-top:56px }
+  .d-body h4 { font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px }
+  .ing li { list-style:none; display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid var(--line); font-size:15px }
+  .ing span:last-child { color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap }
+  ol.steps { padding:0; counter-reset:s }
+  ol.steps li { list-style:none; counter-increment:s; display:grid; grid-template-columns:56px 1fr; padding:0 0 26px; font:400 20px/1.55 Newsreader, serif }
+  ol.steps li::before { content:counter(s, decimal-leading-zero); font:600 13px Inter; color:var(--accent); padding-top:6px }
+  .price-note { font-size:13px; color:var(--muted); margin-top:14px }
+  footer { border-top:1px solid var(--ink); padding:24px 0 40px; font-size:13px; color:var(--muted) }
+  @media (max-width: 900px) {
+    .hero, .d-head, .d-body { grid-template-columns:1fr; gap:28px }
+    .grid { grid-template-columns:repeat(2,1fr); gap:28px 14px }
+    .facts { grid-template-columns:repeat(2,1fr) }
+    nav { display:none }
+    .hero { padding-top:40px }
+  }
+</style>
+<script src="data.js"></script>
+<script>
+window.VIEW = {
+  card: (r, n) => `<article class="card" data-open="${r.id}" tabindex="0"><img src="img/${r.id}.jpg" alt=""><small>${r.cuisine} · ${r.time}</small><h3>${r.title.replace(/\s*\(.*\)/, "")}</h3><p><b>${fmtPrice(r, n)}</b> para ${n} · ${r.difficulty}</p></article>`,
+  empty: (q) => `<p style="grid-column:1/-1;font:400 22px Newsreader,serif;color:#6b6b6b">Nada con «${q}» todavía.</p>`,
+  detail: (r, n) => `
+    <div class="d-head">
+      <div><small>${r.cuisine}</small><h2>${r.title.replace(/\s*\(.*\)/, "")}</h2><p class="note">${r.note}</p>
+        <div class="facts"><div><small>Tiempo</small><b>${r.time}</b></div><div><small>Dificultad</small><b>${r.difficulty}</b></div><div><small>Personas</small><b>${n}</b></div><div><small>Compra aprox.</small><b>${fmtPrice(r, n)}</b></div></div>
+      </div>
+      <img src="img/${r.id}.jpg" alt="">
+    </div>
+    <div class="d-body">
+      <div><h4>Ingredientes · ${n} personas</h4><ul class="ing">${r.ingredients.map((i) => `<li><span>${i.name}${i.optional ? " <em style='color:#999'>(opcional)</em>" : ""}</span><span>${fmtQty(i, n)}</span></li>`).join("")}</ul>
+        <p class="price-note">Precio aproximado de comprarlo todo en el súper, con envases completos. No incluye sal, aceite ni especias básicas.</p></div>
+      <div><h4>Preparación</h4><ol class="steps">${r.steps.map((s) => `<li>${s}</li>`).join("")}</ol></div>
+    </div>`,
+};
+</script>
+<script src="common.js"></script>
+</head>
+<body>
+<header><div class="wrap"><div class="logo">como<i>cómo</i></div><nav><a>Recetas</a><a>Cocinas del mundo</a><a>Guardadas</a></nav></div></header>
+<main class="wrap">
+  <section class="hero">
+    <h1>Hoy cocinas <em>esto.</em></h1>
+    <div>
+      <p>Busca un plato y te decimos qué necesitas, cómo hacerlo y cuánto te costará para los que seáis.</p>
+      <label class="search"><input data-search placeholder="Tortilla, ramen, algo con pollo…" aria-label="Buscar recetas"><span>Buscar</span></label>
+      <div class="tags"><button data-q="">Todas</button><button data-q="España">España</button><button data-q="Italia">Italia</button><button data-q="México">México</button><button data-q="Japón">Japón</button><button data-q="pollo">Con pollo</button></div>
+    </div>
+  </section>
+  <div class="bar"><span>Precios para</span><div class="persons"><button data-step="-1" aria-label="Menos personas">−</button><b data-n>4</b><button data-step="1" aria-label="Más personas">+</button><span>personas</span></div></div>
+  <section class="grid" id="grid"></section>
+  <section class="detail" id="detail"></section>
+</main>
+<footer><div class="wrap">Precios aproximados de supermercado en España · Fotos: Wikimedia Commons</div></footer>
+</body></html>
