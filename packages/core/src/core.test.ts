@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Ingredient, Price, Recipe } from "@comocomo/schemas";
-import { buildShoppingList, matchRecipes, recipeCost, roundNice, scaleRecipe, toBase, violatesHardRestriction } from "./index";
+import { buildShoppingList, matchRecipes, purchase, recipeCost, roundNice, scaleRecipe, toBase, violatesHardRestriction } from "./index";
 
 const ing = (id: string, o: Partial<Ingredient> = {}): Ingredient => ({
   id, name: id, aisle: "pantry", unitKind: "mass", allergens: [], tags: [], aliases: [], ...o,
@@ -53,13 +53,30 @@ describe("coste", () => {
     { ingredientId: "pollo", perUnit: "kg", currency: "EUR", min: 6, max: 8, confidence: "estimated" },
     { ingredientId: "arroz", perUnit: "kg", currency: "EUR", min: 1.5, max: 2, confidence: "estimated" },
   ];
-  it("separa lo que se tiene de lo que se compra y usa rangos proporcionales", () => {
-    const c = recipeCost(pollo, prices, new Set(["arroz"]));
-    expect(c.toBuy.min).toBeCloseTo(2.4);
-    expect(c.toBuy.max).toBeCloseTo(3.2);
-    expect(c.owned.min).toBeCloseTo(0.3);
+  it("a granel paga lo que pide; lo consumido incluye lo que ya tienes", () => {
+    const c = recipeCost(pollo, prices, catalog, new Set(["arroz"]));
+    expect(c.toBuy.min).toBeCloseTo(2.4); // 400 g de pollo a granel
+    expect(c.consumed.min).toBeCloseTo(2.7); // + 200 g de arroz que ya tenías
     expect(c.toBuy.unpriced).toEqual(["pimiento"]);
-    expect(c.perServing.min).toBeCloseTo(c.total.min / 2);
+    expect(c.perServing.min).toBeCloseTo(c.consumed.min / 2);
+  });
+
+  it("con envase compra envases completos: 550 g de tomate = 2 botes de 400 g", () => {
+    const cat = new Map(catalog);
+    cat.set("tomate-triturado", ing("tomate-triturado", { pack: { qty: 400, unit: "g", label: "bote" } }));
+    const salsa = recipe("salsa", [{ ingredientId: "tomate-triturado", qty: 550, unit: "g", optional: false }]);
+    const p: Price[] = [{ ingredientId: "tomate-triturado", perUnit: "kg", currency: "EUR", min: 2, max: 2, confidence: "estimated" }];
+    const c = recipeCost(salsa, p, cat, new Set());
+    expect(c.toBuy.lines[0]).toMatchObject({ packs: 2, buyBase: 800, leftoverBase: 250 });
+    expect(c.toBuy.min).toBeCloseTo(1.6); // pagas 800 g
+    expect(c.consumed.min).toBeCloseTo(1.1); // te comes 550 g
+  });
+
+  it("no obliga a un envase extra por un exceso mínimo (405 g = 1 bote)", () => {
+    const tomate = ing("tomate-triturado", { pack: { qty: 400, unit: "g", label: "bote" } });
+    const p: Price = { ingredientId: "tomate-triturado", perUnit: "kg", currency: "EUR", min: 2, max: 2, confidence: "estimated" };
+    expect(purchase(tomate, 405, p).packs).toBe(1);
+    expect(purchase(tomate, 420, p).packs).toBe(2);
   });
 });
 

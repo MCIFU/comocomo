@@ -113,3 +113,32 @@ export function parseQuery(text: string, catalog: Ingredient[]): ParsedQuery {
   out.allergies = uniq(out.allergies);
   return out;
 }
+
+const CUISINE_TERMS: Record<string, string[]> = {
+  espanola: ["espanol", "espanola", "de espana"], asturiana: ["asturiano", "asturiana", "de asturias"],
+  italiana: ["italiano", "italiana", "de italia"], mexicana: ["mexicano", "mexicana", "de mexico"],
+  japonesa: ["japones", "japonesa", "de japon"], china: ["chino", "china"], india: ["indio", "india", "hindu"],
+  argentina: ["argentino", "argentina"], turca: ["turco", "turca"], tailandesa: ["tailandes", "tailandesa", "thai"],
+  peruana: ["peruano", "peruana"], griega: ["griego", "griega"], coreana: ["coreano", "coreana"],
+  marroqui: ["marroqui", "de marruecos"], "oriente-medio": ["arabe", "oriente medio", "libanes"],
+};
+
+export interface DishIntent {
+  /** cocinas pedidas ("algo mexicano") */
+  cuisines: string[];
+  /** recetas nombradas explícitamente ("quiero hacer fabada") */
+  recipeIds: string[];
+}
+
+/**
+ * Detecta la idea de plato: cocinas ("algo japonés") y platos concretos ("tacos", "fabada").
+ * Solo usa nombres de plato inequívocos para no confundir "tengo tortillas" con "quiero tortilla de patatas".
+ */
+export function parseDishIntent(text: string, dishes: { id: string; keywords: string[] }[]): DishIntent {
+  const t = norm(text);
+  const cuisines = Object.entries(CUISINE_TERMS)
+    .filter(([, terms]) => terms.some((x) => termRegex(x).test(t)))
+    .map(([k]) => k);
+  const recipeIds = dishes.filter((d) => d.keywords.some((k) => termRegex(k).test(t))).map((d) => d.id);
+  return { cuisines, recipeIds };
+}

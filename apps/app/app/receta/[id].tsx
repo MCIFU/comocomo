@@ -1,4 +1,4 @@
-import { formatMinutes, formatMoneyRange, formatQty, fromBase, recipeCost, roundNice, scaleRecipe, STAPLES, toBase } from "@comocomo/core";
+import { formatMinutes, formatMoney, formatQty, fromBase, recipeCost, roundNice, scaleRecipe, STAPLES, toBase } from "@comocomo/core";
 import type { RecipeIngredient } from "@comocomo/schemas";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { useEnter, usePulse } from "../../src/motion";
 import { PhotoCredit, RecipePhoto } from "../../src/RecipePhoto";
 import { Screen } from "../../src/Screen";
 import { catalog, prices, recipeById, shortName } from "../../src/lib/data";
-import { DIFFICULTY } from "../../src/lib/labels";
+import { DIFFICULTY, pluralPack } from "../../src/lib/labels";
 import { actions, useStore } from "../../src/lib/store";
 import { fonts, usePalette } from "../../src/theme";
 import { Button, Display, Empty, Label, Rule, Stepper, T } from "../../src/ui";
@@ -49,7 +49,8 @@ export default function Receta() {
   const recipe = scaleRecipe(base, servings);
   const userHave = h ? String(h).split(",").filter(Boolean) : [];
   const have = new Set([...userHave, ...STAPLES]);
-  const cost = recipeCost(recipe, prices, have);
+  const cost = recipeCost(recipe, prices, catalog, have);
+  const buyLine = new Map(cost.toBuy.lines.map((l) => [l.ingredientId, l]));
   const missingCount = recipe.ingredients.filter((i) => !i.optional && !have.has(i.ingredientId)).length;
   const back = () => (router.canGoBack() ? router.back() : router.replace("/cocina"));
 
@@ -90,8 +91,8 @@ export default function Receta() {
       <View style={{ flexDirection: "row", flexWrap: "wrap", rowGap: 14, paddingVertical: 16, borderTopWidth: 1, borderBottomWidth: 1, borderColor: c.line }}>
         <Fact k="Tiempo" v={formatMinutes(recipe.prepMin + recipe.cookMin)} />
         <Fact k="Dificultad" v={DIFFICULTY[recipe.difficulty]!} />
-        <Fact k="Por comprar" v={missingCount === 0 ? "Nada" : formatMoneyRange(cost.toBuy.min, cost.toBuy.max)} accent={missingCount === 0 ? c.olive : undefined} />
-        <Fact k="Por persona" v={formatMoneyRange(cost.perServing.min, cost.perServing.max)} />
+        <Fact k="En el súper" v={missingCount === 0 ? "Nada" : formatMoney(cost.toBuy.min, cost.toBuy.max)} accent={missingCount === 0 ? c.olive : undefined} />
+        <Fact k="Por ración" v={formatMoney(cost.perServing.min, cost.perServing.max)} />
       </View>
     </View>
   );
@@ -111,13 +112,21 @@ export default function Receta() {
       <View accessibilityRole="list">
         {recipe.ingredients.map((ri) => {
           const got = have.has(ri.ingredientId);
+          const buy = buyLine.get(ri.ingredientId);
           return (
             <View key={ri.ingredientId} accessibilityRole="text" style={{ flexDirection: "row", gap: 12, paddingVertical: 10, alignItems: "center", borderTopWidth: 1, borderTopColor: c.line }}>
               <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: got ? c.olive : "transparent", borderWidth: 2, borderColor: got ? c.olive : c.saffron }} />
-              <T style={{ flex: 1 }}>
-                {shortName(ri.ingredientId)}
-                {ri.optional ? <T tone="muted"> · opcional</T> : null}
-              </T>
+              <View style={{ flex: 1 }}>
+                <T>
+                  {shortName(ri.ingredientId)}
+                  {ri.optional ? <T tone="muted"> · opcional</T> : null}
+                </T>
+                {buy?.packs && (
+                  <T tone="muted" style={{ fontSize: 12.5, lineHeight: 17 }}>
+                    {buy.packs} {pluralPack(buy.packLabel!, buy.packs)} · {formatMoney(buy.cost.min, buy.cost.max)}
+                  </T>
+                )}
+              </View>
               <T style={{ fontVariant: ["tabular-nums"], fontFamily: fonts.uiMedium }}>{displayQty(ri)}</T>
               <T tone={got ? "olive" : "saffron"} style={{ width: 66, fontSize: 12.5, textAlign: "right", fontFamily: fonts.uiBold }}>{got ? "Tienes" : "Comprar"}</T>
             </View>
@@ -125,7 +134,7 @@ export default function Receta() {
         })}
       </View>
       <T tone="muted" style={{ fontSize: 12.5, lineHeight: 18 }}>
-        Damos por hecho sal, pimienta, aceite, azúcar y vinagre. Precios estimados, no de tienda.
+        «En el súper» es lo que pagas por lo que te falta, con envases completos. «Por ración» es lo que cuesta lo que te comes. Damos por hecho sal, pimienta, aceite, azúcar y vinagre. Precios estimados.
       </T>
       <Animated.View style={cartPulse}>
       <Button

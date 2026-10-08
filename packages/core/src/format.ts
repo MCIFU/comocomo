@@ -4,16 +4,16 @@ const UNIT_LABEL: Record<UnitId, string> = {
   g: "g", kg: "kg", oz: "oz", lb: "lb", ml: "ml", l: "l", tsp: "cdta", tbsp: "cda", cup: "taza", unit: "",
 };
 
-/** "≈ 4–5 €" · nunca presenta precisión que no existe. */
-export function formatMoneyRange(min: number, max: number, currency = "EUR"): string {
+/**
+ * Una sola cifra estimada ("≈ 7 €"), punto medio del rango. Los rangos confundían más de lo que informaban.
+ * Por debajo de 10 € se redondea a medio euro; por encima, a euros enteros.
+ */
+export function formatMoney(min: number, max: number = min, currency = "EUR"): string {
   const sym = currency === "EUR" ? "€" : currency;
-  const fmt = (n: number) => String(n).replace(".", ",");
-  if (max < 0.75) return `≈ ${fmt(Math.round(max * 10) / 10)} ${sym}`;
-  // Por debajo de 2 € los euros enteros esconden demasiado: se usan medios euros.
-  const step = max < 2 ? 0.5 : 1;
-  const lo = Math.max(step, Math.round(min / step) * step);
-  const hi = Math.max(lo, Math.round(max / step) * step);
-  return lo === hi ? `≈ ${fmt(lo)} ${sym}` : `≈ ${fmt(lo)}–${fmt(hi)} ${sym}`;
+  const mid = (min + max) / 2;
+  if (mid < 0.5) return `< 0,5 ${sym}`;
+  const v = mid < 10 ? Math.round(mid * 2) / 2 : Math.round(mid);
+  return `≈ ${String(v).replace(".", ",")} ${sym}`;
 }
 
 /** Cantidad legible: "1,5 kg", "2", "½". */

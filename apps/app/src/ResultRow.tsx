@@ -1,5 +1,5 @@
 import type { Recommendation } from "@comocomo/core";
-import { formatMinutes, formatMoneyRange, STAPLES } from "@comocomo/core";
+import { formatMinutes, formatMoney, STAPLES } from "@comocomo/core";
 import { Animated, Pressable, StyleSheet, useWindowDimensions, View } from "react-native";
 import { shortName } from "./lib/data";
 import { DIFFICULTY } from "./lib/labels";
@@ -16,7 +16,7 @@ export function ResultRow({ rec, index, onPress }: { rec: Recommendation; index:
   // Los básicos (sal, aceite…) se dan por tenidos: listarlos solo añade ruido.
   const owned = rec.have.filter((id) => !STAPLES.has(id));
   const nothingToBuy = missing.length === 0;
-  const toBuy = nothingToBuy ? "0 €" : formatMoneyRange(cost.toBuy.min, cost.toBuy.max);
+  const toBuy = nothingToBuy ? "0 €" : formatMoney(cost.toBuy.min, cost.toBuy.max);
 
   return (
     <Animated.View style={enter}>
@@ -39,7 +39,7 @@ export function ResultRow({ rec, index, onPress }: { rec: Recommendation; index:
           {compact && (
             <T style={{ fontSize: 14, lineHeight: 20 }}>
               <T style={[s.price, { fontSize: 15, color: nothingToBuy ? c.olive : c.ink }]}>{nothingToBuy ? "Nada que comprar" : toBuy}</T>
-              <T tone="muted" style={{ fontSize: 13 }}>{nothingToBuy ? "" : " por comprar"} · {formatMoneyRange(cost.perServing.min, cost.perServing.max)}/pers.</T>
+              <T tone="muted" style={{ fontSize: 13 }}>{nothingToBuy ? "" : " en el súper"} · {formatMoney(cost.perServing.min, cost.perServing.max)} por ración</T>
               {rec.mayExceedBudget ? <T tone="saffron" style={{ fontSize: 13, fontFamily: fonts.uiBold }}> · puede pasarse</T> : null}
             </T>
           )}
@@ -61,8 +61,8 @@ export function ResultRow({ rec, index, onPress }: { rec: Recommendation; index:
         </View>
         {!compact && <View style={{ alignItems: "flex-end", gap: 2, minWidth: 96 }}>
           <T style={[s.price, { color: nothingToBuy ? c.olive : c.ink, fontSize: compact ? 18 : 22 }]}>{toBuy}</T>
-          <T tone="muted" style={s.small}>{nothingToBuy ? "nada que comprar" : "por comprar"}</T>
-          <T tone="muted" style={[s.small, { marginTop: 6 }]}>{formatMoneyRange(cost.perServing.min, cost.perServing.max)}/pers.</T>
+          <T tone="muted" style={s.small}>{nothingToBuy ? "nada que comprar" : "en el súper"}</T>
+          <T tone="muted" style={[s.small, { marginTop: 6 }]}>{formatMoney(cost.perServing.min, cost.perServing.max)} por ración</T>
           {rec.mayExceedBudget && <T tone="saffron" style={[s.small, { fontFamily: fonts.uiBold }]}>Puede pasarse</T>}
         </View>}
       </Pressable>

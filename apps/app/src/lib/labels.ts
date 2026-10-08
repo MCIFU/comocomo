@@ -22,5 +22,15 @@ export const EQUIPMENT_OPTIONS = [
   { value: "batidora", label: "Batidora" },
 ] as const;
 
-export const QUICK_INGREDIENTS = ["pollo", "arroz", "huevo", "patata", "pasta", "tomate", "queso", "lentejas"];
+export const CUISINE_LABEL: Record<string, string> = {
+  espanola: "Española", asturiana: "Asturiana", italiana: "Italiana", mexicana: "Mexicana", china: "China",
+  india: "India", japonesa: "Japonesa", argentina: "Argentina", turca: "Turca", tailandesa: "Tailandesa",
+  peruana: "Peruana", griega: "Griega", coreana: "Coreana", marroqui: "Marroquí", "oriente-medio": "De Oriente Medio",
+};
 
+
+/** Plural de un envase: "bote" → "botes", "media docena" → "medias docenas". */
+export function pluralPack(label: string, n: number) {
+  if (n === 1) return label;
+  return label.split(" ").map((w) => (/[aeiouáéó]$/.test(w) ? w + "s" : w + "es")).join(" ");
+}

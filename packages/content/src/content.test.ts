@@ -32,8 +32,8 @@ describe("corpus semilla", () => {
   });
 
   it.each(recipes.map((r) => [r.id, r] as const))("%s: todos los ingredientes obligatorios tienen precio y coste razonable", (_id, r) => {
-    const c = recipeCost(r, prices, new Set());
-    expect(c.total.unpriced).toEqual([]);
+    const c = recipeCost(r, prices, catalog, new Set());
+    expect(c.consumed.unpriced).toEqual([]);
     expect(c.perServing.max).toBeLessThan(6);
     expect(c.perServing.min).toBeGreaterThan(0.2);
   });

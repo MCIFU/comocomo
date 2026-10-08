@@ -52,14 +52,14 @@ const rows: Row[] = [
   ["soja", "Salsa de soja", "pantry", "volume", ["soy", "gluten"], [], ["l", 4, 8]],
   ["azucar", "Azúcar", "pantry", "mass", [], [], ["kg", 1, 1.5]],
   ["sal", "Sal", "pantry", "mass", [], [], ["kg", 0.5, 1]],
-  ["pimenton", "Pimentón", "pantry", "mass", [], [], ["kg", 8, 14]],
-  ["comino", "Comino molido", "pantry", "mass", [], [], ["kg", 15, 25]],
-  ["curry", "Curry en polvo", "pantry", "mass", [], [], ["kg", 12, 22]],
-  ["pimienta", "Pimienta negra", "pantry", "mass", [], [], ["kg", 15, 30]],
+  ["pimenton", "Pimentón", "pantry", "mass", [], [], ["kg", 16, 28]],
+  ["comino", "Comino molido", "pantry", "mass", [], [], ["kg", 25, 40]],
+  ["curry", "Curry en polvo", "pantry", "mass", [], [], ["kg", 25, 40]],
+  ["pimienta", "Pimienta negra", "pantry", "mass", [], [], ["kg", 30, 50]],
   ["pan", "Pan (del día anterior)", "bakery", "mass", ["gluten"], [], ["kg", 2.5, 4]],
   ["tortilla-maiz", "Tortillas de maíz", "bakery", "count", [], [], ["unit", 0.08, 0.15]],
   // — lote 2 —
-  ["oregano", "Orégano seco", "pantry", "mass", [], [], ["kg", 15, 30]],
+  ["oregano", "Orégano seco", "pantry", "mass", [], [], ["kg", 40, 70]],
   ["calamares", "Calamares", "fish", "mass", ["mollusc"], ["seafood"], ["kg", 8, 14]],
   ["champinones", "Champiñones", "produce", "mass", [], [], ["kg", 4, 7]],
   ["pepino", "Pepino", "produce", "mass", [], [], ["kg", 1.5, 2.5]],
@@ -72,6 +72,26 @@ const rows: Row[] = [
   ["cacahuetes", "Cacahuetes", "pantry", "mass", ["peanut", "nuts"], [], ["kg", 5, 9]],
   ["pasta-curry-rojo", "Pasta de curry rojo (suele llevar pasta de gamba)", "pantry", "mass", ["shellfish"], [], ["kg", 12, 20]],
 ];
+
+type Pack = [qty: number, unit: UnitId, label: string];
+/**
+ * Envases habituales en supermercados españoles. Lo que no aparece se compra a granel
+ * (fruta y verdura suelta, pescado y carne al corte). Tamaños orientativos.
+ */
+const PACKS: Record<string, Pack> = {
+  pollo: [500, "g", "bandeja"], chorizo: [225, "g", "sarta"], morcilla: [250, "g", "paquete"], panceta: [200, "g", "paquete"],
+  gambas: [400, "g", "bolsa"], huevo: [6, "unit", "media docena"], leche: [1, "l", "brik"], queso: [200, "g", "paquete"],
+  mantequilla: [250, "g", "pastilla"], yogur: [4, "unit", "pack"], ajo: [10, "unit", "cabeza"], espinacas: [300, "g", "bolsa"],
+  cilantro: [30, "g", "manojo"], perejil: [40, "g", "manojo"], albahaca: [20, "g", "tarrina"], champinones: [250, "g", "bandeja"],
+  arroz: [1, "kg", "paquete"], pasta: [500, "g", "paquete"], harina: [1, "kg", "paquete"], "pan-rallado": [250, "g", "paquete"],
+  garbanzos: [500, "g", "paquete"], lentejas: [500, "g", "paquete"], fabes: [500, "g", "paquete"], "tomate-triturado": [400, "g", "bote"],
+  "leche-coco": [400, "ml", "lata"], caldo: [1, "l", "brik"], aceite: [1, "l", "botella"], vinagre: [500, "ml", "botella"],
+  "vino-blanco": [750, "ml", "botella"], soja: [150, "ml", "botella"], azucar: [1, "kg", "paquete"], sal: [1, "kg", "paquete"],
+  pimenton: [75, "g", "bote"], comino: [40, "g", "bote"], curry: [40, "g", "bote"], pimienta: [50, "g", "bote"], oregano: [15, "g", "bote"],
+  pan: [250, "g", "barra"], "tortilla-maiz": [10, "unit", "paquete"], feta: [200, "g", "paquete"], aceitunas: [200, "g", "bote"],
+  "pan-pita": [6, "unit", "paquete"], cuscus: [500, "g", "paquete"], "garbanzos-cocidos": [400, "g", "bote"], sesamo: [100, "g", "bolsa"],
+  cacahuetes: [150, "g", "bolsa"], "pasta-curry-rojo": [110, "g", "tarro"],
+};
 
 const ALIASES: Record<string, string[]> = {
   pollo: ["pechuga", "pechugas", "muslo", "muslos", "contramuslo", "contramuslos"],
@@ -116,6 +136,7 @@ const ALIASES: Record<string, string[]> = {
 
 export const ingredients: Ingredient[] = rows.map(([id, name, aisle, unitKind, allergens, tags]) => ({
   id, name, aisle, unitKind, allergens, tags, aliases: ALIASES[id] ?? [],
+  ...(PACKS[id] ? { pack: { qty: PACKS[id]![0], unit: PACKS[id]![1], label: PACKS[id]![2] } } : {}),
 }));
 
 export const prices: Price[] = rows.map(([ingredientId, , , , , , [perUnit, min, max]]) => ({

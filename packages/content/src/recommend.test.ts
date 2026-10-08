@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { formatMinutes, formatMoneyRange, formatQty, parseQuery, recommend } from "@comocomo/core";
-import { ingredients, prices, recipes } from "./index";
+import { formatMinutes, formatMoney, formatQty, parseDishIntent, parseQuery, recommend } from "@comocomo/core";
+import { dishes, ingredients, prices, recipes } from "./index";
 
 const catalog = new Map(ingredients.map((i) => [i.id, i]));
 const run = (text: string, over: Partial<Parameters<typeof recommend>[3]> = {}) => {
@@ -59,7 +59,7 @@ describe("recomendador sobre el corpus real", () => {
   it("escala cantidades y coste con las personas", () => {
     const two = run("tengo huevos y patatas. somos 2").find((x) => x.baseId === "huevos-rotos")!;
     const six = run("tengo huevos y patatas. somos 6").find((x) => x.baseId === "huevos-rotos")!;
-    expect(six.cost.total.max / two.cost.total.max).toBeCloseTo(3, 1);
+    expect(six.cost.consumed.max / two.cost.consumed.max).toBeCloseTo(3, 1);
   });
 
   it("siempre explica por qué", () => {
@@ -72,12 +72,11 @@ describe("recomendador sobre el corpus real", () => {
 });
 
 describe("formato", () => {
-  it("rangos de dinero no fingen precisión", () => {
-    expect(formatMoneyRange(3.6, 5.2)).toBe("≈ 4–5 €");
-    expect(formatMoneyRange(4.2, 4.4)).toBe("≈ 4 €");
-    expect(formatMoneyRange(0.2, 0.4)).toBe("≈ 0,4 €");
-    expect(formatMoneyRange(0.6, 1.1)).toBe("≈ 0,5–1 €");
-    expect(formatMoneyRange(1.2, 1.9)).toBe("≈ 1–2 €");
+  it("una sola cifra, sin falsa precisión", () => {
+    expect(formatMoney(3.6, 5.2)).toBe("≈ 4,5 €");
+    expect(formatMoney(6.1, 7.3)).toBe("≈ 6,5 €");
+    expect(formatMoney(12.2, 15.1)).toBe("≈ 14 €");
+    expect(formatMoney(0.2, 0.4)).toBe("< 0,5 €");
   });
   it("cantidades y tiempos", () => {
     expect(formatQty(1.5, "kg")).toBe("1,5 kg");
@@ -95,5 +94,55 @@ describe("reloj", () => {
     expect(formatClock(0)).toBe("00:00");
     expect(formatClock(-5)).toBe("00:00");
     expect(formatClock(59.2)).toBe("01:00");
+  });
+});
+
+describe("compra realista (envases completos)", () => {
+  it("lo que pagas en el súper nunca es menor que lo que consumes", () => {
+    for (const x of run("")) expect(x.cost.toBuy.min).toBeGreaterThanOrEqual(x.cost.consumed.min - 1e-9 - 0); // sin despensa: compras todo
+  });
+  it("una receta con tomate triturado compra el bote entero", () => {
+    const pisto = run("").find((x) => x.baseId === "pisto-con-huevo")!;
+    const t = pisto.cost.toBuy.lines.find((l) => l.ingredientId === "tomate-triturado")!;
+    expect(t.packs).toBe(1);
+    expect(t.buyBase).toBe(400);
+  });
+  it("el presupuesto se compara con la compra real", () => {
+    for (const x of run("tengo huevos y patatas. 3 euros")) expect((x.cost.toBuy.min + x.cost.toBuy.max) / 2).toBeLessThanOrEqual(3);
+  });
+});
+
+describe("idea de plato", () => {
+  const intent = (s: string) => parseDishIntent(s, dishes);
+  it("reconoce platos y cocinas", () => {
+    expect(intent("quiero hacer tacos").recipeIds).toEqual(["tacos-de-pollo"]);
+    expect(intent("me apetece una fabada").recipeIds).toEqual(["fabada-asturiana"]);
+    expect(intent("algo mexicano que no tarde").cuisines).toEqual(["mexicana"]);
+    expect(intent("comida japonesa").cuisines).toEqual(["japonesa"]);
+  });
+  it("no confunde ingredientes con platos", () => {
+    expect(intent("tengo tortillas y lentejas").recipeIds).toEqual([]);
+  });
+  it("el plato pedido sale el primero", () => {
+    const i = intent("quiero hacer carbonara");
+    const r = recommend(recipes, catalog, prices, { have: new Set(), restrictions: [], servings: 2, dishes: i.recipeIds });
+    expect(r[0]!.baseId).toBe("carbonara");
+  });
+  it("la cocina pedida filtra los resultados", () => {
+    const r = recommend(recipes, catalog, prices, { have: new Set(), restrictions: [], servings: 2, cuisines: ["mexicana"] });
+    expect(r.length).toBeGreaterThan(0);
+    for (const x of r) expect(x.recipe.cuisine).toBe("mexicana");
+  });
+  it("una alergia manda aunque pidas el plato", () => {
+    const r = recommend(recipes, catalog, prices, { have: new Set(), restrictions: [{ kind: "allergy", value: "shellfish" }], servings: 2, dishes: ["gambas-al-ajillo"] });
+    expect(r.some((x) => x.baseId === "gambas-al-ajillo")).toBe(false);
+  });
+});
+
+describe("cocina pedida + ingredientes", () => {
+  it("muestra todas las de esa cocina y prioriza las que usan lo tuyo", () => {
+    const r = recommend(recipes, catalog, prices, { have: new Set(["pollo"]), restrictions: [], servings: 2, cuisines: ["mexicana"] });
+    expect(r.length).toBeGreaterThan(1);
+    expect(r[0]!.have).toContain("pollo");
   });
 });

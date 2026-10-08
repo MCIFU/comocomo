@@ -18,6 +18,10 @@ export interface RecommendInput {
   maxMinutes?: number;
   equipment?: ReadonlySet<string>;
   assumeStaples?: boolean;
+  /** solo estas cocinas (si se pidió "algo mexicano") */
+  cuisines?: string[];
+  /** platos pedidos por su nombre: van primero */
+  dishes?: string[];
 }
 
 export interface Recommendation {
@@ -53,20 +57,27 @@ export function recommend(
   });
 
   const out: Recommendation[] = [];
+  const asked = new Set(input.dishes ?? []);
   for (const m of matches) {
-    // Si el usuario dijo qué tiene, la receta debe usar al menos algo de ello.
-    if (userGaveIngredients && !m.have.some((id) => input.have.has(id) && !STAPLES.has(id))) continue;
+    const isAsked = asked.has(m.recipe.id);
+    if (input.cuisines?.length && !isAsked && !input.cuisines.includes(m.recipe.cuisine)) continue;
+    // Si el usuario dijo qué tiene, la receta debe usar algo de ello, salvo que pidiera ese plato
+    // o una cocina concreta (entonces se muestran todas y las que usan lo suyo van primero).
+    if (!isAsked && !input.cuisines?.length && userGaveIngredients && !m.have.some((id) => input.have.has(id) && !STAPLES.has(id))) continue;
 
     const recipe = scaleRecipe(m.recipe, input.servings);
-    const cost = recipeCost(recipe, prices, haveAll);
-    const withinBudget = input.budget === undefined || cost.toBuy.min <= input.budget;
-    if (!withinBudget) continue;
+    const cost = recipeCost(recipe, prices, catalog, haveAll);
+    // El presupuesto se compara con lo que pagarías en caja (envases completos), no con la parte proporcional.
+    const buyMid = (cost.toBuy.min + cost.toBuy.max) / 2;
+    const withinBudget = input.budget === undefined || buyMid <= input.budget;
+    if (!withinBudget && !isAsked) continue;
     const mayExceedBudget = input.budget !== undefined && cost.toBuy.max > input.budget;
     const totalMinutes = recipe.prepMin + recipe.cookMin;
 
     const usedFromUser = m.have.filter((id) => input.have.has(id) && !STAPLES.has(id)).length;
     const required = recipe.ingredients.filter((i) => !i.optional).length;
     const parts: string[] = [];
+    if (isAsked) parts.push("es el plato que buscas");
     if (usedFromUser > 0) parts.push(`Usa ${usedFromUser} de tus ingredientes`);
     if (m.missing.length === 0) parts.push("no necesitas comprar nada");
     else if (m.missing.length === 1) parts.push("solo te falta 1 ingrediente");
@@ -80,8 +91,8 @@ export function recommend(
       : `Plato de ${recipe.origin} listo en ${totalMinutes} min.`;
 
     const score =
-      m.coverage * 10 - m.missing.length * 0.5 - (cost.toBuy.max / input.servings) * 0.3 +
-      (required ? usedFromUser / required : 0) * 4;
+      m.coverage * 10 - m.missing.length * 0.5 - (buyMid / input.servings) * 0.3 +
+      (required ? usedFromUser / required : 0) * 4 + (isAsked ? 100 : 0);
     out.push({
       recipe, baseId: m.recipe.id, cost, have: m.have, missing: m.missing,
       withinBudget, mayExceedBudget, totalMinutes, reason, score,

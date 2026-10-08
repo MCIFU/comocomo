@@ -1,4 +1,4 @@
-import { formatMinutes, formatMoneyRange, parseQuery, recommend } from "@comocomo/core";
+import { formatMinutes, formatMoney, parseQuery, recommend } from "@comocomo/core";
 import { Redirect, useRouter } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { Animated, Platform, Pressable, ScrollView, useWindowDimensions, View } from "react-native";
@@ -256,7 +256,7 @@ function Demo({ size }: { size: number }) {
           <>
             <Display size={28} style={{ textAlign: "center" }}>{rec.recipe.title}</Display>
             <T tone="muted" style={{ fontSize: 14, fontFamily: fonts.uiMedium }}>
-              {formatMinutes(rec.totalMinutes)} · {rec.missing.length === 0 ? "nada que comprar" : `${formatMoneyRange(rec.cost.toBuy.min, rec.cost.toBuy.max)} por comprar`}
+              {formatMinutes(rec.totalMinutes)} · {rec.missing.length === 0 ? "nada que comprar" : `${formatMoney(rec.cost.toBuy.min, rec.cost.toBuy.max)} en el súper`}
             </T>
           </>
         )}

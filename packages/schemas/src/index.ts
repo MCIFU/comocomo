@@ -22,6 +22,11 @@ export const Ingredient = z.object({
   /** Alérgenos que contiene (p. ej. "gluten", "lactose", "egg", "fish", "nuts") */
   allergens: z.array(z.string()).default([]),
   tags: z.array(z.string()).default([]),
+  /**
+   * Envase habitual en el súper. Sin envase = se compra a granel (al peso o por unidades sueltas).
+   * Sirve para calcular lo que de verdad pagas: no se pueden comprar 550 g de un bote de 400 g.
+   */
+  pack: z.object({ qty: z.number().positive(), unit: UnitId, label: z.string().min(1) }).optional(),
   /** Otras formas de nombrarlo (plurales, sinónimos, marcas genéricas) */
   aliases: z.array(z.string()).default([]),
 });

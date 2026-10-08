@@ -1,10 +1,11 @@
-import { buildShoppingList, formatMoneyRange, formatQty, recipeCost, scaleRecipe, STAPLES } from "@comocomo/core";
+import { buildShoppingList, formatMoney, formatQty, scaleRecipe, STAPLES } from "@comocomo/core";
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { Pressable, View } from "react-native";
 import { EmptyPlate } from "../../src/Plate";
 import { Screen } from "../../src/Screen";
 import { AISLE_LABEL, AISLE_ORDER, catalog, prices, recipeById } from "../../src/lib/data";
+import { pluralPack } from "../../src/lib/labels";
 import { actions, useStore } from "../../src/lib/store";
 import { fonts, usePalette } from "../../src/theme";
 import { Button, Display, Empty, Label, T } from "../../src/ui";
@@ -21,13 +22,13 @@ export default function Compra() {
       return r ? [scaleRecipe(r, e.servings)] : [];
     });
     const pantry = new Map([...STAPLES].map((id) => [id, Number.POSITIVE_INFINITY]));
-    const list = buildShoppingList(scaled, catalog, pantry);
+    // Los envases se calculan sobre la lista completa: dos recetas con tomate comparten bote.
+    const list = buildShoppingList(scaled, catalog, pantry, "metric", prices);
     let min = 0;
     let max = 0;
-    for (const r of scaled) {
-      const k = recipeCost(r, prices, STAPLES);
-      min += k.toBuy.min;
-      max += k.toBuy.max;
+    for (const lines of Object.values(list)) for (const l of lines) {
+      min += l.cost?.min ?? 0;
+      max += l.cost?.max ?? 0;
     }
     return { list, total: { min, max }, scaled };
   }, [cart]);
@@ -54,7 +55,7 @@ export default function Compra() {
           <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
             <View style={{ gap: 2 }}>
               <Label>Compra estimada</Label>
-              <T style={{ fontFamily: fonts.uiBold, fontSize: 28, lineHeight: 34, fontVariant: ["tabular-nums"] }}>{formatMoneyRange(total.min, total.max)}</T>
+              <T style={{ fontFamily: fonts.uiBold, fontSize: 28, lineHeight: 34, fontVariant: ["tabular-nums"] }}>{formatMoney(total.min, total.max)}</T>
             </View>
             <T tone="muted" style={{ fontSize: 14 }}>{done} de {lines.length} cogidos</T>
           </View>
@@ -96,7 +97,7 @@ export default function Compra() {
             ))}
           </View>
           <T tone="muted" style={{ fontSize: 12, lineHeight: 17 }}>
-            Sin sal, pimienta, aceite, azúcar ni vinagre (los damos por tenidos). La estimación cuenta solo la parte que usas, no el paquete entero.
+            Sin sal, pimienta, aceite, azúcar ni vinagre (los damos por tenidos). El total cuenta envases completos, como en la caja del súper. Precios estimados.
           </T>
           {scaled.length > 0 && <Button label="Vaciar lista" kind="quiet" onPress={actions.clearCart} />}
         </>
@@ -104,3 +105,4 @@ export default function Compra() {
     </Screen>
   );
 }
+
