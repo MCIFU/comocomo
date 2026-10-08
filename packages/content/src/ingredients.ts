@@ -60,12 +60,42 @@ const rows: Row[] = [
   ["tortilla-maiz", "Tortillas de maíz", "bakery", "count", [], [], ["unit", 0.08, 0.15]],
 ];
 
+const ALIASES: Record<string, string[]> = {
+  pollo: ["pechuga", "pechugas", "muslo", "muslos", "contramuslo", "contramuslos"],
+  huevo: ["huevos"],
+  patata: ["patatas", "papa", "papas"],
+  tomate: ["tomates"],
+  pimiento: ["pimientos"],
+  ajo: ["ajos"],
+  zanahoria: ["zanahorias"],
+  pasta: ["espagueti", "espaguetis", "spaghetti", "macarrones", "fideos", "tallarines"],
+  queso: ["quesos", "parmesano", "mozzarella", "mozarela", "manchego", "cheddar"],
+  chorizo: ["chorizos"],
+  gambas: ["gamba", "langostinos", "langostino"],
+  merluza: ["pescado blanco"],
+  lentejas: ["lenteja"],
+  garbanzos: ["garbanzo"],
+  fabes: ["fabas", "alubias", "judias blancas"],
+  aceite: ["aceite de oliva"],
+  "tomate-triturado": ["tomate frito", "salsa de tomate"],
+  pan: ["barra de pan"],
+  limon: ["limones"],
+  cebolla: ["cebollas"],
+  aguacate: ["aguacates"],
+  "tortilla-maiz": ["tortillas", "tortillas de maiz", "tortillas mexicanas"],
+  "leche-coco": ["leche de coco"],
+  soja: ["salsa de soja"],
+  panceta: ["bacon", "beicon", "tocino"],
+  calabacin: ["calabacines"],
+  espinacas: ["espinaca"],
+};
+
 export const ingredients: Ingredient[] = rows.map(([id, name, aisle, unitKind, allergens, tags]) => ({
-  id, name, aisle, unitKind, allergens, tags,
+  id, name, aisle, unitKind, allergens, tags, aliases: ALIASES[id] ?? [],
 }));
 
 export const prices: Price[] = rows.map(([ingredientId, , , , , , [perUnit, min, max]]) => ({
   ingredientId, perUnit, currency: "EUR", min, max, confidence: "estimated",
 }));
 
-export const EQUIPMENT = ["sarten", "olla", "horno", "batidora"] as const;
+export const EQUIPMENT = ["sarten", "olla", "horno", "batidora", "airfryer", "microondas"] as const;

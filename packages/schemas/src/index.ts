@@ -22,6 +22,8 @@ export const Ingredient = z.object({
   /** Alérgenos que contiene (p. ej. "gluten", "lactose", "egg", "fish", "nuts") */
   allergens: z.array(z.string()).default([]),
   tags: z.array(z.string()).default([]),
+  /** Otras formas de nombrarlo (plurales, sinónimos, marcas genéricas) */
+  aliases: z.array(z.string()).default([]),
 });
 export type Ingredient = z.infer<typeof Ingredient>;
 

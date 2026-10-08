@@ -3,7 +3,7 @@ import type { Ingredient, Price, Recipe } from "@comocomo/schemas";
 import { buildShoppingList, matchRecipes, recipeCost, roundNice, scaleRecipe, toBase, violatesHardRestriction } from "./index";
 
 const ing = (id: string, o: Partial<Ingredient> = {}): Ingredient => ({
-  id, name: id, aisle: "pantry", unitKind: "mass", allergens: [], tags: [], ...o,
+  id, name: id, aisle: "pantry", unitKind: "mass", allergens: [], tags: [], aliases: [], ...o,
 });
 const catalog = new Map<string, Ingredient>([
   ["pollo", ing("pollo", { aisle: "butcher" })],
