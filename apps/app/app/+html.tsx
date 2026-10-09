@@ -17,7 +17,7 @@ export default function Root({ children }: PropsWithChildren) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Tu cocina, tus ingredientes, tu presupuesto." />
         <meta name="theme-color" content="#FBF6EE" />
-        <title>COMOCOMO · Tu cocina, tus ingredientes, tu presupuesto</title>
+        <title>Cómocomo · Tu cocina, tus ingredientes, tu presupuesto</title>
         <link rel="icon" type="image/svg+xml" href={FAVICON} />
         <ScrollViewStyleReset />
         <style dangerouslySetInnerHTML={{ __html: "body{background:#FBF6EE}@media (prefers-color-scheme: dark){body{background:#171311}}" }} />

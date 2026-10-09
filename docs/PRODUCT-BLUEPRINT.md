@@ -218,7 +218,7 @@ Reglas: salida siempre validada con Zod · temperatura baja · alergias filtrada
 
 **Personalidad:** editorial cálida, directa, con humor sutil. Cocina de casa, no de restaurante. Tipografía con carácter, mucho espacio, color con función.
 
-**Concepto de logo.** El nombre es CO-MO-CO-MO y el juego *como / cómo* (verbo / pregunta) es la idea central. Isotipo propuesto: **dos "o" enlazadas** — una plato visto desde arriba, otra el mismo plato ya servido — los dos estados de una transformación (ingredientes → comida). El acento de *cómo* se usa como recurso de marca (el acento = la pregunta). Funciona como wordmark en minúsculas, isotipo (doble o), icono Android adaptive (doble o sobre color sólido) y favicon (una sola o).
+**Concepto de logo.** El nombre es CO-MO-CO-MO y el juego *cómo / como* (pregunta / verbo): «¿cómo como?» es la idea central. Isotipo propuesto: **dos "o" enlazadas** — una plato visto desde arriba, otra el mismo plato ya servido — los dos estados de una transformación (ingredientes → comida). El acento de *cómo* se usa como recurso de marca (el acento = la pregunta). Funciona como wordmark en minúsculas, isotipo (doble o), icono Android adaptive (doble o sobre color sólido) y favicon (una sola o).
 
 Evitado: gorro, cubiertos, hojas, cucharas.
 

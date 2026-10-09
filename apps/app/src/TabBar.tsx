@@ -47,7 +47,7 @@ export function TabBar({ state, navigation, wide }: BottomTabBarProps & { wide: 
     return (
       <View style={[s.top, { backgroundColor: c.paper }]}>
         <View style={s.topInner}>
-          <Pressable accessibilityRole="link" accessibilityLabel="COMOCOMO, inicio" onPress={() => navigation.navigate("index")}>
+          <Pressable accessibilityRole="link" accessibilityLabel="Cómocomo, inicio" onPress={() => navigation.navigate("index")}>
             <Wordmark size={24} />
           </Pressable>
           <View style={{ flexDirection: "row", gap: 6 }}>{items}</View>

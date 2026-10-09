@@ -118,7 +118,7 @@ export default function Receta() {
         <Stepper label="personas" unit={servings === 1 ? "persona" : "personas"} value={servings} onChange={actions.setServings} max={20} />
       </View>
       <Ticket label={`Lista de la compra de ${title} para ${servings} personas`}>
-        <TicketCenter>COMOCOMO</TicketCenter>
+        <TicketCenter>CÓMOCOMO</TicketCenter>
         <TicketCenter muted>{title.toUpperCase()}{"\n"}{servings} {servings === 1 ? "PERSONA" : "PERSONAS"}</TicketCenter>
         <TicketRule />
         {recipe.ingredients.map((ri) => {
@@ -155,7 +155,7 @@ export default function Receta() {
 
   return (
     <Screen wide={wide} edges={["top", "bottom"]} footer={wide ? undefined : <Button label="Empezar a cocinar →" onPress={start} />}>
-      <Stack.Screen options={{ title: `${title} · COMOCOMO` }} />
+      <Stack.Screen options={{ title: `${title} · Cómocomo` }} />
       {topBar}
       {wide ? (
         <View style={{ flexDirection: "row", gap: 40, alignItems: "flex-start" }}>

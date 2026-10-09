@@ -48,7 +48,7 @@ export default function Root() {
   return (
     <>
       <Head>
-        <title>COMOCOMO · Recetas, ingredientes y lo que cuestan</title>
+        <title>Cómocomo · Recetas, ingredientes y lo que cuestan</title>
         <meta name="description" content="Busca un plato y te damos la receta, la lista de la compra y lo que te va a costar." />
       </Head>
       <StatusBar style="dark" />

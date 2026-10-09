@@ -55,7 +55,7 @@ export default function Compra() {
         <View style={wide ? { flexDirection: "row", gap: 48, alignItems: "flex-start" } : { gap: 24 }}>
           <View style={{ flex: wide ? 1.1 : undefined, maxWidth: 560 }}>
             <Ticket label="Lista de la compra">
-              <TicketCenter>COMOCOMO</TicketCenter>
+              <TicketCenter>CÓMOCOMO</TicketCenter>
               <TicketCenter muted>{done} de {lines.length} cogidos</TicketCenter>
               {AISLE_ORDER.filter((a) => list[a as keyof typeof list]?.length).map((aisle) => (
                 <View key={aisle}>
