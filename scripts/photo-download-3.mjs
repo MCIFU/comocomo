@@ -1,6 +1,6 @@
 // Descarga las fotos preseleccionadas del lote 4 (salvo las descartadas en la revisión) y regenera photos.ts.
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-const SKIP = new Set(["moros-y-cristianos", "merluza-a-la-sidra", "lentejas-con-verduras", "arroz-con-pitu", "chana-saag", "humita"]);
+const SKIP = new Set(["humita","merluza-a-la-sidra","moros-y-cristianos","lentejas-con-verduras","arroz-con-pitu","chana-saag","tarta-de-la-abuela","mousse-de-limon","fresas-con-nata","mug-cake","helado-platano","crema-de-verduras","coliflor-gratinada","calabacines-rellenos","espinacas-catalana","canelones","pasta-atun-tomate","arroz-pollo-peruano","sopa-tomate"]);
 const c3 = JSON.parse(readFileSync("scripts/photo-candidates-3.json", "utf8"));
 let ts = readFileSync("apps/app/src/lib/photos.ts", "utf8");
 const lines = [];
