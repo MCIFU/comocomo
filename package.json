@@ -13,11 +13,15 @@
   },
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc --noEmit && npm run typecheck -w @comocomo/app"
+    "typecheck": "tsc --noEmit && npm run typecheck -w @comocomo/app",
+    "build:web": "npm run export:web -w @comocomo/app"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "typescript": "^5.6.0",
     "vitest": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
