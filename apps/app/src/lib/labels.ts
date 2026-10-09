@@ -12,7 +12,7 @@ export const CUISINE_LABEL: Record<string, string> = {
   cubana: "Cuba", colombiana: "Colombia", venezolana: "Venezuela", chilena: "Chile",
   nigeriana: "Nigeria", etiope: "Etiopía", senegalesa: "Senegal", sudafricana: "Sudáfrica",
   hungara: "Hungría", polaca: "Polonia", irlandesa: "Irlanda", sueca: "Suecia", noruega: "Noruega", malaya: "Malasia",
-  dominicana: "Rep. Dominicana", salvadorena: "El Salvador", costarricense: "Costa Rica", australiana: "Australia", egipcia: "Egipto",
+  dominicana: "Rep. Dominicana", salvadorena: "El Salvador", costarricense: "Costa Rica", australiana: "Australia", rusa: "Rusia", egipcia: "Egipto",
 };
 
 /** Pegatinas de la portada: agrupan cocinas para no tener 15 botones. */
