@@ -16,7 +16,7 @@
     ],
     "android": {
       "package": "com.comocomo.app",
-      "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#FBF6EE" }
+      "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#F5B82E" }
     },
     "web": { "bundler": "metro", "output": "single", "favicon": "./assets/favicon.png", "name": "Cómocomo", "shortName": "Cómocomo", "description": "Tu cocina, tus ingredientes, tu presupuesto." }
   }

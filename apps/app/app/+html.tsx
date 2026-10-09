@@ -1,13 +1,6 @@
 import { ScrollViewStyleReset } from "expo-router/html";
 import type { PropsWithChildren } from "react";
 
-// Isotipo como favicon (SVG): dos "o" solapadas.
-const FAVICON =
-  "data:image/svg+xml," +
-  encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32"><circle cx="32" cy="16" r="12" fill="#C23A24"/><circle cx="16" cy="16" r="12" fill="none" stroke="#1F1A17" stroke-width="3"/></svg>',
-  );
-
 export default function Root({ children }: PropsWithChildren) {
   return (
     <html lang="es">
@@ -18,7 +11,13 @@ export default function Root({ children }: PropsWithChildren) {
         <meta name="description" content="Tu cocina, tus ingredientes, tu presupuesto." />
         <meta name="theme-color" content="#FBF6EE" />
         <title>Cómocomo · Tu cocina, tus ingredientes, tu presupuesto</title>
-        <link rel="icon" type="image/svg+xml" href={FAVICON} />
+        {/* Iconos generados por scripts/icons.mjs a partir del logotipo «etiqueta». */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="apple-mobile-web-app-title" content="Cómocomo" />
         <ScrollViewStyleReset />
         <style dangerouslySetInnerHTML={{ __html: "body{background:#FBF6EE}@media (prefers-color-scheme: dark){body{background:#171311}}" }} />
       </head>
