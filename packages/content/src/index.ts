@@ -10,10 +10,14 @@ import { recipesCasa } from "./recipes-casa";
 import { recipesEuropa2 } from "./recipes-europa-2";
 import { recipesAsia2 } from "./recipes-asia-2";
 import { recipesAmerica2 } from "./recipes-america-2";
+import { recipesWok } from "./recipes-wok";
 
 export { ingredients, prices, EQUIPMENT } from "./ingredients";
-export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2];
-export { DISH_KEYWORDS } from "./dishes";
-import { DISH_KEYWORDS } from "./dishes";
+export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok];
+import { DISH_KEYWORDS as D1 } from "./dishes";
+import { DISH_KEYWORDS_2 } from "./dishes-2";
+export { SEARCH_TAGS } from "./dishes-2";
+export const DISH_KEYWORDS: Record<string, string[]> = { ...D1 };
+for (const [k, v] of Object.entries(DISH_KEYWORDS_2)) DISH_KEYWORDS[k] = [...new Set([...(DISH_KEYWORDS[k] ?? []), ...v])];
 /** Para parseDishIntent: id de receta + nombres con los que se pide. */
 export const dishes = Object.entries(DISH_KEYWORDS).map(([id, keywords]) => ({ id, keywords }));

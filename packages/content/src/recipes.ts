@@ -136,7 +136,7 @@ export const recipes: Recipe[] = [
     ],
   }),
   r({
-    id: "fabada-asturiana", title: "Fabada asturiana", cuisine: "asturiana", authenticity: "adapted",
+    id: "fabada-asturiana", title: "Fabada asturiana", cuisine: "espanola", authenticity: "adapted",
     origin: "España (Asturias)", note: "Versión simplificada: la tradicional incluye lacón y azafrán. Las fabes de la Granja son las de referencia.",
     baseServings: 4, prepMin: 20, cookMin: 165, difficulty: "medium", equipment: ["olla"],
     ingredients: [I("fabes", 400, "g"), I("chorizo", 200, "g"), I("morcilla", 200, "g"), I("panceta", 150, "g"), I("sal", 8, "g")],

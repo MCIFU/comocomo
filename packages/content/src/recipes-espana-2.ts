@@ -271,7 +271,7 @@ export const recipesEspana2: Recipe[] = [
   }),
   // ——— Asturias ———
   r({
-    id: "frixuelos", title: "Frixuelos", cuisine: "asturiana", authenticity: "traditional",
+    id: "frixuelos", title: "Frixuelos", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Asturias)", note: "Primos asturianos de las crêpes. Se sirven con azúcar, miel o crema pastelera, sobre todo en Carnaval.",
     baseServings: 4, prepMin: 40, cookMin: 25, difficulty: "easy", equipment: ["sarten", "batidora"],
     ingredients: [I("harina", 125, "g"), I("huevo", 2, "unit"), I("leche", 300, "ml"), I("mantequilla", 20, "g"), I("azucar", 10, "g"), I("miel", 60, "g", true), I("sal", 1, "g")],
@@ -283,7 +283,7 @@ export const recipesEspana2: Recipe[] = [
     ],
   }),
   r({
-    id: "merluza-a-la-sidra", title: "Merluza a la sidra", cuisine: "asturiana", authenticity: "traditional",
+    id: "merluza-a-la-sidra", title: "Merluza a la sidra", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Asturias)", note: "Con sidra natural asturiana; la achampanada es demasiado dulce.",
     baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "easy", equipment: ["olla"],
     ingredients: [I("merluza", 600, "g"), I("almejas", 250, "g"), I("sidra", 300, "ml"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("harina", 10, "g"), I("patata", 400, "g"), I("aceite", 40, "ml"), I("perejil", 10, "g"), I("sal", 5, "g")],
@@ -296,7 +296,7 @@ export const recipesEspana2: Recipe[] = [
     ],
   }),
   r({
-    id: "carne-gobernada", title: "Carne gobernada", cuisine: "asturiana", authenticity: "traditional",
+    id: "carne-gobernada", title: "Carne gobernada", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Asturias)", note: "Guiso de ternera asturiano. Lo ideal es aguja o morcillo, cortes para guisar.",
     baseServings: 4, prepMin: 15, cookMin: 100, difficulty: "easy", equipment: ["olla"],
     ingredients: [I("ternera", 800, "g"), I("cebolla", 2, "unit"), I("ajo", 3, "unit"), I("zanahoria", 150, "g"), I("vino-blanco", 200, "ml"), I("caldo", 300, "ml"), I("patata", 500, "g"), I("aceite", 50, "ml"), I("sal", 7, "g")],
@@ -308,7 +308,7 @@ export const recipesEspana2: Recipe[] = [
     ],
   }),
   r({
-    id: "chorizo-a-la-sidra", title: "Chorizo a la sidra", cuisine: "asturiana", authenticity: "traditional",
+    id: "chorizo-a-la-sidra", title: "Chorizo a la sidra", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Asturias)", note: "Clásico de sidrería. Mejor con chorizo asturiano ahumado.",
     baseServings: 4, prepMin: 5, cookMin: 25, difficulty: "easy", equipment: ["olla"],
     ingredients: [I("chorizo", 400, "g"), I("sidra", 500, "ml"), I("pan", 200, "g", true)],
@@ -320,7 +320,7 @@ export const recipesEspana2: Recipe[] = [
     ],
   }),
   r({
-    id: "casadielles", title: "Casadielles", cuisine: "asturiana", authenticity: "adapted",
+    id: "casadielles", title: "Casadielles", cuisine: "espanola", authenticity: "adapted",
     origin: "España (Asturias)", note: "Tradicionalmente se fríen y el relleno lleva anís; aquí se hornean.",
     baseServings: 6, prepMin: 25, cookMin: 20, difficulty: "medium", equipment: ["horno"],
     ingredients: [I("masa-hojaldre", 275, "g"), I("nueces", 150, "g"), I("azucar", 80, "g"), I("huevo", 1, "unit"), I("vino-blanco", 20, "ml")],

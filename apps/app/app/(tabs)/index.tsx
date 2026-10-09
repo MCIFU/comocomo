@@ -5,7 +5,7 @@ import { useDeferredValue, useMemo, useState } from "react";
 import { Pressable, ScrollView, TextInput, useWindowDimensions, View } from "react-native";
 import { RecipeCard } from "../../src/RecipeCard";
 import { Screen } from "../../src/Screen";
-import { catalog, DISH_KEYWORDS, prices, recipes } from "../../src/lib/data";
+import { catalog, DISH_KEYWORDS, prices, recipes, SEARCH_TAGS } from "../../src/lib/data";
 import { CUISINE_LABEL, QUICK_FILTERS, REGION_FILTERS } from "../../src/lib/labels";
 import { actions, useStore } from "../../src/lib/store";
 import { Wordmark } from "../../src/Logo";
@@ -15,7 +15,7 @@ import { Button, Chip, Display, Empty, Label, Stepper, T } from "../../src/ui";
 
 // El país también se puede escribir: "mexicana", "japón"…
 const EXTRA: Record<string, string[]> = Object.fromEntries(
-  recipes.map((r) => [r.id, [...(DISH_KEYWORDS[r.id] ?? []), CUISINE_LABEL[r.cuisine] ?? ""]]),
+  recipes.map((r) => [r.id, [...(DISH_KEYWORDS[r.id] ?? []), ...(SEARCH_TAGS[r.id] ?? []), CUISINE_LABEL[r.cuisine] ?? "", r.origin ?? ""]]),
 );
 
 export default function Recetas() {

@@ -115,7 +115,7 @@ export function parseQuery(text: string, catalog: Ingredient[]): ParsedQuery {
 }
 
 const CUISINE_TERMS: Record<string, string[]> = {
-  espanola: ["espanol", "espanola", "de espana"], asturiana: ["asturiano", "asturiana", "de asturias"],
+  espanola: ["espanol", "espanola", "de espana"],
   italiana: ["italiano", "italiana", "de italia"], mexicana: ["mexicano", "mexicana", "de mexico"],
   japonesa: ["japones", "japonesa", "de japon"], china: ["chino", "china"], india: ["indio", "india", "hindu"],
   argentina: ["argentino", "argentina"], turca: ["turco", "turca"], tailandesa: ["tailandes", "tailandesa", "thai"],

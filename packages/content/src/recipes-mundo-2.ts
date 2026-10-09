@@ -62,7 +62,7 @@ export const recipesMundo2: Recipe[] = [
     ],
   }),
   r({
-    id: "cachopo", title: "Cachopo asturiano", cuisine: "asturiana", authenticity: "traditional",
+    id: "cachopo", title: "Cachopo asturiano", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Asturias)", note: "Un cachopo da para dos. El relleno clásico es jamón serrano y queso; en Asturias se ven mil variantes.",
     baseServings: 2, prepMin: 15, cookMin: 20, difficulty: "medium", equipment: ["sarten"],
     ingredients: [I("ternera", 300, "g"), I("jamon", 60, "g"), I("queso", 80, "g"), I("harina", 40, "g"), I("huevo", 2, "unit"), I("pan-rallado", 80, "g"), I("patata", 400, "g"), I("aceite", 400, "ml"), I("sal", 4, "g")],
@@ -75,7 +75,7 @@ export const recipesMundo2: Recipe[] = [
     ],
   }),
   r({
-    id: "arroz-con-leche", title: "Arroz con leche", cuisine: "asturiana", authenticity: "traditional",
+    id: "arroz-con-leche", title: "Arroz con leche", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Asturias)", note: "En Asturias se sirve con el azúcar de encima quemado (requemado).",
     baseServings: 4, prepMin: 5, cookMin: 50, difficulty: "easy", equipment: ["olla"],
     ingredients: [I("arroz", 150, "g"), I("leche", 1000, "ml"), I("azucar", 100, "g"), I("canela", 5, "g"), I("limon", 1, "unit"), I("mantequilla", 15, "g", true)],

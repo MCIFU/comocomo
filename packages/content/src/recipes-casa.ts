@@ -176,7 +176,7 @@ export const recipesCasa: Recipe[] = [
     ],
   }),
   r({
-    id: "fabes-con-almejas", title: "Fabes con almejas", cuisine: "asturiana", authenticity: "traditional",
+    id: "fabes-con-almejas", title: "Fabes con almejas", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Asturias)", note: "Las fabes se cuecen suaves para que no pierdan la piel.",
     baseServings: 4, prepMin: 20, cookMin: 150, difficulty: "medium", equipment: ["olla"],
     ingredients: [I("fabes", 400, "g"), I("almejas", 500, "g"), I("cebolla", 1, "unit"), I("ajo", 3, "unit"), I("vino-blanco", 100, "ml"), I("pimenton", 3, "g"), I("perejil", 15, "g"), I("aceite", 50, "ml"), I("sal", 6, "g")],
@@ -189,7 +189,7 @@ export const recipesCasa: Recipe[] = [
     ],
   }),
   r({
-    id: "arroz-con-pitu", title: "Arroz con pitu de caleya", cuisine: "asturiana", authenticity: "adapted",
+    id: "arroz-con-pitu", title: "Arroz con pitu de caleya", cuisine: "espanola", authenticity: "adapted",
     origin: "España (Asturias)", note: "El pitu de caleya es un pollo de corral criado al aire libre, de carne más firme. Con pollo normal se reduce el tiempo de guiso.",
     baseServings: 4, prepMin: 15, cookMin: 70, difficulty: "medium", equipment: ["olla"],
     ingredients: [I("pollo", 1000, "g"), I("arroz", 320, "g"), I("cebolla", 1, "unit"), I("pimiento", 1, "unit"), I("tomate", 200, "g"), I("ajo", 3, "unit"), I("vino-blanco", 150, "ml"), I("caldo", 1300, "ml"), I("aceite", 50, "ml"), I("sal", 8, "g")],
@@ -201,7 +201,7 @@ export const recipesCasa: Recipe[] = [
     ],
   }),
   r({
-    id: "escalopines-cabrales", title: "Escalopines al Cabrales", cuisine: "asturiana", authenticity: "traditional",
+    id: "escalopines-cabrales", title: "Escalopines al Cabrales", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Asturias)", note: "El Cabrales es un queso azul asturiano muy intenso; con otro queso azul la salsa es más suave.",
     baseServings: 4, prepMin: 15, cookMin: 20, difficulty: "easy", equipment: ["sarten"],
     ingredients: [I("ternera", 600, "g"), I("queso-azul", 120, "g"), I("nata", 200, "ml"), I("harina", 40, "g"), I("patata", 600, "g"), I("aceite", 300, "ml"), I("sal", 5, "g")],
