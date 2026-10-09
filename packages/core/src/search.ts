@@ -6,7 +6,11 @@ import { scaleRecipe } from "./scale";
 const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 
 /** Básicos que casi todo el mundo tiene y no se cuentan en el precio de una receta. */
-export const BASICS: ReadonlySet<string> = new Set(["sal", "aceite", "pimienta", "azucar", "vinagre"]);
+export const BASICS: ReadonlySet<string> = new Set([
+  "sal", "aceite", "pimienta", "azucar", "vinagre",
+  // Despensa: se usan a cucharaditas y un bote dura meses; cobrar el envase entero inflaría el precio.
+  "pimenton", "comino", "curry", "canela", "oregano", "soja", "miel", "sesamo", "mostaza", "levadura-quimica",
+]);
 
 export interface SearchOptions {
   /** textos extra por receta: país, nombres con los que se pide, etc. */
@@ -46,7 +50,7 @@ export interface ShoppingPrice extends Money {
 
 /**
  * Lo que cuesta comprar una receta para `servings` personas en el súper:
- * envases completos, sin contar los básicos (sal, aceite, pimienta, azúcar, vinagre).
+ * envases completos, sin contar los básicos de despensa (BASICS).
  */
 export function shoppingPrice(recipe: Recipe, servings: number, prices: Price[], catalog: Map<string, Ingredient>): ShoppingPrice {
   const c = recipeCost(scaleRecipe(recipe, servings), prices, catalog, BASICS);

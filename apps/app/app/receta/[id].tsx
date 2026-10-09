@@ -129,7 +129,7 @@ export default function Receta() {
               key={ri.ingredientId}
               left={`${shortName(ri.ingredientId)}${ri.optional ? " (opc.)" : ""}`}
               right={displayQty(ri)}
-              sub={basic ? "básico de casa" : l?.packs ? `${l.packs} ${pluralPack(l.packLabel!, l.packs)} · ${formatMoney(l.cost.min, l.cost.max)}` : l ? `a granel · ${formatMoney(l.cost.min, l.cost.max)}` : undefined}
+              sub={basic ? undefined : l?.packs ? `${l.packs} ${pluralPack(l.packLabel!, l.packs)} · ${formatMoney(l.cost.min, l.cost.max)}` : l ? `a granel · ${formatMoney(l.cost.min, l.cost.max)}` : undefined}
             />
           );
         })}
@@ -137,7 +137,7 @@ export default function Receta() {
         <TicketLine left="TOTAL" right={formatMoney(price.min, price.max)} strong />
         <TicketLine left="Por persona" right={formatMoney(price.min / servings, price.max / servings)} />
         <View style={{ height: 10 }} />
-        <TicketCenter muted>Aprox. · envases completos{"\n"}sin sal, aceite ni especias básicas</TicketCenter>
+        <TicketCenter muted>Aprox. · envases completos</TicketCenter>
       </Ticket>
       <Animated.View style={cartPulse}>
         <Button

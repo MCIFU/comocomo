@@ -146,7 +146,7 @@ export default function Recetas() {
       )}
 
       <T tone="muted" style={{ fontSize: 13, lineHeight: 19, marginTop: 12, maxWidth: 760 }}>
-        Precio aproximado de comprarlo todo en un supermercado en España, con envases completos y sin contar sal, aceite, pimienta, azúcar ni vinagre. Si tienes alergias, revisa siempre las etiquetas.{" "}
+        Precio aproximado de comprarlo todo en un supermercado en España, con envases completos. Si tienes alergias, revisa siempre las etiquetas.{" "}
         <T tone="muted" accessibilityRole="link" onPress={() => router.push("/creditos")} style={{ fontSize: 13, textDecorationLine: "underline" }}>
           Créditos de las fotos
         </T>
