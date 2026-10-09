@@ -1,0 +1,323 @@
+import type { Recipe } from "@comocomo/schemas";
+import { I, r, S } from "./helpers";
+
+/** Lote 5D: más América y África. Recetas escritas para COMOCOMO. */
+export const recipesAmerica2: Recipe[] = [
+  // ——— México ———
+  r({
+    id: "tacos-al-pastor", title: "Tacos al pastor", cuisine: "mexicana", authenticity: "adapted",
+    origin: "México (Ciudad de México)", note: "Se asa en trompo vertical con achiote y chiles guajillo; aquí, adobo de pimentón y comino en sartén.",
+    baseServings: 4, prepMin: 70, cookMin: 15, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("cerdo", 600, "g"), I("tortilla-maiz", 16, "unit"), I("pimenton", 10, "g"), I("comino", 3, "g"), I("oregano", 2, "g"), I("ajo", 3, "unit"), I("vinagre", 30, "ml"), I("naranja", 1, "unit"), I("cebolla", 1, "unit"), I("cilantro", 15, "g"), I("lima", 2, "unit"), I("aceite", 20, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Corta el cerdo (mejor aguja o presa) en láminas finas. Mezcla el pimentón, el comino, el orégano, el ajo picado, el vinagre, el zumo de naranja y la sal; marina 1 hora.", 60),
+      S("Dora la carne en tandas en una sartén muy caliente con el aceite, 4 minutos por tanda, hasta que tenga bordes tostados. Pícala.", 12),
+      S("Calienta las tortillas en la sartén seca 30 segundos por lado.", 3),
+      S("Sirve la carne en las tortillas con cebolla y cilantro picados y un chorro de lima."),
+    ],
+  }),
+  r({
+    id: "tinga-pollo", title: "Tinga de pollo", cuisine: "mexicana", authenticity: "adapted",
+    origin: "México (Puebla)", note: "Lleva chile chipotle en adobo; el pimentón ahumado picante da un perfil similar.",
+    baseServings: 4, prepMin: 10, cookMin: 40, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("pollo", 600, "g"), I("cebolla", 2, "unit"), I("tomate-triturado", 400, "g"), I("ajo", 2, "unit"), I("pimenton", 8, "g"), I("oregano", 2, "g"), I("tortilla-maiz", 12, "unit"), I("aguacate", 1, "unit"), I("aceite", 30, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece el pollo (pechuga o muslo) en agua con sal 20 minutos. Deshébralo con dos tenedores.", 20),
+      S("Sofríe la cebolla en tiras en el aceite 8 minutos. Añade el ajo, el pimentón y el orégano 30 segundos.", 9),
+      S("Agrega el tomate y cocina 6 minutos. Incorpora el pollo con un poco de su caldo y cocina 5 minutos.", 11),
+      S("Sirve sobre tortillas tostadas o calientes con aguacate en láminas."),
+    ],
+  }),
+  r({
+    id: "esquites", title: "Esquites", cuisine: "mexicana", authenticity: "adapted",
+    origin: "México", note: "Maíz salteado que se vende en vasos en la calle; se usa maíz de lata y queso curado en lugar de cotija.",
+    baseServings: 4, prepMin: 5, cookMin: 10, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("maiz", 570, "g"), I("mantequilla", 30, "g"), I("cebolla", 0.5, "unit"), I("chile", 1, "unit"), I("yogur", 1, "unit"), I("queso", 60, "g"), I("lima", 1, "unit"), I("pimenton", 3, "g"), I("sal", 3, "g")],
+    steps: [
+      S("Escurre el maíz y sécalo. Saltéalo en la mantequilla a fuego fuerte 6 minutos, hasta que se tueste un poco.", 6),
+      S("Añade la cebolla y el chile picados y cocina 2 minutos.", 2),
+      S("Sirve en vasos con una cucharada de yogur, queso rallado, zumo de lima y pimentón por encima."),
+    ],
+  }),
+  r({
+    id: "chiles-rellenos", title: "Chiles rellenos de queso", cuisine: "mexicana", authenticity: "adapted",
+    origin: "México (Puebla)", note: "Se hacen con chile poblano; el pimiento verde italiano es el sustituto más fácil.",
+    baseServings: 4, prepMin: 25, cookMin: 35, difficulty: "hard", equipment: ["horno", "sarten", "olla"],
+    ingredients: [I("pimiento", 4, "unit"), I("queso", 250, "g"), I("huevo", 4, "unit"), I("harina", 40, "g"), I("tomate-triturado", 400, "g"), I("cebolla", 0.5, "unit"), I("ajo", 1, "unit"), I("aceite", 300, "ml"), I("sal", 4, "g")],
+    steps: [
+      S("Asa los pimientos en el horno a 230 °C 15 minutos, girándolos. Tápalos 10 minutos y pélalos sin romperlos.", 15, 230),
+      S("Para el caldillo, sofríe la cebolla y el ajo 5 minutos, añade el tomate y sal y cocina 8 minutos.", 13),
+      S("Abre cada pimiento por un lado, quita las semillas y rellénalo de queso. Pásalo por harina."),
+      S("Monta las claras a punto de nieve y añade las yemas. Reboza los pimientos y fríelos en el aceite a 175 °C 2 minutos por lado.", 8, 175),
+      S("Sirve sobre el caldillo de tomate caliente."),
+    ],
+  }),
+  r({
+    id: "caldo-tlalpeno", title: "Caldo tlalpeño", cuisine: "mexicana", authenticity: "adapted",
+    origin: "México (Tlalpan)", note: "Lleva chipotle; se sustituye por pimentón ahumado.",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("pollo", 500, "g"), I("garbanzos-cocidos", 400, "g"), I("zanahoria", 200, "g"), I("calabacin", 200, "g"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("tomate", 250, "g"), I("pimenton", 6, "g"), I("aguacate", 1, "unit"), I("lima", 1, "unit"), I("caldo", 1500, "ml"), I("aceite", 20, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Sofríe la cebolla, el ajo y el tomate picados en el aceite con el pimentón 8 minutos.", 8),
+      S("Añade el caldo y el pollo y cuece 20 minutos. Saca el pollo y deshébralo.", 20),
+      S("Añade la zanahoria en rodajas, el calabacín en dados y los garbanzos y cuece 10 minutos. Devuelve el pollo.", 10),
+      S("Sirve con aguacate en dados y lima."),
+    ],
+  }),
+  // ——— Estados Unidos ———
+  r({
+    id: "pollo-frito-sureno", title: "Pollo frito sureño", cuisine: "estadounidense", authenticity: "adapted",
+    origin: "EE. UU. (Sur)", note: "El marinado en buttermilk se imita con leche y limón.",
+    baseServings: 4, prepMin: 130, cookMin: 30, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("pollo", 1200, "g"), I("leche", 400, "ml"), I("limon", 1, "unit"), I("harina", 200, "g"), I("pimenton", 8, "g"), I("ajo", 2, "unit"), I("aceite", 750, "ml"), I("sal", 10, "g"), I("pimienta", 3, "g")],
+    steps: [
+      S("Mezcla la leche con el zumo de limón y la sal y marina el pollo troceado (muslos y alitas) 2 horas en la nevera.", 120),
+      S("Mezcla la harina con el pimentón, el ajo en polvo o muy picado y la pimienta. Escurre el pollo y rebózalo apretando bien."),
+      S("Fríe en el aceite a 165 °C, en tandas sin amontonar, 12-14 minutos, girándolo, hasta que esté dorado y el jugo salga claro.", 28, 165),
+      S("Escurre sobre rejilla para que siga crujiente."),
+    ],
+  }),
+  r({
+    id: "pulled-pork", title: "Pulled pork (cerdo desmigado)", cuisine: "estadounidense", authenticity: "adapted",
+    origin: "EE. UU. (barbacoa del Sur)", note: "Se ahúma durante horas; al horno tapado a baja temperatura queda igual de tierno.",
+    baseServings: 6, prepMin: 15, cookMin: 240, difficulty: "easy", equipment: ["horno"],
+    ingredients: [I("cerdo", 1500, "g"), I("pimenton", 15, "g"), I("azucar", 40, "g"), I("ajo", 3, "unit"), I("comino", 3, "g"), I("vinagre", 60, "ml"), I("tomate-triturado", 200, "g"), I("mostaza", 15, "g"), I("pan-hamburguesa", 6, "unit"), I("repollo", 0.25, "unit", true), I("sal", 12, "g")],
+    steps: [
+      S("Frota la paletilla de cerdo con el pimentón, la mitad del azúcar, el ajo picado, el comino y la sal."),
+      S("Precalienta el horno a 150 °C. Ponla en una fuente con un vaso de agua y la mitad del vinagre, tapa bien con papel de aluminio y hornea 4 horas, hasta que se deshaga.", 240, 150),
+      S("Mientras, cuece el tomate con el resto del azúcar y del vinagre y la mostaza 10 minutos para hacer la salsa barbacoa.", 10),
+      S("Desmiga el cerdo con dos tenedores y mézclalo con la salsa y el jugo. Sirve en los panes con repollo en tiras finas."),
+    ],
+  }),
+  r({
+    id: "jambalaya", title: "Jambalaya", cuisine: "estadounidense", authenticity: "adapted",
+    origin: "EE. UU. (Luisiana)", note: "Primo criollo de la paella; lleva salchicha andouille, que aquí es chorizo.",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("arroz", 300, "g"), I("pollo", 300, "g"), I("chorizo", 150, "g"), I("gambas", 200, "g"), I("cebolla", 1, "unit"), I("pimiento", 1, "unit"), I("apio", 100, "g"), I("ajo", 2, "unit"), I("tomate-triturado", 200, "g"), I("pimenton", 6, "g"), I("caldo", 750, "ml"), I("aceite", 20, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Dora el chorizo en rodajas y el pollo en dados en el aceite 6 minutos.", 6),
+      S("Añade la cebolla, el pimiento verde y el apio picados (la «santísima trinidad» criolla) y el ajo; cocina 7 minutos.", 7),
+      S("Agrega el pimentón, el tomate y el arroz, remueve 1 minuto y añade el caldo caliente y sal.", 1),
+      S("Cuece tapado a fuego bajo 18 minutos. Mete las gambas por encima los últimos 4 minutos y deja reposar 5.", 18),
+    ],
+  }),
+  r({
+    id: "cookies-chocolate", title: "Cookies con trozos de chocolate", cuisine: "estadounidense", authenticity: "traditional",
+    origin: "EE. UU. (Massachusetts, años 30)", baseServings: 8, prepMin: 15, cookMin: 12, difficulty: "easy", equipment: ["horno"],
+    ingredients: [I("harina", 250, "g"), I("mantequilla", 150, "g"), I("azucar", 180, "g"), I("huevo", 1, "unit"), I("levadura-quimica", 4, "g"), I("chocolate", 150, "g"), I("sal", 2, "g")],
+    steps: [
+      S("Bate la mantequilla blanda con el azúcar hasta que esté cremosa y añade el huevo.", 3),
+      S("Incorpora la harina, la levadura química y la sal, y después el chocolate en trozos."),
+      S("Precalienta el horno a 180 °C. Haz bolas de unos 50 g y sepáralas bien en la bandeja con papel.", 10, 180),
+      S("Hornea 10-12 minutos: deben salir con los bordes dorados y el centro aún blando. Endurecen al enfriar.", 11, 180),
+    ],
+  }),
+  r({
+    id: "banana-bread", title: "Banana bread (bizcocho de plátano)", cuisine: "estadounidense", authenticity: "traditional",
+    origin: "EE. UU.", note: "Cuanto más maduros (negros) los plátanos, mejor.",
+    baseServings: 8, prepMin: 15, cookMin: 55, difficulty: "easy", equipment: ["horno"],
+    ingredients: [I("platano", 3, "unit"), I("harina", 220, "g"), I("azucar", 120, "g"), I("mantequilla", 80, "g"), I("huevo", 2, "unit"), I("levadura-quimica", 8, "g"), I("canela", 2, "g"), I("nueces", 60, "g", true), I("sal", 1, "g")],
+    steps: [
+      S("Precalienta el horno a 175 °C y engrasa un molde alargado.", 10, 175),
+      S("Chafa los plátanos con un tenedor. Mezcla con la mantequilla derretida, el azúcar y los huevos."),
+      S("Añade la harina, la levadura, la canela, la sal y las nueces picadas, mezclando lo justo."),
+      S("Hornea 50-55 minutos, hasta que un palillo salga limpio. Deja enfriar en el molde 10 minutos.", 52, 175),
+    ],
+  }),
+  // ——— Caribe y Centroamérica ———
+  r({
+    id: "sancocho", title: "Sancocho dominicano", cuisine: "dominicana", authenticity: "adapted",
+    origin: "República Dominicana", note: "El de siete carnes lleva yuca, ñame, plátano verde y yautía; esta versión usa pollo, cerdo, patata, boniato y maíz.",
+    baseServings: 6, prepMin: 25, cookMin: 70, difficulty: "medium", equipment: ["olla"],
+    ingredients: [I("pollo", 600, "g"), I("cerdo", 400, "g"), I("patata", 500, "g"), I("boniato", 400, "g"), I("maiz", 285, "g"), I("cebolla", 1, "unit"), I("pimiento", 1, "unit"), I("ajo", 4, "unit"), I("cilantro", 15, "g"), I("oregano", 2, "g"), I("lima", 2, "unit"), I("arroz", 300, "g"), I("aceite", 30, "ml"), I("sal", 12, "g")],
+    steps: [
+      S("Adoba el pollo y el cerdo troceados con el zumo de lima, el ajo machacado, el orégano y sal. Dóralos en el aceite 8 minutos.", 8),
+      S("Añade la cebolla y el pimiento picados 5 minutos y cubre con 2,5 litros de agua. Cuece 30 minutos.", 35),
+      S("Agrega el boniato y la patata en trozos y cuece 25 minutos; aplasta algunos trozos para espesar.", 25),
+      S("Añade el maíz y el cilantro los últimos 5 minutos. Sirve con arroz blanco cocido aparte.", 5),
+    ],
+  }),
+  r({
+    id: "pupusas", title: "Pupusas de queso y frijol", cuisine: "salvadorena", authenticity: "adapted",
+    origin: "El Salvador", note: "Se hacen con masa de maíz nixtamalizado; la harina precocida de arepas funciona bien.",
+    baseServings: 4, prepMin: 25, cookMin: 25, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("harina-maiz", 400, "g"), I("queso", 200, "g"), I("frijoles-negros", 400, "g"), I("repollo", 0.25, "unit"), I("zanahoria", 100, "g"), I("vinagre", 80, "ml"), I("oregano", 2, "g"), I("aceite", 10, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Para el curtido, mezcla el repollo y la zanahoria en tiras finas con el vinagre, el orégano y sal. Deja reposar mientras cocinas."),
+      S("Mezcla la harina de maíz con 550 ml de agua templada y sal hasta una masa suave. Chafa los frijoles escurridos con el queso rallado.", 5),
+      S("Con las manos aceitadas, haz bolas, ábrelas en cuenco, rellénalas y ciérralas. Aplánalas a 1 cm."),
+      S("Cocínalas en una sartén caliente sin grasa 4 minutos por lado, en tandas, hasta que tengan manchas tostadas.", 24),
+      S("Sirve con el curtido por encima."),
+    ],
+  }),
+  r({
+    id: "gallo-pinto", title: "Gallo pinto", cuisine: "costarricense", authenticity: "traditional",
+    origin: "Costa Rica y Nicaragua", note: "El desayuno nacional; se hace con arroz y frijoles del día anterior.",
+    baseServings: 4, prepMin: 5, cookMin: 15, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("arroz", 250, "g"), I("frijoles-negros", 400, "g"), I("cebolla", 1, "unit"), I("pimiento", 0.5, "unit"), I("cilantro", 10, "g"), I("huevo", 4, "unit", true), I("aceite", 30, "ml"), I("sal", 4, "g")],
+    steps: [
+      S("Usa arroz cocido y frío. Sofríe la cebolla y el pimiento picados en el aceite 6 minutos.", 6),
+      S("Añade los frijoles con un poco de su caldo y cocina 2 minutos.", 2),
+      S("Incorpora el arroz y saltea 5 minutos hasta que tome color. Termina con cilantro picado.", 5),
+      S("Sirve con huevos fritos si quieres."),
+    ],
+  }),
+  // ——— Sudamérica ———
+  r({
+    id: "bandeja-paisa", title: "Bandeja paisa", cuisine: "colombiana", authenticity: "adapted",
+    origin: "Colombia (Antioquia)", note: "Plato contundente de arriero; esta versión simplifica los frijoles con frijol de bote.",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "medium", equipment: ["sarten", "olla"],
+    ingredients: [I("frijoles-negros", 800, "g"), I("arroz", 300, "g"), I("ternera-picada", 400, "g"), I("chorizo", 200, "g"), I("panceta", 300, "g"), I("huevo", 4, "unit"), I("platano", 2, "unit"), I("aguacate", 1, "unit"), I("cebolla", 1, "unit"), I("tomate", 150, "g"), I("aceite", 40, "ml"), I("sal", 8, "g")],
+    steps: [
+      S("Cuece el arroz 15 minutos. Sofríe la cebolla y el tomate 6 minutos, añade los frijoles y cocina 10 minutos.", 16),
+      S("Dora la panceta en tiras gruesas hasta que esté crujiente, 10 minutos, y el chorizo 5 minutos.", 15),
+      S("Saltea la carne picada con sal 6 minutos, hasta que quede suelta y dorada. Fríe el plátano en rodajas 3 minutos.", 9),
+      S("Fríe los huevos y monta cada plato con todo y unas láminas de aguacate.", 4),
+    ],
+  }),
+  r({
+    id: "causa-limena", title: "Causa limeña", cuisine: "peruana", authenticity: "adapted",
+    origin: "Perú (Lima)", note: "Se hace con papa amarilla y ají amarillo; con patata harinosa y pimentón dulce queda una buena versión.",
+    baseServings: 4, prepMin: 30, cookMin: 25, difficulty: "medium", equipment: ["olla"],
+    ingredients: [I("patata", 1000, "g"), I("lima", 2, "unit"), I("pimenton", 4, "g"), I("atun-lata", 240, "g"), I("huevo", 2, "unit"), I("aguacate", 1, "unit"), I("cebolla", 0.5, "unit"), I("aceitunas", 40, "g", true), I("aceite", 60, "ml"), I("sal", 8, "g")],
+    steps: [
+      S("Cuece las patatas con piel 25 minutos y los huevos 10 minutos. Pela las patatas aún calientes y pásalas por el pasapurés.", 25),
+      S("Amasa el puré con el aceite, el zumo de lima, el pimentón y la sal hasta que esté liso. Deja enfriar."),
+      S("Mezcla el atún con la cebolla muy picada."),
+      S("En un molde, alterna capas: puré, atún, aguacate en láminas, puré. Desmolda y decora con huevo y aceitunas. Sirve fría."),
+    ],
+  }),
+  r({
+    id: "anticuchos", title: "Anticuchos", cuisine: "peruana", authenticity: "adapted",
+    origin: "Perú", note: "Los clásicos son de corazón de ternera; con cadera o solomillo son más fáciles de encontrar.",
+    baseServings: 4, prepMin: 130, cookMin: 15, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("ternera", 700, "g"), I("vinagre", 60, "ml"), I("ajo", 4, "unit"), I("comino", 3, "g"), I("pimenton", 10, "g"), I("oregano", 2, "g"), I("patata", 600, "g"), I("aceite", 40, "ml"), I("sal", 8, "g")],
+    steps: [
+      S("Corta la ternera en dados de 3 cm. Marínala con el vinagre, el ajo machacado, el comino, el pimentón, el orégano, la sal y la mitad del aceite 2 horas.", 120),
+      S("Cuece las patatas 20 minutos y córtalas en rodajas gruesas.", 20),
+      S("Ensarta la carne en brochetas y hazlas en una plancha muy caliente 3 minutos por lado, pintándolas con el adobo y el resto del aceite.", 7),
+      S("Dora las patatas en la misma plancha y sirve juntas."),
+    ],
+  }),
+  r({
+    id: "asado-chimichurri", title: "Asado de tira con chimichurri", cuisine: "argentina", authenticity: "adapted",
+    origin: "Argentina", note: "Se hace a la parrilla de leña; en casa, una plancha muy caliente funciona bien.",
+    baseServings: 4, prepMin: 15, cookMin: 25, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("ternera", 1200, "g"), I("perejil", 25, "g"), I("ajo", 3, "unit"), I("oregano", 3, "g"), I("chile", 1, "unit"), I("vinagre", 30, "ml"), I("aceite", 100, "ml"), I("sal", 10, "g")],
+    steps: [
+      S("Para el chimichurri, pica muy fino el perejil, el ajo y el chile. Mezcla con el orégano, el vinagre, el aceite y sal. Déjalo reposar al menos 30 minutos."),
+      S("Saca la carne (tira de costilla) de la nevera 30 minutos antes y sálala con sal gruesa."),
+      S("Hazla en una plancha muy caliente 8-10 minutos por lado, sin moverla, hasta que esté dorada.", 20),
+      S("Deja reposar 5 minutos y sirve con el chimichurri.", 5),
+    ],
+  }),
+  r({
+    id: "humita", title: "Humita en olla", cuisine: "argentina", authenticity: "adapted",
+    origin: "Argentina (Noroeste) y Andes", note: "Se envuelve en hojas de choclo; esta es la versión «en olla», sin envolver.",
+    baseServings: 4, prepMin: 15, cookMin: 25, difficulty: "easy", equipment: ["olla", "batidora"],
+    ingredients: [I("maiz", 570, "g"), I("cebolla", 1, "unit"), I("pimiento", 1, "unit"), I("calabaza", 300, "g"), I("leche", 200, "ml"), I("queso", 100, "g"), I("pimenton", 4, "g"), I("aceite", 30, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Tritura el maíz escurrido con la leche hasta tener una crema con algo de textura.", 2),
+      S("Sofríe la cebolla y el pimiento picados en el aceite 8 minutos. Añade la calabaza en dados pequeños y el pimentón y cocina 6 minutos.", 14),
+      S("Incorpora la crema de maíz y cocina a fuego bajo 10 minutos, removiendo, hasta que espese. Ajusta de sal.", 10),
+      S("Sirve con dados de queso fresco o curado por encima."),
+    ],
+  }),
+  r({
+    id: "picanha", title: "Picanha a la plancha", cuisine: "brasilena", authenticity: "adapted",
+    origin: "Brasil", note: "En las churrasquerías se asa en espadas sobre brasas; en casa, filetes gruesos con su grasa a la plancha.",
+    baseServings: 4, prepMin: 10, cookMin: 20, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("ternera", 1000, "g"), I("cebolla", 1, "unit"), I("tomate", 250, "g"), I("pimiento", 0.5, "unit"), I("vinagre", 30, "ml"), I("aceite", 30, "ml"), I("sal", 12, "g")],
+    steps: [
+      S("Corta la picanha (tapilla) en filetes de 3 cm a favor de la fibra, dejando la capa de grasa. Sala con sal gruesa."),
+      S("Para el vinagrete, pica el tomate, la cebolla y el pimiento y mézclalos con el vinagre, el aceite y sal."),
+      S("Empieza los filetes por el lado de la grasa en la plancha caliente 4 minutos, hasta que se funda. Cocina 3-4 minutos por cada cara.", 12),
+      S("Deja reposar 5 minutos, corta en lonchas finas y sirve con el vinagrete.", 5),
+    ],
+  }),
+  r({
+    id: "arepa-reina-pepiada", title: "Arepa reina pepiada", cuisine: "venezolana", authenticity: "traditional",
+    origin: "Venezuela (Caracas, años 50)", baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("harina-maiz", 300, "g"), I("pollo", 400, "g"), I("aguacate", 2, "unit"), I("cebolla", 0.5, "unit"), I("lima", 1, "unit"), I("cilantro", 10, "g"), I("yogur", 1, "unit"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece la pechuga de pollo en agua con sal 15 minutos y deshébrala.", 15),
+      S("Chafa el aguacate con el yogur, el zumo de lima, la cebolla y el cilantro picados. Mezcla con el pollo."),
+      S("Amasa la harina de maíz con 400 ml de agua templada y sal. Haz 8 discos de 1,5 cm.", 3),
+      S("Cocínalos en una sartén a fuego medio 6-7 minutos por lado, hasta que suenen huecos. Ábrelos y rellena.", 14),
+    ],
+  }),
+  // ——— África ———
+  r({
+    id: "tajin-cordero-miel", title: "Tajín de cordero con almendras y miel", cuisine: "marroqui", authenticity: "adapted",
+    origin: "Marruecos", note: "Lleva ciruelas pasas; aquí, manzana caramelizada con miel.",
+    baseServings: 4, prepMin: 15, cookMin: 105, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("cordero", 900, "g"), I("cebolla", 2, "unit"), I("jengibre", 10, "g"), I("canela", 4, "g"), I("comino", 3, "g"), I("miel", 50, "g"), I("almendras", 60, "g", true), I("manzana", 2, "unit"), I("sesamo", 5, "g"), I("aceite", 40, "ml"), I("cuscus", 300, "g"), I("sal", 8, "g")],
+    steps: [
+      S("Dora el cordero troceado en el aceite 8 minutos. Añade la cebolla rallada, el jengibre, la canela, el comino y sal y rehoga 5 minutos.", 13),
+      S("Cubre con agua a media altura, tapa y cuece a fuego bajo 1 hora y media, hasta que esté tierno.", 85),
+      S("En una sartén, carameliza la manzana en gajos con la miel 6 minutos y tuesta las almendras 3 minutos.", 9),
+      S("Pon la manzana sobre el cordero, reduce la salsa 5 minutos y termina con almendras y sésamo. Sirve con cuscús hidratado 5 minutos en agua hirviendo.", 5),
+    ],
+  }),
+  r({
+    id: "mafe", title: "Mafé (guiso de cacahuete)", cuisine: "senegalesa", authenticity: "adapted",
+    origin: "Mali y Senegal", note: "Se hace con pasta de cacahuete; se obtiene triturando cacahuetes tostados con un poco de aceite.",
+    baseServings: 4, prepMin: 15, cookMin: 50, difficulty: "easy", equipment: ["olla", "batidora"],
+    ingredients: [I("pollo", 800, "g"), I("cacahuetes", 150, "g"), I("tomate-triturado", 400, "g"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("boniato", 400, "g"), I("chile", 1, "unit"), I("caldo", 600, "ml"), I("arroz", 300, "g"), I("aceite", 30, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Tritura los cacahuetes con un chorrito de aceite hasta tener una pasta.", 3),
+      S("Dora el pollo troceado en el resto del aceite 6 minutos. Añade la cebolla, el ajo y el chile picados y cocina 5 minutos.", 11),
+      S("Agrega el tomate, la pasta de cacahuete y el caldo. Cuece 15 minutos.", 15),
+      S("Añade el boniato en trozos y cuece 20 minutos, hasta que esté tierno y la salsa espesa. Sirve con arroz cocido aparte.", 20),
+    ],
+  }),
+  r({
+    id: "suya", title: "Suya (brochetas especiadas)", cuisine: "nigeriana", authenticity: "adapted",
+    origin: "Nigeria (norte, hausa)", note: "La mezcla yaji lleva cacahuete molido, chile, jengibre y especias.",
+    baseServings: 4, prepMin: 70, cookMin: 12, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("ternera", 700, "g"), I("cacahuetes", 80, "g"), I("pimenton", 8, "g"), I("chile", 1, "unit"), I("jengibre", 10, "g"), I("ajo", 2, "unit"), I("cebolla", 1, "unit"), I("tomate", 250, "g"), I("aceite", 30, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Muele los cacahuetes en un mortero o picadora hasta tener un polvo, y mézclalos con el pimentón, el chile, el jengibre y el ajo picados y la sal."),
+      S("Corta la ternera en tiras finas, úntala con el aceite y rebózala en la mezcla. Deja reposar 1 hora.", 60),
+      S("Ensártala en brochetas y hazla en una plancha muy caliente 3 minutos por lado.", 7),
+      S("Sirve con cebolla y tomate crudos en rodajas y más mezcla por encima."),
+    ],
+  }),
+  r({
+    id: "doro-wat", title: "Doro wat (guiso etíope de pollo)", cuisine: "etiope", authenticity: "adapted",
+    origin: "Etiopía", note: "Se hace con berbere y mantequilla especiada (niter kibbeh); aquí, pimentón, jengibre y canela. Se come con injera.",
+    baseServings: 4, prepMin: 15, cookMin: 75, difficulty: "medium", equipment: ["olla"],
+    ingredients: [I("pollo", 1000, "g"), I("cebolla", 3, "unit"), I("mantequilla", 60, "g"), I("pimenton", 15, "g"), I("chile", 1, "unit"), I("jengibre", 15, "g"), I("ajo", 4, "unit"), I("canela", 2, "g"), I("tomate-triturado", 150, "g"), I("huevo", 4, "unit"), I("limon", 1, "unit"), I("sal", 8, "g")],
+    steps: [
+      S("Rocía el pollo con el zumo de limón y sal. Cuece los huevos 10 minutos y pélalos.", 10),
+      S("Cocina la cebolla muy picada en la olla seca, a fuego medio, 15 minutos removiendo, hasta que suelte el agua y se dore. Añade la mantequilla.", 15),
+      S("Agrega el pimentón, el chile, el jengibre, el ajo y la canela 2 minutos, y luego el tomate con un vaso de agua.", 2),
+      S("Añade el pollo y cuece tapado 40 minutos. Haz unos cortes a los huevos y añádelos los últimos 10 minutos.", 40),
+    ],
+  }),
+  r({
+    id: "koshari", title: "Koshari", cuisine: "egipcia", authenticity: "adapted",
+    origin: "Egipto", note: "El plato callejero nacional: arroz, lentejas y pasta con salsa de tomate y cebolla frita.",
+    baseServings: 4, prepMin: 15, cookMin: 45, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("lentejas", 200, "g"), I("arroz", 200, "g"), I("pasta", 150, "g"), I("garbanzos-cocidos", 200, "g"), I("cebolla", 3, "unit"), I("tomate-triturado", 400, "g"), I("ajo", 3, "unit"), I("comino", 4, "g"), I("vinagre", 20, "ml"), I("chile", 1, "unit"), I("aceite", 100, "ml"), I("sal", 8, "g")],
+    steps: [
+      S("Cuece las lentejas pardinas en agua 20 minutos y escúrrelas. Cuece aparte la pasta pequeña (coditos) según el paquete.", 20),
+      S("Fríe la cebolla en tiras finas en el aceite a fuego medio 15 minutos, hasta que esté dorada y crujiente. Reserva el aceite.", 15),
+      S("Rehoga el arroz con 2 cucharadas de ese aceite, añade las lentejas, el doble de agua y sal y cuece tapado 15 minutos.", 15),
+      S("Para la salsa, fríe el ajo, el comino y el chile, añade el tomate y el vinagre y cocina 10 minutos.", 10),
+      S("Sirve el arroz con lentejas, la pasta, los garbanzos, la salsa y la cebolla crujiente por encima."),
+    ],
+  }),
+  r({
+    id: "bunny-chow", title: "Bunny chow", cuisine: "sudafricana", authenticity: "adapted",
+    origin: "Sudáfrica (Durban)", note: "Curry servido dentro de un pan vaciado, creado por la comunidad india de Durban.",
+    baseServings: 4, prepMin: 15, cookMin: 45, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("pollo", 700, "g"), I("patata", 400, "g"), I("cebolla", 1, "unit"), I("tomate-triturado", 300, "g"), I("ajo", 3, "unit"), I("jengibre", 10, "g"), I("curry", 15, "g"), I("canela", 1, "g"), I("pan", 800, "g"), I("cilantro", 10, "g"), I("aceite", 30, "ml"), I("sal", 8, "g")],
+    steps: [
+      S("Sofríe la cebolla en el aceite 7 minutos. Añade el ajo, el jengibre, el curry y la canela 1 minuto.", 8),
+      S("Agrega el pollo en trozos y dóralo 5 minutos. Añade el tomate, las patatas en dados, sal y un vaso de agua.", 5),
+      S("Cuece tapado 30 minutos, hasta que la patata esté tierna y la salsa espesa.", 30),
+      S("Corta el pan (molde sin cortar o barras gruesas) en cuartos, vacía la miga y rellena con el curry. Pon la miga encima y cilantro."),
+    ],
+  }),
+];
