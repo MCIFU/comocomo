@@ -22,7 +22,7 @@ export const recipesEuropa: Recipe[] = [
     baseServings: 2, prepMin: 5, cookMin: 15, difficulty: "medium", equipment: ["olla", "sarten"],
     ingredients: [I("pasta", 200, "g"), I("parmesano", 80, "g"), I("pimienta", 4, "g"), I("sal", 8, "g")],
     steps: [
-      S("Hierve la pasta en poca agua (1,5 litros) con poca sal: el agua debe quedar muy almidonada.", 2),
+      S("Cuece la pasta en poca agua (1,5 litros) con poca sal, 1 minuto menos de lo que indica el paquete (unos 9 minutos): el agua debe quedar muy almidonada.", 9),
       S("Tuesta la pimienta recién molida en una sartén seca 1 minuto. Añade un cucharón de agua de la pasta.", 1),
       S("Mezcla el queso rallado muy fino con unas cucharadas de agua de la pasta templada hasta formar una crema.", 1),
       S("Pasa la pasta al dente a la sartén con la pimienta, apaga el fuego, añade la crema de queso y remueve enérgicamente 1 minuto, añadiendo agua si hace falta, hasta que quede sedosa.", 1),
@@ -214,7 +214,7 @@ export const recipesEuropa: Recipe[] = [
     steps: [
       S("Corta el lomo en filetes y aplánalos entre dos papeles hasta 4 mm. Sálalos."),
       S("Pásalos por harina, huevo batido y pan rallado, sin apretar: el rebozado debe quedar suelto."),
-      S("Fríe en abundante aceite a 170 °C, moviendo la sartén para que el aceite cubra la parte de arriba, 2 minutos por lado. El rebozado se infla y ondula.", 4, 170),
+      S("Fríe de uno en uno en abundante aceite a 170 °C, moviendo la sartén para que el aceite cubra la parte de arriba, 2 minutos por lado. El rebozado se infla y ondula.", 8, 170),
       S("Escurre y sirve con gajos de limón y ensalada de patata."),
     ],
   }),
@@ -310,7 +310,7 @@ export const recipesEuropa: Recipe[] = [
     origin: "Grecia", baseServings: 4, prepMin: 30, cookMin: 70, difficulty: "medium", equipment: ["horno"],
     ingredients: [I("tomate", 800, "g"), I("pimiento", 3, "unit"), I("arroz", 150, "g"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("perejil", 15, "g"), I("menta", 10, "g", true), I("patata", 400, "g"), I("aceite", 80, "ml"), I("sal", 8, "g")],
     steps: [
-      S("Corta la tapa de los tomates y pimientos y vacíalos. Tritura la pulpa de los tomates."),
+      S("Corta la tapa de los tomates y pimientos y vacíalos. Pica muy fina o ralla la pulpa de los tomates."),
       S("Mezcla el arroz crudo con la pulpa, la cebolla y el ajo picados, las hierbas, la mitad del aceite y sal."),
       S("Precalienta el horno a 190 °C. Rellena las verduras hasta tres cuartos (el arroz crece) y tápalas con su sombrero.", 10, 190),
       S("Colócalas en una fuente con la patata en gajos entre ellas, riega con el resto de aceite y un vaso de agua. Hornea 60 minutos hasta que el arroz esté tierno.", 60, 190),

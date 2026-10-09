@@ -74,7 +74,7 @@ export const recipesEspana2: Recipe[] = [
       S("En una cazuela de barro o sartén, calienta el aceite a fuego bajo con los ajos 4 minutos, hasta que estén dorados. Retira ajos y chile y deja templar el aceite 5 minutos.", 9),
       S("Pon los lomos con la piel hacia arriba en el aceite templado, a fuego muy bajo, 5 minutos. Dales la vuelta y cocina 5 minutos más: deben soltar gelatina.", 10),
       S("Retira el bacalao. Mueve la cazuela en círculos (o bate con un colador) 5 minutos hasta que el aceite se vuelva una salsa espesa y blanquecina.", 5),
-      S("Devuelve el bacalao a la salsa, añade los ajos y el chile y sirve en la misma cazuela."),
+      S("Devuelve el bacalao a la salsa, añade los ajos y el chile, espolvorea perejil picado si quieres y sirve en la misma cazuela."),
     ],
   }),
   r({
@@ -261,10 +261,10 @@ export const recipesEspana2: Recipe[] = [
     id: "leche-frita", title: "Leche frita", cuisine: "espanola", authenticity: "traditional",
     origin: "España (Castilla y León)", note: "La crema necesita enfriarse varias horas antes de cortarla.",
     baseServings: 6, prepMin: 20, cookMin: 25, difficulty: "medium", equipment: ["olla", "sarten"],
-    ingredients: [I("leche", 750, "ml"), I("harina", 140, "g"), I("azucar", 120, "g"), I("huevo", 3, "unit"), I("canela", 5, "g"), I("limon", 1, "unit"), I("aceite", 400, "ml")],
+    ingredients: [I("leche", 750, "ml"), I("harina", 160, "g"), I("azucar", 120, "g"), I("huevo", 3, "unit"), I("canela", 5, "g"), I("limon", 1, "unit"), I("aceite", 400, "ml")],
     steps: [
       S("Calienta 600 ml de leche con la canela en rama y la piel del limón 5 minutos. Retíralas.", 5),
-      S("Mezcla el resto de la leche fría con 90 g de harina, 100 g de azúcar y 2 yemas. Añádelo a la leche caliente y cocina removiendo 10 minutos, hasta que quede una crema muy espesa.", 10),
+      S("Mezcla el resto de la leche fría con 110 g de harina, 100 g de azúcar y 2 yemas. Añádelo a la leche caliente y cocina removiendo 10 minutos, hasta que quede una crema muy espesa.", 10),
       S("Extiende en una fuente engrasada con 2 cm de grosor y deja enfriar en la nevera al menos 3 horas."),
       S("Corta en cuadrados, pásalos por harina y por huevo batido y fríelos a 180 °C 1 minuto por lado. Rebózalos en azúcar con canela molida.", 8, 180),
     ],

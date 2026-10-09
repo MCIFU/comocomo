@@ -122,7 +122,7 @@ export const recipesMundo2: Recipe[] = [
       S("Divide en dos bolas, tápalas y déjalas reposar 1 hora en un sitio templado, hasta que doblen su volumen."),
       S("Precalienta el horno a 250 °C (o al máximo) con la bandeja dentro durante 20 minutos.", 20, 250),
       S("Estira cada bola con las manos hasta formar un disco fino. Extiende el tomate salado y reparte la mozzarella escurrida y troceada."),
-      S("Hornea cada pizza 10 minutos sobre la bandeja caliente, hasta que los bordes estén dorados y el queso burbujee. Termina con albahaca fresca.", 10, 250),
+      S("Hornea cada pizza 10 minutos sobre la bandeja caliente, hasta que los bordes estén dorados y el queso burbujee. Termina con albahaca fresca y, si te gusta, una pizca de orégano.", 10, 250),
     ],
   }),
   r({

@@ -91,7 +91,7 @@ export const recipesAmericaAfrica: Recipe[] = [
     id: "tortitas-americanas", title: "Tortitas americanas (pancakes)", cuisine: "estadounidense", authenticity: "traditional",
     origin: "Estados Unidos", note: "Salen unas 10. Se sirven con mantequilla y sirope de arce o miel.",
     baseServings: 3, prepMin: 10, cookMin: 15, difficulty: "easy", equipment: ["sarten"],
-    ingredients: [I("harina", 200, "g"), I("levadura-quimica", 8, "g"), I("huevo", 1, "unit"), I("leche", 250, "ml"), I("mantequilla", 30, "g"), I("azucar", 20, "g"), I("miel", 60, "g", true), I("sal", 1, "g")],
+    ingredients: [I("harina", 200, "g"), I("levadura-quimica", 8, "g"), I("huevo", 1, "unit"), I("leche", 300, "ml"), I("mantequilla", 30, "g"), I("azucar", 20, "g"), I("miel", 60, "g", true), I("sal", 1, "g")],
     steps: [
       S("Mezcla la harina, la levadura, el azúcar y la sal. En otro bol, bate el huevo con la leche y la mantequilla derretida."),
       S("Junta ambas mezclas sin batir de más: está bien que queden algunos grumos. Así salen esponjosas."),
@@ -141,7 +141,7 @@ export const recipesAmericaAfrica: Recipe[] = [
     baseServings: 8, prepMin: 20, cookMin: 70, difficulty: "medium", equipment: ["horno"],
     ingredients: [I("galletas", 200, "g"), I("mantequilla", 80, "g"), I("queso-crema", 600, "g"), I("azucar", 180, "g"), I("huevo", 3, "unit"), I("nata", 200, "ml"), I("harina", 20, "g"), I("limon", 1, "unit")],
     steps: [
-      S("Precalienta el horno a 170 °C. Tritura las galletas, mézclalas con la mantequilla derretida y presiona en la base de un molde desmontable.", 10, 170),
+      S("Precalienta el horno a 170 °C. Machaca las galletas hasta dejarlas en migas (en una bolsa con un rodillo o con la batidora), mézclalas con la mantequilla derretida y presiona en la base de un molde desmontable.", 10, 170),
       S("Bate el queso crema con el azúcar y la ralladura de limón. Añade los huevos de uno en uno, luego la nata y la harina, sin batir de más."),
       S("Vierte sobre la base y hornea 55 minutos: los bordes deben estar firmes y el centro aún temblar.", 55, 170),
       S("Apaga el horno y deja la tarta dentro con la puerta entreabierta 1 hora (así no se agrieta). Luego, nevera al menos 6 horas."),
@@ -389,7 +389,7 @@ export const recipesAmericaAfrica: Recipe[] = [
       S("Mezcla el zumo de los limones, la mostaza, el ajo rallado, el chile, la sal y el aceite. Marina el pollo y las cebollas en juliana al menos 2 horas.", 120),
       S("Saca el pollo y dóralo en una sartén 10 minutos.", 10),
       S("En una olla, cocina las cebollas con la marinada a fuego medio 20 minutos, hasta que estén blandas y doradas.", 20),
-      S("Añade el pollo y 150 ml de agua y cocina tapado 15 minutos. Sirve con arroz blanco.", 15),
+      S("Añade el pollo y 150 ml de agua y cocina tapado 15 minutos. Añade las aceitunas los últimos 2 minutos y sirve con arroz blanco.", 15),
     ],
   }),
   r({
@@ -433,7 +433,7 @@ export const recipesAmericaAfrica: Recipe[] = [
     origin: "Levante (Líbano, Siria)", baseServings: 4, prepMin: 10, cookMin: 40, difficulty: "easy", equipment: ["horno"],
     ingredients: [I("berenjena", 700, "g"), I("tahini", 50, "g"), I("limon", 1, "unit"), I("ajo", 1, "unit"), I("aceite", 30, "ml"), I("perejil", 5, "g", true), I("sal", 4, "g")],
     steps: [
-      S("Asa las berenjenas enteras y pinchadas a 220 °C 40 minutos (o directamente sobre el fuego del gas) hasta que la piel se queme y estén muy blandas.", 40, 220),
+      S("Asa las berenjenas enteras y pinchadas en el horno a 220 °C 40 minutos (o directamente sobre el fuego del gas, girándolas) hasta que la piel se queme y estén muy blandas.", 40, 220),
       S("Ábrelas, saca la pulpa con una cuchara y déjala escurrir 10 minutos en un colador."),
       S("Aplástala con un tenedor y mézclala con el tahini, el zumo de limón, el ajo rallado y la sal."),
       S("Sirve con un chorro de aceite y perejil, con pan de pita."),

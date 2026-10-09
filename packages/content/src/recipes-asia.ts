@@ -173,7 +173,7 @@ export const recipesAsia: Recipe[] = [
     steps: [
       S("Cuece el arroz 12 minutos. Corta el pollo en dados y mézclalo con la harina y la mitad de la soja.", 12),
       S("Tuesta las almendras en una sartén seca 3 minutos y resérvalas.", 3),
-      S("Saltea el pollo en el aceite a fuego fuerte 5 minutos. Añade las verduras en dados y saltea 4 minutos.", 9),
+      S("Saltea el pollo en el aceite a fuego fuerte 5 minutos. Añade la zanahoria, el calabacín y la cebolla en dados pequeños y saltea 4 minutos: deben quedar algo crujientes.", 9),
       S("Añade el resto de la soja, el azúcar y 4 cucharadas de agua; cocina 1 minuto hasta que se forme la salsa. Termina con las almendras.", 1),
     ],
   }),
