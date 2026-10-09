@@ -140,6 +140,11 @@ const rows: Row[] = [
   ["levadura-quimica", "Levadura química (polvo de hornear)", "pantry", "mass", [], [], ["kg", 15, 30]],
   ["queso-crema", "Queso crema", "dairy", "mass", MILK, [], ["kg", 7, 11]],
   ["galletas", "Galletas tipo María", "pantry", "mass", ["gluten"], [], ["kg", 2.5, 4]],
+  ["queso-azul", "Queso azul (Cabrales o similar)", "dairy", "mass", ["milk", "lactose"], [], ["kg", 15, 25]],
+  ["avena", "Copos de avena", "pantry", "mass", ["gluten"], [], ["kg", 1.5, 3]],
+  ["gelatina", "Gelatina en hojas", "pantry", "count", [], ["meat"], ["unit", 0.1, 0.2]],
+  ["miso", "Pasta de miso", "pantry", "mass", ["soy"], [], ["kg", 12, 20]],
+  ["nori", "Alga nori", "pantry", "count", [], [], ["unit", 0.2, 0.4]],
   ["vino-tinto", "Vino tinto", "pantry", "volume", ["sulfites"], [], ["l", 3, 6]],
   ["pasta-curry-rojo", "Pasta de curry rojo (suele llevar pasta de gamba)", "pantry", "mass", ["shellfish"], ["seafood"], ["kg", 12, 20]],
 ];
@@ -177,6 +182,7 @@ const PACKS: Record<string, Pack> = {
   kimchi: [300, "g", "tarro"], "pasta-curry-verde": [110, "g", "tarro"], bulgur: [500, "g", "paquete"], "arroz-basmati": [500, "g", "paquete"],
   "vino-tinto": [750, "ml", "botella"], "tortilla-trigo": [8, "unit", "paquete"], "levadura-quimica": [50, "g", "paquete"],
   "queso-crema": [300, "g", "tarrina"], galletas: [200, "g", "paquete"],
+  "queso-azul": [150, "g", "cuña"], avena: [500, "g", "paquete"], gelatina: [12, "unit", "sobre"], miso: [300, "g", "tarrina"], nori: [10, "unit", "paquete"],
 };
 
 const ALIASES: Record<string, string[]> = {
@@ -232,6 +238,7 @@ const ALIASES: Record<string, string[]> = {
   "judias-verdes": ["judias verdes", "vainas"],
   "frijoles-negros": ["frijoles", "alubias negras"],
   repollo: ["col", "berza", "repollos"],
+  "queso-azul": ["cabrales", "queso de cabrales", "roquefort", "gorgonzola"], avena: ["copos de avena", "porridge"], nori: ["algas"],
   "tortilla-trigo": ["tortillas de trigo", "wraps"], "queso-crema": ["philadelphia", "queso de untar"], galletas: ["galleta"],
   cordero: ["cabrito"], "costillas-cerdo": ["costillas", "costilla"], salchichas: ["salchicha"], bacalao: ["bacalao"],
   "atun-lata": ["atun", "bonito"], mejillones: ["mejillon"], almejas: ["almeja"], pulpo: ["pulpo"], parmesano: ["parmigiano"],

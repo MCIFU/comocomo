@@ -10,16 +10,18 @@ export const CUISINE_LABEL: Record<string, string> = {
   alemana: "Alemania", britanica: "Reino Unido", portuguesa: "Portugal", indonesia: "Indonesia", filipina: "Filipinas",
   cubana: "Cuba", colombiana: "Colombia", venezolana: "Venezuela", chilena: "Chile",
   nigeriana: "Nigeria", etiope: "Etiopía", senegalesa: "Senegal", sudafricana: "Sudáfrica",
+  hungara: "Hungría", polaca: "Polonia", irlandesa: "Irlanda", sueca: "Suecia", noruega: "Noruega", malaya: "Malasia",
+  dominicana: "Rep. Dominicana", salvadorena: "El Salvador", costarricense: "Costa Rica", egipcia: "Egipto",
 };
 
 /** Pegatinas de la portada: agrupan cocinas para no tener 15 botones. */
 export const REGION_FILTERS: { key: string; label: string; cuisines: string[] }[] = [
   { key: "espana", label: "España", cuisines: ["espanola", "asturiana"] },
   { key: "italia", label: "Italia", cuisines: ["italiana"] },
-  { key: "europa", label: "Europa", cuisines: ["francesa", "alemana", "britanica", "portuguesa", "griega", "turca"] },
-  { key: "asia", label: "Asia", cuisines: ["japonesa", "china", "coreana", "tailandesa", "india", "vietnamita", "indonesia", "filipina"] },
-  { key: "america", label: "América", cuisines: ["mexicana", "estadounidense", "cubana", "colombiana", "venezolana", "peruana", "argentina", "chilena", "brasilena"] },
-  { key: "africa", label: "África y Oriente Medio", cuisines: ["marroqui", "oriente-medio", "nigeriana", "etiope", "senegalesa", "sudafricana"] },
+  { key: "europa", label: "Europa", cuisines: ["francesa", "alemana", "britanica", "portuguesa", "griega", "turca", "hungara", "polaca", "irlandesa", "sueca", "noruega"] },
+  { key: "asia", label: "Asia", cuisines: ["japonesa", "china", "coreana", "tailandesa", "india", "vietnamita", "indonesia", "filipina", "malaya"] },
+  { key: "america", label: "América", cuisines: ["mexicana", "estadounidense", "cubana", "colombiana", "venezolana", "peruana", "argentina", "chilena", "brasilena", "dominicana", "salvadorena", "costarricense"] },
+  { key: "africa", label: "África y Oriente Medio", cuisines: ["marroqui", "oriente-medio", "nigeriana", "etiope", "senegalesa", "sudafricana", "egipcia"] },
 ];
 
 /** Filtros rápidos: tiempo y restricciones habituales. Las alergias se aplican en código, siempre. */
