@@ -37,6 +37,7 @@ export default function Recetas() {
     const cuisines = REGION_FILTERS.find((r) => r.key === region)?.cuisines;
     return searchRecipes(recipes, catalog, dq, { extra: EXTRA, restrictions, maxMinutes })
       .filter((r) => !cuisines || cuisines.includes(r.cuisine))
+      .filter((r) => qf.every((f) => !f.ids || f.ids.includes(r.id)))
       .map((r) => ({ recipe: r, price: shoppingPrice(r, servings, prices, catalog) }));
   }, [dq, region, quick, servings]);
 

@@ -1,3 +1,4 @@
+import { DESSERTS } from "@comocomo/content";
 import type { Restriction } from "@comocomo/schemas";
 
 export const DIFFICULTY: Record<string, string> = { easy: "Fácil", medium: "Media", hard: "Difícil" };
@@ -11,7 +12,7 @@ export const CUISINE_LABEL: Record<string, string> = {
   cubana: "Cuba", colombiana: "Colombia", venezolana: "Venezuela", chilena: "Chile",
   nigeriana: "Nigeria", etiope: "Etiopía", senegalesa: "Senegal", sudafricana: "Sudáfrica",
   hungara: "Hungría", polaca: "Polonia", irlandesa: "Irlanda", sueca: "Suecia", noruega: "Noruega", malaya: "Malasia",
-  dominicana: "Rep. Dominicana", salvadorena: "El Salvador", costarricense: "Costa Rica", egipcia: "Egipto",
+  dominicana: "Rep. Dominicana", salvadorena: "El Salvador", costarricense: "Costa Rica", australiana: "Australia", egipcia: "Egipto",
 };
 
 /** Pegatinas de la portada: agrupan cocinas para no tener 15 botones. */
@@ -25,7 +26,8 @@ export const REGION_FILTERS: { key: string; label: string; cuisines: string[] }[
 ];
 
 /** Filtros rápidos: tiempo y restricciones habituales. Las alergias se aplican en código, siempre. */
-export const QUICK_FILTERS: { key: string; label: string; maxMinutes?: number; restrictions?: Restriction[] }[] = [
+export const QUICK_FILTERS: { key: string; label: string; maxMinutes?: number; restrictions?: Restriction[]; ids?: string[] }[] = [
+  { key: "postres", label: "Postres", ids: DESSERTS },
   { key: "rapidas", label: "Rápidas (30 min)", maxMinutes: 30 },
   { key: "vegetarianas", label: "Vegetarianas", restrictions: [{ kind: "diet", value: "meat" }, { kind: "diet", value: "seafood" }] },
   { key: "sin-gluten", label: "Sin gluten", restrictions: [{ kind: "allergy", value: "gluten" }] },

@@ -146,6 +146,10 @@ const rows: Row[] = [
   ["miso", "Pasta de miso", "pantry", "mass", ["soy"], [], ["kg", 12, 20]],
   ["nori", "Alga nori", "pantry", "count", [], [], ["unit", 0.2, 0.4]],
   ["vino-tinto", "Vino tinto", "pantry", "volume", ["sulfites"], [], ["l", 3, 6]],
+  ["pera", "Pera", "produce", "count", [], [], ["unit", 0.3, 0.5]],
+  ["fresas", "Fresas", "produce", "mass", [], [], ["kg", 3, 6]],
+  ["dulce-de-leche", "Dulce de leche", "pantry", "mass", MILK, [], ["kg", 7, 11]],
+  ["coco-rallado", "Coco rallado", "pantry", "mass", [], [], ["kg", 8, 14]],
   ["pasta-curry-rojo", "Pasta de curry rojo (suele llevar pasta de gamba)", "pantry", "mass", ["shellfish"], ["seafood"], ["kg", 12, 20]],
 ];
 
@@ -183,6 +187,7 @@ const PACKS: Record<string, Pack> = {
   "vino-tinto": [750, "ml", "botella"], "tortilla-trigo": [8, "unit", "paquete"], "levadura-quimica": [50, "g", "paquete"],
   "queso-crema": [300, "g", "tarrina"], galletas: [200, "g", "paquete"],
   "queso-azul": [150, "g", "cuña"], avena: [500, "g", "paquete"], gelatina: [12, "unit", "sobre"], miso: [300, "g", "tarrina"], nori: [10, "unit", "paquete"],
+  fresas: [500, "g", "tarrina"], "dulce-de-leche": [450, "g", "bote"], "coco-rallado": [125, "g", "bolsa"],
 };
 
 const ALIASES: Record<string, string[]> = {
