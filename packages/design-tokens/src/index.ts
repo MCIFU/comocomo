@@ -14,6 +14,8 @@ export const mercado = {
   /** acento principal y bloque de cabecera (oscurecido para texto claro AA) */
   tomato: "#CC3820",
   onTomato: "#FFFDF8",
+  /** rojo para texto (etiquetas): igual que tomato en claro, más luminoso en oscuro */
+  tomatoText: "#CC3820",
   mustard: "#F5B82E",
   sky: "#9FD1E8",
   pink: "#F6A6B2",
@@ -25,7 +27,13 @@ export const mercado = {
   plum: "#6B2E57",
   line: "#E6D7BB",
   cream: "#E3C78F",
-} as const;
+  /** texto sobre pegatinas de color (mostaza, rosa, cielo, menta): siempre tinta oscura */
+  onAccent: "#1B1712",
+  /** papel del ticket de la compra */
+  ticket: "#FFFFFF",
+  /** separadores del ticket */
+  ticketRule: "#BBBBBB",
+};
 
 /**
  * Escala de precio (barato → caro) en tonos de tinta: deliberadamente sin color,
@@ -33,8 +41,35 @@ export const mercado = {
  */
 export const priceScale = ["#FFFDF8", "#E3D9C6", "#A99C88", "#1B1712"] as const;
 
-/** Se mantiene el nombre para el resto del código: la app usa una sola paleta clara. */
+/**
+ * «Mercado de noche»: mismas claves que `mercado`. La tinta pasa a ser crema (texto, bordes y
+ * sombras duras se ven como tiza sobre pizarra) y las pegatinas de color se mantienen, con texto oscuro.
+ */
+export const mercadoDark: { [K in keyof typeof mercado]: string } = {
+  paper: "#15110E",
+  crust: "#211B16",
+  card: "#1E1914",
+  ink: "#F3EAD9",
+  inkMuted: "#B3A792",
+  tomato: "#CC3820",
+  onTomato: "#FFFDF8",
+  tomatoText: "#F2765C",
+  mustard: "#F5B82E",
+  sky: "#8FC4DE",
+  pink: "#EE9CAA",
+  mint: "#B5D893",
+  olive: "#3E9A63",
+  saffron: "#E7AE45",
+  plum: "#D69BC2",
+  line: "#3A3028",
+  cream: "#6B5A3A",
+  onAccent: "#1B1712",
+  ticket: "#2A231D",
+  ticketRule: "#5C5045",
+};
+
 export const light = mercado;
+export const dark = mercadoDark;
 
 export const space = [0, 4, 8, 12, 16, 24, 32, 48, 64] as const;
 export const radius = { sm: 10, md: 16, lg: 22, xl: 28 } as const;

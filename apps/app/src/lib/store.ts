@@ -2,6 +2,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useSyncExternalStore } from "react";
 
 /** Estado local persistido. Se sustituirá por Supabase (misma forma de datos) al llegar la cuenta. */
+export type ThemePref = "system" | "light" | "dark";
+
 export interface State {
   favorites: string[];
   /** recetas añadidas a la lista de la compra, con las personas elegidas */
@@ -10,11 +12,13 @@ export interface State {
   checked: string[];
   /** número de personas habitual: se recuerda entre visitas */
   servings: number;
+  /** tema elegido: "system" sigue al teléfono u ordenador */
+  theme: ThemePref;
   hydrated: boolean;
 }
 
 const KEY = "comocomo:v2";
-let state: State = { favorites: [], cart: [], checked: [], servings: 4, hydrated: false };
+let state: State = { favorites: [], cart: [], checked: [], servings: 4, theme: "system", hydrated: false };
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -43,6 +47,7 @@ AsyncStorage.getItem(KEY)
           cart: saved.cart ?? [],
           checked: saved.checked ?? [],
           servings: saved.servings ?? 4,
+          theme: saved.theme ?? "system",
         };
       } catch {
         /* datos corruptos: se ignoran */
@@ -80,6 +85,9 @@ export const actions = {
   toggleChecked(ingredientId: string) {
     const c = state.checked;
     set({ checked: c.includes(ingredientId) ? c.filter((x) => x !== ingredientId) : [...c, ingredientId] });
+  },
+  setTheme(theme: ThemePref) {
+    set({ theme });
   },
   clearCart() {
     set({ cart: [], checked: [] });

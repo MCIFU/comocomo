@@ -15,7 +15,7 @@ export function PriceLegend({ servings }: { servings: number }) {
       {PRICE_TIERS.map((t, i) => (
         <View key={t.label} style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
           <View style={{ minWidth: 34, paddingHorizontal: 5, height: 20, borderRadius: 6, borderWidth: 2, borderColor: c.ink, backgroundColor: priceScale[i], alignItems: "center", justifyContent: "center" }}>
-            <T style={{ fontFamily: fonts.monoBold, fontSize: 11, lineHeight: 14, color: i === 3 ? c.paper : c.ink }}>{t.label}</T>
+            <T style={{ fontFamily: fonts.monoBold, fontSize: 11, lineHeight: 14, color: i === 3 ? priceScale[0] : priceScale[3] }}>{t.label}</T>
           </View>
           <T tone="muted" style={{ fontFamily: fonts.mono, fontSize: 12.5 }}>{RANGES[i]}</T>
         </View>

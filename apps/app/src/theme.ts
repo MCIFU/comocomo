@@ -1,10 +1,18 @@
-import { mercado, radius, space, stroke } from "@comocomo/design-tokens";
+import { mercado, mercadoDark, radius, space, stroke } from "@comocomo/design-tokens";
+import { useColorScheme } from "react-native";
+import { useStore } from "./lib/store";
 
 export type Palette = { [K in keyof typeof mercado]: string };
 
-/** Una sola paleta clara: la dirección Mercado vive de sus colores sobre crema. */
+/** Tema efectivo: el elegido por la persona o, en «Auto», el del sistema. */
+export function useIsDark(): boolean {
+  const pref = useStore((s) => s.theme);
+  const system = useColorScheme();
+  return pref === "dark" || (pref === "system" && system === "dark");
+}
+
 export function usePalette(): Palette {
-  return mercado;
+  return useIsDark() ? mercadoDark : mercado;
 }
 
 export const fonts = {

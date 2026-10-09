@@ -7,7 +7,7 @@ const webCursor = Platform.OS === "web" ? ({ cursor: "pointer" } as object) : nu
 
 export function T({ tone = "ink", style, ...p }: TextProps & { tone?: Tone }) {
   const c = usePalette();
-  const color = tone === "muted" ? c.inkMuted : c[tone];
+  const color = tone === "muted" ? c.inkMuted : tone === "tomato" ? c.tomatoText : c[tone];
   return <Text {...p} style={[{ color, fontFamily: fonts.ui, fontSize: 17, lineHeight: 25 }, style]} />;
 }
 
@@ -53,7 +53,7 @@ export function Button({
 }: { label: string; onPress: () => void; kind?: "primary" | "quiet" | "done" | "mustard"; disabled?: boolean; style?: ViewStyle; accessibilityLabel?: string }) {
   const c = usePalette();
   const bg = kind === "primary" ? c.tomato : kind === "done" ? c.olive : kind === "mustard" ? c.mustard : c.card;
-  const fg = kind === "primary" || kind === "done" ? c.onTomato : c.ink;
+  const fg = kind === "primary" || kind === "done" ? c.onTomato : kind === "mustard" ? c.onAccent : c.ink;
   return (
     <Pressable
       accessibilityRole="button"
@@ -98,7 +98,7 @@ export function Chip({ label, selected, onPress, color }: { label: string; selec
               transform: pressed ? [{ translateX: 3 }, { translateY: 3 }] : [],
             }}
           >
-            <T style={{ color: selected ? c.paper : c.ink, fontFamily: fonts.uiBold, fontSize: 15, lineHeight: 20 }}>{label}</T>
+            <T style={{ color: selected ? c.paper : (color ?? 0) % STICKERS.length === 0 ? c.ink : c.onAccent, fontFamily: fonts.uiBold, fontSize: 15, lineHeight: 20 }}>{label}</T>
           </View>
         </View>
       )}
@@ -116,7 +116,7 @@ export function Stepper({ value, onChange, min = 1, max = 20, label, unit }: { v
       onPress={() => onChange(value + (sign === "+" ? 1 : -1))}
       style={({ pressed }) => [s.step, { backgroundColor: c.mustard, opacity: disabled ? 0.35 : pressed ? 0.7 : 1 }, webCursor]}
     >
-      <T style={{ fontSize: 22, lineHeight: 26, fontFamily: fonts.uiBold }}>{sign}</T>
+      <T style={{ color: c.onAccent, fontSize: 22, lineHeight: 26, fontFamily: fonts.uiBold }}>{sign}</T>
     </Pressable>
   );
   return (

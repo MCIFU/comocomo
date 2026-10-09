@@ -9,6 +9,7 @@ import { catalog, DISH_KEYWORDS, prices, recipes, SEARCH_TAGS } from "../../src/
 import { CUISINE_LABEL, QUICK_FILTERS, REGION_FILTERS } from "../../src/lib/labels";
 import { actions, useStore } from "../../src/lib/store";
 import { Wordmark } from "../../src/Logo";
+import { ThemeSwitch } from "../../src/ThemeSwitch";
 import { PriceLegend } from "../../src/PriceLegend";
 import { fonts, radius, stroke, usePalette } from "../../src/theme";
 import { Button, Chip, Display, Empty, Label, Stepper, T } from "../../src/ui";
@@ -53,7 +54,12 @@ export default function Recetas() {
 
   return (
     <Screen wide={wide}>
-      {!wide && <Wordmark size={22} />}
+      {!wide && (
+        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+          <Wordmark size={22} />
+          <ThemeSwitch />
+        </View>
+      )}
 
       {/* Cabecera roja */}
       <View style={{ backgroundColor: c.tomato, borderRadius: wide ? 32 : 24, paddingHorizontal: wide ? 48 : 20, paddingTop: wide ? 56 : 24, paddingBottom: wide ? 44 : 20, overflow: "hidden" }}>

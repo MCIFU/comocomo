@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mercado as t, priceScale } from "./index";
+import { mercado as t, mercadoDark, priceScale } from "./index";
 
 function lum(hex: string) {
   const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((v) =>
@@ -30,5 +30,28 @@ describe("contraste AA (Mercado)", () => {
   });
   it("escala de precio legible en todos sus niveles", () => {
     priceScale.forEach((bg, i) => expect(ratio(i === 3 ? t.paper : t.ink, bg), bg).toBeGreaterThanOrEqual(4.5));
+  });
+});
+
+describe("contraste AA (Mercado de noche)", () => {
+  const d = mercadoDark;
+  it("texto sobre fondo, superficie, tarjeta y ticket", () => {
+    for (const bg of [d.paper, d.crust, d.card, d.ticket]) {
+      expect(ratio(d.ink, bg)).toBeGreaterThanOrEqual(4.5);
+      expect(ratio(d.inkMuted, bg)).toBeGreaterThanOrEqual(4.5);
+    }
+  });
+  it("texto claro sobre el bloque rojo y botones", () => {
+    expect(ratio(d.onTomato, d.tomato)).toBeGreaterThanOrEqual(4.5);
+    expect(ratio(d.onTomato, d.olive)).toBeGreaterThanOrEqual(3);
+  });
+  it("texto oscuro sobre las pegatinas de color", () => {
+    for (const k of ["mustard", "sky", "pink", "mint"] as const) expect(ratio(d.onAccent, d[k]), k).toBeGreaterThanOrEqual(4.5);
+  });
+  it("colores de estado legibles como texto", () => {
+    for (const k of ["olive", "saffron", "tomatoText", "plum"] as const) expect(ratio(d[k], d.paper), k).toBeGreaterThanOrEqual(4.5);
+  });
+  it("pestaña activa y selector: fondo de tinta con texto de papel", () => {
+    expect(ratio(d.paper, d.ink)).toBeGreaterThanOrEqual(4.5);
   });
 });

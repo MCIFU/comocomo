@@ -15,6 +15,8 @@ import { Button, Display, Empty, Label, Pop, Stepper, T } from "../../src/ui";
 
 /** Cantidad en una unidad cómoda (kg/l a partir de 1000). */
 function displayQty(ri: RecipeIngredient) {
+  // Piezas contables: a partir de 3 se redondea a entero (nadie usa «10½ dientes de ajo»).
+  if (ri.unit === "unit" && ri.qty >= 3) return formatQty(Math.round(ri.qty), ri.unit);
   if (ri.unit === "unit" || ri.unit === "tsp" || ri.unit === "tbsp" || ri.unit === "cup") return formatQty(roundNice(ri.qty, ri.unit), ri.unit);
   const kind = catalog.get(ri.ingredientId)?.unitKind ?? "mass";
   const b = toBase(ri.qty, ri.unit);
@@ -180,7 +182,7 @@ function Pill({ text, bg }: { text: string; bg: string }) {
   const c = usePalette();
   return (
     <View style={{ paddingHorizontal: 10, paddingVertical: 2, borderRadius: 999, backgroundColor: bg, borderWidth: 2, borderColor: c.ink }}>
-      <T style={{ fontSize: 14, lineHeight: 20, fontFamily: fonts.uiBold, fontVariant: ["tabular-nums"] }}>{text}</T>
+      <T style={{ color: c.onAccent, fontSize: 14, lineHeight: 20, fontFamily: fonts.uiBold, fontVariant: ["tabular-nums"] }}>{text}</T>
     </View>
   );
 }

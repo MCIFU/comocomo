@@ -19,7 +19,8 @@ export function RecipeCard({ recipe, price, servings, index, width, onPress }: {
   // El color del precio depende solo de lo que cuesta por persona (no del país).
   const tier = priceTier((price.min + price.max) / 2 / servings);
   const tag = priceScale[tier];
-  const tagText = tier === 3 ? c.paper : c.ink;
+  // La escala de precio es fija (no cambia con el tema): texto claro solo sobre la etiqueta más oscura.
+  const tagText = tier === 3 ? priceScale[0] : priceScale[3];
   const inner = width - stroke.width * 2 - 6;
   return (
     <Animated.View style={[{ width }, enter]}>

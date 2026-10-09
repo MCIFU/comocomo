@@ -22,9 +22,9 @@ export function Wordmark({ size = 22 }: { size?: number }) {
     <View
       accessible
       accessibilityLabel="Cómocomo"
-      style={{ alignSelf: "flex-start", backgroundColor: c.ink, borderRadius: 10, paddingHorizontal: size * 0.5, paddingVertical: size * 0.12, transform: [{ rotate: "-2deg" }] }}
+      style={{ alignSelf: "flex-start", backgroundColor: c.onAccent, borderWidth: 2, borderColor: c.ink, borderRadius: 10, paddingHorizontal: size * 0.5, paddingVertical: size * 0.12, transform: [{ rotate: "-2deg" }] }}
     >
-      <Text style={{ fontFamily: fonts.display, fontSize: size, lineHeight: size * 1.15, letterSpacing: -size * 0.04, color: c.paper }}>
+      <Text style={{ fontFamily: fonts.display, fontSize: size, lineHeight: size * 1.15, letterSpacing: -size * 0.04, color: "#FFF7E6" }}>
         cómo<Text style={{ color: c.mustard }}>como</Text>
       </Text>
     </View>

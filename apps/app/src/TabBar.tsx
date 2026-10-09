@@ -6,6 +6,7 @@ import { useStore } from "./lib/store";
 import { Wordmark } from "./Logo";
 import { usePulse } from "./motion";
 import { fonts, usePalette } from "./theme";
+import { ThemeSwitch } from "./ThemeSwitch";
 import { T } from "./ui";
 
 type BottomTabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>["tabBar"]>>[0];
@@ -50,7 +51,10 @@ export function TabBar({ state, navigation, wide }: BottomTabBarProps & { wide: 
           <Pressable accessibilityRole="link" accessibilityLabel="Cómocomo, inicio" onPress={() => navigation.navigate("index")}>
             <Wordmark size={24} />
           </Pressable>
-          <View style={{ flexDirection: "row", gap: 6 }}>{items}</View>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+            {items}
+            <View style={{ marginLeft: 12 }}><ThemeSwitch /></View>
+          </View>
         </View>
       </View>
     );
@@ -64,7 +68,7 @@ function Badge({ count, strong }: { count: number; strong: boolean }) {
   const pulse = usePulse(count, 0.35);
   return (
     <Animated.View style={[s.badge, { backgroundColor: strong ? c.tomato : c.mustard, borderColor: c.ink }, pulse]}>
-      <T style={{ color: strong ? c.onTomato : c.ink, fontSize: 12, lineHeight: 15, fontFamily: fonts.monoBold, fontVariant: ["tabular-nums"] }}>{count}</T>
+      <T style={{ color: strong ? c.onTomato : c.onAccent, fontSize: 12, lineHeight: 15, fontFamily: fonts.monoBold, fontVariant: ["tabular-nums"] }}>{count}</T>
     </Animated.View>
   );
 }
