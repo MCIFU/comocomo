@@ -14,9 +14,10 @@ import { recipesWok } from "./recipes-wok";
 import { recipesPostres } from "./recipes-postres";
 import { recipesCasa2 } from "./recipes-casa-2";
 import { recipesTapasVeg } from "./recipes-tapas-veg";
+import { recipesArg01 } from "./recipes-arg-01";
 
 export { ingredients, prices, EQUIPMENT } from "./ingredients";
-export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg];
+export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01];
 import { DISH_KEYWORDS as D1 } from "./dishes";
 import { DISH_KEYWORDS_2 } from "./dishes-2";
 export { DESSERTS, SEARCH_TAGS } from "./dishes-2";

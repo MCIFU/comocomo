@@ -10,6 +10,7 @@ export const BASICS: ReadonlySet<string> = new Set([
   "sal", "aceite", "pimienta", "azucar", "vinagre",
   // Despensa: se usan a cucharaditas y un bote dura meses; cobrar el envase entero inflaría el precio.
   "pimenton", "comino", "curry", "canela", "oregano", "soja", "miel", "sesamo", "mostaza", "levadura-quimica",
+  "laurel", "tomillo", "romero", "nuez-moscada", "azafran", "vainilla", "salsa-inglesa",
 ]);
 
 export interface SearchOptions {
