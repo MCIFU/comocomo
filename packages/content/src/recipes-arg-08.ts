@@ -1,0 +1,347 @@
+import type { Recipe } from "@comocomo/schemas";
+import { arg as es } from "./fuentes";
+import { I, S } from "./helpers";
+
+/** Arguiñano, bloque 8: habas, guisantes y arroces. */
+export const recipesArg08: Recipe[] = [
+  es({
+    id: "potaje-canario", title: "Potaje canario de alubias, calabaza y millo",
+    origin: "España (Canarias)", note: "Versión rápida con alubia cocida de bote.",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("alubias-blancas", 600, "g"), I("calabaza", 200, "g"), I("calabacin", 200, "g"), I("tomate", 150, "g"), I("cebolleta", 1, "unit"), I("beicon", 100, "g"), I("maiz", 100, "g"), I("ajo", 2, "unit"), I("aceite", 40, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Rehoga el beicon en dados con un poco de aceite, añade el ajo laminado y la cebolleta en daditos y, cuando se doren, el tomate pelado en dados. Cocina 10 minutos.", 14),
+      S("Añade las alubias escurridas y agua hasta cubrir y cuece 10 minutos.", 10),
+      S("Saltea la calabaza y el calabacín en dados 6 minutos, sala y añade el maíz (millo).", 6),
+      S("Vierte el salteado sobre las alubias y cocina a fuego suave 8 minutos.", 8),
+    ],
+  }),
+  es({
+    id: "habas-morcilla", title: "Habas guisadas con morcilla y patatas",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("habas", 800, "g"), I("morcilla", 250, "g"), I("patata", 400, "g"), I("cebolla", 1, "unit"), I("ajo", 3, "unit"), I("vino-blanco", 100, "ml"), I("harina", 10, "g"), I("menta", 3, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece las patatas en trozos grandes en agua con sal 15 minutos. Guarda el agua.", 15),
+      S("Dora el ajo laminado, pocha la cebolla picada 8 minutos, añade la harina, la menta, el vino y las habas, y moja con 7-8 cazos del agua de las patatas. Cocina 11 minutos y deja reposar tapado.", 20),
+      S("Fríe la morcilla (mejor de arroz) sin piel en rodajas por los dos lados.", 4),
+      S("Sirve las habas con las patatas y la morcilla encima, con perejil."),
+    ],
+  }),
+  es({
+    id: "habas-huevo-escalfado", title: "Habas con cebolleta y huevo escalfado",
+    authenticity: "adapted", note: "El original las termina con cortezas de cerdo fritas y un chorrito de anís.",
+    baseServings: 4, prepMin: 10, cookMin: 30, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("habas", 500, "g"), I("huevo", 4, "unit"), I("cebolleta", 2, "unit"), I("ajo", 3, "unit"), I("maicena", 5, "g"), I("laurel", 1, "unit"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("menta", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece las habas con el laurel en agua con sal 10 minutos. Guarda un poco del caldo.", 10),
+      S("Pocha la cebolleta y el ajo picados en el aceite a fuego suave 10 minutos.", 10),
+      S("Añade las habas y un poco de caldo, cocina 5 minutos y liga con la maicena disuelta en agua fría.", 5),
+      S("Escalfa los huevos 3 minutos y sírvelos sobre las habas con perejil y menta.", 3),
+    ],
+  }),
+  es({
+    id: "habas-jamon-calamares", title: "Habitas con jamón y calamares",
+    baseServings: 4, prepMin: 10, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("habas", 400, "g"), I("jamon", 110, "g"), I("calamares", 150, "g"), I("cebolleta", 1, "unit"), I("ajo", 3, "unit"), I("vino-blanco", 50, "ml"), I("menta", 3, "g"), I("pimenton", 2, "g"), I("aceite", 40, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Cuece las habas tiernas en agua con sal 13 minutos y escúrrelas.", 13),
+      S("Pocha el ajo y la cebolleta picados, añade el jamón en daditos, las habas y el vino (mejor fino de Jerez) y da un hervor con la menta picada.", 8),
+      S("Saltea el calamar en dados, salado, a fuego fuerte 1 minuto, añádelo y cocina 3 minutos. Espolvorea el pimentón con un colador.", 4),
+    ],
+  }),
+  es({
+    id: "guisantes-morcilla-panceta", title: "Cazuela de guisantes con morcilla y panceta",
+    note: "El original usa butifarra negra catalana.",
+    baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("guisantes", 600, "g"), I("morcilla", 150, "g"), I("panceta", 80, "g"), I("cebolleta", 3, "unit"), I("puerro", 1, "unit"), I("zanahoria", 100, "g"), I("ajo", 2, "unit"), I("vino-blanco", 50, "ml"), I("aceite", 30, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Cuece el puerro, la zanahoria y el ajo picados con media cebolleta en agua con sal 15 minutos para hacer un caldo.", 15),
+      S("Pocha el resto de las cebolletas picadas, añade la panceta en daditos y la morcilla en rodajas y rehoga. Añade el vino y da un hervor.", 8),
+      S("Añade los guisantes, cuela encima el caldo y cuece 10 minutos.", 10),
+    ],
+  }),
+  es({
+    id: "habas-beicon-cebolleta", title: "Habas guisadas con paquetitos de cebolleta y beicon",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["olla", "horno"],
+    ingredients: [I("habas", 500, "g"), I("cebolleta", 2, "unit"), I("beicon", 120, "g"), I("ajo", 3, "unit"), I("maicena", 5, "g"), I("aceite", 30, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Cuece las cebolletas al vapor 11 minutos, pártelas por la mitad y envuelve cada trozo con 2 tiras de beicon.", 11),
+      S("Hornéalos a 200 °C 15 minutos.", 15, 200),
+      S("Rehoga el ajo en trozos (el original usa ajetes), añade las habas, cubre con agua, sala y cuece tapado 15 minutos. Liga con la maicena disuelta en agua fría.", 17),
+      S("Sirve las habas con un paquetito en el centro."),
+    ],
+  }),
+  es({
+    id: "habas-catalana", title: "Habas a la catalana",
+    origin: "España (Cataluña)", note: "Se hacen con butifarra negra; la morcilla es la alternativa más cercana.",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("habas", 800, "g"), I("alcachofa", 2, "unit"), I("cebolleta", 2, "unit"), I("ajo", 4, "unit"), I("puerro", 1, "unit"), I("panceta", 150, "g"), I("morcilla", 150, "g"), I("vino-blanco", 150, "ml"), I("menta", 5, "g"), I("tomillo", 1, "g"), I("aceite", 30, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Dora la panceta en lonchas por los dos lados y resérvala.", 5),
+      S("Pocha en esa grasa el ajo en trozos, la cebolleta, las alcachofas en octavos y el puerro en cilindros, con sal, 10 minutos.", 10),
+      S("Añade las habas, el vino y el tomillo, tapa y cocina 15 minutos.", 15),
+      S("Añade la morcilla en rodajas, la panceta y la menta picada y cocina 4 minutos más.", 4),
+    ],
+  }),
+  es({
+    id: "lentejas-chorizo-calabaza-polenta", title: "Lentejas con «chorizo» vegetal de calabaza y polenta",
+    note: "Un chorizo sin carne: puré de calabaza especiado cuajado con polenta, en rodajas fritas.",
+    baseServings: 4, prepMin: 75, cookMin: 45, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("lentejas", 300, "g"), I("calabaza", 300, "g"), I("polenta", 100, "g"), I("cebolleta", 1, "unit"), I("ajo", 3, "unit"), I("tomate-triturado", 150, "g"), I("oregano", 2, "g"), I("pimenton", 8, "g"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Rehoga 2 ajos y la cebolleta en daditos, añade el tomate, las lentejas y agua abundante, sala y cuece 35 minutos (12 en olla rápida).", 35),
+      S("Tritura la calabaza con el otro ajo, 100 ml de agua y sal; añade el orégano y el pimentón y caliéntalo en una sartén. Cuando hierva, añade la polenta y remueve 3 minutos.", 5),
+      S("Dale forma de chorizo envuelto en film y enfríalo al menos 1 hora.", 60),
+      S("Córtalo en rodajas, fríelas en un poco de aceite y sírvelas con las lentejas y perejil.", 5),
+    ],
+  }),
+  es({
+    id: "guisantes-huevos-setas", title: "Guisantes con huevos escalfados y setas",
+    note: "El original usa perretxikos, setas de primavera muy apreciadas en el País Vasco.",
+    baseServings: 4, prepMin: 10, cookMin: 20, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("guisantes", 600, "g"), I("huevo", 4, "unit"), I("setas", 150, "g"), I("cebolleta", 2, "unit"), I("aceite", 40, "ml"), I("perejil", 5, "g"), I("sal", 5, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Pocha la cebolleta en daditos con sal, añade los guisantes y medio vaso de agua, tapa y cuece 11 minutos.", 14),
+      S("Escalfa los huevos en agua hirviendo con sal 3 minutos y colócalos sobre los guisantes. Salpimienta.", 4),
+      S("Saltea las setas troceadas a mano con un poco de aceite y perejil 2 minutos y repártelas por la cazuela.", 2),
+    ],
+  }),
+  // ——— Arroces ———
+  es({
+    id: "arroz-salteado-pollo-langostinos", title: "Salteado de pollo y langostinos con arroz basmati",
+    baseServings: 4, prepMin: 15, cookMin: 25, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("arroz-basmati", 150, "g"), I("pollo", 300, "g"), I("langostinos", 300, "g"), I("cebolla", 1, "unit"), I("pimiento", 1, "unit"), I("zanahoria", 300, "g"), I("champinones", 120, "g"), I("ajo", 3, "unit"), I("caldo", 200, "ml"), I("maicena", 5, "g"), I("soja", 45, "ml"), I("chile", 0.5, "unit"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 4, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Dora el pollo en dados salpimentado a fuego fuerte y resérvalo. Saltea los langostinos pelados en la misma sartén y resérvalos.", 6),
+      S("Saltea la cebolla, la zanahoria y el pimiento verde en juliana 4 minutos y los champiñones en cuartos 2 minutos.", 6),
+      S("Añade el chile, la soja, el caldo, el pollo y los langostinos y cocina 5 minutos. Liga con la maicena disuelta en agua fría y espolvorea perejil.", 6),
+      S("Dora los ajos en un cazo, añade el arroz basmati y el mismo volumen de agua, sala, tapa y cuece 9 minutos. Sirve con el salteado.", 10),
+    ],
+  }),
+  es({
+    id: "risotto-puerros-gambas", title: "Risotto de puerros y gambas con aceite de sus cabezas",
+    cuisine: "italiana", origin: "Italia (versión de Arguiñano)",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("arroz", 300, "g"), I("gambas", 250, "g"), I("puerro", 3, "unit"), I("ajo", 2, "unit"), I("parmesano", 75, "g"), I("aceite", 200, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece 2 puerros y el ajo en 1,5 litros de agua con sal 20 minutos (que quede en 1 litro). Tritura y cuela.", 20),
+      S("Pela las gambas, saltea las cabezas en aceite, aplástalas en un colador y mezcla el jugo con más aceite y perejil.", 3),
+      S("Rehoga el arroz en un poco de aceite y ve añadiendo el caldo poco a poco, removiendo, 16 minutos.", 16),
+      S("Añade las gambas saladas y el parmesano, cocina 2 minutos y sirve con el aceite de gambas y el otro puerro en aros fritos crujientes.", 4),
+    ],
+  }),
+  es({
+    id: "arroz-verduras-curry", title: "Arroz meloso de verduras al curry",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("arroz", 300, "g"), I("brocoli", 0.5, "unit"), I("puerro", 2, "unit"), I("cebolleta", 1, "unit"), I("zanahoria", 100, "g"), I("tomate", 150, "g"), I("ajo", 4, "unit"), I("curry", 4, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Hierve las partes verdes del puerro y la cebolleta y la piel del tomate en abundante agua con sal 15 minutos y cuela.", 15),
+      S("Pocha la cebolleta, el ajo, el puerro, la zanahoria y el tomate picados con sal 8 minutos.", 8),
+      S("Saltea el arroz con un chorrito de aceite, añade 1 litro de caldo, el curry y las verduras y cuece 18 minutos.", 18),
+      S("Escalda el brócoli en ramilletes 2 minutos, ponlo encima, tapa con un paño y reposa 4 minutos. Sirve con perejil.", 2),
+    ],
+  }),
+  es({
+    id: "arroz-verde-langostinos", title: "Arroz verde de espinacas con langostinos y espárragos",
+    baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("arroz", 300, "g"), I("langostinos", 250, "g"), I("espinacas", 250, "g"), I("esparragos-verdes", 400, "g"), I("cebolleta", 4, "unit"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Escalda las espinacas 30 segundos en 1,2 litros de agua hirviendo y tritura todo.", 2),
+      S("Rehoga el arroz con un chorrito de aceite, añade el caldo verde, sala y cuece 20 minutos.", 20),
+      S("Haz a la plancha las cebolletas partidas y los espárragos verdes con sal. Fríe las cabezas de los langostinos, aplástalas y mezcla el jugo con aceite.", 8),
+      S("Haz los langostinos pelados a la plancha 1 minuto por lado y sírvelos sobre el arroz con las verduras, el jugo y perejil.", 2),
+    ],
+  }),
+  es({
+    id: "arroz-cerdo-jerez", title: "Arroz con cerdo, champiñones y vino de Jerez",
+    baseServings: 4, prepMin: 75, cookMin: 30, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("arroz", 300, "g"), I("cerdo", 300, "g"), I("panceta", 100, "g"), I("champinones", 250, "g"), I("chalota", 4, "unit"), I("ajo", 4, "unit"), I("vino-blanco", 100, "ml"), I("pimenton", 4, "g"), I("limon", 0.5, "unit"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Mezcla el cerdo en trozos con el ajo en láminas, las chalotas en daditos, los champiñones en cuartos, sal, el pimentón y un chorrito de aceite, y marina 1 hora.", 60),
+      S("Sofríe todo en una cazuela ancha 8 minutos, añade el vino (mejor fino de Jerez) y deja evaporar.", 10),
+      S("Añade el arroz y el doble de agua y un poco más, sala y cuece 18 minutos.", 18),
+      S("Reparte encima la panceta en tiras finas, reposa 4 minutos y sirve con limón y perejil.", 4),
+    ],
+  }),
+  es({
+    id: "arroz-tailandes-pollo-gambas", title: "Arroz tailandés salteado con pollo, gambas y cacahuetes",
+    cuisine: "tailandesa", origin: "Inspiración tailandesa", authenticity: "adapted",
+    baseServings: 4, prepMin: 15, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("arroz-basmati", 200, "g"), I("pollo", 400, "g"), I("gambas", 250, "g"), I("zanahoria", 200, "g"), I("pimiento", 1, "unit"), I("soja", 30, "ml"), I("cacahuetes", 40, "g"), I("cebollino", 5, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 5, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Lava el arroz (mejor jazmín) y cuécelo en agua con sal 11 minutos. Escúrrelo.", 11),
+      S("Saltea en el wok la zanahoria en rodajas y el pimiento rojo en rombos 4 minutos y resérvalos.", 4),
+      S("Saltea el pollo en tiras salpimentado 4 minutos y las gambas peladas 1 minuto.", 5),
+      S("Añade las verduras, el arroz y la soja y saltea 2 minutos. Sirve con los cacahuetes y el cebollino picados y perejil.", 2),
+    ],
+  }),
+  es({
+    id: "arroz-jengibre-brochetas-langostino-melon", title: "Arroz salteado al jengibre con brochetas de langostino y melón",
+    baseServings: 4, prepMin: 20, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("arroz-basmati", 300, "g"), I("langostinos", 450, "g"), I("melon", 0.25, "unit"), I("pimiento", 2, "unit"), I("cebolleta", 1, "unit"), I("jengibre", 10, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Lava el arroz y cuécelo en agua con sal 11 minutos, escúrrelo y refréscalo.", 11),
+      S("Saltea en el wok los pimientos (uno rojo y uno verde) y la cebolleta en juliana con jengibre rallado a fuego fuerte 8 minutos. Añade el arroz y saltea 2 minutos.", 10),
+      S("Monta brochetas con 3 langostinos pelados y 2 dados de melón, sálalas y hazlas a la plancha 2 minutos por lado.", 4),
+      S("Sirve el arroz con las brochetas encima y perejil."),
+    ],
+  }),
+  es({
+    id: "risotto-gambas-tomate-seco", title: "Risotto de gambas con aceite de tomate seco",
+    cuisine: "italiana", origin: "Italia (versión de Arguiñano)",
+    baseServings: 4, prepMin: 20, cookMin: 40, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("arroz", 300, "g"), I("ajo", 6, "unit"), I("gambas", 500, "g"), I("tomates-secos", 30, "g"), I("queso", 50, "g"), I("aceite", 80, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Rehoga 2 ajos, añade las cabezas y cáscaras de las gambas, rehoga a fuego fuerte y añade 1,6 litros de agua con sal. Cuece 15 minutos y cuela.", 17),
+      S("Tritura los tomates secos con un ajo y un buen chorro de aceite y cuela.", 1),
+      S("Rehoga el resto del ajo picado con el arroz y añade 1,2 litros de caldo poco a poco, removiendo, 17 minutos. Añade el aceite de tomate y el queso (mejor Idiazábal) rallado.", 17),
+      S("Haz las gambas a la plancha, sálalas y ponlas encima con perejil.", 2),
+    ],
+  }),
+  es({
+    id: "arroz-verduras-primavera-gratinado", title: "Arroz con verduras de primavera y setas al gratén",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["olla", "sarten", "horno", "batidora"],
+    ingredients: [I("arroz", 300, "g"), I("cebolleta", 1, "unit"), I("ajo", 4, "unit"), I("guisantes", 150, "g"), I("habas", 150, "g"), I("zanahoria", 100, "g"), I("setas", 400, "g"), I("pan-rallado", 20, "g"), I("albahaca", 10, "g"), I("aceite", 80, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Pocha la cebolleta y 2 ajos picados con la zanahoria, añade los guisantes y las habas 5 minutos. Añade el arroz, el triple de agua y sal y cuece 18 minutos. Reposa 3 minutos.", 26),
+      S("Dora los otros ajos picados y saltea las setas con sal y perejil 4 minutos.", 4),
+      S("Reparte el arroz en cazuelitas, cubre con las setas y el pan rallado y gratina en el horno 4 minutos.", 4, 220),
+      S("Tritura la albahaca con un buen chorro de aceite, cuela y riega.", 1),
+    ],
+  }),
+  es({
+    id: "arroz-esparragos-chorizo", title: "Arroz con espárragos verdes, chorizo y cherry",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("arroz", 300, "g"), I("chorizo", 100, "g"), I("esparragos-verdes", 300, "g"), I("tomate-cherry", 200, "g"), I("ajo", 3, "unit"), I("puerro", 1, "unit"), I("zanahoria", 100, "g"), I("pimenton", 4, "g"), I("aceite", 30, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Cuece el puerro y la zanahoria en cilindros con la parte baja de los espárragos y una rama de perejil en 1,5 litros de agua con sal 17 minutos. Cuela.", 17),
+      S("Rehoga en una cazuela ancha el ajo laminado, el chorizo en cuartos de luna y los espárragos verdes en cilindros 5 minutos.", 5),
+      S("Añade el arroz, el pimentón, sal y el triple de caldo y cuece 19 minutos.", 19),
+      S("Reparte los cherry partidos por encima, tapa y reposa 5 minutos.", 5),
+    ],
+  }),
+  es({
+    id: "arroz-verduras-asadas-alioli", title: "Arroz con verduras asadas y mayonesa de ajo",
+    note: "El original usa arroz integral (necesita 30 minutos de cocción en lugar de 18).",
+    baseServings: 4, prepMin: 15, cookMin: 55, difficulty: "easy", equipment: ["horno", "olla", "batidora"],
+    ingredients: [I("arroz", 300, "g"), I("pimiento", 1, "unit"), I("berenjena", 400, "g"), I("cebolleta", 4, "unit"), I("tomate", 500, "g"), I("puerro", 2, "unit"), I("ajo", 3, "unit"), I("huevo", 1, "unit"), I("vinagre", 5, "ml"), I("aceite", 200, "ml"), I("perejil", 5, "g"), I("sal", 8, "g")],
+    steps: [
+      S("Asa el pimiento rojo, la berenjena, las cebolletas y los tomates con aceite y sal en el horno a 180 °C 35 minutos. Pela y trocea.", 35, 180),
+      S("Rehoga el puerro y 2 ajos picados 5 minutos, añade el arroz, 1 litro de agua y sal y cuece 18 minutos. Espolvorea perejil.", 23),
+      S("Tritura el huevo con sal, el vinagre, el otro ajo y 150 ml de aceite hasta que ligue.", 2),
+      S("Sirve el arroz con las verduras y la mayonesa de ajo."),
+    ],
+  }),
+  es({
+    id: "arroz-tres-delicias", title: "Arroz tres delicias",
+    cuisine: "china", origin: "China (versión de restaurante en España)",
+    baseServings: 4, prepMin: 15, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("arroz-basmati", 250, "g"), I("langostinos", 250, "g"), I("huevo", 4, "unit"), I("jamon-cocido", 125, "g"), I("zanahoria", 100, "g"), I("guisantes", 100, "g"), I("soja", 60, "ml"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 5, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece la zanahoria en daditos con los guisantes 7 minutos. Cuece el arroz lavado en agua con sal 12 minutos, refréscalo y escúrrelo.", 12),
+      S("Saltea el jamón cocido en cuadraditos y resérvalo. Cuaja los huevos batidos en tortilla y córtala en cuadraditos.", 5),
+      S("Saltea los langostinos pelados y salpimentados 1 minuto en el wok, añade el arroz y remueve 1 minuto.", 2),
+      S("Incorpora todo lo demás, riega con la soja y sirve con perejil.", 2),
+    ],
+  }),
+  es({
+    id: "arroz-langostinos-alioli-perejil", title: "Arroz con langostinos, guisantes y alioli de perejil",
+    baseServings: 4, prepMin: 15, cookMin: 55, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("arroz", 300, "g"), I("langostinos", 350, "g"), I("guisantes", 100, "g"), I("cebolleta", 2, "unit"), I("puerro", 1, "unit"), I("ajo", 6, "unit"), I("huevo", 1, "unit"), I("vinagre", 5, "ml"), I("limon", 0.5, "unit"), I("aceite", 190, "ml"), I("perejil", 10, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Dora a fuego fuerte el puerro, una cebolleta y 3 ajos en trozos con 4 langostinos troceados, cubre con agua, sala y cuece 30 minutos. Cuela.", 32),
+      S("Tritura un ajo con el huevo, sal, el vinagre, hojas de perejil y 150 ml de aceite hasta que ligue.", 2),
+      S("Pocha la otra cebolleta y los ajos restantes picados en la paella, añade el arroz y el caldo, sala y cuece 10 minutos. Añade los guisantes 5 minutos.", 17),
+      S("Pon los langostinos encima, cocina 4 minutos y reposa 2. Sirve con el alioli y limón.", 4),
+    ],
+  }),
+  es({
+    id: "arroz-negro-alioli-pimiento", title: "Arroz negro con sepia y alioli de pimiento",
+    baseServings: 4, prepMin: 20, cookMin: 50, difficulty: "medium", equipment: ["olla", "sarten", "batidora"],
+    ingredients: [I("arroz", 300, "g"), I("chipirones", 600, "g"), I("cebolla", 1, "unit"), I("puerro", 1, "unit"), I("cebolleta", 1, "unit"), I("ajo", 3, "unit"), I("tinta-calamar", 8, "g"), I("pimiento", 1, "unit"), I("huevo", 1, "unit"), I("vinagre", 5, "ml"), I("limon", 1, "unit"), I("aceite", 240, "ml"), I("sal", 7, "g")],
+    steps: [
+      S("Cuece el puerro y la cebolla con la sepia (chipirones) limpia en trozos en abundante agua con sal 25 minutos (15 en olla rápida). Cuela y guarda la sepia.", 25),
+      S("Pocha el pimiento rojo en dados con sal 10 minutos y tritúralo. Haz un alioli con un ajo, el huevo, el vinagre, sal y 200 ml de aceite y mézclalo con el puré.", 12),
+      S("Pocha la cebolleta y los otros ajos picados en la paella, añade el arroz y la sepia, el doble y algo más de caldo y la tinta. Sala y cuece 18 minutos.", 20),
+      S("Reposa tapado 2 minutos y sirve con limón y el alioli de pimiento."),
+    ],
+  }),
+  es({
+    id: "paella-pescado-marisco", title: "Paella de rape, gambas y mejillones",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "medium", equipment: ["sarten", "olla"],
+    ingredients: [I("arroz", 300, "g"), I("caldo", 1000, "ml"), I("gambas", 150, "g"), I("rape", 300, "g"), I("mejillones", 500, "g"), I("pimiento", 1.5, "unit"), I("tomate", 150, "g"), I("ajo", 2, "unit"), I("azafran", 0.1, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("En la paella con aceite, saltea las gambas peladas y saladas y resérvalas. Rehoga el rape en dados salado y resérvalo.", 6),
+      S("Abre los mejillones en una cazuela tapada con un chorrito de agua 4 minutos.", 4),
+      S("En la paella, rehoga el ajo picado y los pimientos (verde y medio rojo) en daditos, el azafrán y el tomate rallado. Añade el arroz y el caldo (mejor de pescado) y cuece 18 minutos.", 25),
+      S("Apaga, reparte el rape, las gambas y los mejillones, tapa 2 minutos y sirve con perejil.", 2),
+    ],
+  }),
+  es({
+    id: "paella-mixta-pollo-cerdo-marisco", title: "Arroz con pollo, costilla, calamar y langostinos",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("arroz", 300, "g"), I("pollo", 350, "g"), I("costillas-cerdo", 400, "g"), I("langostinos", 200, "g"), I("calamares", 350, "g"), I("caldo", 1000, "ml"), I("puerro", 1, "unit"), I("pimiento", 1, "unit"), I("ajo", 3, "unit"), I("tomate-triturado", 150, "g"), I("pimientos-piquillo", 60, "g"), I("guisantes", 200, "g"), I("limon", 1, "unit"), I("aceite", 50, "ml"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Rehoga en la paella la costilla y el pollo troceados y salpimentados 10 minutos. Añade el calamar en dados.", 12),
+      S("Añade el puerro, el pimiento verde y el ajo picados, luego el arroz, el tomate y el caldo. Cuece 9 minutos.", 12),
+      S("Añade los guisantes y los langostinos con su cabeza y cocina 8 minutos más.", 8),
+      S("Reposa tapado 2 minutos y sirve con tiras de piquillo y limón."),
+    ],
+  }),
+  es({
+    id: "arroz-de-mar", title: "Arroz de mar con rape, calamar y gambas",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("arroz", 300, "g"), I("rape", 400, "g"), I("calamares", 100, "g"), I("gambas", 300, "g"), I("calabacin", 200, "g"), I("pimiento", 1, "unit"), I("tomate", 150, "g"), I("ajo", 4, "unit"), I("caldo", 700, "ml"), I("limon", 1, "unit"), I("aceite", 50, "ml"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Dora el ajo laminado en la paella y saltea las gambas peladas y luego los calamares en aros; resérvalos. Saltea el rape en dados salpimentado en otra sartén y guárdalo con su jugo.", 8),
+      S("Rehoga el calabacín en daditos en la paella, añade el tomate rallado y el arroz, y el caldo (mejor de pescado). Cuece 15 minutos.", 18),
+      S("Añade el rape con su jugo, el calamar y las gambas y cocina 3 minutos.", 3),
+      S("Pon encima el pimiento verde en tiras rehogado y sirve con limón.", 4),
+    ],
+  }),
+  es({
+    id: "hamburguesas-arroz-lentejas", title: "Hamburguesas de arroz y lentejas con salsa de tomate",
+    baseServings: 4, prepMin: 20, cookMin: 55, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("lentejas", 200, "g"), I("arroz", 200, "g"), I("cebolla", 1, "unit"), I("puerro", 1, "unit"), I("cebolleta", 1, "unit"), I("zanahoria", 100, "g"), I("ajo", 1, "unit"), I("tomate-triturado", 200, "g"), I("soja", 15, "ml"), I("salsa-inglesa", 15, "ml"), I("laurel", 1, "unit"), I("pan-rallado", 30, "g", true), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Cuece las lentejas con la cebolla, el puerro y el laurel 32 minutos. Escurre y guarda el caldo.", 32),
+      S("Pocha la cebolleta y la zanahoria picadas. Dora el ajo, añade el arroz y el doble de agua y algo más, sala y cuece 15 minutos.", 16),
+      S("Mezcla las lentejas, el arroz y las verduras (con algo de pan rallado si hace falta) y forma 8 hamburguesas con las manos mojadas. Fríelas 4 minutos por lado.", 8),
+      S("Reduce el caldo de las lentejas con el tomate, la soja y la salsa inglesa y sírvelo con las hamburguesas y perejil.", 5),
+    ],
+  }),
+  es({
+    id: "paella-pescado-romero", title: "Paella de pescado al romero con gambas",
+    note: "El original lleva salmonetes; la dorada o la lubina también funcionan.",
+    baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("arroz", 300, "g"), I("lubina", 400, "g"), I("gambas", 300, "g"), I("tomate", 300, "g"), I("ajo", 2, "unit"), I("caldo", 700, "ml"), I("romero", 1, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Rehoga las cabezas de las gambas en el aceite y retíralas. Sofríe en ese aceite el ajo picado y el tomate pelado en dados 6 minutos.", 8),
+      S("Añade el arroz, el caldo (mejor de pescado) y el romero y cuece 17 minutos. Reposa 2.", 19),
+      S("Saltea las gambas peladas y salpimentadas y haz los filetes de pescado a la plancha por los dos lados. Colócalos sobre el arroz con perejil.", 5),
+    ],
+  }),
+  es({
+    id: "arroz-almejas-verduras", title: "Arroz con almejas, champiñones y calabacín",
+    baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("arroz", 300, "g"), I("almejas", 400, "g"), I("cebolleta", 1, "unit"), I("ajo", 4, "unit"), I("champinones", 150, "g"), I("calabacin", 250, "g"), I("vino-blanco", 100, "ml"), I("caldo", 1200, "ml"), I("limon", 1, "unit"), I("aceite", 40, "ml"), I("perejil", 8, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Pocha 2 ajos laminados, añade los champiñones en cuartos, sal, perejil y la mitad del vino y cocina 6 minutos.", 6),
+      S("Rehoga los otros ajos picados, añade las almejas, el resto del vino y perejil, tapa y espera a que se abran.", 4),
+      S("Pocha la cebolleta y el calabacín en cuartos de luna en la paella 5 minutos, añade el arroz y el caldo y cuece 15 minutos.", 20),
+      S("Añade los champiñones y las almejas con su jugo y cocina 3 minutos. Sirve con limón.", 3),
+    ],
+  }),
+  es({
+    id: "fideos-arroz-pollo-verduras", title: "Fideos de arroz salteados con pollo y verduras",
+    cuisine: "china", origin: "Inspiración oriental", authenticity: "adapted",
+    baseServings: 6, prepMin: 20, cookMin: 20, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("fideos-arroz", 200, "g"), I("pollo", 800, "g"), I("calabacin", 250, "g"), I("pimiento", 2, "unit"), I("zanahoria", 100, "g"), I("huevo", 1, "unit"), I("cebolleta", 1, "unit"), I("soja", 30, "ml"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Saltea la zanahoria, los pimientos (rojo y verde) y el calabacín en tiras finas al dente 5 minutos, añade la soja y pásalo a un bol tapado.", 6),
+      S("Saltea el pollo en tiras salpimentado 5 minutos con perejil y añádelo al bol.", 5),
+      S("Haz una tortillita con el huevo batido, trocéala y añádela.", 2),
+      S("Hierve 300 ml de agua en la sartén y cuece los fideos 3 minutos. Mézclalos con todo y sirve con cebolleta picada.", 4),
+    ],
+  }),
+];
