@@ -19,9 +19,10 @@ import { recipesArg02 } from "./recipes-arg-02";
 import { recipesArg03 } from "./recipes-arg-03";
 import { recipesArg04 } from "./recipes-arg-04";
 import { recipesArg05 } from "./recipes-arg-05";
+import { recipesArg06 } from "./recipes-arg-06";
 
 export { ingredients, prices, EQUIPMENT } from "./ingredients";
-export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05];
+export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06];
 import { DISH_KEYWORDS as D1 } from "./dishes";
 import { DISH_KEYWORDS_2 } from "./dishes-2";
 export { DESSERTS, SEARCH_TAGS } from "./dishes-2";
