@@ -181,7 +181,7 @@ export const recipesArg13: Recipe[] = [
   es({
     id: "crema-lentejas-cordero", title: "Crema de lentejas rojas con medallones de cordero",
     baseServings: 4, prepMin: 25, cookMin: 50, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
-    ingredients: [I("lentejas", 300, "g"), I("cordero", 700, "g"), I("arroz", 50, "g"), I("puerro", 1, "unit"), I("zanahoria", 100, "g"), I("tomate-triturado", 100, "g"), I("cebolla", 1, "unit"), I("ajo", 3, "unit"), I("laurel", 1, "unit"), I("vino-dulce", 100, "ml"), I("maicena", 8, "g"), I("harina", 30, "g"), I("huevo", 1, "unit"), I("pan-rallado", 60, "g"), I("aceite", 200, "ml"), I("perejil", 3, "g"), I("sal", 7, "g"), I("pimienta", 1, "g")],
+    ingredients: [I("lentejas", 300, "g"), I("cordero", 400, "g"), I("arroz", 50, "g"), I("puerro", 1, "unit"), I("zanahoria", 100, "g"), I("tomate-triturado", 100, "g"), I("cebolla", 1, "unit"), I("ajo", 3, "unit"), I("laurel", 1, "unit"), I("vino-dulce", 100, "ml"), I("maicena", 8, "g"), I("harina", 30, "g"), I("huevo", 1, "unit"), I("pan-rallado", 60, "g"), I("aceite", 200, "ml"), I("perejil", 3, "g"), I("sal", 7, "g"), I("pimienta", 1, "g")],
     steps: [
       S("Dora la cebolla y el ajo picados, añade el cuello de cordero en trozos salpimentado y el vino (oloroso), cubre con agua y cuece 40 minutos (10 en olla rápida). Saca el cordero, reduce el caldo y lígalo con la maicena.", 40),
       S("Mientras, rehoga el puerro y la zanahoria, añade el tomate, las lentejas, el arroz, el laurel y 1,5 litros de agua y cuece 20 minutos. Retira el laurel y tritura."),
