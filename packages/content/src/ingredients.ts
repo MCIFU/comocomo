@@ -227,6 +227,7 @@ const rows: Row[] = [
   ["queso-fresco", "Queso fresco (tipo Burgos)", "dairy", "mass", MILK, [], ["kg", 6, 10]],
   ["requeson", "Requesón o ricotta", "dairy", "mass", MILK, [], ["kg", 6, 11]],
   ["huevo-codorniz", "Huevos de codorniz", "dairy", "count", ["egg"], [], ["unit", 0.1, 0.2]],
+  ["quinoa", "Quinoa", "pantry", "mass", [], [], ["kg", 5, 9]],
 ];
 
 type Pack = [qty: number, unit: UnitId, label: string];
@@ -275,6 +276,7 @@ const PACKS: Record<string, Pack> = {
   vainilla: [2, "unit", "bote"], "salsa-inglesa": [150, "ml", "botella"], beicon: [200, "g", "paquete"], "jamon-cocido": [200, "g", "paquete"], txistorra: [250, "g", "paquete"],
   berberechos: [120, "g", "lata"], anchoas: [50, "g", "lata"], "salmon-ahumado": [100, "g", "sobre"], "queso-cabra": [200, "g", "rulo"], "queso-fresco": [250, "g", "tarrina"],
   requeson: [250, "g", "tarrina"], "huevo-codorniz": [12, "unit", "bandeja"],
+  quinoa: [500, "g", "paquete"],
 };
 
 const ALIASES: Record<string, string[]> = {

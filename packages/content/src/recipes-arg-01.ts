@@ -1,14 +1,8 @@
 import type { Recipe } from "@comocomo/schemas";
-import { I, r, S } from "./helpers";
+import { arg as es } from "./fuentes";
+import { I, S } from "./helpers";
 
-/**
- * Basadas en «1000 recetas de oro» (Karlos Arguiñano): selección de entrantes y ensaladas,
- * con los pasos reescritos para COMOCOMO y los ingredientes adaptados al catálogo.
- */
-const SRC = "Basada en una receta de «1000 recetas de oro», de Karlos Arguiñano.";
-const es = (x: Omit<Parameters<typeof r>[0], "cuisine" | "origin" | "authenticity"> & { origin?: string; authenticity?: "traditional" | "adapted" }) =>
-  r({ cuisine: "espanola", origin: x.origin ?? "España", authenticity: x.authenticity ?? "traditional", ...x, note: x.note ? `${x.note} ${SRC}` : SRC });
-
+/** Arguiñano, bloque 1: entrantes y primeras ensaladas. */
 export const recipesArg01: Recipe[] = [
   // ——— Entrantes ———
   es({
