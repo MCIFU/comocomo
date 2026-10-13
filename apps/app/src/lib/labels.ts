@@ -15,14 +15,38 @@ export const CUISINE_LABEL: Record<string, string> = {
   dominicana: "Rep. Dominicana", salvadorena: "El Salvador", costarricense: "Costa Rica", australiana: "Australia", rusa: "Rusia", egipcia: "Egipto",
 };
 
-/** Pegatinas de la portada: agrupan cocinas para no tener 15 botones. */
-export const REGION_FILTERS: { key: string; label: string; cuisines: string[] }[] = [
-  { key: "espana", label: "España", cuisines: ["espanola", "asturiana"] },
-  { key: "italia", label: "Italia", cuisines: ["italiana"] },
-  { key: "europa", label: "Europa", cuisines: ["francesa", "alemana", "britanica", "portuguesa", "griega", "turca", "hungara", "polaca", "irlandesa", "sueca", "noruega"] },
-  { key: "asia", label: "Asia", cuisines: ["japonesa", "china", "coreana", "tailandesa", "india", "vietnamita", "indonesia", "filipina", "malaya"] },
-  { key: "america", label: "América", cuisines: ["mexicana", "estadounidense", "cubana", "colombiana", "venezolana", "peruana", "argentina", "chilena", "brasilena", "dominicana", "salvadorena", "costarricense"] },
-  { key: "africa", label: "África y Oriente Medio", cuisines: ["marroqui", "oriente-medio", "nigeriana", "etiope", "senegalesa", "sudafricana", "egipcia"] },
+/** Filtro de la portada en dos niveles: continente y, dentro, país. España agrupa también Asturias. */
+export type Country = { key: string; label: string; cuisines: string[] };
+const country = (key: string, label?: string, extra: string[] = []): Country => ({ key, label: label ?? CUISINE_LABEL[key] ?? key, cuisines: [key, ...extra] });
+
+export const CONTINENTS: { key: string; label: string; countries: Country[] }[] = [
+  {
+    key: "europa", label: "Europa",
+    countries: [
+      country("espanola", "España", ["asturiana"]), country("italiana"), country("francesa"), country("portuguesa"), country("griega"),
+      country("alemana"), country("britanica"), country("irlandesa"), country("hungara"), country("polaca"), country("sueca"),
+      country("noruega"), country("rusa"), country("turca"),
+    ],
+  },
+  {
+    key: "asia", label: "Asia",
+    countries: [
+      country("japonesa"), country("china"), country("tailandesa"), country("coreana"), country("india"), country("vietnamita"),
+      country("indonesia"), country("filipina"), country("malaya"), country("oriente-medio"),
+    ],
+  },
+  {
+    key: "america", label: "América",
+    countries: [
+      country("estadounidense"), country("mexicana"), country("argentina"), country("peruana"), country("brasilena"), country("colombiana"),
+      country("venezolana"), country("chilena"), country("cubana"), country("dominicana"), country("salvadorena"), country("costarricense"),
+    ],
+  },
+  {
+    key: "africa", label: "África",
+    countries: [country("marroqui"), country("egipcia"), country("nigeriana"), country("etiope"), country("senegalesa"), country("sudafricana")],
+  },
+  { key: "oceania", label: "Oceanía", countries: [country("australiana")] },
 ];
 
 /** Filtros rápidos: tiempo y restricciones habituales. Las alergias se aplican en código, siempre. */

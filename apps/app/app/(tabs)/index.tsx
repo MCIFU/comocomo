@@ -1,4 +1,4 @@
-import { searchRecipes, shoppingPrice } from "@comocomo/core";
+import { formatMoney, searchRecipes, shoppingPrice } from "@comocomo/core";
 import type { Restriction } from "@comocomo/schemas";
 import { useRouter } from "expo-router";
 import { useDeferredValue, useMemo, useState } from "react";
@@ -6,7 +6,8 @@ import { Pressable, ScrollView, TextInput, useWindowDimensions, View } from "rea
 import { RecipeCard } from "../../src/RecipeCard";
 import { Screen } from "../../src/Screen";
 import { catalog, DISH_KEYWORDS, prices, recipes, SEARCH_TAGS } from "../../src/lib/data";
-import { CUISINE_LABEL, QUICK_FILTERS, REGION_FILTERS } from "../../src/lib/labels";
+import { CONTINENTS, CUISINE_LABEL, QUICK_FILTERS } from "../../src/lib/labels";
+import { dailyMenu, dayKey, type Course } from "../../src/lib/menu";
 import { actions, useStore } from "../../src/lib/store";
 import { Wordmark } from "../../src/Logo";
 import { ThemeSwitch } from "../../src/ThemeSwitch";
@@ -26,7 +27,10 @@ export default function Recetas() {
   const wide = width >= 1024;
   const servings = useStore((s) => s.servings);
   const [q, setQ] = useState("");
-  const [region, setRegion] = useState<string | null>(null);
+  const [continent, setContinent] = useState<string | null>(null);
+  const [country, setCountry] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const [shuffle, setShuffle] = useState(0);
   const [quick, setQuick] = useState<string[]>([]);
   const [gridW, setGridW] = useState(0);
   const dq = useDeferredValue(q);
@@ -35,22 +39,46 @@ export default function Recetas() {
     const qf = QUICK_FILTERS.filter((f) => quick.includes(f.key));
     const restrictions: Restriction[] = qf.flatMap((f) => f.restrictions ?? []);
     const maxMinutes = qf.find((f) => f.maxMinutes)?.maxMinutes;
-    const cuisines = REGION_FILTERS.find((r) => r.key === region)?.cuisines;
+    const cont = CONTINENTS.find((x) => x.key === continent);
+    const cuisines = country ? cont?.countries.find((x) => x.key === country)?.cuisines : cont?.countries.flatMap((x) => x.cuisines);
     return searchRecipes(recipes, catalog, dq, { extra: EXTRA, restrictions, maxMinutes })
       .filter((r) => !cuisines || cuisines.includes(r.cuisine))
       .filter((r) => qf.every((f) => !f.ids || f.ids.includes(r.id)))
       .map((r) => ({ recipe: r, price: shoppingPrice(r, servings, prices, catalog) }));
-  }, [dq, region, quick, servings]);
+  }, [dq, continent, country, quick, servings]);
+
+  // Países con recetas dentro del continente elegido.
+  const countries = useMemo(() => {
+    const cont = CONTINENTS.find((x) => x.key === continent);
+    if (!cont) return [];
+    return cont.countries.filter((k) => recipes.some((r) => k.cuisines.includes(r.cuisine)));
+  }, [continent]);
+
+  const menu = useMemo(() => {
+    const m = dailyMenu(dayKey(), shuffle);
+    return (["primero", "segundo", "postre"] as Course[])
+      .map((course) => ({ course, recipe: m[course]! }))
+      .filter((x) => x.recipe)
+      .map((x) => ({ ...x, price: shoppingPrice(x.recipe, servings, prices, catalog) }));
+  }, [shuffle, servings]);
+  const menuTotal = menu.reduce((a, x) => ({ min: a.min + x.price.min, max: a.max + x.price.max }), { min: 0, max: 0 });
 
   const cols = gridW >= 1000 ? 4 : gridW >= 700 ? 3 : 2;
   const gap = wide ? 22 : 12;
   const cardW = gridW ? Math.floor((gridW - gap * (cols - 1)) / cols) : 0;
-  const filtered = !!q.trim() || !!region || quick.length > 0;
+  const filtered = !!q.trim() || !!continent || quick.length > 0;
+  const showMenu = !filtered && !showAll;
+  const menuCols = gridW >= 700 ? 3 : 1;
+  const menuW = gridW ? (menuCols === 1 ? Math.min(gridW, 420) : Math.floor((gridW - gap * 2) / 3)) : 0;
   const clear = () => {
     setQ("");
-    setRegion(null);
+    setContinent(null);
+    setCountry(null);
     setQuick([]);
+    setShowAll(false);
   };
+  const COURSE_LABEL: Record<Course, string> = { primero: "Primer plato", segundo: "Segundo plato", postre: "Postre" };
+  const today = new Date().toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
 
   return (
     <Screen wide={wide}>
@@ -91,19 +119,32 @@ export default function Recetas() {
           style={wide ? undefined : { marginHorizontal: -20 }}
           contentContainerStyle={{ flexDirection: "row", flexWrap: wide ? "wrap" : "nowrap", gap: 10, marginTop: wide ? 20 : 16, paddingHorizontal: wide ? 0 : 20 }}
         >
-          <Chip label="Todas" selected={!region} onPress={() => setRegion(null)} />
-          {REGION_FILTERS.map((r, i) => (
-            <Chip key={r.key} label={r.label} color={i + 1} selected={region === r.key} onPress={() => setRegion(region === r.key ? null : r.key)} />
+          <Chip label="Todas" selected={!continent && showAll} onPress={() => { setContinent(null); setCountry(null); setShowAll(true); }} />
+          {CONTINENTS.map((r, i) => (
+            <Chip key={r.key} label={r.label} color={i + 1} selected={continent === r.key} onPress={() => { setCountry(null); setContinent(continent === r.key ? null : r.key); }} />
           ))}
         </ScrollView>
+        {countries.length > 0 && (
+          <ScrollView
+            horizontal={!wide}
+            showsHorizontalScrollIndicator={false}
+            style={wide ? undefined : { marginHorizontal: -20 }}
+            contentContainerStyle={{ flexDirection: "row", flexWrap: wide ? "wrap" : "nowrap", gap: 8, marginTop: 10, paddingHorizontal: wide ? 0 : 20 }}
+          >
+            <Chip label={"Todo " + (CONTINENTS.find((x) => x.key === continent)?.label ?? "")} selected={!country} onPress={() => setCountry(null)} />
+            {countries.map((k) => (
+              <Chip key={k.key} label={k.label} selected={country === k.key} onPress={() => setCountry(country === k.key ? null : k.key)} />
+            ))}
+          </ScrollView>
+        )}
       </View>
 
       {/* Barra: título, personas y filtros rápidos */}
       <View style={{ gap: 16, marginTop: 8 }}>
         <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 14 }}>
           <View style={{ flexDirection: "row", alignItems: "baseline", gap: 12 }}>
-            <Display size={wide ? 42 : 30}>Recetas</Display>
-            {wide && <Label tone="muted" style={{ fontSize: 13 }}>{results.length} {results.length === 1 ? "plato" : "platos"}</Label>}
+            <Display size={wide ? 42 : 30}>{showMenu ? "Menú del día" : "Recetas"}</Display>
+            {showMenu ? <Label tone="muted" style={{ fontSize: 13 }}>{today}</Label> : wide && <Label tone="muted" style={{ fontSize: 13 }}>{results.length} {results.length === 1 ? "plato" : "platos"}</Label>}
           </View>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
             {wide && <Label>Precio para</Label>}
@@ -111,7 +152,7 @@ export default function Recetas() {
           </View>
         </View>
         <PriceLegend servings={servings} />
-        <ScrollView
+        {!showMenu && <ScrollView
           horizontal={!wide}
           showsHorizontalScrollIndicator={false}
           style={wide ? undefined : { marginHorizontal: -16 }}
@@ -125,11 +166,31 @@ export default function Recetas() {
               <T style={{ fontFamily: fonts.uiBold, textDecorationLine: "underline" }}>Quitar filtros</T>
             </Pressable>
           )}
-        </ScrollView>
+        </ScrollView>}
       </View>
 
+      {/* Menú del día: primero, segundo y postre */}
+      {showMenu && (
+        <View onLayout={(e) => setGridW(e.nativeEvent.layout.width)} style={{ gap: 18 }}>
+          <View style={{ flexDirection: "row", flexWrap: "wrap", gap, rowGap: gap + 6, justifyContent: menuCols === 1 ? "center" : "flex-start" }}>
+            {menuW > 0 && menu.map(({ course, recipe, price }, i) => (
+              <View key={course} style={{ width: menuW, gap: 8 }}>
+                <Label>{COURSE_LABEL[course]}</Label>
+                <RecipeCard recipe={recipe} price={price} servings={servings} index={i} width={menuW}
+                  onPress={() => router.push({ pathname: "/receta/[id]", params: { id: recipe.id } })} />
+              </View>
+            ))}
+          </View>
+          <View style={{ flexDirection: "row", flexWrap: "wrap", alignItems: "center", gap: 12 }}>
+            <T style={{ fontFamily: fonts.uiBold, fontSize: 16 }}>Menú completo para {servings} {servings === 1 ? "persona" : "personas"}: {formatMoney(menuTotal.min, menuTotal.max)}</T>
+            <Button label="Otro menú" kind="mustard" onPress={() => setShuffle(shuffle + 1)} />
+            <Button label="Ver todas las recetas" kind="quiet" onPress={() => setShowAll(true)} />
+          </View>
+        </View>
+      )}
+
       {/* Rejilla */}
-      <View onLayout={(e) => setGridW(e.nativeEvent.layout.width)} style={{ flexDirection: "row", flexWrap: "wrap", gap, rowGap: gap + 6 }}>
+      {!showMenu && <View onLayout={(e) => setGridW(e.nativeEvent.layout.width)} style={{ flexDirection: "row", flexWrap: "wrap", gap, rowGap: gap + 6 }}>
         {cardW > 0 &&
           results.map(({ recipe, price }, i) => (
             <RecipeCard
@@ -142,8 +203,8 @@ export default function Recetas() {
               onPress={() => router.push({ pathname: "/receta/[id]", params: { id: recipe.id } })}
             />
           ))}
-      </View>
-      {results.length === 0 && (
+      </View>}
+      {!showMenu && results.length === 0 && (
         <Empty
           title={q.trim() ? `Ni rastro de «${q.trim()}».` : "Nada con esos filtros."}
           body="Prueba con otro plato, un ingrediente o un país. Por ejemplo: «pollo», «italiana» o «tortilla»."
