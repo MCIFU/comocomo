@@ -1,0 +1,321 @@
+import type { Recipe } from "@comocomo/schemas";
+import { arg as es } from "./fuentes";
+import { I, S } from "./helpers";
+
+/** Arguiñano, bloque 5: verduras y patatas. */
+export const recipesArg05: Recipe[] = [
+  es({
+    id: "judias-verdes-almejas-gratinadas", title: "Judías verdes con almejas gratinadas",
+    baseServings: 4, prepMin: 15, cookMin: 25, difficulty: "medium", equipment: ["olla", "horno"],
+    ingredients: [I("judias-verdes", 600, "g"), I("almejas", 400, "g"), I("leche", 250, "ml"), I("cebolleta", 1, "unit"), I("ajo", 3, "unit"), I("vino-blanco", 100, "ml"), I("harina", 30, "g"), I("aceite", 40, "ml"), I("perejil", 8, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Cuece las judías verdes en tiras al vapor, con sal, 10 minutos y repártelas en cazuelitas. Guarda un poco del agua.", 10),
+      S("Pocha la cebolleta y el ajo picados, añade las almejas, el vino y perejil, tapa y espera a que se abran. Pon las almejas sobre las judías y guarda el jugo.", 6),
+      S("Haz una bechamel con la harina rehogada en aceite, la leche y el jugo de las almejas, 6 minutos. Sala y añade más perejil.", 6),
+      S("Cubre las cazuelitas con la bechamel y gratina en el horno 4 minutos.", 4, 220),
+    ],
+  }),
+  es({
+    id: "calabacin-relleno-morcilla-huevo", title: "Calabacines rellenos con morcilla y huevo escalfado",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "medium", equipment: ["horno", "olla", "sarten"],
+    ingredients: [I("calabacin", 1000, "g"), I("morcilla", 200, "g"), I("huevo", 5, "unit"), I("cebolleta", 1, "unit"), I("pasta-brick", 4, "unit"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Enrolla cada hoja de pasta brick como un cigarrillo, sella con huevo batido y hornea a 190 °C 9 minutos.", 9, 190),
+      S("Vacía los calabacines (mejor redondos), cuécelos 5 minutos en agua con sal y rellénalos con la cebolleta pochada con su pulpa picada, 8 minutos.", 13),
+      S("Fríe el interior de la morcilla en trozos con un chorrito de aceite 3 minutos.", 3),
+      S("Escalfa 4 huevos en agua a punto de hervir 3 minutos y ponlos sobre los calabacines. Sirve con la morcilla, el crujiente y perejil.", 3),
+    ],
+  }),
+  es({
+    id: "verduras-papillote-holandesa", title: "Verduras en papillote gratinadas con salsa holandesa",
+    baseServings: 4, prepMin: 20, cookMin: 25, difficulty: "hard", equipment: ["horno"],
+    ingredients: [I("pimiento", 2, "unit"), I("calabacin", 300, "g"), I("cebolleta", 4, "unit"), I("setas", 250, "g"), I("esparragos-verdes", 300, "g"), I("mantequilla", 200, "g"), I("huevo", 4, "unit"), I("limon", 0.5, "unit"), I("aceite", 30, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Corta las verduras: pimientos rojos en tiras, calabacín en bastones, setas por la mitad y cebolletas en cuartos. Pon cada una en un paquete de papel de aluminio con sal y aceite, ciérralos y hornea a 220 °C 15 minutos.", 15, 220),
+      S("Funde la mantequilla, quita la espuma y deja templar.", 3),
+      S("Monta las 4 yemas con el zumo de limón y sal y añade la mantequilla en hilo sin dejar de batir hasta tener una salsa holandesa.", 5),
+      S("Reparte las verduras en fuentes, cúbrelas con la holandesa y gratínalas en el horno 2 minutos. Sirve con perejil.", 2, 230),
+    ],
+  }),
+  es({
+    id: "brocoli-dos-formas-pure", title: "Brócoli al vapor y a la plancha con puré y aceite de ajo",
+    note: "El original usa bimi (brócoli de tallo largo).",
+    baseServings: 4, prepMin: 10, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten", "batidora"],
+    ingredients: [I("brocoli", 2, "unit"), I("patata", 700, "g"), I("ajo", 2, "unit"), I("caldo", 400, "ml"), I("aceite", 170, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Cuece la patata chascada en el caldo 15 minutos, pásala por el pasapurés y añade un poco de aceite.", 15),
+      S("Tritura el ajo con 150 ml de aceite y cuélalo.", 1),
+      S("Cuece la mitad del brócoli al vapor 9 minutos y haz el resto a la plancha con aceite 9 minutos.", 9),
+      S("Sirve el brócoli con el puré, salado, regado con el aceite de ajo y con perejil."),
+    ],
+  }),
+  es({
+    id: "esparragos-vinagreta-frambuesa", title: "Espárragos blancos con vinagreta templada de frambuesa",
+    baseServings: 4, prepMin: 10, cookMin: 5, difficulty: "easy", equipment: ["sarten"],
+    ingredients: [I("esparragos-blancos", 500, "g"), I("puerro", 1, "unit"), I("frutos-rojos", 55, "g"), I("aceite", 45, "ml"), I("vinagre", 20, "ml"), I("limon", 0.5, "unit"), I("perejil", 3, "g"), I("sal", 2, "g")],
+    steps: [
+      S("Escalda 4 tiras finas de la hoja del puerro unos segundos y sécalas.", 1),
+      S("Calienta el aceite, aplasta en él las frambuesas, añade el vinagre (mejor balsámico) y el zumo de limón y reduce 3 minutos. Sala y cuela.", 3),
+      S("Ata los espárragos de 6 en 6 con las tiras de puerro y sírvelos con la vinagreta y perejil."),
+    ],
+  }),
+  es({
+    id: "menestra-invierno", title: "Menestra de invierno con alcachofas, coles y pencas rebozadas",
+    baseServings: 4, prepMin: 25, cookMin: 35, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("alcachofa", 8, "unit"), I("coles-bruselas", 250, "g"), I("coliflor", 0.5, "unit"), I("acelgas", 300, "g"), I("zanahoria", 200, "g"), I("cebolleta", 1, "unit"), I("ajo", 2, "unit"), I("harina", 50, "g"), I("huevo", 1, "unit"), I("jamon", 100, "g"), I("huevo-codorniz", 8, "unit"), I("aceite", 200, "ml"), I("perejil", 5, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece al vapor la coliflor, la zanahoria en rodajas y las coles de Bruselas 10 minutos. Cuece las alcachofas limpias en agua con sal 16 minutos y guarda el agua.", 16),
+      S("Cuece las pencas de las acelgas en trozos 15 minutos, sécalas, pásalas por harina y huevo y fríelas.", 18),
+      S("Rehoga el ajo laminado y la cebolleta, añade el jamón en dados, una cucharada de harina y un poco del agua de las alcachofas.", 4),
+      S("Añade todas las verduras 3 minutos, casca encima los huevos de codorniz para que cuajen con el calor y espolvorea perejil.", 3),
+    ],
+  }),
+  es({
+    id: "brocoli-calabaza-patata-salsa", title: "Bolitas de calabaza y patata con brócoli en crema de calabacín",
+    baseServings: 4, prepMin: 25, cookMin: 30, difficulty: "medium", equipment: ["horno", "olla", "batidora"],
+    ingredients: [I("brocoli", 1, "unit"), I("calabaza", 300, "g"), I("patata", 400, "g"), I("jamon", 60, "g"), I("calabacin", 300, "g"), I("cebolleta", 1, "unit"), I("puerro", 1, "unit"), I("nuez-moscada", 1, "g"), I("aceite", 30, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Hornea las lonchas de jamón entre dos papeles a 200 °C 11 minutos para que queden crujientes.", 11, 200),
+      S("Rehoga la cebolleta, el calabacín pelado y el puerro picados 6 minutos, cubre con agua y cuece 6 minutos. Tritura con nuez moscada.", 12),
+      S("Saca bolitas de la calabaza y de la patata con un sacabolas y cuécelas al vapor con el brócoli en ramilletes 15 minutos.", 15),
+      S("Calienta las verduras en la crema y sirve con el jamón crujiente.", 2),
+    ],
+  }),
+  es({
+    id: "hamburguesas-verduras-avena", title: "Hamburguesas de verduras con avena y harina de garbanzo",
+    baseServings: 4, prepMin: 25, cookMin: 50, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("coliflor", 0.5, "unit"), I("calabacin", 150, "g"), I("cebolla", 1, "unit"), I("zanahoria", 150, "g"), I("ajo", 4, "unit"), I("patata", 250, "g"), I("avena", 50, "g"), I("harina-garbanzo", 50, "g"), I("tomate-triturado", 250, "g"), I("oregano", 2, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece la patata 30 minutos y haz un puré.", 30),
+      S("Pocha la cebolla y el ajo picados, añade la coliflor rallada, el calabacín en daditos y la zanahoria rallada y cocina a fuego suave 20 minutos.", 20),
+      S("Mezcla con el puré, la avena, la harina de garbanzo, el orégano y sal; reposa 5 minutos y forma 8 hamburguesas.", 5),
+      S("Hazlas a la plancha con aceite 3 minutos por lado y sírvelas con el tomate caliente y perejil.", 6),
+    ],
+  }),
+  es({
+    id: "hamburguesas-polenta-queso-azul", title: "Hamburguesas de polenta y verduras con salsa de queso azul",
+    baseServings: 6, prepMin: 60, cookMin: 20, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("polenta", 350, "g"), I("calabacin", 250, "g"), I("ajo", 4, "unit"), I("champinones", 150, "g"), I("zanahoria", 100, "g"), I("nueces", 25, "g"), I("queso-azul", 70, "g"), I("nata", 150, "ml"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Pocha el calabacín y los champiñones en daditos con el ajo picado y sal 8 minutos.", 8),
+      S("Hierve 700 ml de agua con sal, añade las verduras, la zanahoria rallada y la polenta y cuece 1 minuto removiendo. Extiende en 1,5 cm y deja enfriar 45 minutos.", 46),
+      S("Corta 12 hamburguesas con un aro y dóralas en una sartén con unas gotas de aceite.", 6),
+      S("Funde el queso azul en la nata a fuego suave y sírvela con las hamburguesas, nueces picadas y perejil.", 4),
+    ],
+  }),
+  es({
+    id: "arranque-roteno", title: "Arranque roteño",
+    origin: "España (Rota, Cádiz)", note: "Primo espeso del salmorejo, majado a mano con pimiento verde.",
+    baseServings: 4, prepMin: 20, cookMin: 0, difficulty: "easy",
+    ingredients: [I("tomate", 1000, "g"), I("pan", 150, "g"), I("pimiento", 3, "unit"), I("cebolleta", 1, "unit"), I("ajo", 2, "unit"), I("aceite", 125, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Maja en el mortero el ajo con sal y dos pimientos verdes en dados."),
+      S("Añade la miga de pan del día anterior para que se empape y luego los tomates pelados y majados."),
+      S("Sala y liga con el aceite. Sírvelo con trozos del otro pimiento y capas de cebolleta para mojar."),
+    ],
+  }),
+  es({
+    id: "verduras-curry-basmati", title: "Verduras al curry con arroz basmati a la lima",
+    cuisine: "india", origin: "Inspiración india", authenticity: "adapted",
+    baseServings: 4, prepMin: 20, cookMin: 45, difficulty: "easy", equipment: ["olla", "sarten", "batidora"],
+    ingredients: [I("arroz-basmati", 200, "g"), I("champinones", 200, "g"), I("pimiento", 2, "unit"), I("cebolla", 1, "unit"), I("tomate", 250, "g"), I("berenjena", 300, "g"), I("calabacin", 250, "g"), I("cacahuetes", 30, "g"), I("yogur", 1, "unit"), I("ajo", 2, "unit"), I("jengibre", 10, "g"), I("caldo", 500, "ml"), I("lima", 1, "unit"), I("curry", 8, "g"), I("aceite", 40, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Pocha la cebolla 8 minutos, añade el tomate pelado y cocina 12 minutos. Agrega el curry, el caldo y el yogur, cuece 15 minutos y tritura.", 35),
+      S("Saltea la berenjena, el calabacín, los pimientos verdes y los champiñones en trozos 12 minutos; añade el ajo y el jengibre rallados y la salsa, y cocina 3 minutos.", 15),
+      S("Cuece el arroz basmati con 250 ml de agua y sal 12 minutos y ralla por encima la piel de lima.", 12),
+      S("Sirve las verduras con los cacahuetes picados (el original usa anacardos) y el arroz."),
+    ],
+  }),
+  es({
+    id: "crema-brocoli-gambas", title: "Crema de brócoli con gambas en gabardina",
+    baseServings: 4, prepMin: 25, cookMin: 30, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("brocoli", 2, "unit"), I("patata", 200, "g"), I("cebolleta", 2, "unit"), I("gambas", 300, "g"), I("huevo", 1, "unit"), I("levadura-quimica", 8, "g"), I("harina", 80, "g"), I("cerveza", 60, "ml"), I("aceite", 400, "ml"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Rehoga la cebolleta en un chorrito de aceite, añade la patata chascada y el brócoli troceado, cubre con agua, salpimienta y cuece 20 minutos. Tritura.", 22),
+      S("Bate el huevo con la harina, la levadura, la cerveza y sal y deja reposar 15 minutos.", 15),
+      S("Pela las gambas dejando la cola, sálalas, pásalas por la masa y fríelas a 180 °C 2 minutos.", 6, 180),
+      S("Sirve la crema con un hilo de aceite y las gambas."),
+    ],
+  }),
+  es({
+    id: "coliflor-bechamel-pesto", title: "Coliflor gratinada con bechamel al pesto",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "easy", equipment: ["olla", "batidora", "horno"],
+    ingredients: [I("coliflor", 1, "unit"), I("tomates-secos", 50, "g"), I("harina", 60, "g"), I("leche", 600, "ml"), I("albahaca", 50, "g"), I("pinones", 35, "g"), I("parmesano", 75, "g"), I("ajo", 1, "unit"), I("aceite", 120, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece la coliflor en ramilletes al vapor con sal 17 minutos.", 17),
+      S("Tritura los tomates secos con un chorro de aceite y cuela. Tritura la albahaca con los piñones, el ajo, el parmesano, aceite y un poco de agua.", 2),
+      S("Rehoga la harina en aceite, añade la leche poco a poco, sala y cuece 6 minutos; fuera del fuego, mezcla con el pesto.", 7),
+      S("Pon la coliflor en una fuente, riega con el puré de tomate, cubre con la bechamel y gratina en el horno 6 minutos.", 6, 220),
+    ],
+  }),
+  es({
+    id: "tempura-verduras-langostinos", title: "Tempura de verduras y langostinos",
+    cuisine: "japonesa", origin: "Japón (versión casera)", authenticity: "adapted",
+    baseServings: 4, prepMin: 25, cookMin: 20, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("langostinos", 300, "g"), I("calabacin", 150, "g"), I("cebolleta", 2, "unit"), I("pimiento", 2, "unit"), I("brocoli", 0.5, "unit"), I("esparragos-verdes", 200, "g"), I("calabaza", 200, "g"), I("harina", 100, "g"), I("maicena", 100, "g"), I("levadura-quimica", 8, "g"), I("soja", 60, "ml"), I("aceite", 700, "ml"), I("sal", 3, "g")],
+    steps: [
+      S("Mezcla la harina, la maicena y la levadura con 250 ml de agua muy fría, sin batir demasiado: unos grumos no importan. Sala."),
+      S("Corta las verduras en trozos (calabaza pelada, cebolleta en gajos, pimientos en tiras, brócoli en ramilletes, espárragos y calabacín en bastones)."),
+      S("Pásalas por la masa y fríelas en tandas en el aceite a 180 °C 2-3 minutos. Haz lo mismo con los langostinos pelados con la cola.", 15, 180),
+      S("Escurre y sirve con la salsa de soja."),
+    ],
+  }),
+  es({
+    id: "bunuelos-coliflor-salsa-lechuga", title: "Buñuelos de coliflor con salsa de lechuga",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "medium", equipment: ["olla", "sarten", "batidora"],
+    ingredients: [I("coliflor", 1, "unit"), I("harina", 160, "g"), I("huevo", 3, "unit"), I("cerveza", 100, "ml"), I("lechuga", 1, "unit"), I("puerro", 1, "unit"), I("chalota", 3, "unit"), I("vino-blanco", 100, "ml"), I("aceite", 500, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece la coliflor en ramitos 9 minutos y deja enfriar.", 9),
+      S("Para la salsa, pocha las chalotas y el puerro picados, añade la lechuga picada, el vino y 250 ml de agua y cuece 10 minutos. Sala, tritura y cuela.", 14),
+      S("Monta los huevos, añade la harina y luego la cerveza poco a poco. Sala.", 3),
+      S("Reboza los ramitos y fríelos a 175 °C 3 minutos. Sírvelos sobre la salsa con perejil.", 8, 175),
+    ],
+  }),
+  es({
+    id: "pencas-rellenas-champinones-queso", title: "Pencas rellenas de champiñones y queso azul con salsa de pimiento",
+    authenticity: "adapted", note: "La salsa original se hace con pimientos choriceros.",
+    baseServings: 4, prepMin: 25, cookMin: 40, difficulty: "medium", equipment: ["olla", "sarten", "batidora"],
+    ingredients: [I("acelgas", 800, "g"), I("queso-azul", 100, "g"), I("champinones", 200, "g"), I("cebolleta", 2, "unit"), I("harina", 40, "g"), I("huevo", 2, "unit"), I("cebolla", 2, "unit"), I("pera", 1, "unit"), I("tomate-triturado", 200, "g"), I("pimenton", 8, "g"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Pocha la cebolla (mejor roja) y la pera picadas 10 minutos, añade el pimentón, el tomate y sal y cuece 15 minutos. Tritura.", 25),
+      S("Pocha la cebolleta picada, añade los champiñones picados 5 minutos y mezcla con el queso azul desmenuzado.", 8),
+      S("Cuece las pencas de las acelgas en trozos de 7 cm 13 minutos y sécalas.", 13),
+      S("Haz sándwiches de penca con el relleno, pásalos por harina y huevo batido y fríelos a fuego medio. Sírvelos con la salsa y perejil.", 8),
+    ],
+  }),
+  es({
+    id: "cebollas-rellenas-bonito", title: "Cebollas rellenas de bonito en salsa",
+    note: "Un guiso lento de los de antes: las cebollas quedan melosas tras dos horas al fuego.",
+    baseServings: 4, prepMin: 30, cookMin: 140, difficulty: "medium", equipment: ["sarten", "olla"],
+    ingredients: [I("cebolla", 9, "unit"), I("atun-lata", 150, "g"), I("tomate-triturado", 250, "g"), I("pimientos-piquillo", 80, "g"), I("huevo", 1, "unit"), I("sidra", 100, "ml"), I("ajo", 1, "unit"), I("harina", 10, "g"), I("laurel", 1, "unit"), I("aceite", 150, "ml"), I("perejil", 5, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Cuece el huevo 10 minutos y pícalo. Mezcla el bonito (atún) desmigado con el huevo, dos piquillos picados y 4 cucharadas de tomate.", 10),
+      S("Vacía 8 cebollas, rellénalas, tápalas con trozos de la cebolla sobrante y dóralas en abundante aceite por los dos lados.", 12),
+      S("Pocha el interior picado de las cebollas hasta que se dore, añade la harina, los otros piquillos, el resto del tomate, el laurel, la sidra, 200 ml de agua y el ajo majado. Sala.", 15),
+      S("Pon la salsa con las cebollas, espolvorea perejil, tapa y cuece a fuego suave 2 horas.", 120),
+    ],
+  }),
+  es({
+    id: "bolas-patata-rellenas-atun", title: "Bolas de patata rellenas de atún con ensalada de escarola y granada",
+    baseServings: 4, prepMin: 50, cookMin: 45, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("patata", 1000, "g"), I("atun-lata", 100, "g"), I("huevo", 3, "unit"), I("escarola", 1, "unit"), I("granada", 1, "unit"), I("pan-rallado", 100, "g"), I("tomate-triturado", 150, "g"), I("aceite", 400, "ml"), I("vinagre", 10, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece las patatas 32 minutos, pélalas, pásalas por el pasapurés, salpimienta y deja enfriar.", 32),
+      S("Cuece 2 huevos 10 minutos, pícalos y mézclalos con el atún, perejil y el tomate.", 10),
+      S("Forma 4 bolas grandes de puré con el relleno dentro, pásalas por el otro huevo batido y el pan rallado y fríelas hasta que se doren.", 8),
+      S("Sírvelas con la escarola y los granos de granada aliñados con aceite, vinagre y sal."),
+    ],
+  }),
+  es({
+    id: "timbal-patata-langostinos-aguacate", title: "Timbal de patata, langostinos y aguacate con vinagreta de fresa y kiwi",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("lechuga", 1, "unit"), I("patata", 400, "g"), I("langostinos", 250, "g"), I("aguacate", 2, "unit"), I("tomate", 250, "g"), I("fresas", 50, "g"), I("kiwi", 1, "unit"), I("limon", 1, "unit"), I("aceite", 60, "ml"), I("sal", 4, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Para la vinagreta, mezcla las fresas y el kiwi en daditos con sal, pimienta, la mitad del zumo de limón y el aceite."),
+      S("Cuece las patatas 28 minutos, pélalas y córtalas en dados.", 28),
+      S("Haz los langostinos pelados a la plancha 2 minutos y pícalos. Mézclalos con la patata, el tomate y el aguacate en dados y la mitad de la vinagreta.", 2),
+      S("Monta 4 timbales con un aro, con la lechuga en juliana alrededor, y aliña con el resto."),
+    ],
+  }),
+  es({
+    id: "patatas-bravas-salchichas", title: "Patatas bravas con salchichas",
+    baseServings: 4, prepMin: 15, cookMin: 45, difficulty: "easy", equipment: ["olla", "sarten", "batidora"],
+    ingredients: [I("patata", 700, "g"), I("salchichas", 400, "g"), I("tomate-triturado", 1000, "g"), I("cebolla", 1, "unit"), I("ajo", 3, "unit"), I("chile", 1, "unit"), I("azucar", 5, "g"), I("huevo", 1, "unit"), I("vinagre", 10, "ml"), I("aceite", 500, "ml"), I("perejil", 3, "g"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Dora el ajo picado, añade la cebolla en dados, el chile (el original usa alegría riojana), el tomate, sal y el azúcar. Cocina 22 minutos y pasa por el pasapurés.", 25),
+      S("Haz una mayonesa con el huevo, el vinagre, sal y 150 ml de aceite triturando con la batidora.", 2),
+      S("Cuece las patatas chascadas 12 minutos, sécalas y fríelas en el resto del aceite hasta que se doren. Salpimienta y espolvorea perejil.", 20),
+      S("Haz las salchichas a la plancha a fuego medio 8 minutos y sírvelas con las patatas y las dos salsas.", 8),
+    ],
+  }),
+  es({
+    id: "repollo-bolitas-morcilla", title: "Repollo con refrito de ajos y bombones de morcilla y manzana",
+    authenticity: "adapted", note: "El original reboza los bombones en palomitas trituradas.",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "medium", equipment: ["olla", "microondas", "sarten", "horno"],
+    ingredients: [I("repollo", 1, "unit"), I("morcilla", 250, "g"), I("ajo", 3, "unit"), I("manzana", 1, "unit"), I("pan-rallado", 50, "g"), I("aceite", 70, "ml"), I("perejil", 5, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece el repollo en juliana en agua con sal 20 minutos y escúrrelo.", 20),
+      S("Cocina la morcilla tapada con film en el microondas 3 minutos. Saltea la manzana en láminas con aceite 4 minutos.", 4),
+      S("Mezcla el interior de la morcilla con la manzana y 15 g de pan rallado, forma bolitas y rebózalas en el resto del pan rallado. Calienta en el horno a 200 °C 5 minutos.", 5, 200),
+      S("Dora el ajo laminado en el resto del aceite con perejil y riega el repollo. Sírvelo con los bombones."),
+    ],
+  }),
+  es({
+    id: "patatas-salsa-verde-huevos", title: "Patatas en salsa verde con guisantes y huevos",
+    baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("patata", 800, "g"), I("huevo", 4, "unit"), I("caldo", 500, "ml"), I("guisantes", 100, "g"), I("cebolleta", 1, "unit"), I("ajo", 3, "unit"), I("vino-blanco", 100, "ml"), I("harina", 10, "g"), I("chile", 0.5, "unit"), I("aceite", 40, "ml"), I("perejil", 15, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece las patatas en rodajas de medio centímetro en agua con sal 12 minutos.", 12),
+      S("Pocha la cebolleta y el ajo picados, añade los guisantes, la harina y el vino y deja que hierva 2 minutos.", 6),
+      S("Añade el caldo (mejor de pescado), mucho perejil picado, las patatas y el chile y guisa 5 minutos. Ajusta de sal.", 5),
+      S("Casca los huevos encima, tapa y cuece 3 minutos, hasta que cuaje la clara.", 3),
+    ],
+  }),
+  es({
+    id: "patatas-alcorina", title: "Patatas a la alcorina",
+    origin: "España (Andalucía oriental)", note: "Guiso de patatas con panceta ligado con un majado de ajo, almendra y pan frito.",
+    baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("patata", 700, "g"), I("huevo", 4, "unit"), I("panceta", 100, "g"), I("ajo", 3, "unit"), I("almendras", 30, "g"), I("pan", 30, "g"), I("aceite", 60, "ml"), I("perejil", 5, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece los huevos 10 minutos y córtalos en cuartos. Fríe la rebanada de pan.", 10),
+      S("Rehoga los ajos enteros y la panceta en dados, añade las patatas chascadas, cubre con agua, sala y cuece 18 minutos.", 18),
+      S("Maja los ajos de la cazuela con las almendras, el pan frito y perejil; añade el majado y cuece 5 minutos.", 5),
+      S("Sirve con los huevos y perejil."),
+    ],
+  }),
+  es({
+    id: "acelgas-con-arroz", title: "Acelgas con arroz",
+    baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("acelgas", 1100, "g"), I("arroz", 200, "g"), I("cebolleta", 1, "unit"), I("ajo", 2, "unit"), I("tomate-triturado", 100, "g"), I("pimenton", 4, "g"), I("aceite", 40, "ml"), I("sal", 7, "g")],
+    steps: [
+      S("Rehoga la cebolleta y el ajo picados en el aceite a fuego suave 6 minutos.", 6),
+      S("Añade las hojas de acelga picadas y las pencas en dados de 2 cm, sala y rehoga 4 minutos. Agrega el pimentón y el tomate.", 5),
+      S("Añade el arroz y el triple de agua (600 ml), ajusta de sal y cuece 20 minutos.", 20),
+    ],
+  }),
+  es({
+    id: "patatas-caldillo", title: "Patatas en caldillo con comino",
+    origin: "España (Extremadura y Andalucía)",
+    baseServings: 4, prepMin: 10, cookMin: 35, difficulty: "easy", equipment: ["olla"],
+    ingredients: [I("patata", 800, "g"), I("huevo", 2, "unit"), I("ajo", 4, "unit"), I("comino", 2, "g"), I("pimenton", 3, "g"), I("vinagre", 15, "ml"), I("aceite", 200, "ml"), I("perejil", 5, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Fríe las patatas en rodajas finas en el aceite 5 minutos. Maja el ajo con el comino y añádelo; fríe 10 minutos más y retira casi todo el aceite.", 15),
+      S("Añade el pimentón, cubre con agua, sala, espolvorea perejil y cuece hasta que las patatas estén tiernas y el caldo espese, unos 15 minutos.", 15),
+      S("Añade el vinagre y los huevos batidos, remueve 1 minuto y sirve.", 1),
+    ],
+  }),
+  es({
+    id: "timbal-patata-pimiento-bacalao", title: "Timbales de patata, pimiento asado y bacalao",
+    baseServings: 4, prepMin: 20, cookMin: 40, difficulty: "medium", equipment: ["horno", "olla"],
+    ingredients: [I("patata", 600, "g"), I("pimiento", 4, "unit"), I("bacalao", 500, "g"), I("aceitunas", 40, "g"), I("huevo", 2, "unit"), I("ajo", 1, "unit"), I("pan", 160, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Asa los pimientos rojos con aceite y sal en el horno a 200 °C 30 minutos. Pélalos y córtalos en tiras; reduce su jugo en un cazo.", 30, 200),
+      S("Cuece las patatas 30 minutos y los huevos 10. Cuece el bacalao desalado brevemente y sepáralo en lascas.", 30),
+      S("Tuesta el pan y frótalo con el ajo.", 3),
+      S("Monta con un aro patata en rodajas, pimiento y bacalao; ralla el huevo encima, añade las aceitunas en aros y el jugo, y sirve con el pan y perejil."),
+    ],
+  }),
+  es({
+    id: "patatas-almejas-picantes", title: "Patatas con almejas picantes y alcachofas fritas",
+    note: "El original usa berberechos.",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("patata", 900, "g"), I("almejas", 600, "g"), I("alcachofa", 2, "unit"), I("ajo", 3, "unit"), I("vino-blanco", 100, "ml"), I("chile", 1, "unit"), I("pimenton", 4, "g"), I("aceite", 200, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece las patatas 30 minutos, pélalas y córtalas en rodajas de medio centímetro.", 30),
+      S("Rehoga el ajo picado y el chile, añade el vino, da un hervor y abre en él las almejas tapadas.", 5),
+      S("Fríe las alcachofas limpias en láminas en aceite templado 4 minutos y sálalas.", 4),
+      S("Coloca las patatas salpimentadas, espolvorea perejil, pon encima las almejas con su jugo, el pimentón (mejor picante) y las alcachofas fritas."),
+    ],
+  }),
+  es({
+    id: "patatas-sardinas", title: "Guiso de patatas con pimientos asados y sardinas",
+    baseServings: 4, prepMin: 20, cookMin: 55, difficulty: "easy", equipment: ["horno", "olla"],
+    ingredients: [I("patata", 800, "g"), I("sardinas", 500, "g"), I("pimiento", 2, "unit"), I("cebolla", 1, "unit"), I("tomate", 150, "g"), I("pimenton", 4, "g"), I("aceite", 40, "ml"), I("perejil", 5, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Asa los pimientos (uno rojo y uno verde) con aceite y sal en el horno a 190 °C 30 minutos y córtalos en tiras.", 30, 190),
+      S("Sofríe la cebolla 6 minutos, añade el tomate pelado y el pimentón, y las patatas chascadas. Cubre con agua, sala y cuece 20 minutos.", 26),
+      S("Añade los pimientos y da un hervor. Saca los lomos de las sardinas y mételos en el guiso fuera del fuego para que se hagan con el calor.", 2),
+      S("Espolvorea perejil y ajusta de sal."),
+    ],
+  }),
+];
