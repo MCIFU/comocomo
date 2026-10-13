@@ -1,0 +1,310 @@
+import type { Recipe } from "@comocomo/schemas";
+import { arg as es } from "./fuentes";
+import { I, S } from "./helpers";
+
+/** Arguiñano, bloque 10: pastas, pizzas, empanadillas, crepes y masas. */
+export const recipesArg10: Recipe[] = [
+  es({
+    id: "pizza-espinacas-chorizo", title: "Pizza de espinacas, chorizo y aceitunas",
+    cuisine: "italiana", origin: "Italia (versión de Arguiñano)", note: "El original añade dátiles salteados con las espinacas; aquí, pasas.",
+    baseServings: 4, prepMin: 45, cookMin: 30, difficulty: "medium", equipment: ["sarten", "horno"],
+    ingredients: [I("harina", 400, "g"), I("levadura", 10, "g"), I("espinacas", 200, "g"), I("chorizo", 150, "g"), I("tomate-triturado", 400, "g"), I("mozzarella", 200, "g"), I("pasas", 40, "g"), I("aceitunas", 80, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Amasa 350 g de harina con la sal, 200 ml de agua, 2 cucharadas de aceite y la levadura hasta tener una masa que no se pegue. Reposa 30 minutos.", 35),
+      S("Divide en 2, estira con el resto de la harina y cubre con el tomate.", 5),
+      S("Saltea las pasas con las espinacas 3 minutos y repártelas, con la mozzarella en dados, el chorizo y las aceitunas troceadas.", 3),
+      S("Hornea a 180 °C 25 minutos y sirve con perejil.", 25, 180),
+    ],
+  }),
+  es({
+    id: "pasta-salmon-pimiento-lima", title: "Pasta con salmón picante, pimiento asado y lima",
+    note: "El original hace una pasta verde casera con espinacas.",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "easy", equipment: ["horno", "sarten", "olla"],
+    ingredients: [I("pasta", 350, "g"), I("salmon", 300, "g"), I("pimiento", 2, "unit"), I("ajo", 2, "unit"), I("chile", 0.5, "unit"), I("lima", 1, "unit"), I("aceite", 40, "ml"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Asa los pimientos (mejor amarillos) con aceite y sal en el horno a 200 °C 35 minutos, pélalos y córtalos en tiras.", 35, 200),
+      S("Cuece la pasta según el paquete.", 10),
+      S("Dora el ajo picado, saltea el salmón en dados 2 minutos, salpimienta y añade el chile picado y los pimientos.", 3),
+      S("Añade la pasta escurrida, saltea 1 minuto y ralla piel de lima por encima.", 1),
+    ],
+  }),
+  es({
+    id: "macarrones-pollo-curry", title: "Macarrones con pollo al curry y manzana",
+    baseServings: 6, prepMin: 15, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("pasta", 400, "g"), I("pollo", 400, "g"), I("cebolleta", 2, "unit"), I("ajo", 3, "unit"), I("zanahoria", 100, "g"), I("manzana", 1, "unit"), I("harina", 10, "g"), I("curry", 6, "g"), I("nueces", 30, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 7, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece los macarrones según el paquete.", 11),
+      S("Pocha 2 ajos, la zanahoria y las cebolletas picados hasta que se doren un poco. Añade la harina, el curry y 500 ml de agua y reduce 5 minutos.", 12),
+      S("Añade los macarrones escurridos y la manzana pelada y rallada.", 1),
+      S("Saltea el pollo en tiras salpimentado con el otro ajo picado y perejil 5 minutos y mézclalo. Sirve con las nueces.", 5),
+    ],
+  }),
+  es({
+    id: "espaguetis-pavo-setas-gratinados", title: "Espaguetis con pavo, setas y calabaza gratinados",
+    baseServings: 4, prepMin: 15, cookMin: 30, difficulty: "medium", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("pasta", 320, "g"), I("pavo", 400, "g"), I("setas", 250, "g"), I("ajo", 3, "unit"), I("puerro", 2, "unit"), I("calabaza", 300, "g"), I("leche", 400, "ml"), I("harina", 15, "g"), I("queso", 75, "g"), I("caldo", 300, "ml"), I("albahaca", 5, "g"), I("aceite", 40, "ml"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece los espaguetis en agua con el caldo según el paquete y repártelos en 4 fuentes.", 10),
+      S("Pocha el puerro y el ajo picados, añade las setas y la calabaza en dados, sala y rehoga 10 minutos. Saltea el pavo en dados salpimentado y mézclalo.", 14),
+      S("Haz una bechamel con aceite, la harina y la leche, 6 minutos, y añade la albahaca picada.", 7),
+      S("Cubre la pasta con el pavo y las verduras, la bechamel y el queso rallado y gratina en el horno 5 minutos.", 5, 220),
+    ],
+  }),
+  es({
+    id: "macarrones-salmon-nata", title: "Macarrones con salmón fresco y ahumado a la nata",
+    baseServings: 4, prepMin: 10, cookMin: 20, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("pasta", 400, "g"), I("salmon", 200, "g"), I("salmon-ahumado", 100, "g"), I("chalota", 4, "unit"), I("mantequilla", 20, "g"), I("brandy", 50, "ml"), I("nata", 200, "ml"), I("aceite", 20, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece los macarrones 13 minutos y escúrrelos.", 13),
+      S("Rehoga las chalotas en daditos con aceite y la mantequilla 4 minutos.", 4),
+      S("Saltea el salmón fresco en dados salpimentado a fuego fuerte 1 minuto y añade el brandy (flambéalo con cuidado o deja que se evapore).", 2),
+      S("Añade la pasta, la nata y el salmón ahumado picado y cocina 2 minutos. Sirve con perejil.", 2),
+    ],
+  }),
+  es({
+    id: "lasana-calabacin-champinones-jamon", title: "Lasaña de calabacín, champiñones y jamón",
+    baseServings: 6, prepMin: 25, cookMin: 35, difficulty: "medium", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("laminas-lasana", 250, "g"), I("calabacin", 600, "g"), I("champinones", 500, "g"), I("jamon", 150, "g"), I("cebolleta", 2, "unit"), I("harina", 75, "g"), I("leche", 1000, "ml"), I("queso", 100, "g"), I("tomillo", 1, "g"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Cuece las láminas 11 minutos y escúrrelas sobre un paño.", 11),
+      S("Pocha la cebolleta, el calabacín y los champiñones en daditos 12 minutos con sal y tomillo. Añade el jamón en daditos.", 12),
+      S("Haz una bechamel con aceite, la harina y la leche, 6 minutos, y mezcla un poco con el relleno.", 7),
+      S("Monta capas de lasaña y relleno, cubre con la bechamel y el queso y gratina en el horno 6 minutos. Sirve con perejil.", 6, 220),
+    ],
+  }),
+  es({
+    id: "tallarines-jamon-calabacin-queso", title: "Tallarines con jamón cocido, calabacín y parmesano",
+    note: "El original hace la pasta fresca en casa.",
+    baseServings: 4, prepMin: 10, cookMin: 15, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("pasta", 350, "g"), I("jamon-cocido", 300, "g"), I("calabacin", 300, "g"), I("parmesano", 100, "g"), I("tomate", 150, "g"), I("oregano", 2, "g"), I("aceite", 40, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Saltea el calabacín en cuartos de luna en el wok con aceite 5 minutos, sala, ralla el tomate encima y rehoga 2 minutos.", 7),
+      S("Añade el jamón cocido en daditos y el orégano.", 1),
+      S("Cuece los tallarines según el paquete, escúrrelos y mézclalos con la salsa. Sirve con el parmesano rallado.", 10),
+    ],
+  }),
+  es({
+    id: "macarrones-tomate-pavo-gratinados", title: "Macarrones gratinados con tomate casero y pavo",
+    baseServings: 4, prepMin: 15, cookMin: 50, difficulty: "easy", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("pasta", 400, "g"), I("pavo", 80, "g"), I("tomate", 1000, "g"), I("ajo", 6, "unit"), I("cebolla", 1, "unit"), I("pimiento", 1, "unit"), I("calabacin", 250, "g"), I("queso", 150, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Pocha 4 ajos, la cebolla y el pimiento verde en dados hasta que se doren, añade el tomate picado, sala y cocina 35 minutos. Pasa por el pasapurés.", 40),
+      S("Cuece los macarrones según el paquete.", 11),
+      S("Rehoga el calabacín en daditos con el resto del ajo en cilindros y añade el pavo (mejor curado) en daditos, la salsa, la pasta y la mitad del queso.", 6),
+      S("Reparte en cazuelitas, cubre con el resto del queso y gratina en el horno 5 minutos. Sirve con perejil.", 5, 220),
+    ],
+  }),
+  es({
+    id: "fideos-caballa-tomate", title: "Fideos con caballa en salsa de tomate y hierbabuena",
+    baseServings: 4, prepMin: 20, cookMin: 40, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("pasta", 250, "g"), I("caballa", 600, "g"), I("cebolleta", 2, "unit"), I("pimiento", 1, "unit"), I("tomate", 400, "g"), I("vino-blanco", 50, "ml"), I("laurel", 1, "unit"), I("menta", 3, "g"), I("aceite", 40, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Saca los lomos de las caballas. Cuece las cabezas y espinas con perejil y los tallos de las cebolletas en agua con sal 15 minutos y cuela.", 15),
+      S("Pocha las cebolletas y el pimiento verde en daditos 10 minutos. Añade el tomate rallado, el laurel y el vino y cocina 10 minutos.", 20),
+      S("Añade los fideos gruesos, remueve y cubre con el caldo; cuece 8 minutos.", 8),
+      S("Añade la caballa en trozos salpimentada, cocina 4 minutos y espolvorea la hierbabuena (menta) picada. Reposa y sirve.", 4),
+    ],
+  }),
+  es({
+    id: "espaguetis-pimientos-cabra", title: "Espaguetis con pimientos asados y queso de cabra caramelizado",
+    baseServings: 4, prepMin: 15, cookMin: 45, difficulty: "easy", equipment: ["horno", "olla", "sarten"],
+    ingredients: [I("pasta", 300, "g"), I("pimiento", 6, "unit"), I("queso-cabra", 200, "g"), I("ajo", 4, "unit"), I("chile", 0.25, "unit"), I("azucar", 10, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Asa los pimientos (de colores) con aceite y sal en el horno a 180 °C 35 minutos, pélalos y córtalos en tiras.", 35, 180),
+      S("Cuece los espaguetis según el paquete.", 10),
+      S("Dora el ajo laminado con el chile, añade los pimientos, sala y saltea la pasta 1 minuto.", 3),
+      S("Pon en cada plato una rodaja gruesa de queso de cabra, espolvorea azúcar y dórala con soplete (o en el horno con grill 2 minutos). Decora con perejil.", 2, 230),
+    ],
+  }),
+  es({
+    id: "canelones-calabacin-cabra", title: "Canelones de calabacín y queso de cabra",
+    baseServings: 4, prepMin: 25, cookMin: 25, difficulty: "medium", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("laminas-lasana", 250, "g"), I("calabacin", 500, "g"), I("queso-cabra", 100, "g"), I("cebolleta", 2, "unit"), I("aceitunas", 50, "g"), I("leche-evaporada", 375, "ml"), I("leche", 375, "ml"), I("harina", 60, "g"), I("oregano", 2, "g"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece las láminas según el paquete y escúrrelas.", 10),
+      S("Pocha la cebolleta y el calabacín en daditos con sal, orégano (o hierbas provenzales) y las aceitunas negras picadas.", 10),
+      S("Haz una bechamel con aceite, la harina y las dos leches; añade la mitad del queso de cabra y mezcla la mitad de la bechamel con el relleno.", 7),
+      S("Rellena los canelones, cubre con el resto de la bechamel y el queso y hornea a 180 °C 5 minutos. Sirve con perejil.", 5, 180),
+    ],
+  }),
+  es({
+    id: "pizza-pavo-pina-picante", title: "Pizza picante de pavo y piña",
+    cuisine: "italiana", origin: "Inspiración hawaiana",
+    baseServings: 4, prepMin: 20, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("harina", 350, "g"), I("pavo", 125, "g"), I("pina", 0.5, "unit"), I("tomate-triturado", 400, "g"), I("pinones", 50, "g"), I("mozzarella", 200, "g"), I("chile", 1, "unit"), I("oregano", 2, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Calienta el tomate con el chile 5 minutos y deja que se enfríe.", 5),
+      S("Amasa 300 g de harina con 125 ml de agua, 25 ml de aceite y sal; estírala fina con el resto de la harina sobre la bandeja con papel.", 10),
+      S("Saltea la piña en trozos 3 minutos y tuesta los piñones. Cubre la masa con el tomate, el pavo en tacos, la piña y la mozzarella.", 5),
+      S("Hornea a 200 °C 15 minutos y espolvorea el orégano, los piñones y perejil.", 15, 200),
+    ],
+  }),
+  es({
+    id: "empanada-pescado-verduras", title: "Empanada de pescado con pimiento, puerro y cebolla",
+    note: "El original usa gallo; sirve cualquier pescado blanco. Se usan láminas de masa compradas.",
+    baseServings: 6, prepMin: 25, cookMin: 45, difficulty: "medium", equipment: ["sarten", "olla", "batidora", "horno"],
+    ingredients: [I("masa-hojaldre", 550, "g"), I("gallo", 500, "g"), I("pimiento", 3, "unit"), I("puerro", 2, "unit"), I("cebolla", 1, "unit"), I("ajo", 4, "unit"), I("huevo", 1, "unit"), I("vino-blanco", 100, "ml"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Para la salsa, pocha 2 ajos laminados y un pimiento rojo picado, añade el vino y 150 ml de agua y cocina 7 minutos. Tritura.", 10),
+      S("Pocha el resto del ajo, la cebolla, los pimientos verdes y los puerros en dados con sal 15 minutos. Añade el pescado en dados salpimentado y saltéalo 2 minutos. Escurre y deja templar.", 17),
+      S("Extiende una lámina de masa en la bandeja, rellena, tapa con la otra y cierra los bordes. Pinta con huevo y haz unos cortes.", 5),
+      S("Hornea a 180 °C 25 minutos y sirve con la salsa y perejil.", 25, 180),
+    ],
+  }),
+  es({
+    id: "hojaldres-langostinos-mango", title: "Hojaldres de langostinos y mango con salsa holandesa",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "medium", equipment: ["sarten", "horno"],
+    ingredients: [I("masa-hojaldre", 550, "g"), I("langostinos", 300, "g"), I("mango", 1, "unit"), I("puerro", 1, "unit"), I("huevo", 4, "unit"), I("mantequilla", 200, "g"), I("limon", 0.25, "unit"), I("cebollino", 5, "g"), I("aceite", 20, "ml"), I("perejil", 3, "g"), I("sal", 4, "g")],
+    steps: [
+      S("Saltea el puerro en juliana, añade el mango en tiras y los langostinos pelados en cuartos. Sala y saltea 2 minutos.", 6),
+      S("Corta cada hojaldre en 4 rectángulos, pon relleno en 4, tapa con los otros, sella con agua y pinta con un huevo batido.", 5),
+      S("Hornea a 180 °C 19 minutos.", 19, 180),
+      S("Para la holandesa, funde la mantequilla, quita la espuma y añádela en hilo a las 3 yemas montadas con el zumo de limón y sal. Añade cebollino. Sirve con perejil.", 6),
+    ],
+  }),
+  es({
+    id: "lasana-espinacas-pavo-calabacin", title: "Lasaña de espinacas, pavo y calabacín",
+    baseServings: 6, prepMin: 25, cookMin: 35, difficulty: "medium", equipment: ["sarten", "olla", "horno"],
+    ingredients: [I("laminas-lasana", 250, "g"), I("espinacas", 250, "g"), I("pavo", 350, "g"), I("calabacin", 500, "g"), I("cebolleta", 1, "unit"), I("ajo", 2, "unit"), I("leche", 750, "ml"), I("harina", 60, "g"), I("zanahoria", 100, "g"), I("aceite", 60, "ml"), I("perejil", 5, "g"), I("sal", 7, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Pocha el ajo y la cebolleta, añade el calabacín en dados, las espinacas picadas y el pavo en daditos. Sala.", 12),
+      S("Cuece las láminas según el paquete y escúrrelas.", 10),
+      S("Monta capas de pasta y relleno terminando en pasta. Haz una bechamel con aceite, la harina y la leche, 7 minutos, con perejil y salpimentada.", 8),
+      S("Cubre la lasaña, ralla la zanahoria por encima y gratina en el horno 6 minutos.", 6, 220),
+    ],
+  }),
+  es({
+    id: "canelones-mejillones-calabaza", title: "Canelones de mejillones con bechamel de calabaza",
+    baseServings: 4, prepMin: 30, cookMin: 40, difficulty: "medium", equipment: ["olla", "batidora", "sarten", "horno"],
+    ingredients: [I("laminas-lasana", 250, "g"), I("mejillones", 1000, "g"), I("cebolleta", 1, "unit"), I("ajo", 2, "unit"), I("pimiento", 2, "unit"), I("tomate", 150, "g"), I("vino-blanco", 75, "ml"), I("calabaza", 600, "g"), I("harina", 60, "g"), I("leche-evaporada", 500, "ml"), I("nuez-moscada", 1, "g"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece la calabaza troceada en agua con sal 15 minutos y tritúrala.", 15),
+      S("Pocha la cebolleta, el ajo y los pimientos verdes picados, añade el tomate pelado en daditos y cocina 10 minutos. Abre los mejillones con el vino, pícalos y añádelos.", 14),
+      S("Cuece las láminas, rellénalas y enróllalas en una fuente.", 10),
+      S("Haz una bechamel con aceite, la harina y la leche evaporada, nuez moscada, sal, pimienta y el puré de calabaza, 8 minutos. Napa los canelones, espolvorea perejil y gratina en el horno 5 minutos.", 13, 220),
+    ],
+  }),
+  es({
+    id: "talos-txistorra-queso", title: "Talos de txistorra y de jamón con queso",
+    origin: "España (País Vasco)", note: "Tortas de maíz típicas de las ferias vascas.",
+    baseServings: 4, prepMin: 40, cookMin: 25, difficulty: "medium", equipment: ["sarten", "horno"],
+    ingredients: [I("harina-maiz", 350, "g"), I("jamon-cocido", 100, "g"), I("queso", 125, "g"), I("txistorra", 200, "g"), I("aceite", 15, "ml"), I("perejil", 3, "g"), I("sal", 4, "g")],
+    steps: [
+      S("Amasa la harina de maíz con 250 ml de agua templada y sal hasta tener una masa compacta. Reposa 30 minutos en la nevera.", 30),
+      S("Haz 8 bolas, aplástalas en tortas finas y hazlas en la plancha por los dos lados hasta que se doren.", 12),
+      S("Envuelve trocitos de queso (mejor Idiazábal) en el jamón cocido y fríe la txistorra en trozos con un chorrito de aceite.", 5),
+      S("Rellena la mitad de los talos con la txistorra y el resto con el jamón y el queso, y caliéntalos en el horno a 180 °C 4 minutos. Sirve con perejil.", 4, 180),
+    ],
+  }),
+  es({
+    id: "lasana-alcachofas-jamon", title: "Lasaña de alcachofas y jamón",
+    baseServings: 4, prepMin: 25, cookMin: 40, difficulty: "medium", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("laminas-lasana", 250, "g"), I("alcachofa", 10, "unit"), I("jamon", 125, "g"), I("leche", 700, "ml"), I("harina", 60, "g"), I("queso", 100, "g"), I("ajo", 1, "unit"), I("nuez-moscada", 1, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece las láminas según el paquete y escúrrelas. Limpia las alcachofas, cuécelas 15 minutos y pícalas.", 15),
+      S("Rehoga el ajo picado con el jamón picado y saltea las alcachofas 7 minutos.", 8),
+      S("Haz una bechamel con aceite, la harina y la leche, con sal y nuez moscada, y mezcla un poco con las alcachofas.", 8),
+      S("Monta tres capas de pasta y relleno y una última de pasta, cubre con bechamel y queso (mejor emmental) y gratina en el horno 8 minutos. Sirve con perejil.", 8, 220),
+    ],
+  }),
+  es({
+    id: "macarrones-esparragos-jamon-queso-azul", title: "Macarrones con espárragos verdes, jamón y salsa de queso azul",
+    baseServings: 4, prepMin: 10, cookMin: 20, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("pasta", 400, "g"), I("esparragos-verdes", 300, "g"), I("jamon-cocido", 175, "g"), I("queso-azul", 150, "g"), I("nata", 150, "ml"), I("tomate-triturado", 150, "g"), I("albahaca", 5, "g"), I("aceite", 20, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece los macarrones según el paquete.", 11),
+      S("Saltea los espárragos verdes en trozos de 2 cm con un chorrito de aceite 4 minutos y añade el jamón cocido en dados.", 5),
+      S("Funde el queso azul (el original usa gorgonzola con mascarpone) en la nata, añade el tomate y mézclalo con los espárragos.", 4),
+      S("Añade la pasta y la albahaca picada y sirve.", 1),
+    ],
+  }),
+  es({
+    id: "volovanes-verduras-salsa-calabacin", title: "Volovanes de hojaldre con verduras y salsa de calabacín",
+    baseServings: 4, prepMin: 25, cookMin: 30, difficulty: "medium", equipment: ["horno", "batidora", "olla", "sarten"],
+    ingredients: [I("masa-hojaldre", 550, "g"), I("calabacin", 200, "g"), I("ajo", 4, "unit"), I("judias-verdes", 150, "g"), I("zanahoria", 200, "g"), I("esparragos-verdes", 200, "g"), I("panceta", 60, "g"), I("huevo", 1, "unit"), I("maicena", 5, "g"), I("aceite", 50, "ml"), I("sal", 5, "g")],
+    steps: [
+      S("Corta 8 discos de hojaldre de 13 cm; a 4 quítales el centro para formar aros y ponlos sobre los otros 4. Pinta con huevo y hornea a 180 °C 15 minutos.", 15, 180),
+      S("Tritura el calabacín con 100 ml de agua, 2 cucharadas de aceite y sal, caliéntalo y liga con la maicena disuelta.", 4),
+      S("Saltea el ajo en trozos, las judías en rombos, la zanahoria en bastones y los espárragos en cilindros con sal 8 minutos.", 8),
+      S("Rellena los volovanes, cubre con la panceta (el original usa tocino ibérico) en tiras finas y gratina en el horno 3 minutos. Sírvelos sobre la salsa.", 3, 220),
+    ],
+  }),
+  es({
+    id: "empanadillas-almejas-brocoli", title: "Empanadillas de almejas y brócoli",
+    baseServings: 4, prepMin: 120, cookMin: 30, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("obleas-empanadilla", 16, "unit"), I("almejas", 400, "g"), I("brocoli", 0.25, "unit"), I("ajo", 2, "unit"), I("vino-blanco", 50, "ml"), I("cebolleta", 1, "unit"), I("harina", 30, "g"), I("leche", 250, "ml"), I("rucula", 125, "g"), I("limon", 0.5, "unit"), I("aceite", 400, "ml"), I("perejil", 5, "g"), I("sal", 4, "g")],
+    steps: [
+      S("Cuece el brócoli en ramilletes 7 minutos y pícalo. Abre las almejas con el ajo picado y el vino tapadas, pica la carne y guarda el caldo.", 11),
+      S("Pocha la cebolleta picada, rehoga la harina y añade la leche y un poco del caldo; cuece 6 minutos y mezcla con perejil, el brócoli y las almejas. Sala y deja enfriar 1 hora y media.", 96),
+      S("Rellena las obleas, séllalas con un tenedor y fríelas en el aceite hasta que se doren.", 8),
+      S("Sírvelas con la rúcula (el original usa canónigos) aliñada con aceite, limón y sal."),
+    ],
+  }),
+  es({
+    id: "empanadillas-patata-huevo-codorniz", title: "Empanadillas al horno de patata, calabacín y huevo de codorniz",
+    baseServings: 4, prepMin: 25, cookMin: 35, difficulty: "medium", equipment: ["sarten", "horno"],
+    ingredients: [I("obleas-empanadilla", 16, "unit"), I("patata", 250, "g"), I("calabacin", 250, "g"), I("cebolleta", 1, "unit"), I("huevo-codorniz", 8, "unit"), I("huevo", 1, "unit"), I("ajo", 2, "unit"), I("pimiento", 2, "unit"), I("setas", 200, "g"), I("aceite", 200, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Pocha la patata y el calabacín en láminas finas con la cebolleta en daditos en abundante aceite, como para tortilla, 15 minutos. Sala y escurre.", 15),
+      S("Pon relleno sobre 8 obleas, casca encima un huevo de codorniz, tapa con otra oblea y cierra con un tenedor.", 5),
+      S("Pinta con huevo batido y hornea a 180 °C 15 minutos.", 15, 180),
+      S("Saltea el ajo laminado, los pimientos verdes y las setas en tiras 5 minutos, sala y sirve con las empanadillas y perejil.", 5),
+    ],
+  }),
+  es({
+    id: "tortitas-pavo-champinones", title: "Tortitas de pavo y champiñones con salsa de pan frito",
+    baseServings: 4, prepMin: 25, cookMin: 35, difficulty: "medium", equipment: ["sarten", "olla", "batidora"],
+    ingredients: [I("pavo", 125, "g"), I("champinones", 200, "g"), I("ajo", 4, "unit"), I("cebolleta", 1, "unit"), I("vino-blanco", 50, "ml"), I("pan", 30, "g"), I("chile", 0.25, "unit"), I("harina", 300, "g"), I("levadura-quimica", 10, "g"), I("huevo", 3, "unit"), I("leche", 200, "ml"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Tamiza la harina con la levadura, añade los huevos, una cucharada de aceite, sal y la leche, mezcla y reposa 15 minutos.", 15),
+      S("Rehoga 2 ajos picados con los sombreros de los champiñones picados y el pavo en taquitos 4 minutos y mézclalos con la masa.", 5),
+      S("Haz tortitas en la plancha con aros, 2-3 minutos por lado.", 15),
+      S("Para la salsa, pocha el resto del ajo, la cebolleta, el chile y los tallos picados, añade el vino, el pan frito y 200 ml de agua y cocina 10 minutos. Tritura y sirve con perejil.", 14),
+    ],
+  }),
+  es({
+    id: "crepes-champinones-yogur-albahaca", title: "Crepes crujientes de champiñones con salsa de yogur y albahaca",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "medium", equipment: ["sarten", "batidora"],
+    ingredients: [I("champinones", 400, "g"), I("ajo", 3, "unit"), I("yogur", 1, "unit"), I("limon", 0.5, "unit"), I("albahaca", 10, "g"), I("harina", 200, "g"), I("leche", 400, "ml"), I("huevo", 2, "unit"), I("aceite", 400, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Dora el ajo laminado y cocina los champiñones fileteados con sal 7 minutos.", 8),
+      S("Tritura la harina, la leche, los huevos, sal y una cucharada de aceite. Haz los crepes en una sartén untada de aceite, dándoles la vuelta cuando salgan burbujas.", 15),
+      S("Rellena los crepes con los champiñones, enróllalos y fríelos en aceite caliente 1 minuto. Escúrrelos.", 6),
+      S("Tritura la albahaca con el yogur y unas gotas de limón y sirve 2 crepes por persona con la salsa y perejil.", 1),
+    ],
+  }),
+  es({
+    id: "empanadillas-bonito-horno", title: "Empanadillas de bonito al horno",
+    baseServings: 4, prepMin: 20, cookMin: 25, difficulty: "easy", equipment: ["sarten", "horno", "olla"],
+    ingredients: [I("obleas-empanadilla", 16, "unit"), I("atun-lata", 125, "g"), I("ajo", 3, "unit"), I("cebolleta", 1, "unit"), I("pimiento", 0.33, "unit"), I("aceitunas", 40, "g"), I("tomate-triturado", 300, "g"), I("huevo", 1, "unit"), I("aceite", 30, "ml"), I("perejil", 3, "g"), I("sal", 4, "g")],
+    steps: [
+      S("Pocha la cebolleta y el ajo picados con el pimiento rojo pelado y picado 8 minutos. Sala.", 8),
+      S("Añade las aceitunas negras picadas, el bonito (atún) desmenuzado y 4 cucharadas de tomate.", 1),
+      S("Rellena las obleas, cierra con un tenedor, pinta con huevo batido y hornea a 200 °C 13 minutos.", 13, 200),
+      S("Calienta el resto del tomate y sirve las empanadillas con la salsa y perejil.", 3),
+    ],
+  }),
+  es({
+    id: "crepes-verduras-langostinos", title: "Crepes de verduras y langostinos con salsa al ron",
+    baseServings: 4, prepMin: 25, cookMin: 35, difficulty: "medium", equipment: ["olla", "sarten", "batidora"],
+    ingredients: [I("esparragos-verdes", 300, "g"), I("zanahoria", 200, "g"), I("calabacin", 250, "g"), I("langostinos", 300, "g"), I("soja", 15, "ml"), I("huevo", 2, "unit"), I("harina", 100, "g"), I("leche", 250, "ml"), I("ron", 100, "ml"), I("tomate-triturado", 100, "g"), I("maicena", 5, "g"), I("aceite", 50, "ml"), I("perejil", 5, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Rehoga las cabezas y cáscaras de los langostinos, añade el ron (flambéalo o deja que se evapore), el tomate y 250 ml de agua, reduce 10 minutos, cuela apretando y liga con la maicena disuelta.", 14),
+      S("Tritura los huevos con la harina, la leche, una cucharada de aceite, sal y perejil y haz los crepes en una sartén untada.", 12),
+      S("Saltea los espárragos, el calabacín y la zanahoria en bastones con sal 6 minutos; añade los langostinos en trozos 1 minuto y la soja.", 7),
+      S("Rellena los crepes, ciérralos y sírvelos con la salsa caliente."),
+    ],
+  }),
+  es({
+    id: "pan-chorizo-huevo-frito", title: "Pan de chorizo casero con huevo frito",
+    note: "Un bizcocho salado de chorizo, al estilo del choripán.",
+    baseServings: 6, prepMin: 15, cookMin: 55, difficulty: "easy", equipment: ["sarten", "horno"],
+    ingredients: [I("chorizo", 200, "g"), I("huevo", 9, "unit"), I("chalota", 3, "unit"), I("harina", 325, "g"), I("levadura-quimica", 10, "g"), I("vino-blanco", 50, "ml"), I("leche", 200, "ml"), I("ajo", 4, "unit"), I("aceite", 100, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Rehoga las chalotas picadas en 2 cucharadas de aceite. Tamiza 300 g de harina con la levadura y mézclala con las chalotas, 3 huevos, el vino, una cucharada de aceite, sal y la leche.", 6),
+      S("Saltea el chorizo (dulce y picante) en trocitos, retira la grasa y añádelo a la masa.", 4),
+      S("Vierte en un molde untado y enharinado y hornea a 180 °C 45 minutos.", 45, 180),
+      S("Fríe los otros 6 huevos con los ajos con piel, sala y sírvelos con el pan en rodajas y perejil.", 6),
+    ],
+  }),
+];
