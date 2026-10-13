@@ -32,9 +32,10 @@ import { recipesArg15 } from "./recipes-arg-15";
 import { recipesArg16 } from "./recipes-arg-16";
 import { recipesArg17 } from "./recipes-arg-17";
 import { recipesArg18 } from "./recipes-arg-18";
+import { recipesArg19 } from "./recipes-arg-19";
 
 export { ingredients, prices, EQUIPMENT } from "./ingredients";
-export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06, ...recipesArg07, ...recipesArg08, ...recipesArg09, ...recipesArg10, ...recipesArg11, ...recipesArg12, ...recipesArg13, ...recipesArg14, ...recipesArg15, ...recipesArg16, ...recipesArg17, ...recipesArg18];
+export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06, ...recipesArg07, ...recipesArg08, ...recipesArg09, ...recipesArg10, ...recipesArg11, ...recipesArg12, ...recipesArg13, ...recipesArg14, ...recipesArg15, ...recipesArg16, ...recipesArg17, ...recipesArg18, ...recipesArg19];
 import { DISH_KEYWORDS as D1 } from "./dishes";
 import { DISH_KEYWORDS_2 } from "./dishes-2";
 export { DESSERTS, SEARCH_TAGS } from "./dishes-2";

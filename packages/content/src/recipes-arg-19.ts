@@ -1,0 +1,290 @@
+import type { Recipe } from "@comocomo/schemas";
+import { arg as es } from "./fuentes";
+import { I, S } from "./helpers";
+
+/** Arguiñano, bloque 19: últimas aves y primeros pescados. */
+export const recipesArg19: Recipe[] = [
+  es({
+    id: "rollitos-pollo-piquillo-queso-panceta", title: "Rollitos de pollo con piquillo, queso y panceta con patatas chips",
+    note: "El original los acompaña con chips de yuca.",
+    baseServings: 4, prepMin: 20, cookMin: 25, difficulty: "medium", equipment: ["sarten", "horno"],
+    ingredients: [I("pollo", 800, "g"), I("pimientos-piquillo", 150, "g"), I("queso", 160, "g"), I("panceta", 120, "g"), I("ajo", 2, "unit"), I("patata", 400, "g"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Dora el ajo laminado y confita los piquillos con sal a fuego suave 10 minutos.", 10),
+      S("Salpimienta 8 filetes de pechuga de pollo. Pon cada uno sobre una loncha de panceta, cubre con queso y un piquillo, enrolla y sujeta con un palillo.", 8),
+      S("Ásalos en el horno a 200 °C 9 minutos.", 9, 200),
+      S("Corta las patatas en láminas muy finas, fríelas, sálalas y sírvelas con los rollitos y perejil.", 8),
+    ],
+  }),
+  es({
+    id: "pastel-pollo-setas-patatas", title: "Pastel de pollo con setas, guisantes y patatas en cazuelita",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "easy", equipment: ["sarten", "horno"],
+    ingredients: [I("pollo", 750, "g"), I("patata", 400, "g"), I("setas", 250, "g"), I("guisantes", 100, "g"), I("tomate", 150, "g"), I("cebolleta", 2, "unit"), I("ajo", 4, "unit"), I("manzana", 1, "unit"), I("pan-rallado", 30, "g"), I("mostaza", 15, "g"), I("vinagre", 10, "ml"), I("aceite", 300, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Saltea las setas con sal y repártelas en 4 cazuelitas de barro.", 5),
+      S("Pocha las cebolletas y 2 ajos en daditos, añade la manzana y el tomate pelados en daditos y los guisantes. Saltea aparte el pollo (en tiras) salpimentado y mézclalo todo con la mostaza. Repártelo encima.", 15),
+      S("Fríe las patatas en dados, escúrrelas y cubre las cazuelitas.", 8),
+      S("Espolvorea con el pan rallado mezclado con los otros ajos y perejil picados y un hilo de aceite con vinagre, y gratina en el horno 5 minutos.", 5, 220),
+    ],
+  }),
+  es({
+    id: "pavo-cebolla-caramelizada", title: "Pechuga de pavo asada con cebolla caramelizada",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["sarten", "horno"],
+    ingredients: [I("pavo", 800, "g"), I("cebolla", 4, "unit"), I("ajo", 2, "unit"), I("miel", 50, "g"), I("brandy", 75, "ml"), I("vinagre", 75, "ml"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 2, "g")],
+    steps: [
+      S("Maja el ajo con pimienta en grano. Haz 4 cortes en la pechuga de pavo y rellénalos con el majado; salpimienta, enróllala, átala y dórala.", 8),
+      S("Hierve el brandy y riega la carne con él (o inyéctalo). Ásala en el horno a 190 °C 20 minutos.", 20, 190),
+      S("Mientras, pocha las cebollas picadas con sal y, cuando empiecen a caramelizar, añade el vinagre (de Módena) y la miel y cocina hasta que espese."),
+      S("Sirve el pavo fileteado con la cebolla y perejil."),
+    ],
+  }),
+  es({
+    id: "muslos-pavo-manzana-platano", title: "Muslos de pavo asados con salsa de manzana y plátano salteado",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["horno", "batidora", "sarten"],
+    ingredients: [I("pavo", 1600, "g"), I("manzana", 2, "unit"), I("cebolleta", 2, "unit"), I("vino-blanco", 150, "ml"), I("platano", 2, "unit"), I("pasas", 50, "g"), I("canela", 1, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Salpimienta los muslos de pavo, ponlos en una bandeja con las cebolletas y las manzanas en trozos, riega con el vino y aceite y ásalos en el horno a 200 °C 30 minutos.", 30, 200),
+      S("Tritura las cebolletas y las manzanas con el jugo de la bandeja.", 3),
+      S("Saltea los plátanos en rodajas con las ciruelas pasas (o pasas), sala y espolvorea canela. Sirve con perejil.", 3),
+    ],
+  }),
+  es({
+    id: "pavo-mechado-manzana-asada", title: "Pavo mechado con jamón y manzanas asadas",
+    baseServings: 4, prepMin: 20, cookMin: 50, difficulty: "medium", equipment: ["sarten", "horno"],
+    ingredients: [I("pavo", 1000, "g"), I("panceta", 80, "g"), I("jamon", 80, "g"), I("manzana", 4, "unit"), I("vino-blanco", 250, "ml"), I("caldo", 200, "ml"), I("maicena", 15, "g"), I("tomillo", 1, "g"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 7, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Mecha la pechuga de pavo con tiras de tocino (panceta) y jamón, átala, salpimiéntala y dórala. Moja con el vino y el caldo y cuece 3 minutos.", 10),
+      S("Pásala a una fuente con la salsa y el tomillo y hornéala a 200 °C 15 minutos; dale la vuelta y hornea a 190 °C 17 minutos más. A la vez, asa las manzanas enteras.", 32, 200),
+      S("Cuela la salsa, lígala con la maicena y añade perejil.", 4),
+      S("Sirve el pavo en lonchas con la salsa y las manzanas."),
+    ],
+  }),
+  es({
+    id: "cintas-pavo-uvas-boniato", title: "Tiras de pavo con salsa de vino y chocolate, uvas y boniato paja",
+    baseServings: 4, prepMin: 20, cookMin: 25, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("pavo", 700, "g"), I("uvas", 200, "g"), I("boniato", 500, "g"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("vino-tinto", 150, "ml"), I("salsa-inglesa", 15, "ml"), I("chocolate", 10, "g"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Pocha la cebolla y el ajo picados, añade el vino, un vaso de agua y sal y reduce 10 minutos. Pasa por el pasapurés y disuelve el chocolate (negro).", 14),
+      S("Escalda las uvas 30 segundos, pélalas y saltéalas.", 3),
+      S("Corta los boniatos en paja, fríelos y sálalos.", 6),
+      S("Salpimienta las tiras de pavo, saltéalas a fuego fuerte y la salsa inglesa al final. Sirve con la salsa, las uvas, el boniato y perejil.", 4),
+    ],
+  }),
+  es({
+    id: "guiso-pollo-patatas-arroz", title: "Guiso de pollo con patatas y arroz",
+    baseServings: 6, prepMin: 15, cookMin: 45, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("pollo", 1500, "g"), I("patata", 400, "g"), I("cebolla", 2, "unit"), I("zanahoria", 200, "g"), I("ajo", 4, "unit"), I("arroz", 50, "g"), I("vino-blanco", 100, "ml"), I("caldo", 1000, "ml"), I("guisantes", 120, "g"), I("aceite", 50, "ml"), I("perejil", 5, "g"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Trocea el pollo sin piel, salpimiéntalo y dóralo. Desglasa la sartén con el vino.", 10),
+      S("Pocha el ajo, las cebollas y las zanahorias en daditos, añade el pollo, el vino y el caldo.", 12),
+      S("Añade las patatas cascadas y cuece 10 minutos; añade el arroz y cuece tapado 15 minutos más.", 25),
+      S("Incorpora los guisantes y sirve con perejil."),
+    ],
+  }),
+  es({
+    id: "pollo-relleno-arroz-pasas", title: "Pollo relleno de arroz con frutos secos y ajetes salteados",
+    note: "El original usa picantones.",
+    baseServings: 4, prepMin: 25, cookMin: 50, difficulty: "medium", equipment: ["olla", "horno", "sarten"],
+    ingredients: [I("pollo", 1600, "g"), I("champinones", 500, "g"), I("ajo", 12, "unit"), I("arroz-basmati", 200, "g"), I("cebolleta", 1, "unit"), I("puerro", 1, "unit"), I("pasas", 30, "g"), I("orejones", 30, "g"), I("pistachos", 30, "g"), I("limon", 1, "unit"), I("soja", 15, "ml"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 8, "g")],
+    steps: [
+      S("Rehoga la cebolleta y el puerro picados, añade las pasas y los orejones picados y el arroz; cubre con el doble de agua, sala y cuece 15 minutos. Mezcla con los pistachos picados.", 20),
+      S("Sala el pollo por dentro, rellénalo con el arroz, riégalo con el zumo de limón y aceite, pon 4 ajos golpeados alrededor y ásalo en el horno a 200 °C 30 minutos (más si es grande).", 30, 200),
+      S("Saltea los ajos frescos (ajetes) y los champiñones laminados y riégalos con la soja.", 6),
+      S("Sirve el pollo con el arroz, el salteado y perejil."),
+    ],
+  }),
+  es({
+    id: "pavo-guisado-mostaza", title: "Pavo guisado a la mostaza con verduras y patatas",
+    baseServings: 6, prepMin: 20, cookMin: 45, difficulty: "easy", equipment: ["sarten", "olla"],
+    ingredients: [I("pavo", 1500, "g"), I("cebolla", 2, "unit"), I("puerro", 2, "unit"), I("zanahoria", 200, "g"), I("ajo", 4, "unit"), I("patata", 600, "g"), I("vino-blanco", 200, "ml"), I("mostaza", 15, "g"), I("harina", 40, "g"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Deshuesa el muslo de pavo sin piel, trocéalo, salpimienta, enharina y dóralo.", 10),
+      S("Dora los ajos partidos y la cebolla, los puerros y las zanahorias en dados. Añade el vino (el original flambea con vodka y añade txakoli).", 10),
+      S("Junta todo, cubre con agua, sala y cuece tapado 35 minutos (15 en olla rápida). Pasa la salsa por el pasapurés y añade la mostaza.", 35),
+      S("Fríe las patatas en dados y sírvelas con el pavo y perejil.", 8),
+    ],
+  }),
+  es({
+    id: "secretaria-alcalaina", title: "Pollo a la secretaria alcalaína",
+    origin: "España (Alcalá de Henares)",
+    baseServings: 4, prepMin: 20, cookMin: 60, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("pollo", 1400, "g"), I("patata", 400, "g"), I("tomate-triturado", 400, "g"), I("pimiento", 1, "unit"), I("cebolla", 2, "unit"), I("ajo", 3, "unit"), I("guisantes", 100, "g"), I("jamon", 100, "g"), I("vino-blanco", 150, "ml"), I("azafran", 0.1, "g"), I("laurel", 1, "unit"), I("aceite", 250, "ml"), I("perejil", 5, "g"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece la carcasa (o un trozo del pollo) con una cebolla picada y perejil en agua con sal 20 minutos. Cuela.", 20),
+      S("Fríe el pollo troceado sin piel y salpimentado con el laurel. Tritura el azafrán con un poco de caldo (el original añade el hígado del pollo).", 12),
+      S("Rehoga la otra cebolla y el ajo picados con el jamón en taquitos, añade el pimiento rojo en tiras, el vino, el tomate, el pollo, el majado y caldo, y cuece 20 minutos.", 25),
+      S("Fríe las patatas en dados y añádelas con los guisantes 5 minutos. Sirve con perejil.", 8),
+    ],
+  }),
+  es({
+    id: "menestra-pollo", title: "Menestra de pollo con alcachofas y espárragos",
+    baseServings: 6, prepMin: 25, cookMin: 45, difficulty: "medium", equipment: ["sarten", "olla"],
+    ingredients: [I("pollo", 1500, "g"), I("alcachofa", 3, "unit"), I("esparragos-blancos", 400, "g"), I("guisantes", 150, "g"), I("cebolleta", 2, "unit"), I("zanahoria", 200, "g"), I("ajo", 3, "unit"), I("harina", 40, "g"), I("vino-blanco", 75, "ml"), I("aceite", 60, "ml"), I("perejil", 5, "g"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Trocea el pollo sin piel, salpimiéntalo, enharínalo y dóralo.", 10),
+      S("Rehoga los ajos, las cebolletas y las zanahorias en daditos, añade el vino y deja evaporar. Añade el pollo, cubre con agua y guisa 15 minutos.", 20),
+      S("Añade las puntas de espárrago y los guisantes y cuece 11 minutos más.", 11),
+      S("Mientras, limpia y cuece las alcachofas 15 minutos, pártelas y añádelas al final con perejil."),
+    ],
+  }),
+  es({
+    id: "sanjacobos-pollo-sesamo-pimientos", title: "Sanjacobos de pollo con jamón y queso rebozados con sésamo y pimientos con aceitunas",
+    baseServings: 8, prepMin: 25, cookMin: 30, difficulty: "medium", equipment: ["sarten"],
+    ingredients: [I("pollo", 1400, "g"), I("jamon", 120, "g"), I("queso", 100, "g"), I("pimiento", 4, "unit"), I("aceitunas", 80, "g"), I("ajo", 4, "unit"), I("pinones", 25, "g"), I("huevo", 3, "unit"), I("harina", 60, "g"), I("pan-rallado", 150, "g"), I("sesamo", 20, "g"), I("aceite", 400, "ml"), I("perejil", 3, "g"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Dora 3 ajos laminados y cocina el pimiento rojo pelado y los verdes en trozos con sal 17 minutos. Añade las aceitunas (verdes y negras) y los piñones 3 minutos.", 20),
+      S("Monta 8 sanjacobos con dos filetes de pollo, una loncha de jamón y media de queso; salpimienta.", 8),
+      S("Pásalos por harina, huevo batido y pan rallado mezclado con el sésamo, y fríelos por los dos lados.", 10),
+      S("Sirve con los pimientos y perejil."),
+    ],
+  }),
+  es({
+    id: "conejo-parrilla-setas-mostaza", title: "Paletillas de conejo marinadas con setas asadas y salsa de mostaza",
+    baseServings: 4, prepMin: 40, cookMin: 25, difficulty: "easy", equipment: ["sarten", "horno"],
+    ingredients: [I("conejo", 1200, "g"), I("setas", 500, "g"), I("cebolleta", 1, "unit"), I("caldo", 200, "ml"), I("nata", 50, "ml"), I("mostaza", 30, "g"), I("ajo", 2, "unit"), I("vino-blanco", 100, "ml"), I("vinagre", 100, "ml"), I("pimenton", 3, "g"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Macera las paletillas de conejo 30 minutos con el ajo majado, el vino (txakoli), el vinagre, 2 cucharadas de aceite, el pimentón, sal y pimienta.", 30),
+      S("Pocha la cebolleta en daditos, añade el caldo, la nata y la mostaza y reduce 10 minutos.", 12),
+      S("Asa las setas con sal y aceite en el horno a 220 °C 15 minutos. Mientras, haz el conejo escurrido a la parrilla o plancha 10 minutos dándole la vuelta.", 15, 220),
+      S("Sirve con la salsa y perejil."),
+    ],
+  }),
+  es({
+    id: "pinchos-pollo-verduras-gratinadas", title: "Pinchitos de pollo con berenjena y calabacín gratinados",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "easy", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("pollo", 700, "g"), I("cebolleta", 1, "unit"), I("ajo", 3, "unit"), I("berenjena", 300, "g"), I("calabacin", 300, "g"), I("queso", 60, "g"), I("vino-blanco", 100, "ml"), I("caldo", 200, "ml"), I("maicena", 8, "g"), I("canela", 1, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Pocha la cebolleta y 2 ajos picados, añade el vino y el caldo (o el de una carcasa), reduce, cuela y liga con la maicena. Añade perejil.", 15),
+      S("Haz el calabacín y la berenjena en rodajas gruesas a la plancha 3 minutos por lado, sálalos, ponlos en una bandeja, cubre con queso rallado y gratina en el horno.", 10, 220),
+      S("Dora el otro ajo aplastado y haz los minipinchos de pollo salpimentados y espolvoreados con canela.", 8),
+      S("Sirve con la salsa caliente."),
+    ],
+  }),
+  es({
+    id: "rape-panceta-crema-lechuga", title: "Rape envuelto en panceta con crema de lechuga",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "medium", equipment: ["olla", "batidora", "sarten", "horno"],
+    ingredients: [I("rape", 600, "g"), I("panceta", 100, "g"), I("zanahoria", 200, "g"), I("patata", 300, "g"), I("vino-blanco", 100, "ml"), I("lechuga", 2, "unit"), I("cebolla", 1, "unit"), I("arroz", 40, "g"), I("caldo", 1000, "ml"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Pocha la cebolla picada, añade la lechuga troceada con sal, el caldo (de ave) y el arroz y cuece 16 minutos. Tritura.", 20),
+      S("Saca bolitas de zanahoria y patata (o córtalas en dados), cuécelas 15 minutos y saltéalas con perejil.", 15),
+      S("Corta el lomo de rape en 8 trozos, salpimienta, envuelve cada uno en una loncha de panceta, dóralos y hornéalos con el vino a 200 °C 6 minutos.", 10, 200),
+      S("Sirve el rape sobre la crema con las bolitas."),
+    ],
+  }),
+  es({
+    id: "merluza-panaderas-piquillos", title: "Merluza con patatas panadera y piquillos confitados",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "easy", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("merluza", 700, "g"), I("patata", 500, "g"), I("pimientos-piquillo", 200, "g"), I("pimiento", 2, "unit"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("azucar", 3, "g"), I("vinagre", 10, "ml"), I("chile", 0.5, "unit"), I("aceite", 250, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece las espinas y pieles de la merluza (si las tienes) con perejil 15 minutos para un caldo.", 15),
+      S("Dora la cebolla en juliana, añade los pimientos verdes en juliana y las patatas en rodajas, sala y fríe hasta que estén tiernas. Escurre, pon en una fuente con un poco de caldo y hornea a 220 °C 10 minutos.", 25, 220),
+      S("Confita los piquillos con el ajo laminado, la guindilla, sal, azúcar y unas gotas de vinagre.", 8),
+      S("Pon la merluza en raciones salpimentadas sobre las patatas y hornea 6 minutos más. Sirve con los piquillos y perejil.", 6, 220),
+    ],
+  }),
+  es({
+    id: "merluza-rellena-gambas", title: "Merluza rellena de gambas con verduras torneadas",
+    baseServings: 4, prepMin: 25, cookMin: 25, difficulty: "medium", equipment: ["olla", "horno"],
+    ingredients: [I("merluza", 700, "g"), I("gambas", 400, "g"), I("patata", 300, "g"), I("zanahoria", 200, "g"), I("vino-blanco", 200, "ml"), I("maicena", 8, "g"), I("aceite", 40, "ml"), I("perejil", 5, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Saca los lomos de la cola de merluza y córtalos en 8 trozos. Pela las gambas y cuece cabezas, cáscaras y espina en poca agua con sal 12 minutos. Cuela el fumet.", 15),
+      S("Pon 6 gambas sobre 4 trozos de merluza, tapa con los otros 4 y átalos.", 6),
+      S("Ponlos en una fuente con aceite, el vino y un poco de fumet y hornéalos a 220 °C 6 minutos. Mientras, cuece las patatas y las zanahorias torneadas 15 minutos.", 6, 220),
+      S("Liga el jugo con la maicena, añade perejil y sirve con las verduras.", 3),
+    ],
+  }),
+  es({
+    id: "lubina-rellena-salsa-americana", title: "Lubina rellena de langostinos con salsa americana",
+    baseServings: 4, prepMin: 25, cookMin: 40, difficulty: "hard", equipment: ["olla", "batidora", "horno"],
+    note: "El original añade una nécora a la salsa.",
+    ingredients: [I("lubina", 800, "g"), I("arroz", 80, "g"), I("langostinos", 250, "g"), I("cebolleta", 1, "unit"), I("chalota", 3, "unit"), I("ajo", 2, "unit"), I("tomate", 300, "g"), I("caldo", 500, "ml"), I("harina", 8, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Pela los langostinos y pártelos a lo largo. Dora el ajo laminado, pocha la cebolleta y las chalotas, añade los tomates pelados, la harina y las cabezas y cáscaras; añade el caldo (de pescado) y cuece 20 minutos. Tritura y cuela.", 28),
+      S("Cuece el arroz (salvaje en el original) en agua con sal y escúrrelo.", 18),
+      S("Abre las lubinas (de ración) sin espina, salpimienta, rellénalas con el arroz y los langostinos, riégalas con aceite y hornéalas a 200 °C 10 minutos.", 10, 200),
+      S("Sirve con la salsa americana y perejil."),
+    ],
+  }),
+  es({
+    id: "bonito-con-tomate", title: "Bonito con tomate",
+    origin: "España (Cantábrico)",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "easy", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("bonito", 600, "g"), I("tomate", 1000, "g"), I("cebolla", 2, "unit"), I("pimiento", 1, "unit"), I("ajo", 2, "unit"), I("azucar", 4, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Dora el ajo picado, rehoga las cebollas y el pimiento verde en dados 5 minutos, añade los tomates troceados, sal y azúcar, tapa y cuece 30 minutos. Tritura y cuela.", 35),
+      S("Corta el bonito en trozos, salpimiéntalo y dóralo por los dos lados.", 4),
+      S("Añade la salsa y cocina todo junto 2 minutos a fuego suave. Sirve con perejil.", 2),
+    ],
+  }),
+  es({
+    id: "tataki-bonito", title: "Tataki de bonito con ensalada",
+    cuisine: "japonesa", origin: "Japón (versión de Arguiñano)", authenticity: "adapted",
+    note: "El original marina con mirin y sake y sirve con wasabi.",
+    baseServings: 4, prepMin: 25, cookMin: 10, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("bonito", 700, "g"), I("soja", 120, "ml"), I("vino-blanco", 60, "ml"), I("azucar", 20, "g"), I("lechuga", 1, "unit"), I("endibia", 1, "unit"), I("tomate-cherry", 120, "g"), I("vinagre", 15, "ml"), I("aceite", 40, "ml"), I("sal", 3, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Mezcla la soja, el vino y el azúcar hasta que se disuelva. Corta el bonito en 4 tacos y macéralos 15 minutos dándoles la vuelta.", 15),
+      S("Reduce la marinada en un cazo hasta que espese.", 5),
+      S("Salpimienta el bonito y márcalo en la plancha muy caliente 1 minuto y medio por lado. Córtalo en lonchas.", 3),
+      S("Sirve con la lechuga, la endibia y los tomates cherry aliñados con aceite, vinagre y sal, y la salsa reducida."),
+    ],
+  }),
+  es({
+    id: "pescadilla-rebozada-salsa-tartara", title: "Merluza rebozada con pimientos confitados y salsa tártara",
+    note: "El original usa pescadilla.",
+    baseServings: 6, prepMin: 25, cookMin: 45, difficulty: "medium", equipment: ["horno", "sarten", "olla", "batidora"],
+    ingredients: [I("merluza", 1000, "g"), I("pimiento", 3, "unit"), I("ajo", 4, "unit"), I("lechuga", 1, "unit"), I("harina", 50, "g"), I("huevo", 4, "unit"), I("alcaparras", 15, "g"), I("cebolleta", 1, "unit"), I("vinagre", 10, "ml"), I("aceite", 450, "ml"), I("perejil", 5, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Asa los pimientos rojos con aceite y sal en el horno a 190 °C 32 minutos, pélalos y confita las tiras con 2 ajos laminados.", 38, 190),
+      S("Cuece un huevo 10 minutos y pícalo con las alcaparras y la cebolleta (el original añade pepinillos). Monta otro huevo con sal, vinagre y 150 ml de aceite y mezcla.", 12),
+      S("Corta la merluza en raciones, sálala, pásala por harina y los huevos restantes batidos y fríela con los otros ajos.", 10),
+      S("Sirve con los pimientos, la lechuga, la salsa tártara y perejil."),
+    ],
+  }),
+  es({
+    id: "calamares-salsa-cuscus", title: "Calamares en salsa con cuscús",
+    note: "El original usa sepia.",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "easy", equipment: ["olla", "batidora"],
+    ingredients: [I("calamares", 900, "g"), I("cuscus", 200, "g"), I("ajo", 4, "unit"), I("cebolla", 1, "unit"), I("pimiento", 1, "unit"), I("tomate-triturado", 200, "g"), I("vino-blanco", 100, "ml"), I("caldo", 400, "ml"), I("aceite", 40, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Dora el ajo laminado y pocha la cebolla y el pimiento verde picados hasta que tomen color.", 10),
+      S("Añade los calamares en trozos salpimentados, el vino, el tomate y perejil y cuece tapado 25 minutos (7 en olla rápida). Saca el calamar, tritura la salsa y vuelve a juntarlos.", 27),
+      S("Hidrata el cuscús con 200 ml de caldo hirviendo con sal, tapado 5 minutos, y sirve con los calamares.", 5),
+    ],
+  }),
+  es({
+    id: "mariposas-salmon-verduras", title: "Mariposas de salmón con verduras al Jerez y ensalada de escarola y granada",
+    baseServings: 4, prepMin: 20, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("salmon", 600, "g"), I("calabaza", 200, "g"), I("patata", 200, "g"), I("calabacin", 200, "g"), I("champinones", 150, "g"), I("escarola", 1, "unit"), I("granada", 1, "unit"), I("vino-blanco", 150, "ml"), I("vinagre", 15, "ml"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Rehoga la patata y la calabaza en daditos, añade los champiñones y el calabacín en dados, moja con el vino (Jerez en el original) y deja que se evapore.", 18),
+      S("Aliña la escarola con la granada desgranada, aceite, vinagre y sal.", 5),
+      S("Corta el salmón en filetes de 3 cm, ábrelos en mariposa, salpimiéntalos y hazlos a la plancha 1-2 minutos por lado.", 4),
+      S("Sirve con las verduras, la ensalada y perejil."),
+    ],
+  }),
+  es({
+    id: "pulpo-alioli-frutas", title: "Pulpo con patatas confitadas y alioli de frutas",
+    note: "El original confita las patatas en grasa de oca.",
+    baseServings: 4, prepMin: 20, cookMin: 50, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("pulpo", 600, "g"), I("patata", 600, "g"), I("ajo", 5, "unit"), I("huevo", 2, "unit"), I("pera", 1, "unit"), I("uvas", 50, "g"), I("naranja", 1, "unit"), I("pimenton", 2, "g"), I("rucula", 30, "g"), I("aceite", 500, "ml"), I("sal", 6, "g")],
+    steps: [
+      S("Cuece el pulpo 40 minutos (15 en olla rápida), déjalo templar y córtalo.", 40),
+      S("Mientras, confita los ajos con piel y las patatas en discos en aceite a fuego suave 20 minutos."),
+      S("Cuece la pera troceada y las uvas peladas con el zumo de la naranja hasta que espese. Tritúralo con los ajos confitados pelados, las 2 yemas y sal, añadiendo aceite poco a poco como un alioli.", 12),
+      S("Sirve el pulpo sobre las patatas con pimentón, el alioli y los canónigos (o rúcula)."),
+    ],
+  }),
+  es({
+    id: "lubina-tempura-curry-basmati", title: "Lubina en tempura con salsa de curry y arroz basmati",
+    note: "El original usa dorada.",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("lubina", 1000, "g"), I("cebolla", 2, "unit"), I("puerro", 2, "unit"), I("arroz-basmati", 200, "g"), I("leche-coco", 50, "ml"), I("curry", 4, "g"), I("harina", 100, "g"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Saca los filetes de la lubina. Cuece cabeza y espinas con lo verde de los puerros y perejil en agua con sal 15 minutos y cuela.", 15),
+      S("Carameliza la cebolla picada, añade 300 ml de caldo, la leche de coco y el curry y reduce 15 minutos.", 25),
+      S("Mientras, rehoga el puerro picado, añade el arroz y el doble de agua con sal y cuece 11 minutos."),
+      S("Mezcla la harina con 150 ml de agua fría, pasa por ella el pescado salpimentado en bastones y fríelo. Sirve con la salsa y el arroz.", 6),
+    ],
+  }),
+];
