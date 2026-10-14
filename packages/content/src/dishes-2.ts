@@ -377,6 +377,7 @@ export const DESSERTS = [
   "apple-pie", "key-lime-pie", "pumpkin-pie", "mug-cake", "tres-leches", "alfajores-maicena", "quesillo", "kheer", "dorayaki", "pavlova",
   "yogur-miel-nueces", "helado-platano",
   "canutillos-hojaldre-yogur-frutas", "saquitos-chocolate-frutos-secos", "tarta-galletas-chocolate-blanco", "crepes-queso-naranja-nueces", "saquitos-peras-pasas", "frutas-gratinadas-leche-condensada",
+  "bollos-crema-azahar", "frutas-sabayon-vino-dulce", "crepes-mousse-chocolate-cafe", "pastel-manzana-nueces", "galletas-avena-pasas-compota", "vaso-mango-fresas-mascarpone", "lenguas-gato-nata-frambuesa", "tartitas-verano-melocoton", "brochetas-frutas-anis-menta", "brochetas-melon-salsa-caramelo", "crepes-chocolate-platano", "manzanas-cocidas-yogur-miel", "vasitos-yogur-mango-platano", "galletas-cereales-pinones", "carpaccio-naranja-fresa", "tarta-avellana-chocolate", "galletas-almendra-fresas", "pina-salteada-merengue-lima", "semifrio-melon", "copa-casa-tejas-almendra", "bizcochitos-fritos-yogur", "compota-frutos-rojos-yogur-merengue", "bizcochitos-leche-condensada-avellanas", "vasitos-mango-galleta",
 ];
 tag(["postre", "postres", "dulce", "merienda"], DESSERTS);
 tag(["tapa", "tapas", "aperitivo", "picoteo"], [
