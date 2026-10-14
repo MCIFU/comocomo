@@ -18,10 +18,10 @@ export const recipesArg23: Recipe[] = [
   es({
     id: "chipirones-rellenos-brandy-gambas", title: "Chipirones en salsa al brandy con gambas y espárragos",
     baseServings: 4, prepMin: 25, cookMin: 45, difficulty: "medium", equipment: ["sarten", "olla"],
-    ingredients: [I("chipirones", 500, "g"), I("gambas", 150, "g"), I("cebolla", 3, "unit"), I("esparragos-blancos", 150, "g"), I("ajo", 4, "unit"), I("brandy", 40, "ml"), I("caldo", 500, "ml"), I("harina", 10, "g"), I("aceite", 60, "ml"), I("perejil", 5, "g"), I("sal", 6, "g")],
+    ingredients: [I("chipirones", 500, "g"), I("gambas", 150, "g"), I("cebolla", 3, "unit"), I("esparragos-blancos", 150, "g"), I("ajo", 4, "unit"), I("vino-blanco", 60, "ml"), I("caldo", 500, "ml"), I("harina", 10, "g"), I("aceite", 60, "ml"), I("perejil", 5, "g"), I("sal", 6, "g")],
     steps: [
       S("Pocha las cebollas en daditos hasta que estén bien doradas.", 15),
-      S("Limpia los chipirones, rellénalos con sus patas, sálalos y fríelos brevemente con los ajos enteros. Pásalos a la cazuela, flambea con el brandy y añade la harina.", 8),
+      S("Limpia los chipirones, rellénalos con sus patas, sálalos y fríelos brevemente con los ajos enteros. Pásalos a la cazuela, añade el vino (brandy en el original), deja evaporar y añade la harina.", 8),
       S("Vierte el caldo (de pescado) y cuece a fuego suave 30 minutos.", 30),
       S("Añade las gambas peladas y las puntas de espárrago 2 minutos y sirve con perejil.", 2),
     ],
