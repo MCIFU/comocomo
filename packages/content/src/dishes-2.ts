@@ -376,6 +376,7 @@ export const DESSERTS = [
   "coulant-chocolate", "clafoutis-peras", "trufas-chocolate", "tarta-zanahoria", "banoffee", "shortbread", "pudin-de-pan", "tarta-queso-fria",
   "apple-pie", "key-lime-pie", "pumpkin-pie", "mug-cake", "tres-leches", "alfajores-maicena", "quesillo", "kheer", "dorayaki", "pavlova",
   "yogur-miel-nueces", "helado-platano",
+  "canutillos-hojaldre-yogur-frutas", "saquitos-chocolate-frutos-secos", "tarta-galletas-chocolate-blanco", "crepes-queso-naranja-nueces", "saquitos-peras-pasas", "frutas-gratinadas-leche-condensada",
 ];
 tag(["postre", "postres", "dulce", "merienda"], DESSERTS);
 tag(["tapa", "tapas", "aperitivo", "picoteo"], [
