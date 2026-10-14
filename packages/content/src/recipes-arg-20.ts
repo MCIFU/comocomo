@@ -1,0 +1,292 @@
+import type { Recipe } from "@comocomo/schemas";
+import { arg as es } from "./fuentes";
+import { I, S } from "./helpers";
+
+/** Arguiñano, bloque 20: pescados. */
+export const recipesArg20: Recipe[] = [
+  es({
+    id: "brocheta-bonito-salsa-pimiento-melocoton", title: "Brochetas de bonito con salsa de pimiento choricero y melocotón",
+    note: "El original usa ñoras y nectarinas.",
+    baseServings: 4, prepMin: 20, cookMin: 30, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("bonito", 600, "g"), I("pimenton", 6, "g"), I("melocoton", 3, "unit"), I("cebolla", 4, "unit"), I("panceta", 60, "g"), I("ajo", 2, "unit"), I("tomate-triturado", 60, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Pocha las cebollas picadas con sal, añade el ajo y la panceta (tocino) picados, el pimentón (en lugar de la carne de ñora), el tomate y un melocotón picado. Cocina 7 minutos, tritura y cuela.", 20),
+      S("Corta el bonito sin piel en dados, ensarta 4 en cada brocheta, unta de aceite y sala.", 5),
+      S("Haz las brochetas a la plancha 1 minuto por lado y saltea los otros melocotones en gajos.", 5),
+      S("Sirve con la salsa y perejil."),
+    ],
+  }),
+  es({
+    id: "montaditos-gallo-calabacin", title: "Filetes de gallo sobre calabacín y tomate con salsa de espinacas",
+    baseServings: 4, prepMin: 25, cookMin: 30, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("gallo", 800, "g"), I("calabacin", 300, "g"), I("tomate", 300, "g"), I("espinacas", 50, "g"), I("cebolleta", 1, "unit"), I("maicena", 8, "g"), I("vino-blanco", 100, "ml"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Saca 12 filetes de los gallos. Cuece las espinas y cabezas con perejil y la cebolleta 15 minutos y cuela.", 18),
+      S("Hierve el vino con un vaso de caldo, añade las espinacas y reduce 10 minutos. Tritura y liga con la maicena si queda ligera.", 12),
+      S("Haz a la plancha el calabacín y el tomate en rodajas con sal.", 6),
+      S("Salpimienta el gallo, hazlo a la plancha 1 minuto por lado y sírvelo sobre las verduras con la salsa y perejil.", 3),
+    ],
+  }),
+  es({
+    id: "salmon-mojo-aguacate", title: "Salmón marinado con mojo de aguacate y tomates cherry",
+    baseServings: 4, prepMin: 40, cookMin: 10, difficulty: "easy", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("salmon", 700, "g"), I("tomate-cherry", 200, "g"), I("soja", 60, "ml"), I("jengibre", 5, "g"), I("azucar", 4, "g"), I("aguacate", 1, "unit"), I("leche", 75, "ml"), I("limon", 0.5, "unit"), I("aceite", 90, "ml"), I("perejil", 3, "g"), I("sal", 4, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Salpimienta los lomos de salmón y marínalos 30 minutos con la soja, el jengibre, el azúcar y 4 cucharadas de aceite.", 30),
+      S("Escalda los tomates cherry 1 minuto y pélalos. Tritura el aguacate con la leche, unas gotas de limón, 2 cucharadas de aceite y sal.", 5),
+      S("Haz el salmón vuelta y vuelta en la plancha y calienta los tomates con la marinada.", 4),
+      S("Sirve con el mojo y perejil."),
+    ],
+  }),
+  es({
+    id: "bacalao-tempura-escalivada", title: "Bocados de bacalao en tempura con escalivada y mayonesa de ajo",
+    baseServings: 4, prepMin: 25, cookMin: 45, difficulty: "medium", equipment: ["horno", "batidora", "sarten"],
+    ingredients: [I("bacalao", 700, "g"), I("berenjena", 300, "g"), I("pimiento", 2, "unit"), I("harina", 150, "g"), I("huevo", 1, "unit"), I("ajo", 1, "unit"), I("vinagre", 5, "ml"), I("aceite", 400, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Desala el bacalao 24-48 horas en la nevera cambiando el agua. Asa la berenjena y los pimientos rojos con aceite y sal en el horno a 180 °C 32 minutos, pélalos, córtalos en tiras y alíñalos.", 35, 180),
+      S("Tritura el huevo con medio ajo, sal, vinagre y 150 ml de aceite para la mayonesa.", 2),
+      S("Mezcla la harina (de tempura) con 200 ml de agua fría, pasa por ella el bacalao en tacos y fríelo.", 6),
+      S("Sirve con la escalivada, la mayonesa y perejil."),
+    ],
+  }),
+  es({
+    id: "gallo-relleno-queso-verduras", title: "Filetes de gallo rellenos de queso con endibias a la plancha y aceite de albahaca",
+    baseServings: 4, prepMin: 25, cookMin: 15, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("gallo", 800, "g"), I("queso", 100, "g"), I("endibia", 2, "unit"), I("lechuga", 2, "unit"), I("harina", 40, "g"), I("huevo", 2, "unit"), I("pan-rallado", 80, "g"), I("albahaca", 20, "g"), I("aceite", 400, "ml"), I("perejil", 3, "g"), I("sal", 5, "g")],
+    steps: [
+      S("Escalda la albahaca 30 segundos, sécala y tritúrala con 100 ml de aceite.", 3),
+      S("Corta los filetes de gallo en 16 trozos, sala, monta 8 bocados con una cuña de queso dentro y pásalos por harina, huevo y pan rallado.", 10),
+      S("Fríelos 1 minuto por lado.", 4),
+      S("Haz a la plancha las endibias y los cogollos (lechuga) partidos y sirve con el aceite de albahaca y perejil.", 5),
+    ],
+  }),
+  es({
+    id: "salmon-salsa-berros-aros-cebolla", title: "Salmón con salsa de rúcula y aros de cebolla",
+    note: "El original usa berros y vermut.",
+    baseServings: 4, prepMin: 25, cookMin: 20, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("salmon", 700, "g"), I("cebolleta", 2, "unit"), I("vino-blanco", 200, "ml"), I("huevo", 2, "unit"), I("pan-rallado", 100, "g"), I("rucula", 50, "g"), I("puerro", 1, "unit"), I("nata", 300, "ml"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 5, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Corta el salmón sin piel en dados, salpimiéntalo y macéralo 10 minutos con el vino; escúrrelo y reduce el vino hasta que espese.", 12),
+      S("Pocha el puerro en daditos, añade la rúcula y la nata, cuece 10 minutos, tritura y sala.", 14),
+      S("Pasa los aros de cebolleta por pan rallado, huevo y otra vez pan rallado y fríelos.", 6),
+      S("Haz el salmón a la plancha 1 minuto por lado y sirve con la salsa, la reducción, los aros y perejil.", 3),
+    ],
+  }),
+  es({
+    id: "bacalao-fresco-hortalizas-asadas", title: "Bacalao fresco con hortalizas asadas y panko al ajo",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "easy", equipment: ["horno"],
+    ingredients: [I("bacalao", 800, "g"), I("esparragos-verdes", 250, "g"), I("ajo", 9, "unit"), I("calabacin", 300, "g"), I("pimiento", 1, "unit"), I("tomate", 400, "g"), I("pan-rallado", 100, "g"), I("azucar", 3, "g"), I("aceite", 80, "ml"), I("perejil", 3, "g"), I("sal", 8, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Machaca un ajo con sal gruesa, mézclalo con el pan rallado (panko) y aceite y tuéstalo en el horno a 160 °C 7 minutos.", 7, 160),
+      S("Asa los espárragos, los ajos frescos en trozos, el calabacín en rodajas gruesas, el pimiento rojo pelado y los tomates partidos con sal, una pizca de azúcar y aceite en el horno a 190 °C 20 minutos.", 20, 190),
+      S("Pon el bacalao fresco en raciones salpimentado sobre las verduras y hornea 8 minutos más.", 8, 190),
+      S("Sirve con el panko por encima y perejil."),
+    ],
+  }),
+  es({
+    id: "boquerones-escabeche-pan-tomate", title: "Boquerones en escabeche suave con pan tostado con tomate",
+    baseServings: 4, prepMin: 25, cookMin: 25, difficulty: "medium", equipment: ["olla", "horno"],
+    note: "El pescado se cuece con el escabeche caliente. Si el boquerón no ha estado congelado, congélalo 5 días antes por el anisakis.",
+    ingredients: [I("boquerones", 500, "g"), I("pan", 200, "g"), I("tomate", 300, "g"), I("pimiento", 2, "unit"), I("cebolleta", 2, "unit"), I("zanahoria", 200, "g"), I("ajo", 8, "unit"), I("laurel", 2, "unit"), I("vino-blanco", 150, "ml"), I("vinagre", 150, "ml"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 2, "g")],
+    steps: [
+      S("Hierve el aceite con el vinagre y el vino, añade los pimientos verdes, las zanahorias y las cebolletas cortados, los ajos con piel, el laurel, la pimienta en grano y sal, y cuece 20 minutos a fuego suave.", 22),
+      S("Limpia los boquerones en lomos, sálalos y extiéndelos con la piel hacia arriba; vierte el escabeche caliente por encima y deja reposar 15 minutos.", 15),
+      S("Mientras, tuesta el pan en el horno y úntalo con tomate rallado.", 5, 200),
+      S("Sirve los boquerones con las verduras del escabeche, el pan y perejil."),
+    ],
+  }),
+  es({
+    id: "mejillones-bruselas-patatas", title: "Mejillones al estilo de Bruselas con patatas fritas",
+    cuisine: "francesa", origin: "Bélgica (versión de Arguiñano)",
+    baseServings: 4, prepMin: 20, cookMin: 20, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("mejillones", 2000, "g"), I("patata", 600, "g"), I("apio", 60, "g"), I("cebolleta", 1, "unit"), I("mantequilla", 15, "g"), I("vino-blanco", 150, "ml"), I("leche-evaporada", 150, "ml"), I("aceite", 300, "ml"), I("perejil", 5, "g"), I("sal", 5, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Funde la mantequilla con 2 cucharadas de aceite, rehoga el apio y la cebolleta en daditos con pimienta, añade el vino y reduce. Añade la leche evaporada.", 8),
+      S("Añade los mejillones limpios, tapa y cocina hasta que se abran.", 5),
+      S("Fríe las patatas en bastones con unas ramas de perejil, escúrrelas y salpimiéntalas. Sirve con los mejillones.", 10),
+    ],
+  }),
+  es({
+    id: "salmon-papillote-tartara", title: "Salmón en papillote con verduras y salsa tártara",
+    baseServings: 4, prepMin: 25, cookMin: 20, difficulty: "medium", equipment: ["batidora", "olla", "horno"],
+    ingredients: [I("salmon", 700, "g"), I("patata", 200, "g"), I("calabacin", 250, "g"), I("puerro", 2, "unit"), I("cebolleta", 2, "unit"), I("vino-blanco", 100, "ml"), I("huevo", 2, "unit"), I("alcaparras", 15, "g"), I("vinagre", 10, "ml"), I("aceite", 240, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Monta un huevo con 200 ml de aceite, vinagre y sal con la batidora. Mézclalo con el otro huevo cocido 10 minutos y picado, las alcaparras, una cebolleta (y pepinillos, si tienes) picados y perejil.", 12),
+      S("Corta la patata y el calabacín en láminas finas y los puerros y la otra cebolleta en juliana.", 6),
+      S("Reparte las verduras en 4 hojas de papel de horno, pon encima el salmón salpimentado, riega con el vino y aceite y cierra los paquetes.", 5),
+      S("Hornea a 200 °C 15 minutos y sirve con la salsa tártara.", 15, 200),
+    ],
+  }),
+  es({
+    id: "salmon-sal-melon-sandia", title: "Salmón a la sal con salteado de melón y sandía y salsa de fresas",
+    baseServings: 4, prepMin: 15, cookMin: 20, difficulty: "easy", equipment: ["horno", "olla", "sarten"],
+    ingredients: [I("salmon", 700, "g"), I("melon", 0.25, "unit"), I("sandia", 250, "g"), I("fresas", 120, "g"), I("vinagre", 100, "ml"), I("azucar", 12, "g"), I("aceite", 30, "ml"), I("perejil", 3, "g"), I("sal", 70, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Pon cada porción de salmón con la piel hacia arriba sobre papel de aluminio salpimentado, dobla los bordes como una cajita, cubre con 2 cucharadas de sal gruesa y hornea a 200 °C 10 minutos. Quita la sal y la piel.", 12, 200),
+      S("Cuece las fresas picadas con el azúcar, sal y el vinagre 10 minutos y cuela.", 10),
+      S("Saltea el melón y la sandía en dados con un chorrito de aceite 1 minuto.", 2),
+      S("Sirve el salmón con la fruta, la salsa y perejil."),
+    ],
+  }),
+  es({
+    id: "caballa-setas-boniato", title: "Caballa con setas y boniato",
+    note: "El original usa verdel.",
+    baseServings: 4, prepMin: 20, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("caballa", 800, "g"), I("boniato", 600, "g"), I("setas", 300, "g"), I("ajo", 2, "unit"), I("cebolleta", 1, "unit"), I("chalota", 2, "unit"), I("harina", 40, "g"), I("aceite", 200, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece el boniato en rodajas al bies de 2 cm 12-15 minutos, escúrrelo y dóralo en la plancha.", 18),
+      S("Pocha la cebolleta y las chalotas en juliana, añade las setas en juliana y cocina 5 minutos con sal.", 8),
+      S("Saca los lomos de las caballas, salpimiéntalos, enharínalos y fríelos 30 segundos por lado con los ajos con piel.", 3),
+      S("Sirve con perejil."),
+    ],
+  }),
+  es({
+    id: "boquerones-patatas-tomate-asado", title: "Boquerones con patatas a lo pobre y tomate asado con guindillas",
+    baseServings: 4, prepMin: 25, cookMin: 30, difficulty: "easy", equipment: ["horno", "sarten"],
+    ingredients: [I("boquerones", 500, "g"), I("patata", 500, "g"), I("tomate", 300, "g"), I("pimiento", 1, "unit"), I("cebolleta", 1, "unit"), I("ajo", 5, "unit"), I("chile", 4, "unit"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Ralla los tomates, mézclalos con un ajo rallado y las guindillas (en vinagre) picadas, sal y aceite y ásalo en el horno a 200 °C 20 minutos.", 20, 200),
+      S("Mientras, fríe 4 ajos laminados con las patatas en medias lunas, la cebolleta y el pimiento verde picados, con sal."),
+      S("Limpia los boquerones en lomos, salpimiéntalos, riégalos con aceite y hornéalos 3 minutos.", 3, 200),
+      S("Sirve los boquerones sobre las patatas con el tomate y perejil."),
+    ],
+  }),
+  es({
+    id: "sardinas-berenjenas-horno", title: "Tostas de sardinas con berenjena al horno y ajada",
+    baseServings: 4, prepMin: 25, cookMin: 25, difficulty: "easy", equipment: ["horno", "sarten"],
+    ingredients: [I("sardinas", 800, "g"), I("berenjena", 500, "g"), I("pan", 240, "g"), I("ajo", 2, "unit"), I("chile", 1, "unit"), I("aceite", 80, "ml"), I("perejil", 5, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Corta la berenjena en 24 láminas al bies, sálalas, riégalas con aceite y ásalas en el horno a 190 °C 15 minutos.", 15, 190),
+      S("Limpia las sardinas abriéndolas en libro sin espina y sálalas.", 10),
+      S("Dora el ajo laminado con la guindilla y perejil y riega las sardinas con el refrito.", 3),
+      S("Pon berenjena y 2 sardinas sobre cada rebanada de pan (chapata) y hornea a 200 °C 3 minutos. Riega con el resto del refrito.", 3, 200),
+    ],
+  }),
+  es({
+    id: "sardinas-marinadas-vinagreta-tostas", title: "Sardinas marinadas en sal con vinagreta de pimientos y tostas de tomate",
+    baseServings: 4, prepMin: 80, cookMin: 5, difficulty: "easy", equipment: ["horno"],
+    note: "Si las sardinas no han estado congeladas, congélalas 5 días antes por el anisakis.",
+    ingredients: [I("sardinas", 600, "g"), I("pan", 200, "g"), I("rucula", 70, "g"), I("tomate", 200, "g"), I("ajo", 1, "unit"), I("pimiento", 1.5, "unit"), I("cebolleta", 1, "unit"), I("vinagre", 30, "ml"), I("aceite", 80, "ml"), I("sal", 200, "g")],
+    steps: [
+      S("Saca los lomos de las sardinas, cúbrelos de sal gruesa y deja que maceren 1 hora. Enjuágalos y sécalos.", 60),
+      S("Mezcla los pimientos (verde y rojo pelado) y la cebolleta en daditos con aceite, vinagre y sal y aliña las sardinas.", 6),
+      S("Tuesta 12 rebanadas de pan en el horno y úntalas con ajo y tomate.", 5, 200),
+      S("Pon la rúcula y las sardinas sobre el pan."),
+    ],
+  }),
+  es({
+    id: "boquerones-fritos-adobo-papas-alinas", title: "Boquerones fritos y al ajillo con papas aliñás",
+    origin: "España (Andalucía)",
+    baseServings: 4, prepMin: 25, cookMin: 40, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("boquerones", 800, "g"), I("patata", 600, "g"), I("cebolleta", 1, "unit"), I("ajo", 3, "unit"), I("harina", 80, "g"), I("vinagre", 20, "ml"), I("chile", 1, "unit"), I("aceite", 400, "ml"), I("perejil", 5, "g"), I("sal", 7, "g")],
+    steps: [
+      S("Cuece las patatas 30 minutos, pélalas, trocéalas y alíñalas con la cebolleta picada, perejil, vinagre, aceite y sal.", 32),
+      S("Limpia los boquerones. Sala la mitad, enharínalos y fríelos en aceite muy caliente.", 6),
+      S("Fríe los ajos picados con la guindilla, añade el resto de boquerones salados y saltéalos 1 minuto.", 3),
+      S("Sirve las dos versiones con las papas aliñás."),
+    ],
+  }),
+  es({
+    id: "lubina-salsa-pimienta-verde", title: "Lubina a la lima con salsa de pimiento verde a la pimienta",
+    note: "El original la acompaña con algas kombu fritas.",
+    baseServings: 4, prepMin: 25, cookMin: 20, difficulty: "easy", equipment: ["horno", "olla", "batidora"],
+    ingredients: [I("lubina", 1200, "g"), I("pimiento", 2, "unit"), I("leche-evaporada", 350, "ml"), I("lima", 2, "unit"), I("aceite", 40, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 4, "g")],
+    steps: [
+      S("Corta las lubinas en 3 trozos, salpimienta y macera 15 minutos con la ralladura y el zumo de las limas y un chorrito de aceite.", 15),
+      S("Hornea el pescado con su jugo a 220 °C 9 minutos.", 9, 220),
+      S("Mientras, pocha los pimientos verdes en dados con una cucharada de pimienta (verde en grano), sala, añade la leche evaporada, cuece 10 minutos, tritura y cuela."),
+      S("Sirve la lubina con la salsa y perejil."),
+    ],
+  }),
+  es({
+    id: "merluza-salteada-curry", title: "Merluza salteada al curry con patatas y ajetes",
+    note: "El original usa pescadilla.",
+    baseServings: 4, prepMin: 15, cookMin: 40, difficulty: "easy", equipment: ["olla", "sarten"],
+    ingredients: [I("merluza", 800, "g"), I("patata", 600, "g"), I("ajo", 6, "unit"), I("curry", 3, "g"), I("soja", 30, "ml"), I("aceite", 40, "ml"), I("perejil", 5, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Cuece las patatas 30 minutos, pélalas y córtalas en dados.", 30),
+      S("Saltea los ajos frescos en cilindros, añade las patatas, perejil, sal y pimienta y la soja. Pásalo a una fuente.", 5),
+      S("Salpimienta la merluza en dados, espolvorea el curry y saltéala con perejil 2 minutos. Sirve sobre las patatas.", 3),
+    ],
+  }),
+  es({
+    id: "bacalao-ajoarriero", title: "Bacalao al ajoarriero",
+    origin: "España (Navarra)",
+    baseServings: 4, prepMin: 20, cookMin: 35, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("bacalao", 600, "g"), I("cebolla", 1, "unit"), I("pimiento", 3, "unit"), I("pimientos-piquillo", 60, "g"), I("pimenton", 4, "g"), I("ajo", 6, "unit"), I("patata", 200, "g"), I("tomate-triturado", 400, "g"), I("huevo", 2, "unit"), I("chile", 1, "unit"), I("aceite", 60, "ml"), I("perejil", 3, "g"), I("sal", 3, "g")],
+    steps: [
+      S("Da un hervor al bacalao desalado y sepáralo en lascas. Cuece los huevos 10 minutos y córtalos en gajos.", 12),
+      S("Pocha los ajos, la cebolla y los pimientos (rojo pelado y verdes) en dados con la patata en lasquitas y la guindilla.", 15),
+      S("Añade el pimentón (el original usa carne de choricero), el tomate y el bacalao y cocina 5 minutos.", 6),
+      S("Sirve con los piquillos en tiras, el huevo y perejil."),
+    ],
+  }),
+  es({
+    id: "lubina-arroz-negro", title: "Lubina a la plancha con arroz negro y tomates cherry",
+    note: "El original usa dorada.",
+    baseServings: 4, prepMin: 20, cookMin: 45, difficulty: "medium", equipment: ["olla", "sarten"],
+    ingredients: [I("lubina", 1200, "g"), I("arroz", 200, "g"), I("puerro", 1, "unit"), I("cebolleta", 1, "unit"), I("ajo", 2, "unit"), I("tomate", 100, "g"), I("tomate-cherry", 250, "g"), I("tinta-calamar", 20, "g"), I("aceite", 50, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Saca los lomos de las lubinas. Cuece cabezas y espinas con el puerro y perejil en agua con sal 20 minutos y cuela.", 20),
+      S("Pocha la cebolleta y el ajo picados, añade el tomate pera picado, el arroz, la tinta y medio litro de caldo y cuece 18 minutos.", 22),
+      S("Escalda los tomates cherry 1 minuto, pélalos y saltéalos.", 3),
+      S("Salpimienta los lomos y hazlos a la plancha por la piel. Sirve sobre el arroz con los tomates y perejil.", 5),
+    ],
+  }),
+  es({
+    id: "rollo-bonito-asturiana", title: "Rollo de bonito a la asturiana",
+    origin: "España (Asturias)", cuisine: "asturiana",
+    baseServings: 4, prepMin: 25, cookMin: 40, difficulty: "medium", equipment: ["olla", "batidora", "sarten"],
+    ingredients: [I("bonito", 650, "g"), I("jamon", 50, "g"), I("huevo", 3, "unit"), I("pan-rallado", 20, "g"), I("pimientos-piquillo", 40, "g"), I("cebolleta", 1, "unit"), I("ajo", 2, "unit"), I("aceitunas", 40, "g"), I("harina", 50, "g"), I("cebolla", 2, "unit"), I("tomate", 300, "g"), I("vino-blanco", 100, "ml"), I("aceite", 150, "ml"), I("perejil", 3, "g"), I("sal", 6, "g")],
+    steps: [
+      S("Dora un ajo picado, pocha las cebollas, añade el vino, da un hervor y los tomates rallados; sofríe 10 minutos, sala y tritura.", 20),
+      S("Desmenuza el bonito sin piel ni espinas y mézclalo con el otro ajo, el jamón, las aceitunas, los piquillos y la cebolleta muy picados, perejil, un huevo, el pan rallado y sal.", 10),
+      S("Forma dos rollos con las manos mojadas, pásalos por harina y los otros huevos batidos y dóralos en la sartén por todos los lados.", 8),
+      S("Cuécelos en la salsa 10 minutos, córtalos en rodajas y sírvelos.", 10),
+    ],
+  }),
+  es({
+    id: "pastel-bacalao-patatas", title: "Pastel de bacalao y patatas gratinado",
+    baseServings: 4, prepMin: 15, cookMin: 35, difficulty: "easy", equipment: ["sarten", "olla", "horno"],
+    ingredients: [I("bacalao", 600, "g"), I("patata", 700, "g"), I("cebolleta", 2, "unit"), I("pimiento", 2, "unit"), I("huevo", 1, "unit"), I("pimenton", 2, "g"), I("aceite", 60, "ml"), I("perejil", 5, "g"), I("sal", 4, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Pocha las cebolletas y los pimientos verdes en daditos con sal hasta dorar.", 12),
+      S("Escalda el bacalao desalado 2-3 minutos, quítale la piel, desmígalo, saltéalo con las verduras y pásalo a una fuente de horno.", 5),
+      S("Cuece las patatas cascadas 12 minutos y pásalas por el pasapurés con aceite, sal, pimienta y pimentón. Cubre el bacalao.", 14),
+      S("Pinta con el huevo batido con perejil y gratina en el horno 5 minutos.", 5, 220),
+    ],
+  }),
+  es({
+    id: "bacalao-huevos-ajetes-horno", title: "Bacalao con huevos y ajetes en cazuela de barro",
+    baseServings: 4, prepMin: 15, cookMin: 20, difficulty: "easy", equipment: ["sarten", "olla", "horno"],
+    ingredients: [I("bacalao", 600, "g"), I("huevo", 4, "unit"), I("ajo", 12, "unit"), I("aceitunas", 40, "g"), I("pan", 75, "g"), I("aceite", 100, "ml"), I("perejil", 3, "g"), I("sal", 2, "g")],
+    steps: [
+      S("Saltea los ajos frescos en cilindros y ponlos en una cazuela de barro.", 4),
+      S("Cuece los lomos de bacalao desalado 3-4 minutos, sepáralos en lascas y ponlos encima.", 5),
+      S("Casca los huevos, añade las aceitunas negras partidas y una pizca de sal y hornea a 200 °C 10 minutos.", 10, 200),
+      S("Sirve con el pan frito en dados y perejil.", 3),
+    ],
+  }),
+  es({
+    id: "rape-rebozado-tomate-azafran", title: "Rape rebozado con salsa de tomate asado al azafrán",
+    baseServings: 4, prepMin: 15, cookMin: 45, difficulty: "easy", equipment: ["horno", "batidora", "olla", "sarten"],
+    ingredients: [I("rape", 800, "g"), I("ajo", 4, "unit"), I("harina", 40, "g"), I("huevo", 2, "unit"), I("tomate", 1000, "g"), I("cebolleta", 2, "unit"), I("azafran", 0.1, "g"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 6, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Asa los tomates pera y las cebolletas con sal y aceite en el horno a 190 °C 30 minutos.", 30, 190),
+      S("Pela los tomates, tritúralos con las cebolletas y un ajo, añade el azafrán y cuece 10 minutos.", 12),
+      S("Corta el rape en filetes, aplánalos, salpimiéntalos, pásalos por harina y huevo y fríelos con los otros ajos aplastados.", 6),
+      S("Sirve sobre la salsa con perejil."),
+    ],
+  }),
+  es({
+    id: "gallo-mostaza-chips-nabo-melon", title: "Rollitos de gallo a la mostaza con chips de nabo y melón con jamón",
+    baseServings: 4, prepMin: 25, cookMin: 20, difficulty: "medium", equipment: ["olla", "sarten", "horno"],
+    ingredients: [I("gallo", 800, "g"), I("nabo", 300, "g"), I("jamon", 80, "g"), I("melon", 0.25, "unit"), I("vino-dulce", 100, "ml"), I("mostaza", 20, "g"), I("miel", 10, "g"), I("aceite", 300, "ml"), I("perejil", 3, "g"), I("sal", 5, "g"), I("pimienta", 1, "g")],
+    steps: [
+      S("Macera el melón en rectángulos con el vino dulce 15 minutos; reduce el vino con un poco de aceite. Envuelve el melón con el jamón.", 18),
+      S("Corta los nabos en láminas finas con el pelador, fríelas y sálalas.", 6),
+      S("Salpimienta los filetes de gallo, úntalos con la mostaza mezclada con la miel, enróllalos y hornéalos con aceite a 200 °C 10 minutos.", 10, 200),
+      S("Marca el melón con jamón en la plancha y sirve todo con la reducción y perejil.", 2),
+    ],
+  }),
+];
