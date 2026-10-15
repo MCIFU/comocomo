@@ -7,17 +7,6 @@ const FEC = "Plato del menú para el colesterol alto de la Fundación Española 
 
 export const recipesColesterolFec: Recipe[] = [
   r({
-    id: "espinacas-pasas-pinones", title: "Espinacas con pasas y piñones",
-    cuisine: "espanola", origin: "España (Cataluña)", authenticity: "traditional", note: FEC,
-    baseServings: 4, prepMin: 10, cookMin: 10, difficulty: "easy", equipment: ["sarten"],
-    ingredients: [I("espinacas", 800, "g"), I("pasas", 40, "g"), I("pinones", 25, "g"), I("ajo", 2, "unit"), I("aceite", 30, "ml"), I("sal", 3, "g")],
-    steps: [
-      S("Hidrata las pasas 10 minutos en agua templada y escúrrelas.", 10),
-      S("Dora el ajo laminado y los piñones con el aceite a fuego suave, sin que se quemen.", 3),
-      S("Añade las espinacas lavadas y escurridas, sala y saltea hasta que pierdan volumen. Incorpora las pasas y saltea 1 minuto más.", 5),
-    ],
-  }),
-  r({
     id: "pollo-mostaza-arroz", title: "Pechuga de pollo a la mostaza con arroz",
     cuisine: "espanola", origin: "España", authenticity: "adapted", note: `${FEC} Salsa de mostaza aligerada con leche desnatada en lugar de nata.`,
     baseServings: 4, prepMin: 10, cookMin: 25, difficulty: "easy", equipment: ["olla", "sarten"],
@@ -60,17 +49,6 @@ export const recipesColesterolFec: Recipe[] = [
       S("Pocha la cebolla, el pimiento y el ajo picados con el aceite 10 minutos. Añade el pimentón y el tomate triturado y cocina 5 minutos.", 15),
       S("Agrega las patatas chascadas, el laurel y agua hasta cubrir y cuece 15 minutos (sin sal: la pone el bacalao).", 15),
       S("Incorpora el bacalao desalado en trozos y cuece 5 minutos más.", 5),
-    ],
-  }),
-  r({
-    id: "patatas-guisadas-judias-verdes", title: "Patatas guisadas con judías verdes",
-    cuisine: "espanola", origin: "España", authenticity: "traditional", note: FEC,
-    baseServings: 4, prepMin: 10, cookMin: 30, difficulty: "easy", equipment: ["olla"],
-    ingredients: [I("patata", 700, "g"), I("judias-verdes", 400, "g"), I("cebolla", 1, "unit"), I("zanahoria", 150, "g"), I("ajo", 2, "unit"), I("pimenton", 3, "g"), I("laurel", 1, "unit"), I("aceite", 30, "ml"), I("sal", 4, "g")],
-    steps: [
-      S("Rehoga la cebolla, el ajo y la zanahoria picados con el aceite 8 minutos y añade el pimentón.", 8),
-      S("Incorpora las patatas chascadas y las judías verdes troceadas, el laurel, sal y agua hasta cubrir.", 3),
-      S("Cuece a fuego suave 20-25 minutos hasta que la patata esté tierna y el caldo trabado.", 23),
     ],
   }),
   r({
