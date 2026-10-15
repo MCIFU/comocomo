@@ -1,0 +1,809 @@
+{
+ "wok-pollo-teriyaki": [],
+ "baguettes-ensaladilla": [],
+ "huevos-salsa-bretona": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Argentine_calabresa_pizza_with_eggs,_olives_and_cheese.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Argentine_calabresa_pizza_with_eggs%2C_olives_and_cheese.jpg/960px-Argentine_calabresa_pizza_with_eggs%2C_olives_and_cheese.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2920,
+   "h": 2890,
+   "license": "CC BY-SA 3.0",
+   "author": "Horacio Cambeiro"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Argentine_calabresa_pizza_with_eggs,_olives_and_cheese_(64020).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Argentine_calabresa_pizza_with_eggs%2C_olives_and_cheese_%2864020%29.jpg/960px-Argentine_calabresa_pizza_with_eggs%2C_olives_and_cheese_%2864020%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3798,
+   "h": 3000,
+   "license": "CC BY-SA 3.0",
+   "author": "Horacio Cambeiro"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Argentine_calabresa_pizza_with_eggs,_olives_and_cheese_(56080).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Argentine_calabresa_pizza_with_eggs%2C_olives_and_cheese_%2856080%29.jpg/960px-Argentine_calabresa_pizza_with_eggs%2C_olives_and_cheese_%2856080%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3834,
+   "h": 3000,
+   "license": "CC BY-SA 3.0",
+   "author": "Horacio Cambeiro"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Argentine_calabresa_pizza_with_eggs,_olives_and_cheese_(82811).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Argentine_calabresa_pizza_with_eggs%2C_olives_and_cheese_%2882811%29.jpg/960px-Argentine_calabresa_pizza_with_eggs%2C_olives_and_cheese_%2882811%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 3000,
+   "license": "CC BY-SA 3.0",
+   "author": "Horacio Cambeiro"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Club_Big_Breakfast,_The_Coffee_Club_Riverton,_2026_(01).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Club_Big_Breakfast%2C_The_Coffee_Club_Riverton%2C_2026_%2801%29.jpg/960px-Club_Big_Breakfast%2C_The_Coffee_Club_Riverton%2C_2026_%2801%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3056,
+   "h": 3056,
+   "license": "CC BY-SA 4.0",
+   "author": "Bahnfrend"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Club_Big_Breakfast,_The_Coffee_Club_Riverton,_2026_(02).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Club_Big_Breakfast%2C_The_Coffee_Club_Riverton%2C_2026_%2802%29.jpg/960px-Club_Big_Breakfast%2C_The_Coffee_Club_Riverton%2C_2026_%2802%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3963,
+   "h": 2970,
+   "license": "CC BY-SA 4.0",
+   "author": "Bahnfrend"
+  }
+ ],
+ "bizcochitos-manzana-jengibre": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Cinnamon_Apple_Muffins_(1).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Cinnamon_Apple_Muffins_%281%29.jpg/960px-Cinnamon_Apple_Muffins_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3456,
+   "h": 5184,
+   "license": "CC BY-SA 4.0",
+   "author": "Roozitaa"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Apple_Spice_Muffins_and_an_apple_(14888735409).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Apple_Spice_Muffins_and_an_apple_%2814888735409%29.jpg/960px-Apple_Spice_Muffins_and_an_apple_%2814888735409%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1500,
+   "h": 1000,
+   "license": "CC BY 2.0",
+   "author": "Personal Creations"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Apple_Zucchini_Muffins_(12367641814).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Apple_Zucchini_Muffins_%2812367641814%29.jpg/960px-Apple_Zucchini_Muffins_%2812367641814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6907,
+   "h": 4662,
+   "license": "CC BY 2.0",
+   "author": "Korona Lacasse"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Vegan_Apple_Cinnamon_Muffins_(3879653097).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Vegan_Apple_Cinnamon_Muffins_%283879653097%29.jpg/960px-Vegan_Apple_Cinnamon_Muffins_%283879653097%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2129,
+   "h": 3312,
+   "license": "CC BY 2.0",
+   "author": "Vegan Feast Catering"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Apple_Streusel_Muffins_(4671684388).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Apple_Streusel_Muffins_%284671684388%29.jpg/960px-Apple_Streusel_Muffins_%284671684388%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2816,
+   "h": 1880,
+   "license": "CC BY-SA 2.0",
+   "author": "Katrin Gilger"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Vegan_Apple_Cinnamon_Muffins_(3879653091).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Vegan_Apple_Cinnamon_Muffins_%283879653091%29.jpg/960px-Vegan_Apple_Cinnamon_Muffins_%283879653091%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3123,
+   "h": 2592,
+   "license": "CC BY 2.0",
+   "author": "Vegan Feast Catering"
+  }
+ ],
+ "croquetas-gambas-brick": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Shrimp_Spring_Roll_with_Spicy_Peanut_Sauce.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Liat_Portal_for_Foodie_Disorder_-_Shrimp_Spring_Roll_with_Spicy_Peanut_Sauce.jpg/960px-Liat_Portal_for_Foodie_Disorder_-_Shrimp_Spring_Roll_with_Spicy_Peanut_Sauce.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3024,
+   "h": 4032,
+   "license": "CC BY-SA 4.0",
+   "author": "HaJunkiyada"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Sukhothai_appetizer_sampler.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Sukhothai_appetizer_sampler.jpg/960px-Sukhothai_appetizer_sampler.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2576,
+   "h": 1932,
+   "license": "CC BY-SA 2.0",
+   "author": "aimee castenell from atlanta, United States"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Pig_%E2%80%99N%E2%80%99_Whistle_West_End,_Queensland_04.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Pig_%E2%80%99N%E2%80%99_Whistle_West_End%2C_Queensland_04.jpg/960px-Pig_%E2%80%99N%E2%80%99_Whistle_West_End%2C_Queensland_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 2069,
+   "license": "CC BY-SA 4.0",
+   "author": "Kgbo"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Pearl_Liang,_Paddington,_London_(3676850450).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Pearl_Liang%2C_Paddington%2C_London_%283676850450%29.jpg/960px-Pearl_Liang%2C_Paddington%2C_London_%283676850450%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3776,
+   "h": 2520,
+   "license": "CC BY-SA 2.0",
+   "author": "Ewan Munro from London, UK"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:HK_HFC_%E6%9D%8F%E8%8A%B1%E9%82%A8_Hang_Fa_Chuen_Paradise_Mall_%E5%95%86%E5%A0%B4_shop_%E6%B3%B0%E5%9C%8B%E4%BA%BA%E6%B5%B7%E5%8D%97%E9%9B%9E_Koon_Thai_Hai_Nam_Chicken_Restaurant_menu_February_2023_Px3.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/HK_HFC_%E6%9D%8F%E8%8A%B1%E9%82%A8_Hang_Fa_Chuen_Paradise_Mall_%E5%95%86%E5%A0%B4_shop_%E6%B3%B0%E5%9C%8B%E4%BA%BA%E6%B5%B7%E5%8D%97%E9%9B%9E_Koon_Thai_Hai_Nam_Chicken_Restaurant_menu_February_2023_Px3.jpg/960px-HK_HFC_%E6%9D%8F%E8%8A%B1%E9%82%A8_Hang_Fa_Chuen_Paradise_Mall_%E5%95%86%E5%A0%B4_shop_%E6%B3%B0%E5%9C%8B%E4%BA%BA%E6%B5%B7%E5%8D%97%E9%9B%9E_Koon_Thai_Hai_Nam_Chicken_Restaurant_menu_February_2023_Px3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 3000,
+   "license": "CC BY-SA 4.0",
+   "author": "BA MUDH 20 KWONGL"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Hors_doeuvre_(5792693887).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Hors_doeuvre_%285792693887%29.jpg/960px-Hors_doeuvre_%285792693887%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1728,
+   "h": 1068,
+   "license": "CC BY-SA 2.0",
+   "author": "Matt @ PEK from Taipei, Taiwan"
+  }
+ ],
+ "fritura-cerveza": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Jalea_mixta.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Jalea_mixta.JPG/960px-Jalea_mixta.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3072,
+   "h": 2304,
+   "license": "Public domain",
+   "author": "Dtarazona"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fritura_de_pescado,_gastronom%C3%ADa_marinera_(Espa%C3%B1a).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Fritura_de_pescado%2C_gastronom%C3%ADa_marinera_%28Espa%C3%B1a%29.jpg/960px-Fritura_de_pescado%2C_gastronom%C3%ADa_marinera_%28Espa%C3%B1a%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3888,
+   "license": "CC BY-SA 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Jalea_peruana.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Jalea_peruana.jpg/960px-Jalea_peruana.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1536,
+   "h": 1784,
+   "license": "CC BY-SA 4.0",
+   "author": "MiguelAlanCS"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Jalea_en_Pisco.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Jalea_en_Pisco.jpg/960px-Jalea_en_Pisco.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2592,
+   "h": 1944,
+   "license": "CC BY 2.0",
+   "author": "Ray_LAC"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Jalea_mixta_25042010.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Jalea_mixta_25042010.JPG/960px-Jalea_mixta_25042010.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3072,
+   "h": 2304,
+   "license": "CC BY-SA 4.0",
+   "author": "Dtarazona"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Jalea_at_Limon_in_Burlingame.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Jalea_at_Limon_in_Burlingame.jpg/960px-Jalea_at_Limon_in_Burlingame.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC BY 2.0",
+   "author": "Neeta Lind"
+  }
+ ],
+ "sopa-pollo-pesto": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Soup_au_Pistou.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Soup_au_Pistou.jpg/960px-Soup_au_Pistou.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2349,
+   "h": 1847,
+   "license": "CC BY-SA 2.5",
+   "author": "Jdclevenger at English Wikipedia (original text: photo by Jason Clevenger)"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:01_Ingr%C3%A9dients_de_la_soupe_de_pistou.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/01_Ingr%C3%A9dients_de_la_soupe_de_pistou.jpg/960px-01_Ingr%C3%A9dients_de_la_soupe_de_pistou.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1209,
+   "h": 849,
+   "license": "CC BY 2.0",
+   "author": "ADT 04"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:La_soupe_au_pistou.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/La_soupe_au_pistou.jpg/960px-La_soupe_au_pistou.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1024,
+   "h": 768,
+   "license": "CC BY 2.0",
+   "author": "Cuisine de mère en fille, et des autres"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Pistou-3.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Pistou-3.JPG/960px-Pistou-3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3504,
+   "h": 2336,
+   "license": "CC BY-SA 3.0",
+   "author": "120 / V. Mourre"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Ingr%C3%A9dients_de_la_soupe_au_pistou.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Ingr%C3%A9dients_de_la_soupe_au_pistou.jpg/960px-Ingr%C3%A9dients_de_la_soupe_au_pistou.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3072,
+   "h": 2304,
+   "license": "CC BY 2.0",
+   "author": "Cuisine de mère en fille, et des autres"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:01_Soupe_au_pistou_dans_les_Alpes_proven%C3%A7ales.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/01_Soupe_au_pistou_dans_les_Alpes_proven%C3%A7ales.jpg/960px-01_Soupe_au_pistou_dans_les_Alpes_proven%C3%A7ales.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1619,
+   "h": 1177,
+   "license": "CC BY 2.0",
+   "author": "ADT 04"
+  }
+ ],
+ "huevos-rellenos-guacamole-langostinos": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Shrimp_Remoulade_at_Brigtsen%27s_Restaurant,_New_Orleans.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Shrimp_Remoulade_at_Brigtsen%27s_Restaurant%2C_New_Orleans.jpg/960px-Shrimp_Remoulade_at_Brigtsen%27s_Restaurant%2C_New_Orleans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3072,
+   "h": 2304,
+   "license": "CC BY-SA 2.0",
+   "author": "Navin75"
+  }
+ ],
+ "chupitos-kiwi-yogur-melocoton": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Chia_jars_with_bleuberries_(Unsplash).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Chia_jars_with_bleuberries_%28Unsplash%29.jpg/960px-Chia_jars_with_bleuberries_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5472,
+   "h": 3648,
+   "license": "CC0",
+   "author": "Brenda Godinez cravethebenefits"
+  }
+ ],
+ "champinones-gambas-plancha": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Kiremitte_karides.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Kiremitte_karides.jpg/960px-Kiremitte_karides.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2560,
+   "h": 1920,
+   "license": "CC BY-SA 4.0",
+   "author": "E4024"
+  }
+ ],
+ "ensalada-sandia-cuscus": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Frans_Post_-_Gezicht_op_Olinda,_Brazili%C3%AB.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Frans_Post_-_Gezicht_op_Olinda%2C_Brazili%C3%AB.jpg/960px-Frans_Post_-_Gezicht_op_Olinda%2C_Brazili%C3%AB.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6848,
+   "h": 4248,
+   "license": "Public domain",
+   "author": "Frans Post"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Watermelon_salad.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Watermelon_salad.jpg/960px-Watermelon_salad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2556,
+   "h": 2045,
+   "license": "CC BY-SA 2.0",
+   "author": "Suzanne Schroeter"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Koh_Mak,_Thailand,_Fruit_salad,_Watermelon,_banana_and_pineapple.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Koh_Mak%2C_Thailand%2C_Fruit_salad%2C_Watermelon%2C_banana_and_pineapple.jpg/960px-Koh_Mak%2C_Thailand%2C_Fruit_salad%2C_Watermelon%2C_banana_and_pineapple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 2688,
+   "license": "CC BY 4.0",
+   "author": "Vyacheslav Argenberg"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Watermelon_%26_Feta_Salad.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Watermelon_%26_Feta_Salad.jpg/960px-Watermelon_%26_Feta_Salad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3456,
+   "license": "CC BY 2.0",
+   "author": "Shoshanah"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Mediterranean_salad_with_chicken_and_watermelon_-_London,_UK.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Mediterranean_salad_with_chicken_and_watermelon_-_London%2C_UK.jpg/960px-Mediterranean_salad_with_chicken_and_watermelon_-_London%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2267,
+   "h": 2267,
+   "license": "CC0",
+   "author": "Daderot"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Grape_%26_Watermelon_Salad_(9579664887).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Grape_%26_Watermelon_Salad_%289579664887%29.jpg/960px-Grape_%26_Watermelon_Salad_%289579664887%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2058,
+   "h": 1757,
+   "license": "CC BY-SA 2.0",
+   "author": "Cajsa Lilliehook from Portland"
+  }
+ ],
+ "coles-bruselas-vizcaina": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:DSC_9987_Sizzling_slices_of_spicy_sausage_tossed_with_fresh_green_peppers_and_a_wedge_of_tomato_on_a_metal_tray.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/DSC_9987_Sizzling_slices_of_spicy_sausage_tossed_with_fresh_green_peppers_and_a_wedge_of_tomato_on_a_metal_tray.jpg/960px-DSC_9987_Sizzling_slices_of_spicy_sausage_tossed_with_fresh_green_peppers_and_a_wedge_of_tomato_on_a_metal_tray.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5568,
+   "h": 3712,
+   "license": "CC BY-SA 4.0",
+   "author": "PattayaPatrol"
+  }
+ ],
+ "alcachofas-almejas-vinagreta": [],
+ "paella-pescado-marisco": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Paella_Marinera_1.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Paella_Marinera_1.jpg/960px-Paella_Marinera_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3120,
+   "h": 4160,
+   "license": "CC BY-SA 4.0",
+   "author": "PapiPijuan"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Paella_marinera,_arroz_valenciano.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Paella_marinera%2C_arroz_valenciano.jpg/960px-Paella_marinera%2C_arroz_valenciano.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3888,
+   "license": "CC BY 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Paella_marinera_con_galeras_y_langostinos.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Paella_marinera_con_galeras_y_langostinos.jpg/960px-Paella_marinera_con_galeras_y_langostinos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3888,
+   "license": "CC BY 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Paella_marinera_(Les_Cases).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Paella_marinera_%28Les_Cases%29.jpg/960px-Paella_marinera_%28Les_Cases%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3888,
+   "license": "CC BY-SA 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Paella_marinera_con_pulpo_del_Grao_de_Castell%C3%B3n.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Paella_marinera_con_pulpo_del_Grao_de_Castell%C3%B3n.jpg/960px-Paella_marinera_con_pulpo_del_Grao_de_Castell%C3%B3n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3888,
+   "license": "CC BY 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Paella_Marinera.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Paella_Marinera.jpg/960px-Paella_Marinera.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3552,
+   "h": 2000,
+   "license": "CC BY-SA 4.0",
+   "author": "PapiPijuan"
+  }
+ ],
+ "arroz-pollo-panceta-verduras": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arroz-con-Pollo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Arroz-con-Pollo.jpg/960px-Arroz-con-Pollo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2304,
+   "h": 2272,
+   "license": "CC BY-SA 2.5",
+   "author": "Kobako"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arroz_con_pollo_tico.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Arroz_con_pollo_tico.jpg/960px-Arroz_con_pollo_tico.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1080,
+   "h": 1040,
+   "license": "CC BY-SA 4.0",
+   "author": "Aleat88"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arroz_con_pollo_a_la_chorrera.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Arroz_con_pollo_a_la_chorrera.jpg/960px-Arroz_con_pollo_a_la_chorrera.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 7454,
+   "h": 5587,
+   "license": "CC BY-SA 4.0",
+   "author": "El Mono Español"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arroz_con_pollo_asado.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Arroz_con_pollo_asado.jpg/960px-Arroz_con_pollo_asado.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1536,
+   "h": 2048,
+   "license": "CC BY-SA 3.0",
+   "author": "Omar Antonio Gomez Gayon"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arroz_con_Pollo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Arroz_con_Pollo.jpg/960px-Arroz_con_Pollo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2160,
+   "h": 3840,
+   "license": "CC BY-SA 4.0",
+   "author": "Linalymon"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arroz_con_pollo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Arroz_con_pollo.jpg/960px-Arroz_con_pollo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1600,
+   "h": 1200,
+   "license": "CC BY 3.0",
+   "author": "Jdvillalobos"
+  }
+ ],
+ "alitas-asadas-fideos-verduras": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Roasted_Chicken_Rice_-_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Roasted_Chicken_Rice_-_01.jpg/960px-Roasted_Chicken_Rice_-_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5712,
+   "h": 4284,
+   "license": "CC BY-SA 4.0",
+   "author": "Wiki Asmah"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3%E5%B8%82_Shenzhen_%E7%A6%8F%E7%94%B0%E5%8D%80_Futian_%E9%80%A3%E5%9F%8E%E6%96%B0%E5%A4%A9%E5%9C%B0_Link_City_basement_mall_April_2019_IX2_17_chicken_wing_rice.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/SZ_%E6%B7%B1%E5%9C%B3%E5%B8%82_Shenzhen_%E7%A6%8F%E7%94%B0%E5%8D%80_Futian_%E9%80%A3%E5%9F%8E%E6%96%B0%E5%A4%A9%E5%9C%B0_Link_City_basement_mall_April_2019_IX2_17_chicken_wing_rice.jpg/960px-SZ_%E6%B7%B1%E5%9C%B3%E5%B8%82_Shenzhen_%E7%A6%8F%E7%94%B0%E5%8D%80_Futian_%E9%80%A3%E5%9F%8E%E6%96%B0%E5%A4%A9%E5%9C%B0_Link_City_basement_mall_April_2019_IX2_17_chicken_wing_rice.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3648,
+   "h": 2432,
+   "license": "CC BY-SA 4.0",
+   "author": "Lunghaiu Wandloa 12"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Chicken_wings_and_hot_chips_from_Red_Rooster_and_a_can_of_Coke_No_Sugar.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Chicken_wings_and_hot_chips_from_Red_Rooster_and_a_can_of_Coke_No_Sugar.jpg/960px-Chicken_wings_and_hot_chips_from_Red_Rooster_and_a_can_of_Coke_No_Sugar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2866,
+   "h": 2172,
+   "license": "CC BY 2.0",
+   "author": "David Jackmanson from Brisbane, Australia"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:HK_SKD_%E5%AF%B6%E7%90%B3_Po_Lam_%E6%96%B0%E9%83%BD%E5%9F%8E_Metro_City_Plaza_MCP_Two_Central_mall_%E7%A8%BB%E9%A6%99%E8%8C%B6%E5%B1%85_Tao_Heung_Restaurant_food_%E9%9D%9A%E4%BB%94%E7%99%BD%E9%A3%AF_cooked_rice_with_roasted_chicken_wing_February_2023_Px3.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/HK_SKD_%E5%AF%B6%E7%90%B3_Po_Lam_%E6%96%B0%E9%83%BD%E5%9F%8E_Metro_City_Plaza_MCP_Two_Central_mall_%E7%A8%BB%E9%A6%99%E8%8C%B6%E5%B1%85_Tao_Heung_Restaurant_food_%E9%9D%9A%E4%BB%94%E7%99%BD%E9%A3%AF_cooked_rice_with_roasted_chicken_wing_February_2023_Px3.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3000,
+   "h": 4000,
+   "license": "CC BY-SA 4.0",
+   "author": "LINZEGAIM WOODS"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:HK_food_%E5%A4%A7%E5%AE%B6%E6%A8%82_Cafe_de_Coral_Restaurant_%E4%B8%8B%E5%8D%88%E8%8C%B6%E9%A4%90_afternoon_tea_kitchen_order_counter_plastic_bag_chicken_wing_corn_tray_cup_drink_Oct-2015_Corncob.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/HK_food_%E5%A4%A7%E5%AE%B6%E6%A8%82_Cafe_de_Coral_Restaurant_%E4%B8%8B%E5%8D%88%E8%8C%B6%E9%A4%90_afternoon_tea_kitchen_order_counter_plastic_bag_chicken_wing_corn_tray_cup_drink_Oct-2015_Corncob.jpg/960px-HK_food_%E5%A4%A7%E5%AE%B6%E6%A8%82_Cafe_de_Coral_Restaurant_%E4%B8%8B%E5%8D%88%E8%8C%B6%E9%A4%90_afternoon_tea_kitchen_order_counter_plastic_bag_chicken_wing_corn_tray_cup_drink_Oct-2015_Corncob.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3264,
+   "h": 1836,
+   "license": "CC BY-SA 4.0",
+   "author": "Hoofayefatie"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:HK_STT_%E7%9F%B3%E5%A1%98%E5%92%80_Shek_Tong_Tsui_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E8%A5%BF_Queen%27s_Road_West_shop_%E5%94%90%E9%A0%86%E8%88%88_Tang_Shun_Hing_siu_mei_January_2022_Px3.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/HK_STT_%E7%9F%B3%E5%A1%98%E5%92%80_Shek_Tong_Tsui_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E8%A5%BF_Queen%27s_Road_West_shop_%E5%94%90%E9%A0%86%E8%88%88_Tang_Shun_Hing_siu_mei_January_2022_Px3.jpg/960px-HK_STT_%E7%9F%B3%E5%A1%98%E5%92%80_Shek_Tong_Tsui_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E8%A5%BF_Queen%27s_Road_West_shop_%E5%94%90%E9%A0%86%E8%88%88_Tang_Shun_Hing_siu_mei_January_2022_Px3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3000,
+   "h": 4000,
+   "license": "CC BY-SA 4.0",
+   "author": "Doung PINMAIrypa Lungingae"
+  }
+ ],
+ "merluza-rellena-marisco": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Crisp%C3%ADn_-_20200725_001.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Crisp%C3%ADn_-_20200725_001.jpg/960px-Crisp%C3%ADn_-_20200725_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 2250,
+   "license": "CC BY-SA 4.0",
+   "author": "Américo Toledano"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Crisp%C3%ADn_-_20200804_001.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Crisp%C3%ADn_-_20200804_001.jpg/960px-Crisp%C3%ADn_-_20200804_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 2250,
+   "license": "CC BY-SA 4.0",
+   "author": "Américo Toledano"
+  }
+ ],
+ "brazo-gitano-mermelada": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Brazo_de_gitano,_postre_popular_(Les_Cases,_Alcanar).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Brazo_de_gitano%2C_postre_popular_%28Les_Cases%2C_Alcanar%29.jpg/960px-Brazo_de_gitano%2C_postre_popular_%28Les_Cases%2C_Alcanar%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3888,
+   "license": "CC BY-SA 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Brazo_de_gitano,_plato_de_postre_(Les_Cases,_Alcanar).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Brazo_de_gitano%2C_plato_de_postre_%28Les_Cases%2C_Alcanar%29.jpg/960px-Brazo_de_gitano%2C_plato_de_postre_%28Les_Cases%2C_Alcanar%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3888,
+   "license": "CC BY-SA 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Brazo_de_gitano_relleno_de_crema_de_turr%C3%B3n_de_Jijona.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Brazo_de_gitano_relleno_de_crema_de_turr%C3%B3n_de_Jijona.jpg/960px-Brazo_de_gitano_relleno_de_crema_de_turr%C3%B3n_de_Jijona.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3072,
+   "h": 2304,
+   "license": "CC BY-SA 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Brazo_de_gitano_relleno_de_crema_de_nata_y_turr%C3%B3n_de_Jijona.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Brazo_de_gitano_relleno_de_crema_de_nata_y_turr%C3%B3n_de_Jijona.jpg/960px-Brazo_de_gitano_relleno_de_crema_de_nata_y_turr%C3%B3n_de_Jijona.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3072,
+   "h": 2304,
+   "license": "CC BY-SA 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Postre_de_brazo_de_gitano_relleno_de_crema_catalana.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Postre_de_brazo_de_gitano_relleno_de_crema_catalana.jpg/960px-Postre_de_brazo_de_gitano_relleno_de_crema_catalana.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3888,
+   "license": "CC BY 4.0",
+   "author": "Juan Emilio Prades Bel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Pandan_swiss_roll.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Pandan_swiss_roll.jpg/960px-Pandan_swiss_roll.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6000,
+   "h": 4000,
+   "license": "CC BY-SA 4.0",
+   "author": "Peachyeung316"
+  }
+ ],
+ "aguacates-rellenos-salmon": [],
+ "judias-verdes-almejas-gratinadas": [],
+ "cebollas-rellenas-bonito": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Sogan-dolma.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Sogan-dolma.jpg/960px-Sogan-dolma.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6000,
+   "h": 4000,
+   "license": "CC BY-SA 3.0",
+   "author": "Fanny Schertzer"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Kulmbacher_Bierzwiebel.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Kulmbacher_Bierzwiebel.jpg/960px-Kulmbacher_Bierzwiebel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC BY-SA 4.0",
+   "author": "Benreis"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:2018-07-28-Gef%C3%BCllte_Zwiebeln-9882.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/2018-07-28-Gef%C3%BCllte_Zwiebeln-9882.jpg/960px-2018-07-28-Gef%C3%BCllte_Zwiebeln-9882.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6000,
+   "h": 4000,
+   "license": "CC BY-SA 4.0",
+   "author": "Superbass"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Cebolles_Rellenes.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Cebolles_Rellenes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "w": 960,
+   "h": 720,
+   "license": "CC BY-SA 3.0",
+   "author": "Hugo21012010"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:L%C3%A9gumes_farcis.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/L%C3%A9gumes_farcis.jpg/960px-L%C3%A9gumes_farcis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 3000,
+   "license": "CC BY-SA 3.0",
+   "author": "Marianne Casamance"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:So%C4%9Fan_dolmas%C4%B1_Azerbaijani_cuisine.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/So%C4%9Fan_dolmas%C4%B1_Azerbaijani_cuisine.jpg/960px-So%C4%9Fan_dolmas%C4%B1_Azerbaijani_cuisine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1803,
+   "h": 2025,
+   "license": "CC BY-SA 4.0",
+   "author": "MrArifnajafov"
+  }
+ ],
+ "pote-patatas-bacalao": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fish_and_chips_plate_with_peas.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Fish_and_chips_plate_with_peas.jpg/960px-Fish_and_chips_plate_with_peas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4048,
+   "h": 3036,
+   "license": "CC BY-SA 4.0",
+   "author": "Grendelkhan"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fish_and_chips.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Fish_and_chips.jpg/960px-Fish_and_chips.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1152,
+   "h": 768,
+   "license": "CC BY-SA 2.0",
+   "author": "Andrew Dunn"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fish_and_Chips_at_Chip_In_Fish-n-Chips,_Sai_Kung,_HK_(20181020113507).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Fish_and_Chips_at_Chip_In_Fish-n-Chips%2C_Sai_Kung%2C_HK_%2820181020113507%29.jpg/960px-Fish_and_Chips_at_Chip_In_Fish-n-Chips%2C_Sai_Kung%2C_HK_%2820181020113507%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4608,
+   "h": 3072,
+   "license": "CC BY-SA 4.0",
+   "author": "N509FZ"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fish_and_chips_blackpool.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Fish_and_chips_blackpool.jpg/960px-Fish_and_chips_blackpool.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4928,
+   "h": 3264,
+   "license": "CC BY-SA 4.0",
+   "author": "Matthias Meckel"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fish_and_Chips_Bath,_UK.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Fish_and_Chips_Bath%2C_UK.jpg/960px-Fish_and_Chips_Bath%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5312,
+   "h": 2988,
+   "license": "CC0",
+   "author": "Gvjekoslav"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fish_and_chips,_chicken_nuggets_-_Captains.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Fish_and_chips%2C_chicken_nuggets_-_Captains.jpg/960px-Fish_and_chips%2C_chicken_nuggets_-_Captains.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "Andy Li"
+  }
+ ],
+ "empedrat": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Paviment_empedrat_del_Poble_Vell_de_Corbera.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Paviment_empedrat_del_Poble_Vell_de_Corbera.JPG/960px-Paviment_empedrat_del_Poble_Vell_de_Corbera.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3648,
+   "h": 2736,
+   "license": "CC BY-SA 3.0",
+   "author": "Chixoy"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Empedrat_(plat).JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Empedrat_%28plat%29.JPG/960px-Empedrat_%28plat%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3264,
+   "h": 2448,
+   "license": "Public domain",
+   "author": "Lluis tgn"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:045_Empedrat_i_desguassos_del_poble_vell_(Corbera_d%27Ebre).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/045_Empedrat_i_desguassos_del_poble_vell_%28Corbera_d%27Ebre%29.jpg/960px-045_Empedrat_i_desguassos_del_poble_vell_%28Corbera_d%27Ebre%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2112,
+   "h": 2816,
+   "license": "CC BY-SA 4.0",
+   "author": "Enric"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:048_Empedrat_del_carrer_del_Forn,_al_poble_vell_de_Corbera_d%27Ebre.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/048_Empedrat_del_carrer_del_Forn%2C_al_poble_vell_de_Corbera_d%27Ebre.jpg/960px-048_Empedrat_del_carrer_del_Forn%2C_al_poble_vell_de_Corbera_d%27Ebre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2112,
+   "h": 2816,
+   "license": "CC BY-SA 4.0",
+   "author": "Enric"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Empedrat_del_Marxant.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Empedrat_del_Marxant.jpg/960px-Empedrat_del_Marxant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4096,
+   "h": 3072,
+   "license": "CC BY-SA 4.0",
+   "author": "Friviere"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Santa_Fe_del_Montseny_Empedrat_de_Morou.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Santa_Fe_del_Montseny_Empedrat_de_Morou.jpg/960px-Santa_Fe_del_Montseny_Empedrat_de_Morou.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5152,
+   "h": 3864,
+   "license": "CC BY-SA 4.0",
+   "author": "Josep Maria Viñolas Esteva"
+  }
+ ],
+ "pollo-rustido-ciruelas": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Pollo_estilo_Cordon_Bleu.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Pollo_estilo_Cordon_Bleu.jpg/960px-Pollo_estilo_Cordon_Bleu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3120,
+   "h": 4160,
+   "license": "CC BY-SA 4.0",
+   "author": "PapiPijuan"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Plumjf.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Plumjf.JPG/960px-Plumjf.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3264,
+   "h": 2448,
+   "license": "CC BY-SA 3.0",
+   "author": "Ramon FVelasquez"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Chicken_and_mushrooms.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Chicken_and_mushrooms.jpg/960px-Chicken_and_mushrooms.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2560,
+   "h": 1920,
+   "license": "CC BY-SA 4.0",
+   "author": "E4024"
+  }
+ ],
+ "gallo-jengibre-cuscus": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Tacos_de_pescado_de_un_puesto_callejero_de_Tijuana_-_1.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Tacos_de_pescado_de_un_puesto_callejero_de_Tijuana_-_1.jpg/960px-Tacos_de_pescado_de_un_puesto_callejero_de_Tijuana_-_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3120,
+   "h": 4160,
+   "license": "CC BY 4.0",
+   "author": "ProtoplasmaKid"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Tacos_de_pescado_en_Maneadero,_Ensenada,_Baja_California_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Tacos_de_pescado_en_Maneadero%2C_Ensenada%2C_Baja_California_01.jpg/960px-Tacos_de_pescado_en_Maneadero%2C_Ensenada%2C_Baja_California_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4096,
+   "h": 3072,
+   "license": "CC BY-SA 4.0",
+   "author": "Isaacvp"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Tacos_de_pescado_en_Maneadero,_Ensenada,_Baja_California_03.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Tacos_de_pescado_en_Maneadero%2C_Ensenada%2C_Baja_California_03.jpg/960px-Tacos_de_pescado_en_Maneadero%2C_Ensenada%2C_Baja_California_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4096,
+   "h": 3072,
+   "license": "CC BY-SA 4.0",
+   "author": "Isaacvp"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Tacos_de_pescado_en_Maneadero,_Ensenada,_Baja_California_02.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Tacos_de_pescado_en_Maneadero%2C_Ensenada%2C_Baja_California_02.jpg/960px-Tacos_de_pescado_en_Maneadero%2C_Ensenada%2C_Baja_California_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4096,
+   "h": 3072,
+   "license": "CC BY-SA 4.0",
+   "author": "Isaacvp"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Tacos_de_pescado_en_Maneadero,_Ensenada,_Baja_California_04.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Tacos_de_pescado_en_Maneadero%2C_Ensenada%2C_Baja_California_04.jpg/960px-Tacos_de_pescado_en_Maneadero%2C_Ensenada%2C_Baja_California_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4096,
+   "h": 3072,
+   "license": "CC BY-SA 4.0",
+   "author": "Isaacvp"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Taco_Pescado.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Taco_Pescado.jpg/960px-Taco_Pescado.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2064,
+   "h": 1684,
+   "license": "CC0",
+   "author": "Ben Welsh"
+  }
+ ],
+ "tostas-queso-tapenade": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Crostini_med_oliventapenade_(7123953695).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Crostini_med_oliventapenade_%287123953695%29.jpg/960px-Crostini_med_oliventapenade_%287123953695%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4288,
+   "h": 2848,
+   "license": "CC BY-SA 2.0",
+   "author": "cyclonebill from Copenhagen, Denmark"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Terroirs,_Strand,_London_(3428776482).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Terroirs%2C_Strand%2C_London_%283428776482%29.jpg/960px-Terroirs%2C_Strand%2C_London_%283428776482%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3002,
+   "h": 2002,
+   "license": "CC BY-SA 2.0",
+   "author": "Ewan Munro from London, UK"
+  }
+ ]
+}
