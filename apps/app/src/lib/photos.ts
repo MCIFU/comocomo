@@ -689,4 +689,13 @@ export const PHOTOS: Record<string, Photo> = {
   "quiche-brocoli-almejas": { src: require("../../assets/photos/quiche-brocoli-almejas.jpg"), author: "Karen and Brad Emerson", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Broccoli_and_cheese_quiche_(4069724145).jpg" },
   "sopa-arroz-almejas": { src: require("../../assets/photos/sopa-arroz-almejas.jpg"), author: "Jrfdiaz", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:090114-arroz11.jpg" },
   "huevos-al-nido": { src: require("../../assets/photos/huevos-al-nido.jpg"), author: "El Mono Español", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Ous_al_niu_(eggs_inside_fried_bread)_-_2.jpg" },
+  "ajoarriero-aragones": { src: require("../../assets/photos/ajoarriero-aragones.jpg"), author: "Xemenendura", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Repollo_o_berza_con_piment%C3%B3n.jpg" },
+  "cazuela-pulpo-patatas": { src: require("../../assets/photos/cazuela-pulpo-patatas.jpg"), author: "juantiagues", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Pulpo_con_cachelos_-_juantiagues_15052013.jpg" },
+  "empanadillas-bonito-horno": { src: require("../../assets/photos/empanadillas-bonito-horno.jpg"), author: "Tamorlan", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:Tapa_de_empanadillitas.JPG" },
+  "ensaladilla-bacalao": { src: require("../../assets/photos/ensaladilla-bacalao.jpg"), author: "Jacek Halicki", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2023_Sa%C5%82atka_jarzynowa_(1).jpg" },
+  "hojaldres-pera-almendra": { src: require("../../assets/photos/hojaldres-pera-almendra.jpg"), author: "Roozitaa", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Making_Pear_pie_with_puff_pastry.jpg" },
+  "magras-con-tomate": { src: require("../../assets/photos/magras-con-tomate.jpg"), author: "Juan Emilio Prades Bel", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Magro_de_cerdo_con_tomate.jpg" },
+  "pizza-pavo-pina-picante": { src: require("../../assets/photos/pizza-pavo-pina-picante.jpg"), author: "Elsie Hui", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Hawaiian_pizza_image.jpg" },
+  "quiche-puerros-gambas": { src: require("../../assets/photos/quiche-puerros-gambas.jpg"), author: "MBC Foods from Australia", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Onion_Tartlets_(30590079517).jpg" },
+  "secretaria-alcalaina": { src: require("../../assets/photos/secretaria-alcalaina.jpg"), author: "Miguel Obono", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Pollo_en_salsa_de_cacahuete_2.jpg" },
 };

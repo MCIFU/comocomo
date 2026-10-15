@@ -1,36 +1,33 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "humita": "humita",
- "huevos-al-nido": "huevos al nido",
- "mousse-de-limon": "lemon mousse",
- "arranque-roteno": "arranque roteño",
- "sopa-bacalao": "sopa de bacalao",
- "rancho-aragones": "rancho stew potatoes",
- "crema-de-verduras": "crema de verduras",
- "bonito-con-tomate": "bonito con tomate",
- "merluza-a-la-sidra": "merluza a la sidra",
- "moros-y-cristianos": "moros y cristianos",
- "calabacin-rebozado": "calabacín rebozado",
- "croquetas-bonito": "croquetas de atún",
- "croquetas-salmon": "salmon croquettes",
- "habas-catalana": "habas a la catalana",
- "granizado-sandia": "watermelon granita",
- "puerros-vinagreta": "puerros en vinagreta",
- "merluza-koxkera": "merluza koskera",
- "lentejas-morcilla": "lentejas con morcilla",
- "mousse-mango": "mango mousse",
- "escalopines-cabrales": "escalope salsa queso azul",
- "patatas-rellenas-horno": "stuffed baked potatoes",
- "clafoutis-uvas": "clafoutis",
- "puerros-romesco": "calçots romesco",
- "sopa-arroz-almejas": "arroz caldoso almejas",
- "carne-guisada-patatas": "carne guisada con patatas",
- "croquetas-pollo-jamon": "croquetas de jamón",
- "pollo-salsa-almendras": "pollo en salsa de almendras",
- "quiche-brocoli-almejas": "broccoli quiche",
- "conejo-en-salsa": "conejo guisado",
- "bacalao-con-pisto": "bacalao con tomate"
+ "acelgas-con-arroz": "acelgas con arroz",
+ "zorongollo": "zorongollo",
+ "langostinos-al-whisky": "langostinos al whisky",
+ "cuscus-conejo-naranja": "couscous rabbit",
+ "caballa-setas-boniato": "mackerel fillet sweet potato",
+ "calabacines-rellenos": "calabacines rellenos",
+ "pimientos-asados": "ensalada de pimientos asados",
+ "albondigas-patata": "potato croquettes balls",
+ "cazuela-pulpo-patatas": "pulpo con patatas",
+ "setas-gratinadas": "gratinated mushrooms",
+ "garbanzos-pisto": "garbanzos con pisto",
+ "calamares-salsa-cuscus": "calamares en salsa",
+ "berenjenas-rellenas-bacalao": "berenjenas rellenas",
+ "quiche-puerros-gambas": "leek tartlets",
+ "conejo-garbanzos-acelgas": "conejo con garbanzos",
+ "hojaldres-pera-almendra": "pear puff pastry",
+ "empanadillas-bonito-horno": "empanadillas de atún",
+ "magras-con-tomate": "magras con tomate",
+ "secretaria-alcalaina": "pollo en salsa",
+ "ajoarriero-aragones": "ajoarriero",
+ "caballa-cazuela-verduras": "caballa guisada",
+ "salmon-papillote": "salmon papillote",
+ "ensaladilla-bacalao": "ensaladilla",
+ "crema-mejillones-hojaldre": "mussel soup",
+ "estrella-hojaldre-chocolate": "star bread chocolate puff pastry",
+ "pollo-griego-limon": "greek lemon chicken potatoes",
+ "pizza-pavo-pina-picante": "hawaiian pizza"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -46,4 +43,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-tanda-1.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-tanda-2.json", JSON.stringify(out, null, 1));
