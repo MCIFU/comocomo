@@ -51,18 +51,22 @@ export const CONTINENTS: { key: string; label: string; countries: Country[] }[] 
 ];
 
 /** Filtros rápidos: tiempo y restricciones habituales. Las alergias se aplican en código, siempre. */
-export const QUICK_FILTERS: { key: string; label: string; maxMinutes?: number; restrictions?: Restriction[]; ids?: string[] }[] = [
-  { key: "postres", label: "Postres", ids: DESSERTS },
-  { key: "rapidas", label: "Rápidas (30 min)", maxMinutes: 30 },
-  { key: "vegetarianas", label: "Vegetarianas", restrictions: [{ kind: "diet", value: "meat" }, { kind: "diet", value: "seafood" }] },
-  { key: "sin-gluten", label: "Sin gluten", restrictions: [{ kind: "allergy", value: "gluten" }] },
-  { key: "sin-lactosa", label: "Sin lactosa", restrictions: [{ kind: "allergy", value: "lactose" }] },
-  { key: "colesterol", label: "♥ Colesterol", ids: idsWithHealth("colesterol") },
-  { key: "hierro", label: "Hierro", ids: idsWithHealth("hierro") },
-  { key: "vitamina-c", label: "Vitamina C", ids: idsWithHealth("vitamina-c") },
-  { key: "vitaminas", label: "Vitaminas", ids: idsWithHealth("vitaminas") },
-  { key: "calcio", label: "Calcio", ids: idsWithHealth("calcio") },
-  { key: "fibra", label: "Fibra", ids: idsWithHealth("fibra") },
+export type QuickFilter = { key: string; label: string; group: "tipo" | "dieta" | "salud"; hint?: string; maxMinutes?: number; restrictions?: Restriction[]; ids?: string[] };
+export const FILTER_GROUPS: { key: QuickFilter["group"]; label: string }[] = [
+  { key: "tipo", label: "Tipo" }, { key: "dieta", label: "Dieta" }, { key: "salud", label: "Salud" },
+];
+export const QUICK_FILTERS: QuickFilter[] = [
+  { key: "postres", group: "tipo", label: "Postres", ids: DESSERTS },
+  { key: "rapidas", group: "tipo", label: "Rápidas (30 min)", maxMinutes: 30 },
+  { key: "vegetarianas", group: "dieta", label: "Vegetarianas", restrictions: [{ kind: "diet", value: "meat" }, { kind: "diet", value: "seafood" }] },
+  { key: "sin-gluten", group: "dieta", label: "Sin gluten", restrictions: [{ kind: "allergy", value: "gluten" }] },
+  { key: "sin-lactosa", group: "dieta", label: "Sin lactosa", restrictions: [{ kind: "allergy", value: "lactose" }] },
+  { key: "colesterol", group: "salud", hint: "Poca grasa saturada y sal moderada, sin embutidos ni fritos. Incluye pescado azul.", label: "Colesterol", ids: idsWithHealth("colesterol") },
+  { key: "hierro", group: "salud", hint: "Al menos el 40 % del hierro diario por ración. Combínalo con fruta o verdura con vitamina C.", label: "Hierro", ids: idsWithHealth("hierro") },
+  { key: "vitamina-c", group: "salud", hint: "Al menos la mitad de la vitamina C diaria por ración.", label: "Vitamina C", ids: idsWithHealth("vitamina-c") },
+  { key: "vitaminas", group: "salud", hint: "Aportan al menos tres vitaminas (A, C, B12, folato o D) en buena cantidad.", label: "Vitaminas", ids: idsWithHealth("vitaminas") },
+  { key: "calcio", group: "salud", hint: "Al menos la mitad del calcio diario por ración.", label: "Calcio", ids: idsWithHealth("calcio") },
+  { key: "fibra", group: "salud", hint: "8 g de fibra o más por ración.", label: "Fibra", ids: idsWithHealth("fibra") },
 ];
 
 /** Plural de un envase: "bote" → "botes", "media docena" → "medias docenas". */

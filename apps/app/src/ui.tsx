@@ -84,21 +84,36 @@ export function Button({
 const STICKERS: (keyof Palette)[] = ["card", "mustard", "sky", "pink", "mint"];
 
 /** Pegatina: chip con borde y sombra dura. Seleccionada = tinta. */
-export function Chip({ label, selected, onPress, color }: { label: string; selected?: boolean; onPress?: () => void; color?: number }) {
+export function Chip({ label, selected, onPress, color, count, disabled }: { label: string; selected?: boolean; onPress?: () => void; color?: number; count?: number; disabled?: boolean }) {
   const c = usePalette();
   const bg = selected ? c.ink : c[STICKERS[(color ?? 0) % STICKERS.length]!];
+  const fg = selected ? c.paper : (color ?? 0) % STICKERS.length === 0 ? c.ink : c.onAccent;
   return (
-    <Pressable accessibilityRole="button" accessibilityState={{ selected: !!selected }} onPress={onPress} style={webCursor}>
-      {({ pressed }) => (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityState={{ selected: !!selected, disabled: !!disabled }}
+      accessibilityLabel={count !== undefined ? `${label}, ${count} recetas` : label}
+      disabled={disabled}
+      onPress={onPress}
+      style={[webCursor, { opacity: disabled ? 0.4 : 1 }]}
+    >
+      {({ pressed, hovered }: any) => (
         <View style={{ paddingRight: 3, paddingBottom: 3 }}>
           <View style={{ position: "absolute", left: 3, top: 3, right: 0, bottom: 0, backgroundColor: c.shadow, borderRadius: 999 }} />
           <View
             style={{
               minHeight: 38, paddingHorizontal: 16, justifyContent: "center", borderRadius: 999, borderWidth: 2.5, borderColor: c.edge, backgroundColor: bg,
-              transform: pressed ? [{ translateX: 3 }, { translateY: 3 }] : [],
+              flexDirection: "row", alignItems: "center", gap: 7,
+              transform: pressed || selected ? [{ translateX: 3 }, { translateY: 3 }] : hovered ? [{ translateX: -1 }, { translateY: -1 }] : [],
             }}
           >
-            <T style={{ color: selected ? c.paper : (color ?? 0) % STICKERS.length === 0 ? c.ink : c.onAccent, fontFamily: fonts.uiBold, fontSize: 15, lineHeight: 20 }}>{label}</T>
+            {selected && <T style={{ color: fg, fontFamily: fonts.uiBold, fontSize: 14, lineHeight: 20 }}>✓</T>}
+            <T style={{ color: fg, fontFamily: fonts.uiBold, fontSize: 15, lineHeight: 20 }}>{label}</T>
+            {count !== undefined && (
+              <View style={{ minWidth: 26, paddingHorizontal: 6, borderRadius: 999, backgroundColor: selected ? c.mustard : c.crust, alignItems: "center" }}>
+                <T style={{ color: selected ? c.onAccent : c.inkMuted, fontFamily: fonts.monoBold, fontSize: 11.5, lineHeight: 18, fontVariant: ["tabular-nums"] }}>{count}</T>
+              </View>
+            )}
           </View>
         </View>
       )}

@@ -43,17 +43,22 @@ export function dayKey(d = new Date()) {
   return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
 }
 
-/** Menú del día: primero, segundo y postre. `shuffle` cambia el menú dentro del mismo día. */
-export function dailyMenu(day: number, shuffle = 0, pool?: (r: Recipe) => boolean): Record<Course, Recipe | undefined> {
-  const rand = rng(day * 31 + shuffle * 7919);
-  const pick = (list: Recipe[]) => {
+/** Menú del día: primero, segundo y postre. Cada plato tiene su propio «barajado», para poder cambiar uno solo.
+ *  `pool` limita los platos (filtros activos); si un plato no tiene candidatos con el filtro, se usa la lista completa. */
+export function dailyMenu(day: number, shuffles: Record<Course, number>, pool?: (r: Recipe) => boolean): Record<Course, Recipe | undefined> {
+  const pick = (course: Course, i: number) => {
+    const list = byCourse[course];
     const l = pool ? list.filter(pool) : list;
     const src = l.length ? l : list;
+    const rand = rng(day * 31 + i * 101 + shuffles[course] * 7919);
+    rand(); rand();
     return src[Math.floor(rand() * src.length)];
   };
-  const primero = pick(byCourse.primero);
-  // Evita repetir el mismo país en primero y segundo cuando hay alternativa.
-  let segundo = pick(byCourse.segundo);
-  for (let i = 0; i < 5 && segundo && primero && segundo.cuisine === primero.cuisine && !pool; i++) segundo = pick(byCourse.segundo);
-  return { primero, segundo, postre: pick(byCourse.postre) };
+  return { primero: pick("primero", 0), segundo: pick("segundo", 1), postre: pick("postre", 2) };
+}
+
+/** Cuántos candidatos tiene cada plato con el filtro actual. */
+export function menuPoolSize(pool?: (r: Recipe) => boolean): Record<Course, number> {
+  const n = (c: Course) => (pool ? byCourse[c].filter(pool).length : byCourse[c].length);
+  return { primero: n("primero"), segundo: n("segundo"), postre: n("postre") };
 }
