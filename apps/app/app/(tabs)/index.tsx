@@ -123,14 +123,18 @@ export default function Recetas() {
       )}
 
       {/* Cabecera roja */}
-      <View style={{ backgroundColor: c.tomato, borderRadius: wide ? 32 : 24, paddingHorizontal: wide ? 48 : 20, paddingTop: wide ? 56 : 24, paddingBottom: wide ? 44 : 20, overflow: "hidden" }}>
-        <View style={{ position: "absolute", right: wide ? -70 : -90, top: wide ? -70 : -110, width: wide ? 300 : 220, height: wide ? 300 : 220, borderRadius: 999, backgroundColor: c.mustard, opacity: 0.95 }} />
-        <Display size={wide ? 112 : 42} style={{ color: c.onTomato, lineHeight: (wide ? 112 : 42) * 0.88, maxWidth: 900 }}>
-          ¿Qué cocinamos <T style={{ color: c.mustard, fontFamily: fonts.display, fontSize: wide ? 112 : 42, lineHeight: (wide ? 112 : 42) * 0.88 }}>hoy?</T>
+      <View style={{ backgroundColor: c.tomato, borderRadius: wide ? 32 : 24, paddingHorizontal: wide ? 48 : 20, paddingTop: wide ? 56 : 18, paddingBottom: wide ? 44 : 16, overflow: "hidden" }}>
+        <View style={{ position: "absolute", right: wide ? -70 : -80, top: wide ? -70 : -100, width: wide ? 300 : 170, height: wide ? 300 : 170, borderRadius: 999, backgroundColor: c.mustard, opacity: 0.95 }} />
+        <Display size={wide ? 112 : 34} style={{ color: c.onTomato, lineHeight: (wide ? 112 : 34) * 0.9, maxWidth: wide ? 900 : 230 }}>
+          ¿Qué cocinamos <T style={{ color: c.mustard, fontFamily: fonts.display, fontSize: wide ? 112 : 34, lineHeight: (wide ? 112 : 34) * 0.9 }}>hoy?</T>
         </Display>
-        <T style={{ color: c.onTomato, fontSize: wide ? 21 : 16, lineHeight: wide ? 30 : 22, maxWidth: 540, marginTop: wide ? 16 : 10, marginBottom: wide ? 24 : 16, fontFamily: fonts.uiMedium }}>
-          {wide ? "Busca un plato y te damos la receta, la lista de la compra y lo que te va a costar." : "Receta, lista de la compra y lo que te va a costar."}
-        </T>
+        {wide ? (
+          <T style={{ color: c.onTomato, fontSize: 21, lineHeight: 30, maxWidth: 540, marginTop: 16, marginBottom: 24, fontFamily: fonts.uiMedium }}>
+            Busca un plato y te damos la receta, la lista de la compra y lo que te va a costar.
+          </T>
+        ) : (
+          <View style={{ height: 14 }} />
+        )}
         <View style={{ maxWidth: 720, paddingRight: 5, paddingBottom: 5 }}>
           <View style={{ position: "absolute", left: 5, top: 5, right: 0, bottom: 0, backgroundColor: c.shadow, borderRadius: radius.md }} />
           <TextInput
@@ -141,7 +145,7 @@ export default function Recetas() {
             accessibilityLabel="Buscar recetas por plato, país o ingrediente"
             returnKeyType="search"
             style={{
-              position: "relative", minHeight: wide ? 60 : 54, paddingHorizontal: 18, backgroundColor: c.card, borderWidth: stroke.width, borderColor: c.edge, borderRadius: radius.md,
+              position: "relative", minHeight: wide ? 60 : 50, paddingHorizontal: 18, backgroundColor: c.card, borderWidth: stroke.width, borderColor: c.edge, borderRadius: radius.md,
               fontFamily: fonts.uiBold, fontSize: wide ? 21 : 18, color: c.ink, outlineStyle: "none",
             } as object}
           />
@@ -184,7 +188,7 @@ export default function Recetas() {
             <Stepper label="personas" unit={wide ? (servings === 1 ? "persona" : "personas") : "pers."} value={servings} onChange={actions.setServings} max={20} />
           </View>
         </View>
-        <PriceLegend servings={servings} />
+        <PriceLegend servings={servings} compact={!wide} />
 
         {/* Filtros agrupados con recuento: el número dice cuántas recetas quedarían al activarlo. */}
         {!wide && (
