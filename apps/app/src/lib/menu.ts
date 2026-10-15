@@ -5,10 +5,12 @@ import { catalog, recipes } from "./data";
 export type Course = "primero" | "segundo" | "postre";
 
 const DESSERT_SET = new Set(DESSERTS);
-// Platos que en un menú del día van de primero aunque lleven algo de carne o pescado.
-const FIRST = /\b(sopa|crema|caldo|consom|gazpacho|salmorejo|vichyssoise|ensalad|ensaladilla|arroz|paella|risotto|pasta|espagueti|macarr|tallarin|fideo|fideu|lasa|canelon|ñoqui|noqui|lenteja|garbanzo|alubia|fabada|faba|judía|judias|potaje|menestra|pisto|verdura|puré|pure|cogollo|alcachofa|esparrago|espárrago|quiche|tarta salada|empanada)/i;
-// Lo que no encaja en un menú del día (tapas sueltas, bebidas, salsas, panes...).
-const SKIP = /\b(salsa|alioli|mayonesa|pan |tosta|bocadillo|montadito|pincho|brocheta|croqueta|empanadilla|hamburguesa|sándwich|sandwich|wrap|pizza|tacos?\b|dip|hummus|mojo)/i;
+// Platos que en un menú del día van de primero (se mira en el plato principal del título).
+const FIRST = /(^|\s)(sopa|crema|caldo|consom|gazpacho|salmorejo|vichyssoise|ensalad|ensaladilla|arroz|paella|risotto|pasta|espagueti|macarr|tallarin|fideo|fideu|lasa|canelon|ñoqui|noqui|lenteja|garbanzo|alubia|fabada|fabes|jud[ií]as|potaje|menestra|pisto|verdura|cogollo|alcachofa|esp[aá]rrago|quiche|tarta salada|empanada|coliflor|br[oó]coli|acelga|pencas|puerro|calabac|berenjena|pimientos? rellenos|tomates? rellenos|setas|champi|patatas|boniato|guisantes|habas|polenta|cusc[uú]s|quinoa|crepes)/i;
+// Lo que no encaja en un menú del día (tapas sueltas, salsas, panes, bocadillos…).
+const SKIP = /^(salsa|alioli|mayonesa|hummus|mojo|dip |pan |pan$|tostas? |tostada|bocadillo|montadito|pinchos? |pinchitos|croquetas? |empanadillas? |hamburguesas? |s[aá]ndwich|wraps? |pizzas? |tacos |naan|volovanes|brochetas de queso|saquitos|cestas)/i;
+// Carne, pescado o huevo como plato principal → segundo.
+const PROTEIN = /(^|\s)(pollo|pavo|ternera|cerdo|cordero|conejo|carrilleras?|chuletas?|chuletillas|solomillo|lomo|costillas?|alb[oó]ndigas|merluza|salm[oó]n|bacalao|rape|lubina|bonito|at[uú]n|caballa|sardinas|boquerones|anchoas|gallo|trucha|calamar|chipirones|pulpo|sepia|mejillones|almejas|langostinos|gambas|cachopo|filetes?|entrecot|redondo|muslos|alitas|pechugas?|codillo|magras|osobuco|aleta|falda|espaldilla|marmitako|zarzuela|huevos?|tortilla|revuelto|guiso de|estofado|rancho|aguja|cerdo|presa|picantones|secretaria|caracolas|rollitos de (pavo|pollo|trucha|gallo)|popietas)/i;
 
 const hasProtein = (r: Recipe) =>
   r.ingredients.some((i) => {
@@ -16,12 +18,16 @@ const hasProtein = (r: Recipe) =>
     return !i.optional && (tags.includes("meat") || tags.includes("fish") || tags.includes("seafood") || tags.includes("poultry"));
   });
 
+/** Lo principal del título: lo que va antes de « con », « en », « sobre »… («Merluza en papillote con verduras» → «Merluza»). */
+const mainDish = (title: string) => title.replace(/\s*\(.*\)/, "").split(/ con | en | sobre | al | a la | y |,/i)[0]!;
+
 export function courseOf(r: Recipe): Course | null {
   if (DESSERT_SET.has(r.id)) return "postre";
-  if (SKIP.test(r.title)) return null;
-  if (FIRST.test(r.title)) return "primero";
-  if (hasProtein(r) || /\b(huevo|tortilla|revuelto)/i.test(r.title)) return "segundo";
-  return "primero";
+  if (SKIP.test(r.title + " ")) return null;
+  const main = mainDish(r.title);
+  if (PROTEIN.test(main) && !/^(ensalad|crema|sopa|paella|arroz|fideu|pasta|macarr|espagueti|tallarin|salmorejo|lentejas|garbanzos|alubias)/i.test(main)) return "segundo";
+  if (FIRST.test(main)) return "primero";
+  return hasProtein(r) ? "segundo" : "primero";
 }
 
 const byCourse: Record<Course, Recipe[]> = { primero: [], segundo: [], postre: [] };

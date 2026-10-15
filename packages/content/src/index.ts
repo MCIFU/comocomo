@@ -44,7 +44,50 @@ import { recipesArg27 } from "./recipes-arg-27";
 import { recipesSalud } from "./recipes-salud";
 
 export { ingredients, prices, EQUIPMENT } from "./ingredients";
-export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06, ...recipesArg07, ...recipesArg08, ...recipesArg09, ...recipesArg10, ...recipesArg11, ...recipesArg12, ...recipesArg13, ...recipesArg14, ...recipesArg15, ...recipesArg16, ...recipesArg17, ...recipesArg18, ...recipesArg19, ...recipesArg20, ...recipesArg21, ...recipesArg22, ...recipesArg23, ...recipesArg24, ...recipesArg25, ...recipesArg26, ...recipesArg27, ...recipesSalud];
+/** Platos de libros españoles cuyo origen real es otro país: así aparecen al filtrar por ese país. */
+const CUISINE_FIX: Record<string, string> = {
+  "lasana-calabacin-champinones-jamon": "italiana",
+  "lasana-espinacas-pavo-calabacin": "italiana",
+  "lasana-alcachofas-jamon": "italiana",
+  "noquis-jamon-salsa-queso-azul": "italiana",
+  "carpaccio-bonito-eneldo": "italiana",
+  "tallarines-pesto-verduras": "italiana",
+  "quiche-brocoli-almejas": "francesa",
+  "quiche-calabacin-beicon": "francesa",
+  "quiche-remolacha-esparragos": "francesa",
+  "crepes-champinones-yogur-albahaca": "francesa",
+  "crepes-verduras-langostinos": "francesa",
+  "crepes-jamon-queso-frambuesa": "francesa",
+  "crepes-pavo-queso-salsa-lechuga": "francesa",
+  "crepes-berenjena-queso-pavo": "francesa",
+  "crepes-puerro-queso": "francesa",
+  "crepes-txistorra-huevo-cebolla": "francesa",
+  "crepes-solomillo-queso-azul": "francesa",
+  "crepes-queso-naranja-nueces": "francesa",
+  "crepes-mousse-chocolate-cafe": "francesa",
+  "crepes-chocolate-platano": "francesa",
+  "vichyssoise-guisantes": "francesa",
+  "macarrones-beicon-espinacas-mornay": "francesa",
+  "hamburguesas-verduras-avena": "estadounidense",
+  "hamburguesas-polenta-queso-azul": "estadounidense",
+  "hamburguesas-garbanzo-panceta": "estadounidense",
+  "hamburguesas-garbanzo-polenta": "estadounidense",
+  "hamburguesas-arroz-lentejas": "estadounidense",
+  "hamburguesas-rellenas-mozzarella": "estadounidense",
+  "hamburguesa-hojaldre": "estadounidense",
+  "hamburguesa-rebozada-cebolletas-puerros": "estadounidense",
+  "hamburguesa-champinones-guacamole": "estadounidense",
+  "hamburguesas-pavo-rellenas-queso": "estadounidense",
+  "hamburguesas-bacalao-mermelada-calabaza": "estadounidense",
+  "cordero-cuscus": "marroqui",
+  "cuscus-conejo-naranja": "marroqui",
+  "pierna-cordero-miel": "marroqui",
+};
+const ORIGIN_NAME: Record<string, string> = {"italiana":"Italia","francesa":"Francia","estadounidense":"Estados Unidos","marroqui":"Marruecos"};
+const allRecipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06, ...recipesArg07, ...recipesArg08, ...recipesArg09, ...recipesArg10, ...recipesArg11, ...recipesArg12, ...recipesArg13, ...recipesArg14, ...recipesArg15, ...recipesArg16, ...recipesArg17, ...recipesArg18, ...recipesArg19, ...recipesArg20, ...recipesArg21, ...recipesArg22, ...recipesArg23, ...recipesArg24, ...recipesArg25, ...recipesArg26, ...recipesArg27, ...recipesSalud];
+export const recipes: Recipe[] = allRecipes.map((r) =>
+  CUISINE_FIX[r.id] ? { ...r, cuisine: CUISINE_FIX[r.id] as Recipe["cuisine"], origin: `${ORIGIN_NAME[CUISINE_FIX[r.id]!]} (versión casera española)` } : r,
+);
 import { DISH_KEYWORDS as D1 } from "./dishes";
 import { DISH_KEYWORDS_2 } from "./dishes-2";
 export { DESSERTS, SEARCH_TAGS } from "./dishes-2";
