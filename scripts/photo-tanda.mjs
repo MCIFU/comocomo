@@ -1,32 +1,35 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "wok-pollo-teriyaki": "chicken teriyaki broccoli",
- "baguettes-ensaladilla": "baguette sandwich ensaladilla",
- "huevos-salsa-bretona": "baked eggs tomato sauce",
- "bizcochitos-manzana-jengibre": "apple muffins",
- "croquetas-gambas-brick": "spring rolls prawns",
- "fritura-cerveza": "fritura de pescado",
- "sopa-pollo-pesto": "pistou soup",
- "huevos-rellenos-guacamole-langostinos": "deviled eggs guacamole",
- "chupitos-kiwi-yogur-melocoton": "yogurt parfait kiwi",
- "champinones-gambas-plancha": "champiñones con gambas",
- "ensalada-sandia-cuscus": "watermelon salad",
- "coles-bruselas-vizcaina": "brussels sprouts tomato sauce",
- "alcachofas-almejas-vinagreta": "alcachofas con almejas",
- "paella-pescado-marisco": "paella marinera",
- "arroz-pollo-panceta-verduras": "arroz con pollo",
- "alitas-asadas-fideos-verduras": "roasted chicken wings",
- "merluza-rellena-marisco": "merluza rellena",
- "brazo-gitano-mermelada": "brazo de gitano",
- "aguacates-rellenos-salmon": "stuffed avocado salmon",
- "judias-verdes-almejas-gratinadas": "judías verdes con almejas",
- "cebollas-rellenas-bonito": "cebollas rellenas",
- "pote-patatas-bacalao": "patatas con bacalao",
- "empedrat": "empedrat",
- "pollo-rustido-ciruelas": "pollo con ciruelas",
- "gallo-jengibre-cuscus": "gallo pescado",
- "tostas-queso-tapenade": "tapenade crostini"
+ "cazuelitas-huevos-escondidos": "huevos en cazuela",
+ "empanadillas-almejas-brocoli": "empanadillas",
+ "saquitos-peras-pasas": "filo pastry purses",
+ "crema-cuajada-horno-limon": "baked custard",
+ "albondigas-caballa-salsa-verde": "fish balls green sauce",
+ "merluza-horno-cebolla-queso": "baked hake",
+ "merluza-marinera-mejillones": "merluza a la marinera",
+ "tartitas-chocolate-blanco-queso": "white chocolate cheesecake",
+ "mejillones-tomate-picante": "mejillones con tomate",
+ "champinones-salsa-vino": "champiñones en salsa",
+ "jarullos": "bacalao con patatas guiso",
+ "habas-morcilla": "habas con morcilla",
+ "habas-huevo-escalfado": "broad beans poached egg",
+ "pinchos-cerdo-papas-alinadas": "pinchos morunos",
+ "salteado-pollo-verduras-soja": "chicken stir fry vegetables",
+ "pastel-bacalao-patatas": "brandada de bacalao gratinada",
+ "vasitos-crema-cafe": "coffee mousse glass",
+ "copas-melocoton-queso": "peach dessert glass",
+ "sorbete-pina-sirope-granada": "pineapple sorbet",
+ "galletas-nata-chocolate": "chocolate dipped cookies",
+ "crumble-pera-fresa": "pear crumble",
+ "helado-platano": "nice cream banana",
+ "huevos-espinacas-horno": "baked eggs spinach",
+ "cebollas-rellenas-espinacas": "stuffed onions",
+ "tomates-rellenos-marisco": "stuffed tomatoes seafood",
+ "acelgas-refrito-jamon": "acelgas con patatas",
+ "paella-pescado-romero": "paella de pescado",
+ "arroz-pisto-gratinado": "arroz gratinado",
+ "brocoli-mejillones-salsa-verde": "mejillones en salsa verde"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -42,4 +45,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-tanda-3.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-tanda-4.json", JSON.stringify(out, null, 1));
