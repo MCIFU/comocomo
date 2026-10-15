@@ -42,6 +42,7 @@ import { recipesArg25 } from "./recipes-arg-25";
 import { recipesArg26 } from "./recipes-arg-26";
 import { recipesArg27 } from "./recipes-arg-27";
 import { recipesSalud } from "./recipes-salud";
+import { recipesColesterol } from "./recipes-colesterol";
 
 export { ingredients, prices, EQUIPMENT } from "./ingredients";
 /** Platos de libros españoles cuyo origen real es otro país: así aparecen al filtrar por ese país. */
@@ -84,7 +85,7 @@ const CUISINE_FIX: Record<string, string> = {
   "pierna-cordero-miel": "marroqui",
 };
 const ORIGIN_NAME: Record<string, string> = {"italiana":"Italia","francesa":"Francia","estadounidense":"Estados Unidos","marroqui":"Marruecos"};
-const allRecipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06, ...recipesArg07, ...recipesArg08, ...recipesArg09, ...recipesArg10, ...recipesArg11, ...recipesArg12, ...recipesArg13, ...recipesArg14, ...recipesArg15, ...recipesArg16, ...recipesArg17, ...recipesArg18, ...recipesArg19, ...recipesArg20, ...recipesArg21, ...recipesArg22, ...recipesArg23, ...recipesArg24, ...recipesArg25, ...recipesArg26, ...recipesArg27, ...recipesSalud];
+const allRecipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06, ...recipesArg07, ...recipesArg08, ...recipesArg09, ...recipesArg10, ...recipesArg11, ...recipesArg12, ...recipesArg13, ...recipesArg14, ...recipesArg15, ...recipesArg16, ...recipesArg17, ...recipesArg18, ...recipesArg19, ...recipesArg20, ...recipesArg21, ...recipesArg22, ...recipesArg23, ...recipesArg24, ...recipesArg25, ...recipesArg26, ...recipesArg27, ...recipesSalud, ...recipesColesterol];
 export const recipes: Recipe[] = allRecipes.map((r) =>
   CUISINE_FIX[r.id] ? { ...r, cuisine: CUISINE_FIX[r.id] as Recipe["cuisine"], origin: `${ORIGIN_NAME[CUISINE_FIX[r.id]!]} (versión casera española)` } : r,
 );
