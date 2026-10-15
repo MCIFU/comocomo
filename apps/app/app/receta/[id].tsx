@@ -6,7 +6,8 @@ import { Animated, Pressable, useWindowDimensions, View } from "react-native";
 import { PhotoCredit, RecipePhoto } from "../../src/RecipePhoto";
 import { Screen } from "../../src/Screen";
 import { Ticket, TicketCenter, TicketLine, TicketRule } from "../../src/Ticket";
-import { catalog, prices, recipeById, shortName } from "../../src/lib/data";
+import { HEALTH_LABEL, NRV, nutritionPerServing } from "@comocomo/content";
+import { catalog, HEALTH, prices, recipeById, shortName } from "../../src/lib/data";
 import { CUISINE_LABEL, DIFFICULTY, pluralPack } from "../../src/lib/labels";
 import { actions, useStore } from "../../src/lib/store";
 import { useEnter, usePulse } from "../../src/motion";
@@ -113,6 +114,46 @@ export default function Receta() {
     </View>
   );
 
+  const nut = nutritionPerServing(base);
+  const tags = HEALTH.get(base.id) ?? [];
+  const pct = (v: number, ref: number) => `${Math.round((v / ref) * 100)} %`;
+  const fmt = (v: number, d = 0) => v.toLocaleString("es-ES", { maximumFractionDigits: d, minimumFractionDigits: d });
+  const nutRows: [string, string, string?][] = [
+    ["Energía", `${fmt(nut.kcal)} kcal`],
+    ["Grasa saturada", `${fmt(nut.satFat, 1)} g`],
+    ["Colesterol", `${fmt(nut.cholesterol)} mg`],
+    ["Sal", `${fmt((nut.sodium * 2.5) / 1000, 1)} g`],
+    ["Fibra", `${fmt(nut.fiber, 1)} g`, pct(nut.fiber, NRV.fiber)],
+    ["Hierro", `${fmt(nut.iron, 1)} mg`, pct(nut.iron, NRV.iron)],
+    ["Vitamina C", `${fmt(nut.vitC)} mg`, pct(nut.vitC, NRV.vitC)],
+    ["Vitamina A", `${fmt(nut.vitA)} µg`, pct(nut.vitA, NRV.vitA)],
+    ["Vitamina B12", `${fmt(nut.b12, 1)} µg`, pct(nut.b12, NRV.b12)],
+    ["Folato", `${fmt(nut.folate)} µg`, pct(nut.folate, NRV.folate)],
+    ["Vitamina D", `${fmt(nut.vitD, 1)} µg`, pct(nut.vitD, NRV.vitD)],
+    ["Calcio", `${fmt(nut.calcium)} mg`, pct(nut.calcium, NRV.calcium)],
+  ];
+  const nutrition = (
+    <View style={{ gap: 12 }}>
+      <Display size={wide ? 30 : 26}>Nutrición por ración</Display>
+      {tags.length > 0 && (
+        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
+          {tags.map((tg) => <Pill key={tg} text={HEALTH_LABEL[tg]} bg={tg === "colesterol" ? c.pink : c.mustard} />)}
+        </View>
+      )}
+      <View style={{ borderWidth: stroke.width, borderColor: c.ink, borderRadius: radius.md, backgroundColor: c.card, paddingHorizontal: 14, paddingVertical: 6 }}>
+        {nutRows.map(([k, v, p], i) => (
+          <View key={k} style={{ flexDirection: "row", justifyContent: "space-between", paddingVertical: 6, borderTopWidth: i ? 1 : 0, borderColor: c.line }}>
+            <T style={{ fontFamily: fonts.uiMedium }}>{k}</T>
+            <T style={{ fontFamily: fonts.uiBold, fontVariant: ["tabular-nums"] }}>{v}{p ? <T tone="muted" style={{ fontSize: 13 }}>{"  "}{p}</T> : null}</T>
+          </View>
+        ))}
+      </View>
+      <T tone="muted" style={{ fontSize: 13, lineHeight: 19 }}>
+        Valores aproximados calculados a partir de los ingredientes (tablas BEDCA y USDA). El % es sobre la cantidad diaria de referencia de un adulto. Orientativo: no sustituye el consejo de tu médico o nutricionista.
+      </T>
+    </View>
+  );
+
   const ticket = (
     <Animated.View style={[{ gap: 18 }, ticketIn]}>
       <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
@@ -164,6 +205,7 @@ export default function Receta() {
           <View style={{ flex: 1.5, gap: 40 }}>
             {main}
             {steps}
+            {nutrition}
           </View>
           <View style={{ flex: 1, position: "sticky", top: 24 } as object}>{ticket}</View>
         </View>
@@ -172,6 +214,7 @@ export default function Receta() {
           {main}
           {ticket}
           {steps}
+          {nutrition}
         </>
       )}
     </Screen>

@@ -152,7 +152,7 @@ export default function Recetas() {
           </View>
         </View>
         <PriceLegend servings={servings} />
-        {!showMenu && <ScrollView
+        <ScrollView
           horizontal={!wide}
           showsHorizontalScrollIndicator={false}
           style={wide ? undefined : { marginHorizontal: -16 }}
@@ -166,7 +166,7 @@ export default function Recetas() {
               <T style={{ fontFamily: fonts.uiBold, textDecorationLine: "underline" }}>Quitar filtros</T>
             </Pressable>
           )}
-        </ScrollView>}
+        </ScrollView>
       </View>
 
       {/* Menú del día: primero, segundo y postre */}

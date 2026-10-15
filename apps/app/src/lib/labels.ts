@@ -1,5 +1,6 @@
 import { DESSERTS } from "@comocomo/content";
 import type { Restriction } from "@comocomo/schemas";
+import { idsWithHealth } from "./data";
 
 export const DIFFICULTY: Record<string, string> = { easy: "Fácil", medium: "Media", hard: "Difícil" };
 
@@ -56,6 +57,12 @@ export const QUICK_FILTERS: { key: string; label: string; maxMinutes?: number; r
   { key: "vegetarianas", label: "Vegetarianas", restrictions: [{ kind: "diet", value: "meat" }, { kind: "diet", value: "seafood" }] },
   { key: "sin-gluten", label: "Sin gluten", restrictions: [{ kind: "allergy", value: "gluten" }] },
   { key: "sin-lactosa", label: "Sin lactosa", restrictions: [{ kind: "allergy", value: "lactose" }] },
+  { key: "colesterol", label: "♥ Colesterol", ids: idsWithHealth("colesterol") },
+  { key: "hierro", label: "Hierro", ids: idsWithHealth("hierro") },
+  { key: "vitamina-c", label: "Vitamina C", ids: idsWithHealth("vitamina-c") },
+  { key: "vitaminas", label: "Vitaminas", ids: idsWithHealth("vitaminas") },
+  { key: "calcio", label: "Calcio", ids: idsWithHealth("calcio") },
+  { key: "fibra", label: "Fibra", ids: idsWithHealth("fibra") },
 ];
 
 /** Plural de un envase: "bote" → "botes", "media docena" → "medias docenas". */

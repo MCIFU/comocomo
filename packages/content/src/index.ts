@@ -41,9 +41,10 @@ import { recipesArg24 } from "./recipes-arg-24";
 import { recipesArg25 } from "./recipes-arg-25";
 import { recipesArg26 } from "./recipes-arg-26";
 import { recipesArg27 } from "./recipes-arg-27";
+import { recipesSalud } from "./recipes-salud";
 
 export { ingredients, prices, EQUIPMENT } from "./ingredients";
-export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06, ...recipesArg07, ...recipesArg08, ...recipesArg09, ...recipesArg10, ...recipesArg11, ...recipesArg12, ...recipesArg13, ...recipesArg14, ...recipesArg15, ...recipesArg16, ...recipesArg17, ...recipesArg18, ...recipesArg19, ...recipesArg20, ...recipesArg21, ...recipesArg22, ...recipesArg23, ...recipesArg24, ...recipesArg25, ...recipesArg26, ...recipesArg27];
+export const recipes: Recipe[] = [...espana, ...recipesMundo, ...recipesMundo2, ...recipesEspana2, ...recipesEuropa, ...recipesAsia, ...recipesAmericaAfrica, ...recipesCasa, ...recipesEuropa2, ...recipesAsia2, ...recipesAmerica2, ...recipesWok, ...recipesPostres, ...recipesCasa2, ...recipesTapasVeg, ...recipesArg01, ...recipesArg02, ...recipesArg03, ...recipesArg04, ...recipesArg05, ...recipesArg06, ...recipesArg07, ...recipesArg08, ...recipesArg09, ...recipesArg10, ...recipesArg11, ...recipesArg12, ...recipesArg13, ...recipesArg14, ...recipesArg15, ...recipesArg16, ...recipesArg17, ...recipesArg18, ...recipesArg19, ...recipesArg20, ...recipesArg21, ...recipesArg22, ...recipesArg23, ...recipesArg24, ...recipesArg25, ...recipesArg26, ...recipesArg27, ...recipesSalud];
 import { DISH_KEYWORDS as D1 } from "./dishes";
 import { DISH_KEYWORDS_2 } from "./dishes-2";
 export { DESSERTS, SEARCH_TAGS } from "./dishes-2";
@@ -51,3 +52,5 @@ export const DISH_KEYWORDS: Record<string, string[]> = { ...D1 };
 for (const [k, v] of Object.entries(DISH_KEYWORDS_2)) DISH_KEYWORDS[k] = [...new Set([...(DISH_KEYWORDS[k] ?? []), ...v])];
 /** Para parseDishIntent: id de receta + nombres con los que se pide. */
 export const dishes = Object.entries(DISH_KEYWORDS).map(([id, keywords]) => ({ id, keywords }));
+
+export { HEALTH_LABEL, NRV, healthTags, nutritionPerServing, type HealthTag, type Nutrients } from "./nutrition";
