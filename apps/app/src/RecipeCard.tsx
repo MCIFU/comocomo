@@ -35,14 +35,14 @@ export function RecipeCard({ recipe, price, servings, index, width, onPress }: {
           const shadow = pressed ? 2 : hovered ? 9 : 6;
           return (
             <View style={{ paddingRight: 6, paddingBottom: 6 }}>
-              <View style={{ position: "absolute", left: shadow, top: shadow, right: 6 - shadow, bottom: 6 - shadow, backgroundColor: c.ink, borderRadius: radius.lg }} />
+              <View style={{ position: "absolute", left: shadow, top: shadow, right: 6 - shadow, bottom: 6 - shadow, backgroundColor: c.shadow, borderRadius: radius.lg }} />
               <View
                 style={{
-                  backgroundColor: c.card, borderWidth: stroke.width, borderColor: c.ink, borderRadius: radius.lg, overflow: "hidden",
+                  backgroundColor: c.card, borderWidth: stroke.width, borderColor: c.edge, borderRadius: radius.lg, overflow: "hidden",
                   transform: [{ translateX: lift }, { translateY: lift }, { rotate: hovered && !pressed ? "-0.4deg" : "0deg" }],
                 }}
               >
-                <View style={{ borderBottomWidth: stroke.width, borderColor: c.ink }}>
+                <View style={{ borderBottomWidth: stroke.width, borderColor: c.edge }}>
                   <RecipePhoto recipe={recipe} width={inner} aspect={1} radius={0} />
                 </View>
                 <View style={{ padding: 14, gap: 6 }}>
@@ -52,7 +52,7 @@ export function RecipeCard({ recipe, price, servings, index, width, onPress }: {
                   <Display size={width < 200 ? 19 : 22} numberOfLines={2} style={{ minHeight: (width < 200 ? 19 : 22) * 2 }}>{title}</Display>
                   <View
                     accessibilityLabel={`${PRICE_TIERS[tier].name}: ${formatMoney(price.min, price.max)} para ${servings} personas`}
-                    style={{ flexDirection: "row", alignSelf: "flex-start", alignItems: "baseline", gap: 6, marginTop: 4, backgroundColor: tag, borderWidth: 2, borderColor: c.ink, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 2 }}
+                    style={{ flexDirection: "row", alignSelf: "flex-start", alignItems: "baseline", gap: 6, marginTop: 4, backgroundColor: tag, borderWidth: 2, borderColor: c.edge, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 2 }}
                   >
                     <T style={{ fontFamily: fonts.display, fontSize: 18, lineHeight: 24, color: tagText }}>{formatMoney(price.min, price.max).replace("≈ ", "")}</T>
                     <T style={{ fontFamily: fonts.monoBold, fontSize: 12.5, lineHeight: 18, color: tagText }}>{PRICE_TIERS[tier].label}</T>

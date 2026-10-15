@@ -99,7 +99,7 @@ export default function Recetas() {
           {wide ? "Busca un plato y te damos la receta, la lista de la compra y lo que te va a costar." : "Receta, lista de la compra y lo que te va a costar."}
         </T>
         <View style={{ maxWidth: 720, paddingRight: 5, paddingBottom: 5 }}>
-          <View style={{ position: "absolute", left: 5, top: 5, right: 0, bottom: 0, backgroundColor: c.ink, borderRadius: radius.md }} />
+          <View style={{ position: "absolute", left: 5, top: 5, right: 0, bottom: 0, backgroundColor: c.shadow, borderRadius: radius.md }} />
           <TextInput
             value={q}
             onChangeText={setQ}
@@ -108,7 +108,7 @@ export default function Recetas() {
             accessibilityLabel="Buscar recetas por plato, país o ingrediente"
             returnKeyType="search"
             style={{
-              position: "relative", minHeight: wide ? 60 : 54, paddingHorizontal: 18, backgroundColor: c.card, borderWidth: stroke.width, borderColor: c.ink, borderRadius: radius.md,
+              position: "relative", minHeight: wide ? 60 : 54, paddingHorizontal: 18, backgroundColor: c.card, borderWidth: stroke.width, borderColor: c.edge, borderRadius: radius.md,
               fontFamily: fonts.uiBold, fontSize: wide ? 21 : 18, color: c.ink, outlineStyle: "none",
             } as object}
           />

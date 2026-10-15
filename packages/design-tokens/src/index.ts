@@ -33,6 +33,10 @@ export const mercado = {
   ticket: "#FFFFFF",
   /** separadores del ticket */
   ticketRule: "#BBBBBB",
+  /** sombra dura bajo tarjetas, botones y pegatinas */
+  shadow: "#1B1712",
+  /** bordes de tarjetas y controles */
+  edge: "#1B1712",
 };
 
 /**
@@ -46,9 +50,9 @@ export const priceScale = ["#FFFDF8", "#E3D9C6", "#A99C88", "#1B1712"] as const;
  * sombras duras se ven como tiza sobre pizarra) y las pegatinas de color se mantienen, con texto oscuro.
  */
 export const mercadoDark: { [K in keyof typeof mercado]: string } = {
-  paper: "#15110E",
-  crust: "#211B16",
-  card: "#1E1914",
+  paper: "#14100D",
+  crust: "#1D1813",
+  card: "#251E18",
   ink: "#F3EAD9",
   inkMuted: "#B3A792",
   tomato: "#CC3820",
@@ -66,6 +70,10 @@ export const mercadoDark: { [K in keyof typeof mercado]: string } = {
   onAccent: "#1B1712",
   ticket: "#2A231D",
   ticketRule: "#5C5045",
+  /** en oscuro la sombra es más oscura que el fondo (profundidad real), no crema */
+  shadow: "#000000",
+  /** borde algo más suave que el texto para que las tarjetas no parezcan dibujadas con tiza */
+  edge: "#A89A84",
 };
 
 export const light = mercado;

@@ -69,7 +69,7 @@ export default function Receta() {
   const main = (
     <Animated.View style={enter}>
       <Pop r={radius.xl} offset={8} inner={{ backgroundColor: c.card }}>
-        <View style={{ borderBottomWidth: stroke.width, borderColor: c.ink }}>
+        <View style={{ borderBottomWidth: stroke.width, borderColor: c.edge }}>
           <RecipePhoto recipe={recipe} width={mainW} aspect={16 / 10} radius={0} />
         </View>
         <View style={{ padding: wide ? 32 : 20, gap: 14 }}>
@@ -77,7 +77,7 @@ export default function Receta() {
           <Display size={wide ? 64 : 40}>{title}</Display>
           <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
             {[`⏱ ${formatMinutes(recipe.prepMin + recipe.cookMin)}`, DIFFICULTY[recipe.difficulty]!, `${recipe.steps.length} pasos`].map((m) => (
-              <View key={m} style={{ borderWidth: 2, borderColor: c.ink, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 3 }}>
+              <View key={m} style={{ borderWidth: 2, borderColor: c.edge, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 3 }}>
                 <T style={{ fontFamily: fonts.uiBold, fontSize: 15 }}>{m}</T>
               </View>
             ))}
@@ -97,7 +97,7 @@ export default function Receta() {
       </View>
       {recipe.steps.map((st, i) => (
         <View key={i} style={{ flexDirection: "row", gap: 14, paddingVertical: 16, borderTopWidth: 2, borderStyle: "dashed", borderColor: c.line }}>
-          <View style={{ width: 42, height: 42, borderRadius: 21, backgroundColor: c.tomato, borderWidth: 2.5, borderColor: c.ink, alignItems: "center", justifyContent: "center" }}>
+          <View style={{ width: 42, height: 42, borderRadius: 21, backgroundColor: c.tomato, borderWidth: 2.5, borderColor: c.edge, alignItems: "center", justifyContent: "center" }}>
             <T style={{ color: c.onTomato, fontFamily: fonts.display, fontSize: 18, lineHeight: 22 }}>{i + 1}</T>
           </View>
           <View style={{ flex: 1, gap: 8 }}>
@@ -140,7 +140,7 @@ export default function Receta() {
           {tags.map((tg) => <Pill key={tg} text={HEALTH_LABEL[tg]} bg={tg === "colesterol" ? c.pink : c.mustard} />)}
         </View>
       )}
-      <View style={{ borderWidth: stroke.width, borderColor: c.ink, borderRadius: radius.md, backgroundColor: c.card, paddingHorizontal: 14, paddingVertical: 6 }}>
+      <View style={{ borderWidth: stroke.width, borderColor: c.edge, borderRadius: radius.md, backgroundColor: c.card, paddingHorizontal: 14, paddingVertical: 6 }}>
         {nutRows.map(([k, v, p], i) => (
           <View key={k} style={{ flexDirection: "row", justifyContent: "space-between", paddingVertical: 6, borderTopWidth: i ? 1 : 0, borderColor: c.line }}>
             <T style={{ fontFamily: fonts.uiMedium }}>{k}</T>
@@ -224,7 +224,7 @@ export default function Receta() {
 function Pill({ text, bg }: { text: string; bg: string }) {
   const c = usePalette();
   return (
-    <View style={{ paddingHorizontal: 10, paddingVertical: 2, borderRadius: 999, backgroundColor: bg, borderWidth: 2, borderColor: c.ink }}>
+    <View style={{ paddingHorizontal: 10, paddingVertical: 2, borderRadius: 999, backgroundColor: bg, borderWidth: 2, borderColor: c.edge }}>
       <T style={{ color: c.onAccent, fontSize: 14, lineHeight: 20, fontFamily: fonts.uiBold, fontVariant: ["tabular-nums"] }}>{text}</T>
     </View>
   );

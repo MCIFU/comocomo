@@ -14,7 +14,7 @@ export function ThemeSwitch() {
   const c = usePalette();
   const pref = useStore((s) => s.theme);
   return (
-    <View accessibilityRole="radiogroup" accessibilityLabel="Tema" style={{ flexDirection: "row", borderWidth: 2.5, borderColor: c.ink, borderRadius: 999, padding: 2, gap: 2, backgroundColor: c.card }}>
+    <View accessibilityRole="radiogroup" accessibilityLabel="Tema" style={{ flexDirection: "row", borderWidth: 2.5, borderColor: c.edge, borderRadius: 999, padding: 2, gap: 2, backgroundColor: c.card }}>
       {OPTIONS.map((o) => {
         const on = pref === o.key;
         return (

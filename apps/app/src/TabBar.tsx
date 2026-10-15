@@ -36,7 +36,7 @@ export function TabBar({ state, navigation, wide }: BottomTabBarProps & { wide: 
         }}
         style={[wide ? s.itemWide : s.item, Platform.OS === "web" ? ({ cursor: "pointer" } as object) : null]}
       >
-        <View style={[s.pill, { backgroundColor: focused ? c.ink : "transparent", borderColor: focused ? c.ink : "transparent" }]}>
+        <View style={[s.pill, { backgroundColor: focused ? c.ink : "transparent", borderColor: focused ? c.edge : "transparent" }]}>
           <T style={{ fontFamily: fonts.uiBold, fontSize: wide ? 16 : 14, lineHeight: 20, color: focused ? c.paper : c.ink }}>{LABELS[route.name]}</T>
           {count > 0 && <Badge count={count} strong={route.name === "compra"} />}
         </View>
@@ -59,7 +59,7 @@ export function TabBar({ state, navigation, wide }: BottomTabBarProps & { wide: 
       </View>
     );
   }
-  return <View style={[s.bottom, { backgroundColor: c.paper, borderTopColor: c.ink, paddingBottom: Math.max(insets.bottom, 8) }]}>{items}</View>;
+  return <View style={[s.bottom, { backgroundColor: c.paper, borderTopColor: c.edge, paddingBottom: Math.max(insets.bottom, 8) }]}>{items}</View>;
 }
 
 /** Insignia con rebote al cambiar el número (p. ej. al añadir una receta a la lista). */
@@ -67,7 +67,7 @@ function Badge({ count, strong }: { count: number; strong: boolean }) {
   const c = usePalette();
   const pulse = usePulse(count, 0.35);
   return (
-    <Animated.View style={[s.badge, { backgroundColor: strong ? c.tomato : c.mustard, borderColor: c.ink }, pulse]}>
+    <Animated.View style={[s.badge, { backgroundColor: strong ? c.tomato : c.mustard, borderColor: c.edge }, pulse]}>
       <T style={{ color: strong ? c.onTomato : c.onAccent, fontSize: 12, lineHeight: 15, fontFamily: fonts.monoBold, fontVariant: ["tabular-nums"] }}>{count}</T>
     </Animated.View>
   );

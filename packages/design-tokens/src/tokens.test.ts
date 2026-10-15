@@ -55,3 +55,9 @@ describe("contraste AA (Mercado de noche)", () => {
     expect(ratio(d.paper, d.ink)).toBeGreaterThanOrEqual(4.5);
   });
 });
+
+describe("bordes visibles (componentes no textuales ≥ 3:1)", () => {
+  it("borde sobre fondo y tarjeta en claro y oscuro", () => {
+    for (const p of [t, mercadoDark]) for (const bg of [p.paper, p.card]) expect(ratio(p.edge, bg)).toBeGreaterThanOrEqual(3);
+  });
+});

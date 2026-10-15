@@ -29,7 +29,7 @@ export function Ticket({ children, style, label }: { children: ReactNode; style?
   const [w, setW] = useState(0);
   return (
     <View accessibilityLabel={label} onLayout={(e) => setW(e.nativeEvent.layout.width)} style={[{ paddingRight: SHADOW, paddingBottom: SHADOW }, style]}>
-      <View style={{ position: "absolute", left: SHADOW, top: SHADOW, right: 0, bottom: 0, backgroundColor: c.ink }} />
+      <View style={{ position: "absolute", left: SHADOW, top: SHADOW, right: 0, bottom: 0, backgroundColor: c.shadow }} />
       <View style={{ backgroundColor: c.ticket, paddingVertical: 30, paddingHorizontal: 24 }}>{children}</View>
       {w > 0 && <Teeth width={w} edge="top" color={c.paper} />}
       {w > 0 && <Teeth width={w} edge="bottom" color={c.paper} />}

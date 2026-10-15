@@ -42,8 +42,8 @@ export function Pop({ children, bg, r = radius.lg, offset = stroke.shadow, style
   const c = usePalette();
   return (
     <View style={[{ paddingRight: offset, paddingBottom: offset }, style]}>
-      <View style={{ position: "absolute", left: offset, top: offset, right: 0, bottom: 0, backgroundColor: c.ink, borderRadius: r }} />
-      <View style={[{ backgroundColor: bg ?? c.card, borderWidth: stroke.width, borderColor: c.ink, borderRadius: r, overflow: "hidden" }, inner]}>{children}</View>
+      <View style={{ position: "absolute", left: offset, top: offset, right: 0, bottom: 0, backgroundColor: c.shadow, borderRadius: r }} />
+      <View style={[{ backgroundColor: bg ?? c.card, borderWidth: stroke.width, borderColor: c.edge, borderRadius: r, overflow: "hidden" }, inner]}>{children}</View>
     </View>
   );
 }
@@ -65,11 +65,11 @@ export function Button({
     >
       {({ pressed }) => (
         <View style={{ paddingRight: 4, paddingBottom: 4 }}>
-          <View style={{ position: "absolute", left: 4, top: 4, right: 0, bottom: 0, backgroundColor: c.ink, borderRadius: radius.md }} />
+          <View style={{ position: "absolute", left: 4, top: 4, right: 0, bottom: 0, backgroundColor: c.shadow, borderRadius: radius.md }} />
           <View
             style={{
               minHeight: 52, paddingHorizontal: 22, alignItems: "center", justifyContent: "center", backgroundColor: bg,
-              borderWidth: stroke.width, borderColor: c.ink, borderRadius: radius.md,
+              borderWidth: stroke.width, borderColor: c.edge, borderRadius: radius.md,
               transform: pressed ? [{ translateX: 4 }, { translateY: 4 }] : [],
             }}
           >
@@ -91,10 +91,10 @@ export function Chip({ label, selected, onPress, color }: { label: string; selec
     <Pressable accessibilityRole="button" accessibilityState={{ selected: !!selected }} onPress={onPress} style={webCursor}>
       {({ pressed }) => (
         <View style={{ paddingRight: 3, paddingBottom: 3 }}>
-          <View style={{ position: "absolute", left: 3, top: 3, right: 0, bottom: 0, backgroundColor: c.ink, borderRadius: 999 }} />
+          <View style={{ position: "absolute", left: 3, top: 3, right: 0, bottom: 0, backgroundColor: c.shadow, borderRadius: 999 }} />
           <View
             style={{
-              minHeight: 38, paddingHorizontal: 16, justifyContent: "center", borderRadius: 999, borderWidth: 2.5, borderColor: c.ink, backgroundColor: bg,
+              minHeight: 38, paddingHorizontal: 16, justifyContent: "center", borderRadius: 999, borderWidth: 2.5, borderColor: c.edge, backgroundColor: bg,
               transform: pressed ? [{ translateX: 3 }, { translateY: 3 }] : [],
             }}
           >

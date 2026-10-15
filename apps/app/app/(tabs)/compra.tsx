@@ -71,7 +71,7 @@ export default function Compra() {
                         onPress={() => actions.toggleChecked(l.ingredientId)}
                         style={({ pressed }) => ({ flexDirection: "row", gap: 10, alignItems: "flex-start", paddingVertical: 4, opacity: pressed ? 0.6 : 1 })}
                       >
-                        <View style={{ width: 20, height: 20, marginTop: 2, borderWidth: 2, borderColor: c.ink, borderRadius: 4, backgroundColor: on ? c.ink : "transparent", alignItems: "center", justifyContent: "center" }}>
+                        <View style={{ width: 20, height: 20, marginTop: 2, borderWidth: 2, borderColor: c.edge, borderRadius: 4, backgroundColor: on ? c.ink : "transparent", alignItems: "center", justifyContent: "center" }}>
                           {on && <T style={{ color: c.paper, fontSize: 13, lineHeight: 15, fontFamily: fonts.monoBold }}>✓</T>}
                         </View>
                         <View style={{ flex: 1, opacity: on ? 0.45 : 1 }}>
