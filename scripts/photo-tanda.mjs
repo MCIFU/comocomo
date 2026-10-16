@@ -1,32 +1,17 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "endibias-rellenas-salmon": "endive smoked salmon",
- "coliflor-naranja-cava": "roasted cauliflower",
- "verduras-curry-basmati": "vegetable curry rice",
- "calabacines-ajoarriero": "stuffed zucchini",
- "arroz-esparragos-chorizo": "arroz con chorizo",
- "arroz-secreto-alcachofas": "arroz con alcachofas y carne",
- "pasta-conejo-curry": "fusilli curry",
- "pan-calabacin-beicon": "zucchini bread savory",
- "sopa-arroz-verduras-gambas": "sopa de arroz",
- "menestra-pollo": "menestra",
- "rape-panceta-crema-lechuga": "monkfish bacon",
- "crepes-mousse-chocolate-cafe": "chocolate crepes",
- "vasitos-yogur-mango-platano": "mango yogurt parfait",
- "frutos-rojos-platano-boina": "berry cobbler",
- "barritas-energeticas": "granola bars",
- "ensaladilla-langostinos-calabacin": "ensaladilla con langostinos",
- "ensalada-pollo-granada-aguacate": "chicken avocado salad",
- "albondigas-pollo-acelga-pera": "chicken meatballs",
- "acelgas-higos-nueces": "acelgas",
- "fideos-arroz-pollo-verduras": "rice noodles chicken stir fry",
- "crepes-puerro-queso": "savory crepes",
- "huevos-al-horno-tomate-esparragos": "huevos a la flamenca",
- "conejo-al-limon": "rabbit lemon",
- "alitas-limon-pimenton-patatas-setas": "chicken wings lemon",
- "merluza-salteada-curry": "fish curry potatoes",
- "milhojas-patata-jamon-crujiente": "mashed potato ham"
+ "flamenquin": "flamenquín",
+ "carcamusas": "carcamusas",
+ "caldo-gallego": "caldo gallego",
+ "pestinos": "pestiños",
+ "ternera-strogonoff": "beef stroganoff",
+ "shepherds-pie": "cottage pie",
+ "bouillabaisse": "bouillabaisse",
+ "ossobuco-milanesa": "ossobuco milanese",
+ "cachapas": "cachapa",
+ "maki-salmon-aguacate": "maki sushi salmon avocado",
+ "kebab-pollo-casero": "chicken pita kebab"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -42,4 +27,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-tanda-8.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-clasicos-1.json", JSON.stringify(out, null, 1));
