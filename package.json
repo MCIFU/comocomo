@@ -14,7 +14,9 @@
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc --noEmit && npm run typecheck -w @comocomo/app",
-    "build:web": "npm run export:web -w @comocomo/app"
+    "build:web": "npm run export:web -w @comocomo/app",
+    "build": "npm run build:web",
+    "start": "node scripts/serve.mjs"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
@@ -22,6 +24,6 @@
     "vitest": "^2.1.0"
   },
   "engines": {
-    "node": "22.x"
+    "node": ">=22"
   }
 }
