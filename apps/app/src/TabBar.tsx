@@ -7,6 +7,7 @@ import { Wordmark } from "./Logo";
 import { usePulse } from "./motion";
 import { fonts, usePalette } from "./theme";
 import { ThemeSwitch } from "./ThemeSwitch";
+import { UserChip } from "./Account";
 import { T } from "./ui";
 
 type BottomTabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>["tabBar"]>>[0];
@@ -54,6 +55,7 @@ export function TabBar({ state, navigation, wide }: BottomTabBarProps & { wide: 
           <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
             {items}
             <View style={{ marginLeft: 12 }}><ThemeSwitch /></View>
+            <UserChip />
           </View>
         </View>
       </View>

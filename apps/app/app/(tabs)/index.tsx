@@ -11,6 +11,7 @@ import { dailyMenu, dayKey, menuPoolSize, type Course } from "../../src/lib/menu
 import { actions, useStore } from "../../src/lib/store";
 import { Wordmark } from "../../src/Logo";
 import { ThemeSwitch } from "../../src/ThemeSwitch";
+import { UserChip } from "../../src/Account";
 import { PriceLegend } from "../../src/PriceLegend";
 import { fonts, radius, stroke, usePalette } from "../../src/theme";
 import { Button, Chip, Display, Empty, Label, Stepper, T } from "../../src/ui";
@@ -118,7 +119,10 @@ export default function Recetas() {
       {!wide && (
         <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
           <Wordmark size={22} />
-          <ThemeSwitch />
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+            <UserChip />
+            <ThemeSwitch />
+          </View>
         </View>
       )}
 

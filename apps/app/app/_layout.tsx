@@ -6,6 +6,8 @@ import Head from "expo-router/head";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { Platform, View } from "react-native";
+import { LoginScreen } from "../src/Account";
+import { useStore } from "../src/lib/store";
 import { Isotype } from "../src/Logo";
 import { usePalette } from "../src/theme";
 
@@ -33,12 +35,14 @@ function useWebGlobals(focus: string, paper: string) {
 export default function Root() {
   const c = usePalette();
   useWebGlobals(c.tomato, c.paper);
+  const hydrated = useStore((s) => s.hydrated);
+  const user = useStore((s) => s.user);
   const [loaded, error] = useFonts({
     BricolageGrotesque_400Regular, BricolageGrotesque_600SemiBold, BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold,
     JetBrainsMono_400Regular, JetBrainsMono_600SemiBold,
   });
   // Mientras cargan las fuentes, el isotipo en el centro (nunca una pantalla en blanco).
-  if (!loaded && !error) {
+  if ((!loaded && !error) || !hydrated) {
     return (
       <View style={{ flex: 1, backgroundColor: c.paper, alignItems: "center", justifyContent: "center" }}>
         <Isotype size={36} />
@@ -52,7 +56,7 @@ export default function Root() {
         <meta name="description" content="Busca un plato y te damos la receta, la lista de la compra y lo que te va a costar." />
       </Head>
       <StatusBar style="dark" />
-      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: c.paper } }} />
+      {user ? <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: c.paper } }} /> : <LoginScreen />}
     </>
   );
 }

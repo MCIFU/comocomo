@@ -1,4 +1,4 @@
-// Servidor estático mínimo para la versión web exportada (apps/app/dist), sin dependencias.
+// Servidor de Cómocomo, sin dependencias: la versión web exportada (apps/app/dist) y la API de cuentas (/api/*).
 // Cualquier ruta que no sea un archivo devuelve index.html (la app decide qué pantalla mostrar).
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
@@ -6,6 +6,7 @@ import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { execSync } from "node:child_process";
+import { handleApi } from "./accounts.mjs";
 
 const ROOT = fileURLToPath(new URL("../apps/app/dist/", import.meta.url));
 const PORT = Number(process.env.PORT) || 3000;
@@ -32,6 +33,7 @@ async function file(path) {
 
 createServer(async (req, res) => {
   const url = decodeURIComponent((req.url ?? "/").split("?")[0]);
+  if (await handleApi(req, res, url)) return;
   const safe = normalize(url).replace(/^(\.\.[/\\])+/, "");
   const path = (await file(join(ROOT, safe))) ?? (await file(join(ROOT, safe, "index.html"))) ?? join(ROOT, "index.html");
   try {
