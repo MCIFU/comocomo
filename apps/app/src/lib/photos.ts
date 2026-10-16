@@ -730,4 +730,11 @@ export const PHOTOS: Record<string, Photo> = {
   "pastelitos-limon-leche-condensada": { src: require("../../assets/photos/pastelitos-limon-leche-condensada.jpg"), author: "alpha", license: "CC BY 2.5", url: "https://commons.wikimedia.org/wiki/File:Lemon_tart_(cropped).jpg" },
   "sopa-de-pescado": { src: require("../../assets/photos/sopa-de-pescado.jpg"), author: "Gerda Arendt", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Fish_soup,_Ibiza.jpg" },
   "bocados-queso-azul-nueces": { src: require("../../assets/photos/bocados-queso-azul-nueces.jpg"), author: "Popo le Chien", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Malakoff.jpeg" },
+  "arroz-almejas-verduras": { src: require("../../assets/photos/arroz-almejas-verduras.jpg"), author: "Jrfdiaz", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:090114-arroz9.jpg" },
+  "bocados-lomo-jamon-tomate": { src: require("../../assets/photos/bocados-lomo-jamon-tomate.jpg"), author: "Willis Lam", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Barber_Foods_Chicken_Cordon_Bleu_(26145853992).jpg" },
+  "canutillos-hojaldre-yogur-frutas": { src: require("../../assets/photos/canutillos-hojaldre-yogur-frutas.jpg"), author: "jeffreyw", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Cream_horns_(15466292759).jpg" },
+  "crepes-chocolate-platano": { src: require("../../assets/photos/crepes-chocolate-platano.jpg"), author: "Guilhem Vellut from Annecy, France", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Banana_%2B_Chocolate_cr%C3%AApe_@_Breakfast_@_Le_Resto_du_Village_@_Montr%C3%A9al_(30461563936).jpg" },
+  "osobuco-cerdo-salsa": { src: require("../../assets/photos/osobuco-cerdo-salsa.jpg"), author: "it:Lasagnolo9", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Ossobuco_in_pentola.jpg" },
+  "sopa-serrana": { src: require("../../assets/photos/sopa-serrana.jpg"), author: "Autor desconocido", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Tomato_soup.jpg" },
+  "villeroy-redondo-pavo-queso": { src: require("../../assets/photos/villeroy-redondo-pavo-queso.jpg"), author: "Tamorlan", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Pechugas_Pollo_a_la_Villaroy-10.JPG" },
 };

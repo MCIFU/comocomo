@@ -1,33 +1,33 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "sopa-de-pescado": "sopa de pescado",
- "caballa-escabeche-limon": "caballa en escabeche",
- "cazuela-pulpo-habitas": "pulpo guisado",
- "merluza-panaderas-almejas": "merluza con almejas",
- "pastelitos-limon-leche-condensada": "lemon tartlets",
- "dulce-de-coco": "coconut pudding",
- "guisantes-huevos-setas": "guisantes con huevo",
- "arroz-de-mar": "arroz a banda",
- "macarrones-pollo-curry": "pasta chicken curry",
- "huevos-rellenos-champinones-gambas": "huevos rellenos",
- "boquerones-en-vinagre": "boquerones en vinagre",
- "galletas-cereales-pinones": "oat cookies",
- "semifrio-melon": "melon dessert",
- "cremoso-limon-queso": "lemon cheesecake raspberries",
- "mejillones-vapor-limon-perejil": "steamed mussels lemon",
- "coliflor-patatas-alioli": "coliflor al vapor",
- "coliflor-brocoli-escabeche": "pickled cauliflower",
- "crema-brocoli-gambas": "broccoli soup",
- "berenjenas-horno-carne-bechamel": "moussaka",
- "garbanzos-verduras-tomate": "chickpea stew tomato",
- "lentejas-boniato-arroz": "lentil stew sweet potato",
- "arroz-mejillones-escabeche": "arroz con mejillones",
- "tallarines-pesto-verduras": "pasta pesto zucchini tomatoes",
- "tarta-almejas-calabaza": "savory tart pumpkin",
- "tartaletas-avena-verduras": "vegetable tartlets",
- "pizza-patatas-riojana": "potato pizza",
- "bocados-queso-azul-nueces": "fried cheese balls"
+ "sopa-serrana": "sopa de tomate",
+ "sopa-arroz-pollo-maiz": "chicken rice soup corn",
+ "huevos-gambas-ajetes-patatas-paja": "huevos rotos con gambas",
+ "pierna-cordero-miel": "lamb tagine honey almonds",
+ "pavo-mechado-manzana-asada": "roast turkey baked apples",
+ "caballa-asada-patatas": "grilled mackerel potatoes",
+ "vasitos-mango-galleta": "mango mousse glass",
+ "pina-salteada-yogur-frambuesas": "grilled pineapple yogurt",
+ "pimientos-adobados-champinones": "pimientos asados",
+ "alcachofas-patatas-almejas": "alcachofas guisadas",
+ "arroz-cordero-verduras": "arroz con cordero",
+ "cestos-pan-huevo-jamon": "egg in bread basket",
+ "osobuco-cerdo-salsa": "ossobuco",
+ "villeroy-redondo-pavo-queso": "pollo villeroy",
+ "canutillos-hojaldre-yogur-frutas": "cream horns",
+ "pina-salteada-merengue-lima": "pineapple meringue",
+ "tartitas-queso-lima-frutas": "cheesecake fruit tartlets",
+ "limones-rellenos-helados": "limones rellenos helado",
+ "arroz-almejas-verduras": "arroz con almejas",
+ "bocados-lomo-jamon-tomate": "san jacobo",
+ "calamares-patatas-guisantes": "calamares con patatas",
+ "rape-a-la-catalana": "rape",
+ "truchas-a-la-cazuela": "trucha guisada",
+ "crepes-chocolate-platano": "banana chocolate crepes",
+ "crema-fria-mango": "mango soup cold",
+ "repapalos-bacalao": "buñuelos de bacalao en caldo",
+ "alubias-bunuelos-berza-cordero": "alubias con cordero"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -43,4 +43,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-tanda-5.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-tanda-6.json", JSON.stringify(out, null, 1));
