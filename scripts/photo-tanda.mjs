@@ -1,32 +1,32 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "pan-chorizo-huevo-frito": "chorizo bread",
- "terrina-carne-platano": "pastelón",
- "tostas-pavo-aguacate-cabra": "avocado toast goat cheese",
- "ensaladilla-salmon-aguacate": "potato salad salmon",
- "ensalada-champinones-naranja": "mushroom salad",
- "endibias-guisadas-jamon": "braised endives ham",
- "quinoa-verduras-alioli-tomate": "quinoa vegetables",
- "guisantes-morcilla-panceta": "guisantes con jamón",
- "arroz-verduras-asadas-alioli": "rice roasted vegetables",
- "minipizzas-marisco-champinones": "seafood pizza",
- "sopa-vina-ab": "sopa de pescado",
- "frutas-sabayon-vino-dulce": "fruit gratin sabayon",
- "timbal-patata-pimiento-bacalao": "timbal de bacalao",
- "arroz-cerdo-jerez": "arroz con magro",
- "gazpacho-habas": "cold soup broad beans",
- "sopa-pollo-albondigas-garbanzos": "sopa de cocido",
- "higadillos-pollo-garbanzos": "chicken livers",
- "merluza-papillote-verduras": "fish en papillote",
- "mejillones-escabeche-patatas-panadera": "mejillones en escabeche",
- "galletas-almendra-fresas": "almond tuiles",
- "gelatina-chocolate-fresas": "chocolate pudding strawberries",
- "tofu-salteado-brocoli-sesamo": "tofu broccoli stir fry",
- "pollo-frutas-pasas-pasta": "chicken dried fruit sauce",
- "endibias-rellenas-judias-bacalao": "stuffed endive",
- "salmon-salsa-berros-aros-cebolla": "salmon fillet green sauce",
- "cerdo-melon-salsa-tomate": "pork stir fry peppers"
+ "endibias-rellenas-salmon": "endive smoked salmon",
+ "coliflor-naranja-cava": "roasted cauliflower",
+ "verduras-curry-basmati": "vegetable curry rice",
+ "calabacines-ajoarriero": "stuffed zucchini",
+ "arroz-esparragos-chorizo": "arroz con chorizo",
+ "arroz-secreto-alcachofas": "arroz con alcachofas y carne",
+ "pasta-conejo-curry": "fusilli curry",
+ "pan-calabacin-beicon": "zucchini bread savory",
+ "sopa-arroz-verduras-gambas": "sopa de arroz",
+ "menestra-pollo": "menestra",
+ "rape-panceta-crema-lechuga": "monkfish bacon",
+ "crepes-mousse-chocolate-cafe": "chocolate crepes",
+ "vasitos-yogur-mango-platano": "mango yogurt parfait",
+ "frutos-rojos-platano-boina": "berry cobbler",
+ "barritas-energeticas": "granola bars",
+ "ensaladilla-langostinos-calabacin": "ensaladilla con langostinos",
+ "ensalada-pollo-granada-aguacate": "chicken avocado salad",
+ "albondigas-pollo-acelga-pera": "chicken meatballs",
+ "acelgas-higos-nueces": "acelgas",
+ "fideos-arroz-pollo-verduras": "rice noodles chicken stir fry",
+ "crepes-puerro-queso": "savory crepes",
+ "huevos-al-horno-tomate-esparragos": "huevos a la flamenca",
+ "conejo-al-limon": "rabbit lemon",
+ "alitas-limon-pimenton-patatas-setas": "chicken wings lemon",
+ "merluza-salteada-curry": "fish curry potatoes",
+ "milhojas-patata-jamon-crujiente": "mashed potato ham"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -42,4 +42,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-tanda-7.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-tanda-8.json", JSON.stringify(out, null, 1));
