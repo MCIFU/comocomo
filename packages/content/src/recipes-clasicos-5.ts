@@ -43,12 +43,12 @@ export const recipesClasicos5: Recipe[] = [
   r({
     id: "olla-podrida", title: "Olla podrida de Burgos",
     cuisine: "espanola", origin: "España (Burgos)", authenticity: "adapted",
-    note: "Guiso de alubias rojas con carnes de cerdo. La tradicional lleva morcilla de Burgos, oreja y costilla adobada.",
-    baseServings: 4, prepMin: 15, cookMin: 120, difficulty: "medium", equipment: ["olla"],
-    ingredients: [I("frijoles-negros", 400, "g"), I("costillas-cerdo", 300, "g"), I("chorizo", 150, "g"), I("morcilla", 150, "g"), I("panceta", 100, "g"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("pimenton", 4, "g"), I("laurel", 1, "unit"), I("aceite", 20, "ml"), I("sal", 4, "g")],
+    note: "Guiso de alubias rojas con carnes de cerdo. Con alubias ya cocidas se hace en una hora; la tradicional lleva morcilla de Burgos, oreja y costilla adobada.",
+    baseServings: 4, prepMin: 15, cookMin: 75, difficulty: "medium", equipment: ["olla"],
+    ingredients: [I("alubias-rojas", 600, "g"), I("costillas-cerdo", 300, "g"), I("chorizo", 150, "g"), I("morcilla", 150, "g"), I("panceta", 100, "g"), I("cebolla", 1, "unit"), I("ajo", 2, "unit"), I("pimenton", 4, "g"), I("laurel", 1, "unit"), I("aceite", 20, "ml"), I("sal", 4, "g")],
     steps: [
-      S("La noche antes, pon las alubias (rojas o negras) en remojo.", 5),
-      S("Ponlas en la olla con agua fría, la costilla, la panceta, el chorizo, la cebolla entera y el laurel. Cuece a fuego muy suave 1 hora y media, asustando con agua fría dos veces.", 90),
+      S("Escurre y enjuaga las alubias rojas cocidas.", 5),
+      S("Pon en la olla la costilla, la panceta, el chorizo, la cebolla entera y el laurel con un litro de agua y cuece 45 minutos. Añade las alubias y cuece 20 minutos más.", 65),
       S("Añade la morcilla los últimos 15 minutos.", 15),
       S("Dora el ajo laminado en el aceite, retira del fuego, añade el pimentón y échalo al guiso. Sala y cuece 5 minutos más.", 7),
     ],

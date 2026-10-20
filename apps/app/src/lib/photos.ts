@@ -816,4 +816,9 @@ export const PHOTOS: Record<string, Photo> = {
   "mofongo": { src: require("../../assets/photos/mofongo.jpg"), author: "Arnold Gatilao", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Mofongo_de_chicharr%C3%B3n_de_cerdo.jpg" },
   "panzanella": { src: require("../../assets/photos/panzanella.jpg"), author: "Missvain", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Sunday_Supper_Aug_2019_-_Stierch_04.jpg" },
   "rendang": { src: require("../../assets/photos/rendang.jpg"), author: "Miansari66", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Beef_Rendang..JPG" },
+  "callos-a-la-madrilena": { src: require("../../assets/photos/callos-a-la-madrilena.jpg"), author: "Javier Lastras from España/Spain", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Callos_cociendose.jpg" },
+  "lacon-con-grelos": { src: require("../../assets/photos/lacon-con-grelos.jpg"), author: "Tamorlan", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:Lac%C3%B3n_con_Grelos_(Cuenca).jpg" },
+  "mero-en-salsa-verde": { src: require("../../assets/photos/mero-en-salsa-verde.jpg"), author: "Zarateman", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Hernani_-_merluza_en_salsa_verde.jpg" },
+  "pimientos-de-padron": { src: require("../../assets/photos/pimientos-de-padron.jpg"), author: "Cook And Drink", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Pimientos_de_Padron_Valencia_2026.jpg" },
+  "rabo-de-toro": { src: require("../../assets/photos/rabo-de-toro.jpg"), author: "Juan Emilio Prades Bel", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Rabo_de_toro,_gastronom%C3%ADa_rural,_comarca_Maestrazgo.jpg" },
 };

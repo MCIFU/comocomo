@@ -229,6 +229,14 @@ const rows: Row[] = [
   ["huevo-codorniz", "Huevos de codorniz", "dairy", "count", ["egg"], [], ["unit", 0.1, 0.2]],
   ["quinoa", "Quinoa", "pantry", "mass", [], [], ["kg", 5, 9]],
   ["tinta-calamar", "Tinta de calamar o sepia", "pantry", "mass", ["mollusc"], ["seafood"], ["kg", 80, 140]],
+  ["callos", "Callos de ternera (limpios)", "butcher", "mass", [], ["meat"], ["kg", 6, 10]],
+  ["rabo-toro", "Rabo de toro o de ternera", "butcher", "mass", [], ["meat"], ["kg", 12, 18]],
+  ["lacon", "Lacón cocido", "butcher", "mass", [], ["meat", "pork"], ["kg", 9, 14]],
+  ["pimientos-padron", "Pimientos de Padrón", "produce", "mass", [], [], ["kg", 8, 14]],
+  ["grelos", "Grelos o nabizas", "produce", "mass", [], [], ["kg", 3, 5]],
+  ["pez-espada", "Pez espada (rodajas)", "fish", "mass", ["fish"], ["fish", "seafood"], ["kg", 14, 22]],
+  ["mero", "Mero (lomos)", "fish", "mass", ["fish"], ["fish", "seafood"], ["kg", 18, 28]],
+  ["alubias-rojas", "Alubias rojas cocidas", "pantry", "mass", [], [], ["kg", 2.5, 4]],
 ];
 
 type Pack = [qty: number, unit: UnitId, label: string];
@@ -252,7 +260,7 @@ const PACKS: Record<string, Pack> = {
   "ternera-picada": [500, "g", "bandeja"], ternera: [400, "g", "bandeja"], cerdo: [500, "g", "bandeja"], jamon: [100, "g", "paquete"],
   nata: [200, "ml", "brik"], mozzarella: [125, "g", "bola"], tofu: [400, "g", "bloque"], "fideos-arroz": [250, "g", "paquete"],
   "fideos-ramen": [250, "g", "paquete"], levadura: [50, "g", "paquete"], "obleas-empanadilla": [16, "unit", "paquete"],
-  "pan-hamburguesa": [4, "unit", "paquete"], cebolleta: [3, "unit", "manojo"], "frijoles-negros": [400, "g", "bote"],
+  "pan-hamburguesa": [4, "unit", "paquete"], cebolleta: [3, "unit", "manojo"], "frijoles-negros": [400, "g", "bote"], "alubias-rojas": [400, "g", "bote"], "pimientos-padron": [200, "g", "bolsa"], lacon: [500, "g", "pieza"],
   tahini: [300, "g", "tarro"], canela: [30, "g", "bote"], pinones: [50, "g", "bolsa"],
   cordero: [500, "g", "bandeja"], "costillas-cerdo": [800, "g", "bandeja"], salchichas: [400, "g", "bandeja"], bacalao: [400, "g", "bandeja"],
   "atun-lata": [160, "g", "pack de 3 latas"], mejillones: [1, "kg", "malla"], almejas: [250, "g", "bandeja"], pulpo: [250, "g", "bandeja"],
@@ -297,7 +305,7 @@ const ALIASES: Record<string, string[]> = {
   queso: ["quesos", "parmesano", "mozzarella", "mozarela", "manchego", "cheddar"],
   chorizo: ["chorizos"],
   gambas: ["gamba", "langostinos", "langostino"],
-  merluza: ["pescado blanco"],
+  merluza: ["pescado blanco"], "rabo-toro": ["rabo de toro", "rabo"], "pez-espada": ["emperador", "pez espada"], "alubias-rojas": ["alubias rojas", "judias rojas"], grelos: ["nabizas"],
   lentejas: ["lenteja"],
   garbanzos: ["garbanzo"],
   fabes: ["fabas", "alubias", "judias blancas"],
