@@ -1,18 +1,16 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "solomillo-al-whisky": "solomillo al whisky",
- "huevos-estrellados": "huevos estrellados",
- "chipirones-en-su-tinta": "chipirones en su tinta",
- "pipirrana": "pipirrana",
- "gazpacho-manchego": "gazpacho manchego",
- "patatas-meneas": "patatas revolconas",
- "conejo-al-salmorejo": "conejo en salmorejo",
- "panellets": "panellets",
- "bizcocho-limon": "lemon sponge cake",
- "dolmas": "dolma",
- "katsudon": "katsudon",
- "gofres": "waffles"
+ "merluza-a-la-vasca": "merluza a la vasca",
+ "rabas": "rabas",
+ "tortilla-de-bacalao": "tortilla de bacalao",
+ "olla-podrida": "olla podrida",
+ "sobaos-pasiegos": "sobao pasiego",
+ "bienmesabe": "bienmesabe cazón",
+ "tamales-pollo": "tamales",
+ "muffins-arandanos": "blueberry muffins",
+ "requeson-miel-nueces": "cheese honey walnuts",
+ "bunuelos-calabaza": "buñuelos de calabaza"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -28,4 +26,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-clasicos-4.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-clasicos-5.json", JSON.stringify(out, null, 1));

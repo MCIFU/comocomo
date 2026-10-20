@@ -796,4 +796,12 @@ export const PHOTOS: Record<string, Photo> = {
   "patatas-meneas": { src: require("../../assets/photos/patatas-meneas.jpg"), author: "Manuel Martín Vicente from Valdemoro, Spain", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Patatas_revolconas_(2).jpg" },
   "pipirrana": { src: require("../../assets/photos/pipirrana.jpg"), author: "Avicentegil", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Ensalada_murciana_IMGP4187.JPG" },
   "solomillo-al-whisky": { src: require("../../assets/photos/solomillo-al-whisky.jpg"), author: "Miguelbremen", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Solomillo_al_whisky.JPG" },
+  "bienmesabe": { src: require("../../assets/photos/bienmesabe.jpg"), author: "Juan Emilio Prades Bel", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Caz%C3%B3n_en_adobo,_rebozado_y_frito.jpg" },
+  "bunuelos-calabaza": { src: require("../../assets/photos/bunuelos-calabaza.jpg"), author: "19Tarrestnom65", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Bu%C3%B1uelos_de_calabaza._Bunyol%C3%A0_en_falles.jpg" },
+  "merluza-a-la-vasca": { src: require("../../assets/photos/merluza-a-la-vasca.jpg"), author: "El Mono Español", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Merluza_a_la_vasca.jpg" },
+  "muffins-arandanos": { src: require("../../assets/photos/muffins-arandanos.jpg"), author: "SKopp", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Blueberry_muffins,_whole_and_partial.jpg" },
+  "olla-podrida": { src: require("../../assets/photos/olla-podrida.jpg"), author: "Santaorosia Photographic Colectivity from norte del sur europeo", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Olla_podrida_Covarrubias_-_Santaorosia_Photographic_Colectivity.jpg" },
+  "sobaos-pasiegos": { src: require("../../assets/photos/sobaos-pasiegos.jpg"), author: "File:Sobao pasiego2.jpg: Tubamirum derivative work: Stegop", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Sobao_pasiego2_crop.jpg" },
+  "tamales-pollo": { src: require("../../assets/photos/tamales-pollo.jpg"), author: "Usernet123u", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Tamales_Mexicanos_sweet_corn_tamales_01.jpg" },
+  "tortilla-de-bacalao": { src: require("../../assets/photos/tortilla-de-bacalao.jpg"), author: "Valdavia", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Cider_menu_-_Codfish_omelette_001.jpg" },
 };
