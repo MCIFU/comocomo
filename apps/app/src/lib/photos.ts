@@ -171,7 +171,6 @@ export const PHOTOS: Record<string, Photo> = {
   "provoleta": { src: require("../../assets/photos/provoleta.jpg"), author: "Horacio Cambeiro", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:Provoleta_con_cazuela_(porci%C3%B3n).jpg" },
   "pastel-de-choclo": { src: require("../../assets/photos/pastel-de-choclo.jpg"), author: "Paloma Baytelman from Santiago, Chile", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Pastel_de_choclo.jpg" },
   "feijoada": { src: require("../../assets/photos/feijoada.jpg"), author: "Bradleyzm", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Feijoada_%C3%A0_brasileira_-02.jpg" },
-  "brigadeiros": { src: require("../../assets/photos/brigadeiros.jpg"), author: "Vitor Oliveira from Torres Vedras, PORTUGAL", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Solar_dos_Brigadeiros_-_Fonte_Arcada_-_Portugal_(25610742800).jpg" },
   "bobo-gambas": { src: require("../../assets/photos/bobo-gambas.jpg"), author: "Victorgrigas", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Bobo_a_Dish_from_Brazil.JPG" },
   "jollof-rice": { src: require("../../assets/photos/jollof-rice.jpg"), author: "Segun Famisa", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Jollof_rice_with_vegetable.jpg" },
   "misir-wot": { src: require("../../assets/photos/misir-wot.jpg"), author: "Andy Li", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Misir_Wot_and_Gomen_Besiga_-_Abyssinia,_Brighton.jpg" },
