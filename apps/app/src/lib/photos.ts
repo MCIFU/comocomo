@@ -821,4 +821,8 @@ export const PHOTOS: Record<string, Photo> = {
   "mero-en-salsa-verde": { src: require("../../assets/photos/mero-en-salsa-verde.jpg"), author: "Zarateman", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Hernani_-_merluza_en_salsa_verde.jpg" },
   "pimientos-de-padron": { src: require("../../assets/photos/pimientos-de-padron.jpg"), author: "Cook And Drink", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Pimientos_de_Padron_Valencia_2026.jpg" },
   "rabo-de-toro": { src: require("../../assets/photos/rabo-de-toro.jpg"), author: "Juan Emilio Prades Bel", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Rabo_de_toro,_gastronom%C3%ADa_rural,_comarca_Maestrazgo.jpg" },
+  "arroz-oriental-gambas-pepino": { src: require("../../assets/photos/arroz-oriental-gambas-pepino.jpg"), author: "Ceeseven", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Shrimp_Paste_Fried_Rice.jpg" },
+  "empanadillas-gambas-vapor": { src: require("../../assets/photos/empanadillas-gambas-vapor.jpg"), author: "sfllaw of Flickr", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Xiajiao.jpg" },
+  "sopa-agripicante": { src: require("../../assets/photos/sopa-agripicante.jpg"), author: "Evan-Amos", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Hot-and-Sour-Soup-Bowl.jpg" },
+  "ternera-china-manzana": { src: require("../../assets/photos/ternera-china-manzana.jpg"), author: "andrewarchy from Toronto, Canada", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Stir_Fried_Beef_@_Congee_Time_(5611725153).jpg" },
 };

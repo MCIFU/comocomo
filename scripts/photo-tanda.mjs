@@ -1,13 +1,12 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "callos-a-la-madrilena": "callos a la madrileña",
- "rabo-de-toro": "rabo de toro",
- "lacon-con-grelos": "lacón con grelos",
- "pimientos-de-padron": "pimientos de padrón",
- "pez-espada-plancha": "pez espada",
- "mero-en-salsa-verde": "merluza en salsa verde",
- "dorada-a-la-sal": "dorada a la sal"
+ "almejas-guindilla-china": "stir fried clams chili",
+ "arroz-oriental-gambas-pepino": "shrimp fried rice",
+ "calamares-salsa-vinagre": "squid chinese",
+ "empanadillas-gambas-vapor": "har gow",
+ "sopa-agripicante": "hot and sour soup",
+ "ternera-china-manzana": "chinese beef stir fry"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -23,4 +22,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-clasicos-6.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-libro-china.json", JSON.stringify(out, null, 1));
