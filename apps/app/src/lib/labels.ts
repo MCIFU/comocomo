@@ -13,7 +13,7 @@ export const CUISINE_LABEL: Record<string, string> = {
   cubana: "Cuba", colombiana: "Colombia", venezolana: "Venezuela", chilena: "Chile",
   nigeriana: "Nigeria", etiope: "Etiopía", senegalesa: "Senegal", sudafricana: "Sudáfrica",
   hungara: "Hungría", polaca: "Polonia", irlandesa: "Irlanda", sueca: "Suecia", noruega: "Noruega", malaya: "Malasia",
-  dominicana: "Rep. Dominicana", salvadorena: "El Salvador", costarricense: "Costa Rica", australiana: "Australia", rusa: "Rusia", egipcia: "Egipto",
+  dominicana: "Rep. Dominicana", salvadorena: "El Salvador", costarricense: "Costa Rica", australiana: "Australia", rusa: "Rusia", egipcia: "Egipto", suiza: "Suiza",
 };
 
 /** Filtro de la portada en dos niveles: continente y, dentro, país. España agrupa también Asturias. */
@@ -26,7 +26,7 @@ export const CONTINENTS: { key: string; label: string; countries: Country[] }[] 
     countries: [
       country("espanola", "España", ["asturiana"]), country("italiana"), country("francesa"), country("portuguesa"), country("griega"),
       country("alemana"), country("britanica"), country("irlandesa"), country("hungara"), country("polaca"), country("sueca"),
-      country("noruega"), country("rusa"), country("turca"),
+      country("noruega"), country("rusa"), country("suiza"), country("turca"),
     ],
   },
   {
