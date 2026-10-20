@@ -1,0 +1,602 @@
+{
+ "gnocchi-sorrentina": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Gnocchi_alla_sorrentina.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Gnocchi_alla_sorrentina.jpg/960px-Gnocchi_alla_sorrentina.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1920,
+   "h": 1080,
+   "license": "CC BY 3.0",
+   "author": "Davide Zambelli"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Gnocchi_alla_sorrentina._Le_Scuderie,_Via_Simone_Sancasciani_1,_56125_Pizo_PI.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Gnocchi_alla_sorrentina._Le_Scuderie%2C_Via_Simone_Sancasciani_1%2C_56125_Pizo_PI.jpg/960px-Gnocchi_alla_sorrentina._Le_Scuderie%2C_Via_Simone_Sancasciani_1%2C_56125_Pizo_PI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4608,
+   "h": 3456,
+   "license": "CC BY-SA 4.0",
+   "author": "Super nabla"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Gnocchi_Carbonara_-_Moontone.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Gnocchi_Carbonara_-_Moontone.jpg/960px-Gnocchi_Carbonara_-_Moontone.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "Andy Li"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Gnocchi_Red_Sauce.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Gnocchi_Red_Sauce.jpg/960px-Gnocchi_Red_Sauce.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4096,
+   "h": 3072,
+   "license": "CC BY-SA 4.0",
+   "author": "Amy Aletheia Cahill"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Potato_gnocchi,_aubergine_arrabiata.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Potato_gnocchi%2C_aubergine_arrabiata.jpg/960px-Potato_gnocchi%2C_aubergine_arrabiata.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "Siobhan Leachman"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Gnocchi_with_mussels.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Gnocchi_with_mussels.jpg/960px-Gnocchi_with_mussels.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 1960,
+   "license": "CC BY-SA 4.0",
+   "author": "Armineaghayan"
+  }
+ ],
+ "arancini": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arancini_002.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Arancini_002.jpg/960px-Arancini_002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2288,
+   "h": 1712,
+   "license": "Public domain",
+   "author": "No machine-readable author provided. Gmelfi assumed (based on copyright claims)."
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Truffle_%26_Mushroom_Arancini_-_Leon.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Truffle_%26_Mushroom_Arancini_-_Leon.jpg/960px-Truffle_%26_Mushroom_Arancini_-_Leon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3024,
+   "h": 4032,
+   "license": "CC0",
+   "author": "Andy Li"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:5_small_Arancini_Spinach_-_Monjibello,_Brighton_2023-11-20.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/5_small_Arancini_Spinach_-_Monjibello%2C_Brighton_2023-11-20.jpg/960px-5_small_Arancini_Spinach_-_Monjibello%2C_Brighton_2023-11-20.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3024,
+   "h": 4032,
+   "license": "CC0",
+   "author": "Andy Li"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arancini_displayed_at_counter_of_Monjibello,_Brighton_2023-11-20.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Arancini_displayed_at_counter_of_Monjibello%2C_Brighton_2023-11-20.jpg/960px-Arancini_displayed_at_counter_of_Monjibello%2C_Brighton_2023-11-20.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "Andy Li"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Chiacchiere_arancini.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Chiacchiere_arancini.JPG/960px-Chiacchiere_arancini.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5472,
+   "h": 3648,
+   "license": "CC BY-SA 4.0",
+   "author": "Lasagnolo9 at Italian Wikipedia (= formerly Ramagliolo9 at Italian Wikipedia)"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Arancini_rag%C3%B9_stuffing_Stroud_Gloucestershire_stodgy_and_dry_02.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Arancini_rag%C3%B9_stuffing_Stroud_Gloucestershire_stodgy_and_dry_02.jpg/960px-Arancini_rag%C3%B9_stuffing_Stroud_Gloucestershire_stodgy_and_dry_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6614,
+   "h": 4961,
+   "license": "CC BY-SA 4.0",
+   "author": "Acabashi"
+  }
+ ],
+ "caponata": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Sicilian_caponata.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Sicilian_caponata.jpg/960px-Sicilian_caponata.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1280,
+   "h": 853,
+   "license": "CC BY-SA 3.0",
+   "author": "Massimoweb"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Amiata2009Mauro037.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Amiata2009Mauro037.jpg/960px-Amiata2009Mauro037.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2412,
+   "h": 1602,
+   "license": "CC BY-SA 2.5",
+   "author": "No machine-readable author provided. FaleBot assumed (based on copyright claims)"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Caponata_nissena.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Caponata_nissena.jpg/960px-Caponata_nissena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3472,
+   "h": 4624,
+   "license": "CC BY-SA 4.0",
+   "author": "Auregann"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Caponata_(14049113982).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Caponata_%2814049113982%29.jpg/960px-Caponata_%2814049113982%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3872,
+   "h": 2592,
+   "license": "CC BY 2.0",
+   "author": "Karen and Brad Emerson"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Caponata_(23791306323).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Caponata_%2823791306323%29.jpg/960px-Caponata_%2823791306323%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3456,
+   "license": "CC BY 2.0",
+   "author": "Luca Nebuloni from Milan, Italy"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Caponata_plated_(14052791134).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Caponata_plated_%2814052791134%29.jpg/960px-Caponata_plated_%2814052791134%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3872,
+   "h": 2592,
+   "license": "CC BY 2.0",
+   "author": "Karen and Brad Emerson"
+  }
+ ],
+ "panzanella": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fatto_a_Mano_-_Panzanella_Salad_and_Guanciale_Carbonara_Pizza.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Fatto_a_Mano_-_Panzanella_Salad_and_Guanciale_Carbonara_Pizza.jpg/960px-Fatto_a_Mano_-_Panzanella_Salad_and_Guanciale_Carbonara_Pizza.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "Andy Li"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Heritage_tomato_Panzanella,_Croutons,_feta,_red_onions_-_Mange_Tout_2024-05-25.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Heritage_tomato_Panzanella%2C_Croutons%2C_feta%2C_red_onions_-_Mange_Tout_2024-05-25.jpg/960px-Heritage_tomato_Panzanella%2C_Croutons%2C_feta%2C_red_onions_-_Mange_Tout_2024-05-25.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "Andy Li"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Panzanella_con_pomodori_a_grappolo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Panzanella_con_pomodori_a_grappolo.jpg/960px-Panzanella_con_pomodori_a_grappolo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3334,
+   "h": 4445,
+   "license": "CC BY-SA 4.0",
+   "author": "Albarubescens"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:2018_Corner_117_Bacon_Dinner_-_Sarah_Stierch.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/2018_Corner_117_Bacon_Dinner_-_Sarah_Stierch.jpg/960px-2018_Corner_117_Bacon_Dinner_-_Sarah_Stierch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1951,
+   "h": 1951,
+   "license": "CC BY 4.0",
+   "author": "Missvain"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Sunday_Supper_Aug_2019_-_Stierch_04.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Sunday_Supper_Aug_2019_-_Stierch_04.jpg/960px-Sunday_Supper_Aug_2019_-_Stierch_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC BY 4.0",
+   "author": "Missvain"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:2018_Corner_116_Bacon_Dinner_-_Sarah_Stierch.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/2018_Corner_116_Bacon_Dinner_-_Sarah_Stierch.jpg/960px-2018_Corner_116_Bacon_Dinner_-_Sarah_Stierch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3024,
+   "h": 4032,
+   "license": "CC BY 4.0",
+   "author": "Missvain"
+  }
+ ],
+ "calzone": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Wikimania_2016_Deryck_day_0_-_07_calzone.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Wikimania_2016_Deryck_day_0_-_07_calzone.jpg/960px-Wikimania_2016_Deryck_day_0_-_07_calzone.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5312,
+   "h": 3591,
+   "license": "CC BY-SA 4.0",
+   "author": "Deryck Chan"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Calzone_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Calzone_01.jpg/960px-Calzone_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2296,
+   "h": 2282,
+   "license": "CC BY-SA 4.0",
+   "author": "TELLURIDE 749"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Calzone_Tradition_%2B_poivrons.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Calzone_Tradition_%2B_poivrons.JPG/960px-Calzone_Tradition_%2B_poivrons.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2048,
+   "h": 1536,
+   "license": "CC BY-SA 3.0",
+   "author": "Mario56"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Calzone_(3348696443).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Calzone_%283348696443%29.jpg/960px-Calzone_%283348696443%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3264,
+   "h": 2448,
+   "license": "CC BY-SA 2.0",
+   "author": "Mack Male from Edmonton, AB, Canada"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Mega_calzone_-_ND0_3594_(8041010760).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Mega_calzone_-_ND0_3594_%288041010760%29.jpg/960px-Mega_calzone_-_ND0_3594_%288041010760%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5133,
+   "h": 2887,
+   "license": "CC BY 2.0",
+   "author": "N i c o l a from Fiumicino (Rome), Italy"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Calzone_Tradition.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Calzone_Tradition.JPG/960px-Calzone_Tradition.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2048,
+   "h": 1536,
+   "license": "CC BY-SA 3.0",
+   "author": "Mario56"
+  }
+ ],
+ "huevos-benedictinos": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Eggs_Benedict-01-cropped.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Eggs_Benedict-01-cropped.jpg/960px-Eggs_Benedict-01-cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1298,
+   "h": 979,
+   "license": "CC BY 2.0",
+   "author": "Jon Mountjoy"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Eggs_Benedict_at_Delmonico%27s.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Eggs_Benedict_at_Delmonico%27s.jpg/960px-Eggs_Benedict_at_Delmonico%27s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3754,
+   "h": 2812,
+   "license": "CC BY-SA 4.0",
+   "author": "ZhengZhou"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Eggs_Benny_(2499670523).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Eggs_Benny_%282499670523%29.jpg/960px-Eggs_Benny_%282499670523%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3264,
+   "h": 2448,
+   "license": "CC BY-SA 2.0",
+   "author": "Mack Male from Edmonton, AB, Canada"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Eggs_Benny_(5458488025).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Eggs_Benny_%285458488025%29.jpg/960px-Eggs_Benny_%285458488025%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2799,
+   "h": 1868,
+   "license": "CC BY 2.0",
+   "author": "Ruth Hartnup from Vancouver, Canada"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Burger,_fries,_and_eggs_benedict_-_La_Tessa.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Burger%2C_fries%2C_and_eggs_benedict_-_La_Tessa.jpg/960px-Burger%2C_fries%2C_and_eggs_benedict_-_La_Tessa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3024,
+   "h": 4032,
+   "license": "CC0",
+   "author": "Andy Li"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Eggs_Benedict_-_the_M%26S_Caf%C3%A9.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Eggs_Benedict_-_the_M%26S_Caf%C3%A9.jpg/960px-Eggs_Benedict_-_the_M%26S_Caf%C3%A9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "Andy Li"
+  }
+ ],
+ "clam-chowder": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Quail_07_bg_041506.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Quail_07_bg_041506.jpg/960px-Quail_07_bg_041506.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1024,
+   "h": 768,
+   "license": "Public domain",
+   "author": "Jon SullivanThe original uploader was Y6y6y6 at English Wikipedia."
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Cup_of_clam_chowder,_with_saltines.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Cup_of_clam_chowder%2C_with_saltines.jpg/960px-Cup_of_clam_chowder%2C_with_saltines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 8160,
+   "h": 6120,
+   "license": "CC BY-SA 4.0",
+   "author": "Ser Amantio di Nicolao"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Quincy_Market_-_Boston_Chowda_clam_chowder.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Quincy_Market_-_Boston_Chowda_clam_chowder.jpg/960px-Quincy_Market_-_Boston_Chowda_clam_chowder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3456,
+   "h": 5184,
+   "license": "CC BY-SA 3.0",
+   "author": "Jason Zhang"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Clam_juice_being_used_in_preparation_of_clam_chowder.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Clam_juice_being_used_in_preparation_of_clam_chowder.jpg/960px-Clam_juice_being_used_in_preparation_of_clam_chowder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3456,
+   "h": 1944,
+   "license": "CC BY-SA 2.0",
+   "author": "timlewisnm from New Mexico, USA"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:2021-09-04_Fluffy_Clam_Chowder.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/2021-09-04_Fluffy_Clam_Chowder.jpg/960px-2021-09-04_Fluffy_Clam_Chowder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4677,
+   "h": 3122,
+   "license": "CC BY-SA 4.0",
+   "author": "Gordon Leggett"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Moose_Burger_and_Clam_Chowder_-_Twillingate,_Newfoundland.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Moose_Burger_and_Clam_Chowder_-_Twillingate%2C_Newfoundland.jpg/960px-Moose_Burger_and_Clam_Chowder_-_Twillingate%2C_Newfoundland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3264,
+   "h": 2448,
+   "license": "CC BY-SA 4.0",
+   "author": "Wiki.cullin"
+  }
+ ],
+ "massaman-curry": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Beef_Massaman_curry_with_brown_rice.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Beef_Massaman_curry_with_brown_rice.jpg/960px-Beef_Massaman_curry_with_brown_rice.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3879,
+   "h": 2909,
+   "license": "CC BY-SA 4.0",
+   "author": "Vee Satayamas"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Massaman_curry,_Bang_Kapi,_Bangkok.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Massaman_curry%2C_Bang_Kapi%2C_Bangkok.jpg/960px-Massaman_curry%2C_Bang_Kapi%2C_Bangkok.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5742,
+   "h": 3828,
+   "license": "CC BY-SA 4.0",
+   "author": "Vee Satayamas"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Mixed_Veggies_Matsaman_Curry_rice_-_Tookta%27s_Thai_Food.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Mixed_Veggies_Matsaman_Curry_rice_-_Tookta%27s_Thai_Food.jpg/960px-Mixed_Veggies_Matsaman_Curry_rice_-_Tookta%27s_Thai_Food.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3763,
+   "h": 2822,
+   "license": "CC0",
+   "author": "Andy Li"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Masaman-curry.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Masaman-curry.jpg/960px-Masaman-curry.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5225,
+   "h": 3918,
+   "license": "CC BY 4.0",
+   "author": "Vee Satayamas"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Kaeng_matsaman_kai.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Kaeng_matsaman_kai.JPG/960px-Kaeng_matsaman_kai.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1920,
+   "h": 1920,
+   "license": "CC BY-SA 3.0",
+   "author": "Takeaway"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Turkey_Christmassaman_Curry_-_Leon_2023-12-04.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Turkey_Christmassaman_Curry_-_Leon_2023-12-04.jpg/960px-Turkey_Christmassaman_Curry_-_Leon_2023-12-04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "Andy Li"
+  }
+ ],
+ "kimbap": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Gimbap_(pixabay).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Gimbap_%28pixabay%29.jpg/960px-Gimbap_%28pixabay%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2696,
+   "h": 1961,
+   "license": "CC0",
+   "author": "changupn"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:KTX_gimbap-dosirak.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/KTX_gimbap-dosirak.jpg/960px-KTX_gimbap-dosirak.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 2268,
+   "license": "CC BY-SA 4.0",
+   "author": "Melsj"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Bulgogi_gimbap_at_Okja_Restaurant,_Milan,_2022_03.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Bulgogi_gimbap_at_Okja_Restaurant%2C_Milan%2C_2022_03.jpg/960px-Bulgogi_gimbap_at_Okja_Restaurant%2C_Milan%2C_2022_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2084,
+   "h": 2084,
+   "license": "CC BY-SA 4.0",
+   "author": "Chiyako92"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Bulgogi_gimbap_at_Okja_Restaurant,_Milan,_2022_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Bulgogi_gimbap_at_Okja_Restaurant%2C_Milan%2C_2022_01.jpg/960px-Bulgogi_gimbap_at_Okja_Restaurant%2C_Milan%2C_2022_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3705,
+   "h": 2084,
+   "license": "CC BY-SA 4.0",
+   "author": "Chiyako92"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Bulgogi_gimbap_at_Okja_Restaurant,_Milan,_2022_02.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Bulgogi_gimbap_at_Okja_Restaurant%2C_Milan%2C_2022_02.jpg/960px-Bulgogi_gimbap_at_Okja_Restaurant%2C_Milan%2C_2022_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3705,
+   "h": 2084,
+   "license": "CC BY-SA 4.0",
+   "author": "Chiyako92"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Gimbap_8.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Gimbap_8.jpg/960px-Gimbap_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2805,
+   "h": 1863,
+   "license": "CC BY-SA 2.0",
+   "author": "Jordi Sanchez"
+  }
+ ],
+ "rendang": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Lamb_rendang.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Lamb_rendang.jpg/960px-Lamb_rendang.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1760,
+   "h": 1168,
+   "license": "CC BY-SA 2.0",
+   "author": ""
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Beef_Rendang..JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Beef_Rendang..JPG/960px-Beef_Rendang..JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4896,
+   "h": 3672,
+   "license": "CC0",
+   "author": "Miansari66"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Randang_Limpo_(rendang_limpa).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Randang_Limpo_%28rendang_limpa%29.jpg/960px-Randang_Limpo_%28rendang_limpa%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2384,
+   "h": 1836,
+   "license": "CC BY-SA 4.0",
+   "author": "Gunawan Kartapranata"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Katupek_Sayua_Randang_Limpo_(ketupat_sayur_rendang_limpa).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Katupek_Sayua_Randang_Limpo_%28ketupat_sayur_rendang_limpa%29.jpg/960px-Katupek_Sayua_Randang_Limpo_%28ketupat_sayur_rendang_limpa%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2880,
+   "h": 1836,
+   "license": "CC BY-SA 4.0",
+   "author": "Gunawan Kartapranata"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Rendang_in_Zelenogradsk.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Rendang_in_Zelenogradsk.jpg/960px-Rendang_in_Zelenogradsk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3468,
+   "h": 4624,
+   "license": "CC BY-SA 4.0",
+   "author": "Ctac"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Rendang_Rasa.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Rendang_Rasa.jpg/960px-Rendang_Rasa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC0",
+   "author": "さえぼー"
+  }
+ ],
+ "lumpia": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Lumpia_at_Teh_Jawa,_Purwokerto_Station,_Purwokerto_2015-03-20.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Lumpia_at_Teh_Jawa%2C_Purwokerto_Station%2C_Purwokerto_2015-03-20.jpg/960px-Lumpia_at_Teh_Jawa%2C_Purwokerto_Station%2C_Purwokerto_2015-03-20.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3510,
+   "h": 2100,
+   "license": "CC BY-SA 4.0",
+   "author": "Crisco 1492"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Lumpia_duleg_Delanggu.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Lumpia_duleg_Delanggu.jpg/960px-Lumpia_duleg_Delanggu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4080,
+   "h": 3060,
+   "license": "CC BY-SA 4.0",
+   "author": "Risanprasetyo/Febri Ady Prasetyo"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Lumpia_3.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Lumpia_3.jpg/960px-Lumpia_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 3000,
+   "license": "CC BY-SA 4.0",
+   "author": "Maffeth.opiana"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Lumpia_with_ketchup.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Lumpia_with_ketchup.jpg/960px-Lumpia_with_ketchup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6000,
+   "h": 4000,
+   "license": "CC BY-SA 4.0",
+   "author": "ShmilyDigital"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Fresh_Lumpia_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Fresh_Lumpia_01.jpg/960px-Fresh_Lumpia_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 7616,
+   "h": 6285,
+   "license": "CC BY-SA 4.0",
+   "author": "Marife.altabano"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:LunBhia.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/LunBhia.jpg/960px-LunBhia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2000,
+   "h": 1500,
+   "license": "CC BY-SA 3.0",
+   "author": "Sjschen."
+  }
+ ],
+ "mofongo": [
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Mofongo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Mofongo.jpg/960px-Mofongo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1024,
+   "h": 768,
+   "license": "CC BY 2.0",
+   "author": "Diane"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Shrimp_mofongo_from_Rompeolas_restaurant_in_Aguadilla,_Puerto_Rico.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Shrimp_mofongo_from_Rompeolas_restaurant_in_Aguadilla%2C_Puerto_Rico.jpg/960px-Shrimp_mofongo_from_Rompeolas_restaurant_in_Aguadilla%2C_Puerto_Rico.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3648,
+   "h": 2736,
+   "license": "CC BY-SA 4.0",
+   "author": "The Eloquent Peasant"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Mofongo_puertorique%C3%B1o.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Mofongo_puertorique%C3%B1o.jpg/960px-Mofongo_puertorique%C3%B1o.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1936,
+   "h": 2592,
+   "license": "CC BY-SA 4.0",
+   "author": "Alexgerena"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Mofongo_with_octopus_.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Mofongo_with_octopus_.jpg/960px-Mofongo_with_octopus_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3024,
+   "h": 4032,
+   "license": "CC BY-SA 4.0",
+   "author": "Emnamizouni"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Pilon_para_mofongo_2011.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Pilon_para_mofongo_2011.jpg/960px-Pilon_para_mofongo_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2094,
+   "h": 2736,
+   "license": "CC0",
+   "author": "Ll1324"
+  },
+  {
+   "page": "https://commons.wikimedia.org/wiki/File:Mofongo_de_chicharr%C3%B3n_de_cerdo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Mofongo_de_chicharr%C3%B3n_de_cerdo.jpg/960px-Mofongo_de_chicharr%C3%B3n_de_cerdo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3325,
+   "h": 1870,
+   "license": "CC BY 2.0",
+   "author": "Arnold Gatilao"
+  }
+ ]
+}
