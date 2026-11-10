@@ -1,15 +1,20 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "hamburguesa-pollo-pina": "hawaiian burger pineapple",
- "hamburguesa-mexicana": "burger guacamole",
- "hamburguesa-filete-parmesano": "steak sandwich",
- "hamburguesa-tofu-alubias-barbacoa": "bean burger",
- "hamburguesa-calabacin": "zucchini burger",
- "hamburguesa-judias-negras-champinones": "black bean burger",
- "hamburguesa-judias-zanahoria-california": "veggie burger",
- "hamburguesa-curry-champinones-guisantes": "vegetable patty",
- "hamburguesa-calabaza-garbanzos": "pumpkin burger"
+ "hamburguesa-cerdo-mostaza": "pork burger",
+ "hamburguesa-ternera-cordero": "lamb burger",
+ "hamburguesa-chorizo-tomate-seco": "chorizo burger",
+ "hamburguesa-garbanzos-arabe": "falafel burger",
+ "hamburguesa-atun-verduras": "tuna patties",
+ "hamburguesa-salmon-cilantro": "salmon burger",
+ "hamburguesa-caballa": "fish cakes",
+ "hamburguesa-merluza-gambas": "fish burger",
+ "hamburguesa-pollo-aguacate": "chicken burger avocado",
+ "hamburguesa-pollo-espinacas": "chicken patties spinach",
+ "hamburguesa-brocoli-arroz": "broccoli patties",
+ "hamburguesa-remolacha": "beetroot burger",
+ "hamburguesa-griega-feta": "greek burger pita feta",
+ "hamburguesa-mediterranea-rucula": "burger arugula"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -25,4 +30,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-libro-hamburguesas.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-libro-hamburguesas-84-1.json", JSON.stringify(out, null, 1));
