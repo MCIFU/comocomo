@@ -891,4 +891,9 @@ export const PHOTOS: Record<string, Photo> = {
   "hamburguesa-quinoa-pollo": { src: require("../../assets/photos/hamburguesa-quinoa-pollo.jpg"), author: "Viktorija N. Ivanov", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B8%D0%BD%D0%BE%D0%B0_%D1%9C%D0%BE%D1%84%D1%82%D0%B5.jpg" },
   "hamburguesa-salmon-bacalao-gambas": { src: require("../../assets/photos/hamburguesa-salmon-bacalao-gambas.jpg"), author: "KQuhen", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Dougs_Burger_tuna_steak_burger_Miyakojima.jpg" },
   "hamburguesa-tres-carnes": { src: require("../../assets/photos/hamburguesa-tres-carnes.jpg"), author: "PDPhoto.org", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Grilled_burger_1_bg_20090614.jpg" },
+  "chirashi-salmon": { src: require("../../assets/photos/chirashi-salmon.jpg"), author: "Arashiyama", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Chirashi-zushi.jpg" },
+  "futomaki-tortilla-verduras": { src: require("../../assets/photos/futomaki-tortilla-verduras.jpg"), author: "Mc681", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Futomaki_zushi_in_201902.jpg" },
+  "hosomaki-pepino": { src: require("../../assets/photos/hosomaki-pepino.jpg"), author: "Photograph by Mike Peel (www.mikepeel.net).", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:At_Kyoto_2024_189.jpg" },
+  "nigiri-salmon": { src: require("../../assets/photos/nigiri-salmon.jpg"), author: "Tim Reckmann from Hamm, Deutschland", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Nigiri_Sushi_(25966163204).jpg" },
+  "uramaki-california": { src: require("../../assets/photos/uramaki-california.jpg"), author: "Mk2010", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:California_Rolls.JPG" },
 };
