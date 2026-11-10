@@ -851,4 +851,13 @@ export const PHOTOS: Record<string, Photo> = {
   "patatas-caramelizadas-naranja": { src: require("../../assets/photos/patatas-caramelizadas-naranja.jpg"), author: "Comrade King (Jens Rost)", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Brunede_kartofler,_2011.jpg" },
   "tiras-salmon-marinado-soja": { src: require("../../assets/photos/tiras-salmon-marinado-soja.jpg"), author: "User:Paraluman", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:Salmon_Sashimi_with_Calamansi.JPG" },
   "tortilla-jamon-pimiento-hierbas": { src: require("../../assets/photos/tortilla-jamon-pimiento-hierbas.jpg"), author: "Stripey the crab", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Omelet_With_Fixings.jpg" },
+  "fresas-crema-inglesa": { src: require("../../assets/photos/fresas-crema-inglesa.jpg"), author: "David McClenaghan, CSIRO", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_940_Hot_Panettone_Berry_Pudding_with_brandy_custard.jpg" },
+  "greixonera-pan": { src: require("../../assets/photos/greixonera-pan.jpg"), author: "Roly Williams", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Rew13c05-745a_Bread_Pudding.JPG" },
+  "isla-flotante": { src: require("../../assets/photos/isla-flotante.jpg"), author: "Juhan Harm.", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Ujuvad_saarekesed.jpg" },
+  "kabak-tatlisi": { src: require("../../assets/photos/kabak-tatlisi.jpg"), author: "E4024", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Kabak_dessert.jpg" },
+  "looqemat": { src: require("../../assets/photos/looqemat.jpg"), author: "Benreis", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:Lokma_Galata_Bridge.JPG" },
+  "menjar-blanc": { src: require("../../assets/photos/menjar-blanc.jpg"), author: "SKopp", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Blanc-manger_on_glass_platter.jpg" },
+  "muhallebi": { src: require("../../assets/photos/muhallebi.jpg"), author: "Jktab", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Mhallabiyyeh_(Arabic_milk_pudding).jpg" },
+  "tarta-manzana-hojaldre-crema": { src: require("../../assets/photos/tarta-manzana-hojaldre-crema.jpg"), author: "MyName (Adri08 (talk))", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Tarte_aux_pommes_002.JPG" },
+  "tufahija": { src: require("../../assets/photos/tufahija.jpg"), author: "Pavouk", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Tufahija_in_Mostar.jpg" },
 };

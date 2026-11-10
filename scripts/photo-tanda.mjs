@@ -1,17 +1,17 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "arroz-pollo-setas-chino": "chicken mushroom rice claypot",
- "ensalada-oriental-pollo": "chinese chicken salad",
- "patatas-caramelizadas-naranja": "caramelized potatoes",
- "naranjas-almibar-canela": "oranges in syrup",
- "tiras-salmon-marinado-soja": "salmon sashimi",
- "parrillada-carne-verduras-oriental": "yakiniku",
- "albondigas-pescado-espinacas": "fish ball soup",
- "albondigas-gambas-fritas": "fried shrimp balls",
- "tortilla-jamon-pimiento-hierbas": "omelette ham peppers",
- "pimientos-estilo-chino": "sauteed red peppers",
- "croquetas-lentejas": "lentil croquettes"
+ "flan-de-chocolate": "chocolate flan",
+ "tarta-manzana-hojaldre-crema": "french apple tart",
+ "fresas-crema-inglesa": "strawberries custard",
+ "isla-flotante": "île flottante",
+ "looqemat": "luqaimat",
+ "tufahija": "tufahija",
+ "pastel-peras-almibar": "pear cake cream",
+ "kabak-tatlisi": "kabak tatlısı",
+ "greixonera-pan": "bread pudding",
+ "muhallebi": "muhallebi",
+ "menjar-blanc": "blancmange"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -27,4 +27,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-libro-oriental-3.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-libro-postres-1.json", JSON.stringify(out, null, 1));
