@@ -860,4 +860,10 @@ export const PHOTOS: Record<string, Photo> = {
   "muhallebi": { src: require("../../assets/photos/muhallebi.jpg"), author: "Jktab", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Mhallabiyyeh_(Arabic_milk_pudding).jpg" },
   "tarta-manzana-hojaldre-crema": { src: require("../../assets/photos/tarta-manzana-hojaldre-crema.jpg"), author: "MyName (Adri08 (talk))", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Tarte_aux_pommes_002.JPG" },
   "tufahija": { src: require("../../assets/photos/tufahija.jpg"), author: "Pavouk", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Tufahija_in_Mostar.jpg" },
+  "arnadi": { src: require("../../assets/photos/arnadi.jpg"), author: "Francesc Fort", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Carabassa_Santa_-_Arnad%C3%AD.jpg" },
+  "babka-avena-manzana": { src: require("../../assets/photos/babka-avena-manzana.jpg"), author: "JamieS93", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Apple_Goodie_crisp.JPG" },
+  "dulce-de-leche-casero": { src: require("../../assets/photos/dulce-de-leche-casero.jpg"), author: "audinou from Paris, France", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:DulceDeLeche.jpg" },
+  "flao-ibicenco": { src: require("../../assets/photos/flao-ibicenco.jpg"), author: "ToNToNi", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Fla%C3%B3_Eivissa.jpg" },
+  "mamul-nueces": { src: require("../../assets/photos/mamul-nueces.jpg"), author: "fugzu", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Mamoul_biscotti_libanesi.jpg" },
+  "sacher-torte": { src: require("../../assets/photos/sacher-torte.jpg"), author: "Autor desconocido", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Sachertorte_DSC03027_retouched.jpg" },
 };
