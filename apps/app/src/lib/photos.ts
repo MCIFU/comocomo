@@ -825,4 +825,13 @@ export const PHOTOS: Record<string, Photo> = {
   "empanadillas-gambas-vapor": { src: require("../../assets/photos/empanadillas-gambas-vapor.jpg"), author: "sfllaw of Flickr", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Xiajiao.jpg" },
   "sopa-agripicante": { src: require("../../assets/photos/sopa-agripicante.jpg"), author: "Evan-Amos", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Hot-and-Sour-Soup-Bowl.jpg" },
   "ternera-china-manzana": { src: require("../../assets/photos/ternera-china-manzana.jpg"), author: "andrewarchy from Toronto, Canada", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Stir_Fried_Beef_@_Congee_Time_(5611725153).jpg" },
+  "berenjena-ajo-china": { src: require("../../assets/photos/berenjena-ajo-china.jpg"), author: "Andy Li", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Braised_Aubergine_in_Sweet_Soy_Sauce_-_Aberdeen_Seafood_2026-01-05.jpg" },
+  "cerdo-asado-cantonesa": { src: require("../../assets/photos/cerdo-asado-cantonesa.jpg"), author: "Michael", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Char_siu_pieces.jpg" },
+  "chop-suey-ternera": { src: require("../../assets/photos/chop-suey-ternera.jpg"), author: "whologwhy", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Filipino_chop_suey.jpg" },
+  "espinacas-sesamo": { src: require("../../assets/photos/espinacas-sesamo.jpg"), author: "Ocdp", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Spinach_Goma-ae_001.jpg" },
+  "foo-yung-gambas": { src: require("../../assets/photos/foo-yung-gambas.jpg"), author: "Sakurai Midori", license: "CC BY 2.5", url: "https://commons.wikimedia.org/wiki/File:Fried_egg_Thailand.JPG" },
+  "judias-verdes-sesamo": { src: require("../../assets/photos/judias-verdes-sesamo.jpg"), author: "Daderot", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Green_beans_-_San_Francisco.jpg" },
+  "pescado-vapor-jengibre": { src: require("../../assets/photos/pescado-vapor-jengibre.jpg"), author: "Tim Sackton from Somerville, MA", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Ginger_Scallion_Red_Perch_(50-366)_(25058329532).jpg" },
+  "pollo-szechuan": { src: require("../../assets/photos/pollo-szechuan.jpg"), author: "Jen Arrr", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Szechuan_Peppercorn_Chicken_(6737792243).jpg" },
+  "sopa-gotas-huevo": { src: require("../../assets/photos/sopa-gotas-huevo.jpg"), author: "Raimond Spekking", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Einlaufsuppe_im_Teller-0372.jpg" },
 };
