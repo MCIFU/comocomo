@@ -1,14 +1,16 @@
 // Busca en Commons fotos para las recetas de colesterol y las descarga para revisarlas a ojo.
 import { writeFileSync } from "node:fs";
 const Q = {
- "nigiri-salmon": "salmon nigiri",
- "nigiri-langostino": "ebi nigiri",
- "hosomaki-pepino": "kappa maki",
- "uramaki-california": "california roll",
- "temaki-salmon-aguacate": "temaki",
- "chirashi-salmon": "chirashi",
- "futomaki-tortilla-verduras": "futomaki",
- "sushi-de-frutas": "fruit sushi"
+ "yam-woon-sen": "yam woon sen",
+ "arroz-frito-pina": "pineapple fried rice",
+ "platanos-leche-coco": "kluay buat chi",
+ "tostadas-cerdo-gambas": "shrimp toast",
+ "tortitas-pescado-thai": "tod man pla",
+ "bolitas-cerdo-cacahuete": "pork meatballs peanut sauce",
+ "mee-krob": "mee krob",
+ "sopa-langostinos-calamar-thai": "tom yum seafood",
+ "ensalada-pollo-menta-thai": "thai chicken salad",
+ "ensalada-cerdo-asado-cacahuete": "thai pork salad"
 };
 const FREE = /^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)/i;
 const strip = (s = "") => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -24,4 +26,4 @@ for (const [id, q] of Object.entries(Q)) {
   for (const [k, x] of c.entries()) { const b = Buffer.from(await (await fetch(x.thumb, { headers: UA })).arrayBuffer()); writeFileSync(`${process.argv[2]}/${id}__${k}.jpg`, b); await new Promise((r) => setTimeout(r, 300)); }
   console.log(id, c.length);
 }
-writeFileSync("scripts/photo-libro-sushi.json", JSON.stringify(out, null, 1));
+writeFileSync("scripts/photo-libro-thai-1.json", JSON.stringify(out, null, 1));
