@@ -24,3 +24,8 @@ npm run typecheck
 npm test
 ```
 
+## Usarlo en el PC, sin Vercel
+
+Doble clic en `iniciar.bat` → se abre en http://localhost:3000. Necesita [Node.js](https://nodejs.org) 22 o superior y Git.
+Cada vez que lo abres se actualiza desde GitHub, instala y compila solo si hay cambios (la primera vez tarda unos minutos) y abre el navegador. Las cuentas se guardan en `%USERPROFILE%\.comocomo`.
+
